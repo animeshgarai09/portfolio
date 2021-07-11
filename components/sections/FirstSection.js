@@ -71,8 +71,8 @@ const FirstSection = () => {
                         priority='true'
                         height={500}
                         width={500}
-                        quality='100'
-                        unoptimized='true'
+                        quality='75'
+                        // unoptimized='true'
                         className='author_image' //style in global
                     />
                 </div>
