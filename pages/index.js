@@ -1,6 +1,6 @@
 import Header from '../components/Header';
 import styles from '../styles/Index.module.scss'
-import FloatingNav from '../components/floatingNav/';
+import FloatingNav from '../components/FloatingNav/';
 import FirstSection from '../components/sections/FirstSection'
 import SecondSection from '../components/sections/SecondSection'
 import ThirdSection from '../components/sections/ThirdSection'
