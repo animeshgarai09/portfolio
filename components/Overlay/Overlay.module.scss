@@ -1,0 +1,25 @@
+@use '../../constants/css/theme' as *;
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+  .overlay_con {
+    position: absolute;
+    width: 25vw;
+    height: 100%;
+    background-color: get(overlay-color);
+    left: 0;
+    top: 0;
+    &:nth-child(2) {
+      left: 25%;
+    }
+    &:nth-child(3) {
+      left: 50%;
+    }
+    &:nth-child(4) {
+      left: 75%;
+    }
+  }
+}

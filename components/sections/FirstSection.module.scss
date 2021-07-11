@@ -1,0 +1,66 @@
+@use '../../constants/css/theme' as *;
+
+.container {
+  height: 100vh;
+  padding: 2em 4em;
+  display: flex;
+  .left_col {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h1 {
+      position: relative;
+      z-index: 4;
+      font-size: 4em;
+      color: get(primary-hover);
+      font-weight: 500;
+      margin-bottom: 0.2em;
+      margin-top: 0;
+      span {
+        color: get(primary);
+        font-weight: 700;
+      }
+    }
+    h3 {
+      position: relative;
+      z-index: 4;
+      margin: 0 0 0.3em 0;
+      font-size: 1.9em;
+      font-weight: 600;
+      color: get(title-h3-color);
+    }
+  }
+  .right_col {
+    position: relative;
+    z-index: 4;
+    display: flex;
+    flex-flow: row-reverse;
+    align-items: center;
+    .author_container {
+      width: 24em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: -2em;
+    }
+    svg {
+      opacity: 0;
+      position: absolute;
+      left: -17em;
+      top: 46%;
+      width: 80%;
+      z-index: 4;
+      fill: get(primary);
+    }
+  }
+
+  svg {
+    position: absolute;
+    right: -3em;
+    top: -3.5em;
+    width: 41em;
+    z-index: -1;
+    fill: get(blob-color);
+  }
+}

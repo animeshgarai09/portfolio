@@ -1,0 +1,31 @@
+@use '../../constants/css/theme' as *;
+
+.container {
+  background: get(float-icon-background);
+  border-radius: 20px;
+  position: fixed;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding: 0.5em 0.3em;
+      a {
+        display: flex;
+        height: 1.5em;
+        width: 1.5em;
+        font-size: 21px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        color: get(float-icon-color);
+        transition: 0.2s;
+        &:hover {
+          background: get(float-icon-bg-hover);
+          color: get(float-icon-color-hover);
+        }
+      }
+    }
+  }
+}

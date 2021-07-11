@@ -1,0 +1,17 @@
+@use '../constants/css/theme' as *;
+
+.layout__container {
+  display: flex;
+  justify-content: center;
+  .layout {
+    display: grid;
+    width: 90vw;
+    grid-template-columns: 6em auto;
+    .floating__nav {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

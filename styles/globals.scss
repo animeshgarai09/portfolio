@@ -1,0 +1,79 @@
+@use '../constants/css/theme' as *;
+
+@font-face {
+  font-family: "Raleway";
+  src: url(../public/fonts/Raleway-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url(../public/fonts/Raleway-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url(../public/fonts/Raleway-Bold.ttf) format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  @each $prop, $val in $light {
+    --#{$prop}: #{$val};
+  }
+}
+
+.dark-mode {
+  @each $prop, $val in $dark {
+    --#{$prop}: #{$val};
+  }
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  background: get(bg);
+  overflow: hidden;
+}
+.dark-mode {
+  background: get(bg);
+}
+
+.nav_tip {
+  border-radius: 2em !important;
+  background-color: get(float-icon-background) !important;
+  font-size: 0.8em !important;
+  font-weight: 600;
+
+  &.place-right {
+    &::after {
+      border: none !important;
+    }
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.author_image {
+  transform-origin: center;
+  min-width: 80% !important;
+  min-height: 80% !important;
+  border-radius: 50%;
+  box-shadow: rgb(50 50 93 / 25%) 0px 13px 27px -5px,
+    rgb(0 0 0 / 30%) 0px 8px 16px -8px;
+}

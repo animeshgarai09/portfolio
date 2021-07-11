@@ -1,0 +1,73 @@
+$light: (
+  overlay-color: #290e3e,
+  primary: #621a9a,
+  //not required
+  bg: #fff,
+  primary-hover: #ac4ff4,
+  //not required
+  accent: #fb7575,
+  blob: #f6ebff,
+  switcher: linear-gradient(to top left, #fecc51, #fcb033, #fa961b, #fa8607),
+  primary-link: #621a9a,
+  primary-link-hover: #ac4ff4,
+  /////////////////////////////////////////Float Icon Settings
+  float-icon-color: #621a9a,
+  float-icon-bg-hover: #e2bcff,
+  float-icon-background: #ebd2ff66,
+  float-icon-color-hover: #fff,
+  ////////////////////////////////////////
+  title-h3-color: #8c8c8c,
+  blob-color: #f6ebff,
+  black: #232323,
+  btn-shadow: (
+    -10px -10px 30px #ffffff,
+    10px 10px 30px rgba(174, 174, 192, 0.4),
+  ),
+  inp-shadow: (
+    -1px 1px 2px rgba(255, 255, 255, 0.3),
+    1px -1px 2px rgba(216, 216, 216, 0.5),
+    inset 6px 6px 12px rgba(216, 216, 216, 0.2),
+    inset -6px -6px 12px rgba(216, 216, 216, 0.2),
+    inset 6px -6px 12px rgba(255, 255, 255, 0.9),
+    inset -6px 6px 15px rgba(216, 216, 216, 0.9),
+  ),
+);
+
+$dark: (
+  overlay-color: #281c2f,
+  primary: #f47458,
+  //not required
+  bg: #2c2f33,
+  primary-hover: #ff9680,
+  //not required
+  accent: #ffbd26,
+  blob: #f47458,
+  switcher: #fff,
+  primary-link: #d1d0d0,
+  primary-link-hover: #ff9680,
+  /////////////////////////////////////////Float Icon Settings
+  float-icon-color: #d1d0d0,
+  float-icon-bg-hover: #484a4c,
+  float-icon-background: #36363699,
+  float-icon-color-hover: #d1d0d0,
+  ////////////////////////////////////////
+  title-h3-color: #d1d0d0,
+  blob-color: #f47458,
+  black: #232323,
+  btn-shadow: (
+    -10px -10px 30px #ffffff,
+    10px 10px 30px rgba(174, 174, 192, 0.4),
+  ),
+  inp-shadow: (
+    -1px 1px 2px rgba(255, 255, 255, 0.3),
+    1px -1px 2px rgba(216, 216, 216, 0.5),
+    inset 6px 6px 12px rgba(216, 216, 216, 0.2),
+    inset -6px -6px 12px rgba(216, 216, 216, 0.2),
+    inset 6px -6px 12px rgba(255, 255, 255, 0.9),
+    inset -6px 6px 15px rgba(216, 216, 216, 0.9),
+  ),
+);
+
+@function get($key) {
+  @return var(--#{$key});
+}
