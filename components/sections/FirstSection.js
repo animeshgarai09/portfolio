@@ -2,7 +2,7 @@ import styles from './FirstSection.module.scss'
 import { Intro_name, Intro_img, Intro_skills } from '../../constants/_animationDuration'
 import Arrow from '../../public/svg/arrow.svg'
 import Image from 'next/image'
-import { Tween } from 'react-gsap'
+import { Tween, Timeline } from 'react-gsap'
 import gsap from 'gsap'
 import author from '../../public/author.jpeg'
 import Blob from '../../public/svg/FirstBlob.svg'
@@ -18,9 +18,9 @@ const FirstSection = () => {
 
         const tl = gsap.timeline()
 
-        tl.from('.author_image', Intro_img.duration, {
-            ease: "elastic.out(1,0.3)",
-            delay: Intro_img.delay,
+        tl.to('.con', 1, { css: { visibility: 'visible' } }).from('.author_image', Intro_img.duration, {
+            ease: "power4.out",
+            delay: Intro_img.delay - 1,
             autoAlpha: 0,
             skewX: 10
         }).to('.arrow', 1, {
@@ -31,22 +31,26 @@ const FirstSection = () => {
     }, [])
 
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${'con'}`}>
 
             <div className={styles.left_col}>
                 <Tween
 
                     from={{
                         opacity: 0,
-                        y: 100,
+                        y: 70,
+                        ease: 'power4.out',
                         delay: Intro_name.delay,
-                        stagger: { amount: 0.3 },
-                        skewY: 7
+                        skewY: 7,
+
+                        // stagger: { amount: 0.8 },
                     }}
+                    // stagger={.5}
                     duration={Intro_name.duration}>
 
                     <h1>Hi, I am <span>Animesh</span></h1>
                 </Tween>
+
                 <Tween
                     from={{ opacity: 0, x: -100, delay: Intro_skills.delay, ease: 'power4.out' }}
                     stagger={1}

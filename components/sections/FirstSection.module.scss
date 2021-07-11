@@ -2,8 +2,9 @@
 
 .container {
   height: 100vh;
-  padding: 2em 4em;
+  padding: 4em;
   display: flex;
+  visibility: hidden;
   .left_col {
     width: 100%;
     display: flex;
@@ -51,7 +52,7 @@
       top: 46%;
       width: 80%;
       z-index: 4;
-      fill: get(primary);
+      fill: get(arrow-color);
     }
   }
 
