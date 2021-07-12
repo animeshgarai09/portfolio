@@ -13,9 +13,9 @@ const AppHead = ({ title }) => {
                 <meta name="msapplication-TileColor" content="#ffc40d" />
                 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
                 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2c2f33" />
-                <link rel="preload" href="../public/fonts/Raleway-Medium.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
-                <link rel="preload" href="../public/fonts/Raleway-SemiBold.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
-                <link rel="preload" href="../public/fonts/Raleway-Bold.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+                <link rel="preload" href="../public/fonts/Raleway-Medium.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+                <link rel="preload" href="../public/fonts/Raleway-SemiBold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+                <link rel="preload" href="../public/fonts/Raleway-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
                 <title>{title}</title>
             </Head>
         </>
