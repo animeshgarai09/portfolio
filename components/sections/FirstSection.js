@@ -18,14 +18,15 @@ const FirstSection = () => {
 
         const tl = gsap.timeline()
 
-        tl.to('.con', 1, { css: { visibility: 'visible' } }).from('.author_image', Intro_img.duration, {
+        tl.to('.con', .5, { css: { visibility: 'visible' } }).from('.author_image', Intro_img.duration, {
             ease: "power4.out",
             delay: Intro_img.delay - 1,
             autoAlpha: 0,
             skewX: 10
         }).to('.arrow', 1, {
             opacity: 1,
-            delay: -.6,
+            delay: -.5,
+            autoAlpha: 1,
             ease: "elastic.out(1,0.3)",
         })
     }, [])
@@ -38,14 +39,12 @@ const FirstSection = () => {
 
                     from={{
                         opacity: 0,
-                        y: 70,
+                        y: 30,
                         ease: 'power4.out',
                         delay: Intro_name.delay,
-                        skewY: 7,
+                        skewX: 7,
 
-                        // stagger: { amount: 0.8 },
                     }}
-                    // stagger={.5}
                     duration={Intro_name.duration}>
 
                     <h1>Hi, I am <span>Animesh</span></h1>

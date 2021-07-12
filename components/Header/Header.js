@@ -1,7 +1,9 @@
 import Link from 'next/link'
+import { Logo_el, P_link_el } from '../../constants/_animationDuration'
 import styles from './Header.module.scss'
 import Logo from '../../public/svg/logo.svg'
 import useDarkMode from "use-dark-mode";
+import gsap from 'gsap'
 import { useEffect, useState } from 'react';
 import ReactTooltip from 'react-tooltip';
 
@@ -9,8 +11,28 @@ const Header = () => {
     const darkMode = useDarkMode();
     const [mount, setMount] = useState(false);
     console.log(darkMode.value)
+
+
+
     useEffect(() => {
         setMount(true)
+        const tl = gsap.timeline();
+
+        tl.from('.ad_logo', Logo_el.duration, {
+
+            y: '-40px',
+            autoAlpha: 0,
+            delay: Logo_el.delay,
+            ease: "power4.out"
+
+        }).from('.p-link', P_link_el.duration, {
+            y: '-10px',
+            autoAlpha: 0,
+            delay: -0.7,
+            ease: "power4.out",
+            stagger: 0.2
+        })
+
     }, [])
 
     return (
@@ -25,10 +47,10 @@ const Header = () => {
                     </div>
                     <div className={styles.links}>
                         <Link href="/certificates">
-                            <a>Certificates</a>
+                            <a className='p-link'>Certificates</a>
                         </Link>
                         <Link href="/projects">
-                            <a>Projects</a>
+                            <a className='p-link'>Projects</a>
                         </Link>
                         <div className={styles.switch}>
                             <input
