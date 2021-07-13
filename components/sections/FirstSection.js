@@ -1,8 +1,8 @@
 import styles from './FirstSection.module.scss'
-import { Intro_name, Intro_img, Intro_skills } from '../../constants/_animationDuration'
+import { Intro_name, Intro_img, Intro_skills, FloatingNav_el } from '../../constants/_animationDuration'
 import Arrow from '../../public/svg/arrow.svg'
 import Image from 'next/image'
-import { Tween, Timeline } from 'react-gsap'
+import { Tween } from 'react-gsap'
 import gsap from 'gsap'
 import author from '../../public/author.jpeg'
 import Blob from '../../public/svg/FirstBlob.svg'
@@ -10,13 +10,18 @@ import { useEffect } from 'react'
 
 // import { CSSRulePlugin } from "gsap/dist/CSSRulePlugin.js";
 
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
+gsap.registerPlugin(ScrollTrigger);
+gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
 const FirstSection = () => {
     // gsap.registerPlugin(CSSRulePlugin);
 
+
     useEffect(() => {
 
         const tl = gsap.timeline()
+        const tl1 = gsap.timeline()
 
         tl.to('.con', .5, { css: { visibility: 'visible' } }).from('.author_image', Intro_img.duration, {
             ease: "power4.out",
@@ -28,12 +33,33 @@ const FirstSection = () => {
             delay: -.5,
             autoAlpha: 1,
             ease: "elastic.out(1,0.3)",
+        }).from('.firstBlob', .6, {
+            opacity: 0,
+            scale: 0,
+            transformOrigin: 'center',
+            ease: 'power3.out',
+            delay: FloatingNav_el.delay - 3,
+        })
+
+        tl1.to('.con', {
+            autoAlpha: 0,
+            scrollTrigger: {
+                trigger: '.con',
+                start: 'center top+=270 ',
+                end: 'bottom+=30 top+=270',
+                // markers: true,
+                scrub: true,
+                snap: {
+                    snapTo: 1.5,
+                    duration: { min: .1, max: 0.5 },
+                    ease: 'power1.inOut'
+                }
+            }
         })
     }, [])
 
     return (
         <div className={`${styles.container} ${'con'}`}>
-
             <div className={styles.left_col}>
                 <Tween
 

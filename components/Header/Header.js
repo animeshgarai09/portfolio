@@ -7,6 +7,9 @@ import gsap from 'gsap'
 import { useEffect, useState } from 'react';
 import ReactTooltip from 'react-tooltip';
 
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
+gsap.registerPlugin(ScrollTrigger);
+gsap.core.globals('ScrollTrigger', ScrollTrigger);
 const Header = () => {
     const darkMode = useDarkMode();
     const [mount, setMount] = useState(false);
@@ -17,6 +20,7 @@ const Header = () => {
     useEffect(() => {
         setMount(true)
         const tl = gsap.timeline();
+        const tl1 = gsap.timeline();
 
         tl.from('.ad_logo', Logo_el.duration, {
 
@@ -32,6 +36,18 @@ const Header = () => {
             ease: "power4.out",
             stagger: 0.2
         })
+        tl1.to('.links', {
+            x: '300px',
+            autoAlpha: 0,
+            ease: 'power3.inOut',
+            scrollTrigger: {
+                trigger: '.con',
+                start: 'top+=220 top+=250',
+                end: 'top+=260 top+=250',
+                // markers: true,
+                scrub: true,
+            }
+        })
 
     }, [])
 
@@ -42,10 +58,10 @@ const Header = () => {
                 className={styles.main}
             >
                 <div className={styles.container}>
-                    <div className={styles.logo}>
+                    <div className={styles.logo + ' logo'}>
                         <Logo />
                     </div>
-                    <div className={styles.links}>
+                    <div className={styles.links + ' links'}>
                         <Link href="/certificates">
                             <a className='p-link'>Certificates</a>
                         </Link>

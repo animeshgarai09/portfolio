@@ -6,7 +6,6 @@ $light: (
   primary-hover: #ac4ff4,
   //not required
   accent: #fb7575,
-  blob: #f6ebff,
   switcher: linear-gradient(to top left, #fecc51, #fcb033, #fa961b, #fa8607),
   arrow-color: #ac4ff4,
   primary-link: #621a9a,
@@ -42,10 +41,9 @@ $dark: (
   primary-hover: #ff9680,
   //not required
   accent: #ffbd26,
-  blob: #f47458,
   switcher: #fff,
   arrow-color: #d1d0d0,
-  primary-link: #d1d0d0,
+  primary-link: #f47458,
   primary-link-hover: #ff9680,
   /////////////////////////////////////////Float Icon Settings
   float-icon-color: #d1d0d0,
@@ -54,7 +52,7 @@ $dark: (
   float-icon-color-hover: #d1d0d0,
   ////////////////////////////////////////
   title-h3-color: #d1d0d0,
-  blob-color: #f47458,
+  blob-color: #50505075,
   black: #232323,
   btn-shadow: (
     -10px -10px 30px #ffffff,

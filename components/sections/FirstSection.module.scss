@@ -1,8 +1,8 @@
 @use '../../constants/css/theme' as *;
 
 .container {
-  height: 100vh;
-  padding: 4em;
+  height: calc(100vh - 8em);
+  margin: 4em;
   display: flex;
   visibility: hidden;
   .left_col {
