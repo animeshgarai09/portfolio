@@ -24,10 +24,11 @@ const FirstSection = () => {
         const tl1 = gsap.timeline()
 
         tl.to('.con', .5, { css: { visibility: 'visible' } }).from('.author_image', Intro_img.duration, {
-            ease: "power4.out",
+            transformOrigin: 'center',
+            ease: "back.out(1)",
             delay: Intro_img.delay - 1,
             autoAlpha: 0,
-            skewX: 10
+            scale: 0.3
         }).to('.arrow', 1, {
             opacity: 1,
             delay: -.5,

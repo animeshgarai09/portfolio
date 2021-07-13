@@ -6,6 +6,9 @@ import useDarkMode from "use-dark-mode";
 import gsap from 'gsap'
 import { useEffect, useState } from 'react';
 import ReactTooltip from 'react-tooltip';
+import { HiOutlineMail } from 'react-icons/hi'
+import { RiTwitterLine, RiLinkedinLine } from 'react-icons/ri'
+import { FiGithub, FiLinkedin } from 'react-icons/fi'
 
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
 gsap.registerPlugin(ScrollTrigger);
@@ -62,22 +65,22 @@ const Header = () => {
                         <Logo />
                     </div>
                     <div className={styles.links + ' links'}>
-                        <Link href="/certificates">
-                            <a className='p-link'>Certificates</a>
-                        </Link>
-                        <Link href="/projects">
-                            <a className='p-link'>Projects</a>
-                        </Link>
-                        <div className={styles.switch}>
-                            <input
-                                id={styles.themeSwitcher}
-                                name="theme-switcher"
-                                type="checkbox"
-                                checked={darkMode.value}
-                                onChange={darkMode.toggle}
-                            />
-                            <label htmlFor={styles.themeSwitcher}></label>
-                        </div>
+                        {/* <Link href="/certificates"> */}
+                        <a className='p-link'><RiLinkedinLine /></a>
+                        {/* </Link> */}
+                        {/* <Link href="/projects"> */}
+                        <a className='p-link'><FiGithub /></a>
+                        <a className='p-link'><RiTwitterLine /></a>
+                        <a className='p-link'><HiOutlineMail /></a>
+                        {/* </Link> */}
+                        <input
+                            id={styles.themeSwitcher}
+                            name="theme-switcher"
+                            type="checkbox"
+                            checked={darkMode.value}
+                            onChange={darkMode.toggle}
+                        />
+                        <label htmlFor={styles.themeSwitcher}></label>
                     </div>
                 </div>
             </div>

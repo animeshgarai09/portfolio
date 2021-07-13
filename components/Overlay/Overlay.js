@@ -14,14 +14,18 @@ const Overlay = () => {
 
     return (
         <div ref={ref} className={styles.container}>
-            <Tween to={{ height: '0', display: 'none' }} stagger={.3} delay={Intro_overlay.delay} duration={Intro_overlay.duration} ease="power3.in">
+            <Tween to={{ left: '-50%', display: 'none' }} stagger={-0.3} delay={Intro_overlay.delay} duration={Intro_overlay.duration} ease="power3.in">
 
-                <div className={styles.overlay_con}></div>
                 <div className={styles.overlay_con}></div>
                 <div className={styles.overlay_con}></div>
                 <div className={styles.overlay_con}></div>
             </Tween >
+            <Tween to={{ left: '140%', display: 'none' }} stagger={.3} delay={Intro_overlay.delay} duration={Intro_overlay.duration} ease="power3.in">
 
+                <div className={styles.overlay_con}></div>
+                <div className={styles.overlay_con}></div>
+                <div className={styles.overlay_con}></div>
+            </Tween >
         </div>
     )
 }

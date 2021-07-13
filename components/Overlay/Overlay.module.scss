@@ -7,21 +7,46 @@
   z-index: 3;
   .overlay_con {
     position: absolute;
-    width: 25vw;
-    height: 100%;
-    background-color: get(overlay-color);
-    // backdrop-filter: blur(10px);
-    bottom: 0;
-    left: 0;
-    right: 0;
+    z-index: 3;
+    width: 20vw;
+    height: 261%;
+    background-color: var(--overlay-color);
+    bottom: 0px;
+    top: -133%;
+    left: 0px;
+    right: 0px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    // -webkit-box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    // box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+
+    // box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    //   rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
     &:nth-child(2) {
-      left: 25%;
+      top: -72%;
+      z-index: 4;
     }
     &:nth-child(3) {
-      left: 50%;
+      left: 37%;
+      top: -97%;
+      z-index: 5;
     }
     &:nth-child(4) {
-      left: 75%;
+      left: 64%;
+      top: -100%;
+      z-index: 6;
+    }
+    &:nth-child(5) {
+      left: 89%;
+      top: -100%;
+      z-index: 7;
+    }
+    &:nth-child(6) {
+      left: 113%;
+      top: -100%;
+      z-index: 8;
     }
   }
 }
