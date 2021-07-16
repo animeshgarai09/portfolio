@@ -26,9 +26,7 @@ const SecondSection = () => {
             <div className={styles.heading_con}>
                 <div className={styles.con}>
                     <h1>about</h1>
-                    <p> I'm a front-end developer and UI designer
-                        from the city of joy Kolkata, India.
-                    </p>
+
                 </div>
             </div>
             <div className={styles.slider_con}>
