@@ -1,95 +1,97 @@
 import styles from './FirstSection.module.scss'
-import { Intro_name, Intro_img, Intro_skills, FloatingNav_el } from '../../constants/_animationDuration'
 import Arrow from '../../public/svg/arrow.svg'
 import Image from 'next/image'
-import { Tween } from 'react-gsap'
 import gsap from 'gsap'
 import author from '../../public/author.jpeg'
 import Blob from '../../public/svg/FirstBlob.svg'
-import { useEffect } from 'react'
-
-// import { CSSRulePlugin } from "gsap/dist/CSSRulePlugin.js";
-
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
-gsap.registerPlugin(ScrollTrigger);
-gsap.core.globals('ScrollTrigger', ScrollTrigger);
+import { useEffect, useRef } from 'react'
 
 const FirstSection = () => {
-    // gsap.registerPlugin(CSSRulePlugin);
-
+    const leftCol = useRef(null);
+    const blob = useRef(null);
 
     useEffect(() => {
+        setTimeout(() => {
+            document.body.style.overflowY = 'overlay';
+        }, 6400);
 
-        const tl = gsap.timeline()
-        const tl1 = gsap.timeline()
+        const initialAnimation = gsap.timeline()
 
-        tl.to('.con', .5, { css: { visibility: 'visible' } }).from('.author_image', Intro_img.duration, {
+        initialAnimation.to('#section1', .5, {
+            css: { visibility: 'visible' }
+        }).from('#introText', 1, {
+            autoAlpha: 0,
+            y: 30,
+            ease: 'power4.out',
+            skewX: 7,
+        }).from('.author_image', 1.2, {
             transformOrigin: 'center',
             ease: "back.out(1)",
-            delay: Intro_img.delay - 1,
             autoAlpha: 0,
             scale: 0.3
-        }).to('.arrow', 1, {
+        }).to('#arrow', 1, {
             opacity: 1,
             delay: -.5,
             autoAlpha: 1,
             ease: "elastic.out(1,0.3)",
-        }).from('.firstBlob', .6, {
+        }).from('.introSkills', {
+            opacity: 0,
+            x: -100,
+            ease: 'power4.out',
+            stagger: 0.5,
+            duration: 2
+        }).from('#firstBlob', .6, {
             opacity: 0,
             scale: 0,
             transformOrigin: 'center',
             ease: 'power3.out',
-            delay: FloatingNav_el.delay - 3,
         })
 
-        tl1.to('.con', {
-            autoAlpha: 0,
+        const scrollAnimation = gsap.timeline({
             scrollTrigger: {
-                trigger: '.con',
-                start: 'center top+=270 ',
-                end: 'bottom+=30 top+=270',
-                // markers: true,
+                trigger: '#rightCol',
+                start: 'top top',
+                end: `+=${leftCol.current.offsetHeight} bottom`,
+                pin: true,
+                markers: true,
                 scrub: true,
-                snap: {
-                    snapTo: 1.5,
-                    duration: { min: .1, max: 0.5 },
-                    ease: 'power1.inOut'
-                }
             }
         })
+        scrollAnimation.to('#arrow', {
+            transformOrigin: 'right',
+            scale: 0,
+            x: 100,
+            skewY: 10,
+            // width: 0,
+            // opacity: 0,
+            // autoAlpha: 0,
+            duration: 0.20
+
+        }, '-=1')
+
     }, [])
 
     return (
-        <div className={`${styles.container} ${'con'}`}>
-            <div className={styles.left_col}>
-                <Tween
+        <section className={styles.container} id='section1'>
+            <div ref={leftCol} className={styles.left_col} id="leftCol">
+                <div className={styles.intro_con}>
+                    <span className={styles.shadow_T}>intro</span>
+                    <h1 id="introText">Hi, I am <span>Animesh</span></h1>
 
-                    from={{
-                        opacity: 0,
-                        y: 30,
-                        ease: 'power4.out',
-                        delay: Intro_name.delay,
-                        skewX: 7,
-
-                    }}
-                    duration={Intro_name.duration}>
-
-                    <h1>Hi, I am <span>Animesh</span></h1>
-                </Tween>
-
-                <Tween
-                    from={{ opacity: 0, x: -100, delay: Intro_skills.delay, ease: 'power4.out' }}
-                    stagger={1}
-                    duration={Intro_skills.duration}>
-
-                    <h3>Front-end Developer</h3>
-                    <h3>Graphic Creator</h3>
-                    <h3>UI Designer</h3>
-                </Tween>
+                    <h3 className='introSkills'>Front-end Developer</h3>
+                    <h3 className='introSkills'>Graphic Creator</h3>
+                    <h3 className='introSkills'>UI Designer</h3>
+                </div>
+                <div className={styles.about_con}>
+                    <span className={styles.shadow_T}>about</span>
+                    <p className={styles.title}>I'm a front-end developer and UI designer
+                        from the city of joy Kolkata, India.</p>
+                    <blockquote className={styles.quote}>I enjoy the challenge of creating something new from scartch, and that's drive me to push my creative imagination</blockquote>
+                </div>
             </div>
-            <div className={styles.right_col}>
+            <div className={styles.right_col} id="rightCol">
 
-                <Arrow />
+                <Arrow id='arrow' className={styles.arrow} />
                 <div className={styles.author_container}>
                     <Image
                         src={author}
@@ -102,9 +104,10 @@ const FirstSection = () => {
                         className='author_image' //style in global
                     />
                 </div>
+                <Blob id='firstBlob' className={styles.firstBlob} />
+
             </div>
-            <Blob />
-        </div>
+        </section>
     )
 }
 

@@ -7,6 +7,7 @@
     display: grid;
     width: 90vw;
     grid-template-columns: 6em auto;
+    column-gap: 4em;
     .floating__nav {
       height: 100vh;
       display: flex;

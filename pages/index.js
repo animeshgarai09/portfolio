@@ -13,7 +13,7 @@ export default function Home() {
     return (
         <>
             <AppHead title='Home - Portfolio' />
-            <Overlay />
+            {/* <Overlay /> */}
             <Header />
             {/* <Section/> */}
             <div className={styles.layout__container}>

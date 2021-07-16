@@ -1,0 +1,28 @@
+@use '../../constants/css/theme' as *;
+
+.container {
+  min-height: 100vh;
+  margin-left: 4em;
+  scroll-snap-align: start;
+  .heading_con {
+    .con {
+      width: 50%;
+      h1 {
+        font-size: 4.5em;
+        letter-spacing: -4px;
+      }
+      p {
+        font-size: 1.6em;
+      }
+    }
+  }
+  .slider_con {
+    display: flex;
+    .left {
+      width: 50%;
+    }
+    .right {
+      width: 50%;
+    }
+  }
+}

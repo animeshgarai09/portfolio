@@ -4,13 +4,14 @@
   display: flex;
   justify-content: center;
   .container {
+    visibility: hidden;
     width: 90vw;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    z-index: 2;
+    z-index: 10;
     .logo svg {
       fill: get(primary);
       width: 68px;
@@ -32,8 +33,8 @@
         &:after {
           content: " ";
           display: inline-block;
-          height: 2px;
-          width: 10px;
+          height: 4px;
+          width: 4px;
           margin: 0 15px;
           background: rgb(177, 177, 177);
           border-radius: 5px;
@@ -57,7 +58,7 @@
           cursor: pointer;
           width: 20px;
           height: 20px;
-          margin-right: 1.2em;
+          margin-right: 1em;
           border-radius: 50%;
           transition: all 0.3s ease-in-out;
         }

@@ -8,11 +8,11 @@ import { useEffect, useState } from 'react';
 import ReactTooltip from 'react-tooltip';
 import { HiOutlineMail } from 'react-icons/hi'
 import { RiTwitterLine, RiLinkedinLine } from 'react-icons/ri'
-import { FiGithub, FiLinkedin } from 'react-icons/fi'
-
+import { FiGithub } from 'react-icons/fi'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
-gsap.registerPlugin(ScrollTrigger);
-gsap.core.globals('ScrollTrigger', ScrollTrigger);
+
+// gsap.registerPlugin(ScrollTrigger);
+// gsap.core.globals('ScrollTrigger', ScrollTrigger);
 const Header = () => {
     const darkMode = useDarkMode();
     const [mount, setMount] = useState(false);
@@ -21,15 +21,19 @@ const Header = () => {
 
 
     useEffect(() => {
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
         setMount(true)
         const tl = gsap.timeline();
         const tl1 = gsap.timeline();
 
-        tl.from('.ad_logo', Logo_el.duration, {
+        // tl.set('.header_con', { visibility: 'visible' });
+        tl.to('#header_con', { visibility: 'visible', delay: Logo_el.delay - 0.5 }).from('.ad_logo', Logo_el.duration, {
 
             y: '-40px',
             autoAlpha: 0,
-            delay: Logo_el.delay,
+            // delay: Logo_el.delay,
             ease: "power4.out"
 
         }).from('.p-link', P_link_el.duration, {
@@ -39,19 +43,18 @@ const Header = () => {
             ease: "power4.out",
             stagger: 0.2
         })
-        tl1.to('.links', {
+        tl1.to('#links', {
             x: '300px',
             autoAlpha: 0,
             ease: 'power3.inOut',
             scrollTrigger: {
-                trigger: '.con',
-                start: 'top+=220 top+=250',
-                end: 'top+=260 top+=250',
+                trigger: '#section1',
+                start: 'bottom bottom',
+                end: '+=100',
                 // markers: true,
                 scrub: true,
             }
         })
-
     }, [])
 
     return (
@@ -60,11 +63,11 @@ const Header = () => {
             <div
                 className={styles.main}
             >
-                <div className={styles.container}>
+                <div className={styles.container} id='header_con'>
                     <div className={styles.logo + ' logo'}>
                         <Logo />
                     </div>
-                    <div className={styles.links + ' links'}>
+                    <div className={styles.links} id='links'>
                         {/* <Link href="/certificates"> */}
                         <a className='p-link'><RiLinkedinLine /></a>
                         {/* </Link> */}

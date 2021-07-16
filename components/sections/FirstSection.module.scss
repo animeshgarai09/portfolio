@@ -1,15 +1,51 @@
 @use '../../constants/css/theme' as *;
 
 .container {
-  height: calc(100vh - 8em);
-  margin: 4em;
+  //   min-height: 100vh;
   display: flex;
   visibility: hidden;
+  //   scroll-snap-align: start;
   .left_col {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 50%;
+    .intro_con,
+    .about_con {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .about_con {
+      .title {
+        font-size: 1.5em;
+        width: 90%;
+        color: get(primary);
+      }
+      .quote {
+        font-size: 2em;
+        quotes: "“" "”" "‘" "’";
+        margin: 1.5em 0;
+        color: #929292;
+        &::after,
+        &::before {
+          font-size: 2em;
+          font-weight: 700;
+          position: absolute;
+          opacity: 0.5;
+        }
+        &::before {
+          content: open-quote;
+          margin: -0.2em -0.5em;
+        }
+        &::after {
+          content: close-quote;
+        }
+      }
+    }
+    .shadow_T {
+      font-size: 10em;
+      font-weight: 700;
+      letter-spacing: -5px;
+      color: #8c8c8c40;
+    }
     h1 {
       position: relative;
       z-index: 4;
@@ -33,6 +69,9 @@
     }
   }
   .right_col {
+    width: 50%;
+    height: 100vh;
+    // overflow: hidden;
     position: relative;
     z-index: 4;
     display: flex;
@@ -43,25 +82,23 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-right: -2em;
     }
-    svg {
+    svg.firstBlob {
+      position: absolute;
+      right: -8em;
+      top: -3.5em;
+      width: 41em;
+      z-index: -1;
+      fill: get(blob-color);
+    }
+    svg.arrow {
       opacity: 0;
       position: absolute;
-      left: -17em;
+      left: -13em;
       top: 46%;
-      width: 80%;
-      z-index: 4;
+      width: 75%;
+      z-index: 0;
       fill: get(arrow-color);
     }
-  }
-
-  svg {
-    position: absolute;
-    right: -3em;
-    top: -3.5em;
-    width: 41em;
-    z-index: -1;
-    fill: get(blob-color);
   }
 }
