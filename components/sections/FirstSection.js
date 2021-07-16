@@ -84,9 +84,9 @@ const FirstSection = () => {
                 </div>
                 <div className={styles.about_con}>
                     <span className={styles.shadow_T}>about</span>
-                    <p className={styles.title}>I'm a front-end developer and UI designer
+                    <p className={styles.title}>I&apos;m a front-end developer and UI designer
                         from the city of joy Kolkata, India.</p>
-                    <blockquote className={styles.quote}>I enjoy the challenge of creating something new from scartch, and that's drive me to push my creative imagination</blockquote>
+                    <blockquote className={styles.quote}>I enjoy the challenge of creating something new from scartch, and that&apos;s drive me to push my creative imagination</blockquote>
                 </div>
             </div>
             <div className={styles.right_col} id="rightCol">

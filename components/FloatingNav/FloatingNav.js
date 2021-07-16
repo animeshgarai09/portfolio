@@ -1,6 +1,6 @@
 import styles from './FloatingNav.module.scss'
 import { FloatingNav_el } from '../../constants/_animationDuration'
-import { Link } from 'react-scroll'
+// import { Link } from 'react-scroll'
 import { Tween } from 'react-gsap'
 import { FiSmile, FiFeather, FiLayers, FiMessageCircle } from "react-icons/fi";
 
@@ -31,10 +31,10 @@ const FloatingNav = () => {
                         stagger={0.3}
                         ease="expo.out(0.9, 0.1)">
                         {/* <li className="navlink1"><Link to="about" spy={true} smooth={true}><a data-tip="About" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiSmile /></a></Link></li> */}
-                        <li className="navlink1"><a href="/#section2" data-tip="About" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiSmile /></a></li>
-                        <li className="navlink2"><a href="/#section3" data-tip="Skills" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiFeather /></a></li>
-                        <li className="navlink3"><a href="/#section4" data-tip="Portfolio" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiLayers /></a></li>
-                        <li className="navlink4"><a href="/#section5" data-tip="Contact" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiMessageCircle /></a></li>
+                        <li className="navlink1"><a data-tip="About" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiSmile /></a></li>
+                        <li className="navlink2"><a data-tip="Skills" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiFeather /></a></li>
+                        <li className="navlink3"><a data-tip="Portfolio" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiLayers /></a></li>
+                        <li className="navlink4"><a data-tip="Contact" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiMessageCircle /></a></li>
                     </Tween>
                 </ul>
 
