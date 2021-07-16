@@ -38,7 +38,7 @@
 
 html {
   //   scroll-snap-type: y proximity;
-  //   scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -89,4 +89,7 @@ a {
   visibility: hidden;
   box-shadow: rgb(29 24 29) 0px 20px 30px -10px;
   border: 6px solid white !important;
+}
+.arr_ele {
+  opacity: 0;
 }

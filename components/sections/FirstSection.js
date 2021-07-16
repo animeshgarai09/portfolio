@@ -29,10 +29,11 @@ const FirstSection = () => {
             ease: "back.out(1)",
             autoAlpha: 0,
             scale: 0.3
-        }).to('#arrow', 1, {
-            opacity: 1,
+        }).to('.arr_ele', {
+            duration: 0.5,
             delay: -.5,
-            autoAlpha: 1,
+            opacity: 1,
+            stagger: -0.05,
             ease: "elastic.out(1,0.3)",
         }).from('.introSkills', {
             opacity: 0,
@@ -57,17 +58,24 @@ const FirstSection = () => {
                 scrub: true,
             }
         })
-        scrollAnimation.to('#arrow', {
-            transformOrigin: 'right',
-            scale: 0,
-            x: 100,
-            skewY: 10,
-            // width: 0,
-            // opacity: 0,
+        scrollAnimation.to('.arr_ele', {
+            duration: 0.5,
+            // delay: -.5,
+            opacity: 0,
             // autoAlpha: 0,
-            duration: 0.20
-
-        }, '-=1')
+            stagger: 0.05,
+            // scrub: true,
+            scrollTrigger: {
+                scrub: true,
+                end: '+=200',
+                onEnterBack: (() => console.log('enter')),
+                onLeaveBack: (() => {
+                    console.log('leave')
+                    document.querySelector('#arr_head').style.opacity = 1
+                })
+            },
+            ease: "elastic.out(1,0.3)",
+        })
 
     }, [])
 
