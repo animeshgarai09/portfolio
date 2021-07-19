@@ -3,6 +3,7 @@
 .container {
   background: get(float-icon-background);
   border-radius: 20px;
+  opacity: 0;
   position: fixed;
   ul {
     list-style-type: none;

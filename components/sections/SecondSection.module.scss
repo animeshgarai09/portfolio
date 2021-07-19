@@ -26,8 +26,21 @@
     .iphone {
       position: absolute;
       left: -4.5em;
-      //   transform: scale(0.9);
-      margin-top: -10px;
+      transform: scale(1.1);
+      //   margin-top: -10px;
+    }
+    .dash_path {
+      fill: get(primary);
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: -50%;
+      width: 80%;
+      transform: translate(0, -50%);
+      &:last-child {
+        left: unset;
+        right: -46%;
+      }
     }
   }
 }
