@@ -7,6 +7,7 @@
   //   scroll-snap-align: start;
   .left_col {
     width: 50%;
+    overflow: hidden;
     .intro_con,
     .about_con {
       height: 100vh;
@@ -18,25 +19,28 @@
         font-size: 1.5em;
         width: 90%;
         color: get(primary);
+        padding-left: 19px;
       }
       .quote {
-        font-size: 2em;
+        font-size: 1.7em;
         quotes: "“" "”" "‘" "’";
         margin: 1.5em 0;
         color: #929292;
+        padding-right: 2em;
+        padding-left: 19px;
         &::after,
         &::before {
-          font-size: 2em;
-          font-weight: 700;
+          font-size: 2.5em;
           position: absolute;
           opacity: 0.5;
         }
         &::before {
           content: open-quote;
-          margin: -0.2em -0.5em;
+          margin: -15px -23px;
         }
         &::after {
           content: close-quote;
+          margin: -10px 0;
         }
       }
     }

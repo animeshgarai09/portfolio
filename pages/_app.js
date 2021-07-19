@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
 gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
 function MyApp({ Component, pageProps }) {
+
     return (
         <main id='main'>
             <Component {...pageProps} />

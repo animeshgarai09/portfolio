@@ -46,7 +46,8 @@ body {
   margin: 0;
   font-family: "Raleway", sans-serif;
   background: get(bg);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: overlay;
 }
 h1,
 h2,

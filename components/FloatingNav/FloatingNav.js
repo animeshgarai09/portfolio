@@ -14,8 +14,8 @@ const FloatingNav = () => {
 
     return (
         <Tween
-            from={{ opacity: '0', transformOrigin: 'center', scale: '0' }}
-            to={{ opacity: '1', scale: '1' }}
+            from={{ opacity: 0, transformOrigin: 'center', scale: 0 }}
+            to={{ opacity: 1, scale: 1 }}
             delay={FloatingNav_el.delay}
             duration={FloatingNav_el.duration}
             ease="expo.out(0.9, 0.1)">

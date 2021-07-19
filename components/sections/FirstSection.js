@@ -6,14 +6,14 @@ import author from '../../public/author.jpeg'
 import Blob from '../../public/svg/FirstBlob.svg'
 import { useEffect, useRef } from 'react'
 
-const FirstSection = () => {
+const FirstSection = ({ load }) => {
     const leftCol = useRef(null);
     const blob = useRef(null);
 
     useEffect(() => {
-        setTimeout(() => {
-            document.body.style.overflowY = 'overlay';
-        }, 6400);
+        // setTimeout(() => {
+        //     document.body.style.overflowY = 'overlay';
+        // }, 6400);
 
         const initialAnimation = gsap.timeline()
 
@@ -48,34 +48,7 @@ const FirstSection = () => {
             ease: 'power3.out',
         })
 
-        const scrollAnimation = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#rightCol',
-                start: 'top top',
-                end: `+=${leftCol.current.offsetHeight} bottom`,
-                pin: true,
-                markers: true,
-                scrub: true,
-            }
-        })
-        scrollAnimation.to('.arr_ele', {
-            duration: 0.5,
-            // delay: -.5,
-            opacity: 0,
-            // autoAlpha: 0,
-            stagger: 0.05,
-            // scrub: true,
-            scrollTrigger: {
-                scrub: true,
-                end: '+=200',
-                onEnterBack: (() => console.log('enter')),
-                onLeaveBack: (() => {
-                    console.log('leave')
-                    document.querySelector('#arr_head').style.opacity = 1
-                })
-            },
-            ease: "elastic.out(1,0.3)",
-        })
+
 
     }, [])
 
@@ -90,12 +63,7 @@ const FirstSection = () => {
                     <h3 className='introSkills'>Graphic Creator</h3>
                     <h3 className='introSkills'>UI Designer</h3>
                 </div>
-                <div className={styles.about_con}>
-                    <span className={styles.shadow_T}>about</span>
-                    <p className={styles.title}>I&apos;m a front-end developer and UI designer
-                        from the city of joy Kolkata, India.</p>
-                    <blockquote className={styles.quote}>I enjoy the challenge of creating something new from scartch, and that&apos;s drive me to push my creative imagination</blockquote>
-                </div>
+                {load && <About lefRef={leftCol} />}
             </div>
             <div className={styles.right_col} id="rightCol">
 
@@ -116,6 +84,66 @@ const FirstSection = () => {
 
             </div>
         </section>
+    )
+}
+
+function About({ lefRef }) {
+    useEffect(() => {
+        const scrollAnimation = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#rightCol',
+                start: 'top top',
+                end: `+=${lefRef.current.offsetHeight} bottom`,
+                pin: true,
+                // markers: true,
+                scrub: true,
+            }
+        })
+        scrollAnimation.to('.arr_ele', {
+            duration: 0.5,
+            opacity: 0,
+            stagger: 0.05,
+            scrollTrigger: {
+                scrub: true,
+                end: '+=200',
+                onEnterBack: (() => console.log('enter')),
+                onLeaveBack: (() => {
+                    console.log('leave')
+                    document.querySelector('#arr_head').style.opacity = 1
+                })
+            },
+            ease: "elastic.out(1,0.3)",
+        }).from('.about_animation', {
+            opacity: 0,
+            scale: .5,
+            x: -100,
+            stagger: 0.3,
+            scrollTrigger: {
+                trigger: '#ab_con',
+                start: 'top center',
+                end: 'center center',
+                scrub: true
+            }
+        }).to('#links', {
+            x: '300px',
+            autoAlpha: 0,
+            ease: 'power3.inOut',
+            scrollTrigger: {
+                trigger: '#section1',
+                start: 'bottom bottom',
+                end: '+=100',
+                // markers: true,
+                scrub: true,
+            }
+        })
+    })
+    return (
+        <div className={styles.about_con} id='ab_con'>
+            <span className={styles.shadow_T}>about</span>
+            <p className={styles.title + ' about_animation'}>I&apos;m a front-end developer and UI designer
+                from the city of joy Kolkata, India.</p>
+            <blockquote className={styles.quote + ' about_animation'}>I enjoy the challenge of creating something new from scartch, and that&apos;s drive me to push my creative imagination</blockquote>
+        </div>
     )
 }
 

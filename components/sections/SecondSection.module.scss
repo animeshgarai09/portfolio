@@ -1,28 +1,33 @@
 @use '../../constants/css/theme' as *;
 
 .container {
+  display: flex;
   min-height: 100vh;
-  margin-left: 4em;
-  scroll-snap-align: start;
-  .heading_con {
-    .con {
-      width: 50%;
-      h1 {
-        font-size: 4.5em;
-        letter-spacing: -4px;
-      }
-      p {
-        font-size: 1.6em;
-      }
+  .card {
+    padding: 1.4em;
+    margin: 4em 1em;
+    background-color: get(blob-color);
+    border-radius: 20px;
+    p {
+      margin: 0;
+      font-size: 1em;
     }
   }
-  .slider_con {
+  .left,
+  .right {
+    width: 100%;
     display: flex;
-    .left {
-      width: 50%;
-    }
-    .right {
-      width: 50%;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .mid {
+    width: 100%;
+    position: relative;
+    .iphone {
+      position: absolute;
+      left: -4.5em;
+      //   transform: scale(0.9);
+      margin-top: -10px;
     }
   }
 }

@@ -8,8 +8,17 @@ import ThirdSection from '../components/sections/ThirdSection'
 import FourthSection from '../components/sections/FourthSection'
 import FifthSection from '../components/sections/FifthSection'
 import Overlay from '../components/Overlay/Overlay';
+import { useEffect, useState } from 'react'
+
 // import Section from '../components/Header/Section';
 export default function Home() {
+    const [load, setLoad] = useState(false)
+    useEffect(() => {
+        setTimeout(() => {
+            // document.body.style.overflowY = 'overlay';
+            setLoad(true);
+        }, 6400);
+    }, [])
     return (
         <>
             <AppHead title='Home - Portfolio' />
@@ -22,11 +31,11 @@ export default function Home() {
                         <FloatingNav />
                     </div>
                     <div className={styles.body__main}>
-                        <FirstSection />
-                        <SecondSection />
-                        <ThirdSection />
-                        <FourthSection />
-                        <FifthSection />
+                        <FirstSection load={load} />
+                        {load && <SecondSection />}
+                        {load && <ThirdSection />}
+                        {load && <FourthSection />}
+                        {load && <FifthSection />}
                     </div>
                 </div>
             </div>
