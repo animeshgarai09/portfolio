@@ -2,11 +2,12 @@ import styles from './FirstSection.module.scss'
 import Arrow from '../../public/svg/arrow.svg'
 import Image from 'next/image'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
 import author from '../../public/author.jpeg'
-import Blob from '../../public/svg/FirstBlob.svg'
+import Blob from '../../public/svg/firstBlob.svg'
 import { useEffect, useRef } from 'react'
-
-const FirstSection = ({ load }) => {
+gsap.registerPlugin(ScrollTrigger);
+const FirstSection = ({ trigger, load }) => {
     const leftCol = useRef(null);
     const blob = useRef(null);
 
@@ -14,6 +15,7 @@ const FirstSection = ({ load }) => {
         // setTimeout(() => {
         //     document.body.style.overflowY = 'overlay';
         // }, 6400);
+
 
         const initialAnimation = gsap.timeline()
 
@@ -47,13 +49,13 @@ const FirstSection = ({ load }) => {
             transformOrigin: 'center',
             ease: 'power3.out',
         })
-
-
+        // })
+        // trigger.refresh();
 
     }, [])
 
     return (
-        <section className={styles.container} id='section1'>
+        <section className={styles.container} id='section1' data-scroll-section>
             <div ref={leftCol} className={styles.left_col} id="leftCol">
                 <div className={styles.intro_con}>
                     <span className={styles.shadow_T}>intro</span>
@@ -63,7 +65,7 @@ const FirstSection = ({ load }) => {
                     <h3 className='introSkills'>Graphic Creator</h3>
                     <h3 className='introSkills'>UI Designer</h3>
                 </div>
-                {load && <About lefRef={leftCol} />}
+                {load && <About trigger={trigger} lefRef={leftCol} />}
             </div>
             <div className={styles.right_col} id="rightCol">
 
@@ -87,55 +89,67 @@ const FirstSection = ({ load }) => {
     )
 }
 
-function About({ lefRef }) {
+function About({ trigger, lefRef }) {
     useEffect(() => {
-        const scrollAnimation = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#rightCol',
-                start: 'top top',
-                end: `+=${lefRef.current.offsetHeight} bottom`,
-                pin: true,
-                // markers: true,
-                scrub: true,
-            }
-        })
-        scrollAnimation.to('.arr_ele', {
-            duration: 0.5,
-            opacity: 0,
-            stagger: 0.05,
-            scrollTrigger: {
-                scrub: true,
-                end: '+=200',
-                onEnterBack: (() => console.log('enter')),
-                onLeaveBack: (() => {
-                    console.log('leave')
-                    document.querySelector('#arr_head').style.opacity = 1
-                })
-            },
-            ease: "elastic.out(1,0.3)",
-        }).from('.about_animation', {
-            opacity: 0,
-            scale: .5,
-            x: -100,
-            stagger: 0.3,
-            scrollTrigger: {
-                trigger: '#ab_con',
-                start: 'top center',
-                end: 'center center',
-                scrub: true
-            }
-        }).to('#links', {
-            x: '300px',
-            autoAlpha: 0,
-            ease: 'power3.inOut',
-            scrollTrigger: {
-                trigger: '#section1',
-                start: 'bottom bottom',
-                end: '+=100',
-                // markers: true,
-                scrub: true,
-            }
-        })
+        setTimeout(() => {
+
+            const scrollAnimation = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#rightCol',
+                    scroller: '#main',
+                    start: 'top top',
+                    end: `+=${lefRef.current.offsetHeight} bottom`,
+                    pin: true,
+                    // markers: true,
+                    scrub: true,
+                }
+            })
+            scrollAnimation.to('.arr_ele', {
+                duration: 0.5,
+                opacity: 0,
+                stagger: 0.05,
+                scrollTrigger: {
+                    scrub: true,
+                    end: '+=200',
+                    scroller: '#main',
+
+                    onEnterBack: (() => console.log('enter')),
+                    onLeaveBack: (() => {
+                        console.log('leave')
+                        document.querySelector('#arr_head').style.opacity = 1
+                    })
+                },
+                ease: "elastic.out(1,0.3)",
+            }).from('.about_animation', {
+                opacity: 0,
+                scale: .5,
+                x: -100,
+                stagger: 0.3,
+                scrollTrigger: {
+                    trigger: '#ab_con',
+                    start: 'top center',
+                    scroller: '#main',
+
+                    end: 'center center',
+                    scrub: true
+                }
+            }).to('#links', {
+                x: '300px',
+                autoAlpha: 0,
+                ease: 'power3.inOut',
+                scrollTrigger: {
+                    trigger: '#section1',
+                    start: 'bottom bottom',
+                    scroller: '#main',
+
+                    end: '+=100',
+                    // markers: true,
+                    scrub: true,
+                }
+            })
+            ScrollTrigger.refresh();
+        }, 6400);
+
     })
     return (
         <div className={styles.about_con} id='ab_con'>

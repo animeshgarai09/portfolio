@@ -1,0 +1,60 @@
+@use '../../constants/css/theme' as *;
+
+.container {
+  min-height: 100vh;
+  position: relative;
+  .shadow_T {
+    font-size: 10em;
+    font-weight: 700;
+    line-height: 0.7;
+    letter-spacing: -5px;
+    color: #8c8c8c40;
+  }
+  .path_con {
+    position: relative;
+
+    padding-top: 1.7em;
+    .path {
+      width: 120vw;
+      position: absolute;
+      z-index: -1;
+      left: -21em;
+    }
+    .info {
+      position: absolute;
+      &:nth-of-type(1) {
+        top: 100px;
+        left: 50px;
+      }
+      &:nth-of-type(2) {
+        top: 100px;
+        left: 350px;
+      }
+      &:nth-of-type(3) {
+        top: 330px;
+        left: 330px;
+      }
+      span {
+        font-size: 1.4em;
+        font-weight: 700;
+      }
+      p {
+        margin: 10px 0;
+        width: 13em;
+      }
+    }
+  }
+  .guy {
+    width: 17em;
+    position: absolute;
+    bottom: 1em;
+    left: 0;
+  }
+  .blob {
+    fill: get(blob-color);
+    position: absolute;
+    right: 7em;
+    bottom: 0;
+    width: 18em;
+  }
+}

@@ -31,7 +31,7 @@ const SecondSection = () => {
         }, '-=1').from('.right_dash', {
             opacity: 0,
             stagger: 0.1,
-            delay: -2.55,
+            delay: -1.9,
             duration: 0.2,
             ease: 'power4.out'
         }, '-=1').from('.top_cards', {
