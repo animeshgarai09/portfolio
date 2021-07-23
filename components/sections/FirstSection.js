@@ -4,7 +4,7 @@ import Image from 'next/image'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
 import author from '../../public/author.jpeg'
-import Blob from '../../public/svg/firstBlob.svg'
+import Blob from '../../public/svg/FirstBlob.svg'
 import { useEffect, useRef } from 'react'
 gsap.registerPlugin(ScrollTrigger);
 const FirstSection = ({ trigger, load }) => {
