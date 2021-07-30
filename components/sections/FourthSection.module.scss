@@ -1,0 +1,68 @@
+@use '../../constants/css/theme' as *;
+
+.container {
+  min-height: 100vh;
+  position: relative;
+  .shadow_T {
+    font-size: 10em;
+    font-weight: 700;
+    line-height: 0.7;
+    // letter-spacing: -5px;
+    color: #8c8c8c40;
+  }
+  .col {
+    display: flex;
+    .text {
+      width: 50%;
+      h2 {
+        font-size: 3.5em;
+        margin-top: 1em;
+        color: get(primary);
+      }
+      .border {
+        display: inline-block;
+        height: 5px;
+        position: relative;
+        width: 100px;
+        border-radius: 20px;
+        background-color: #b17cdc;
+        &:after {
+          content: " ";
+          height: 5px;
+          width: 30px;
+          display: inline-block;
+          border-radius: 20px;
+          margin: 0 20px;
+          position: absolute;
+          right: -60px;
+          background-color: #e0a5ff;
+        }
+      }
+      p {
+        font-size: 1.4em;
+        width: 90%;
+        color: get(text-color);
+      }
+      .tag {
+        font-size: 4em;
+        color: #8c8c8c40;
+        font-weight: 700;
+        margin-top: 0.6em;
+        display: block;
+      }
+      .info {
+        display: inline-flex;
+        .ex {
+          color: get(text-color);
+        }
+        .stars {
+          margin-right: 20px;
+          svg {
+            margin: 0 2px;
+            color: #ef9824;
+          }
+        }
+      }
+    }
+  }
+}

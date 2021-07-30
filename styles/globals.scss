@@ -113,3 +113,58 @@ a {
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+.svg_skill {
+  cursor: pointer;
+  &:hover {
+    path.bg {
+      transition: 0.2s;
+      fill: #585858c4;
+    }
+  }
+  &.active {
+    path.bg {
+      transition: 0.2s;
+      fill: #4e4e4e12;
+      stroke: get(primary);
+      stroke-width: 4px;
+    }
+    .skill_path {
+      transition: 0.2s;
+      fill: get(primary);
+    }
+    path[fill="none"] {
+      stroke: get(primary);
+    }
+  }
+}
+.skills_svg_gradient {
+  stop:nth-of-type(1) {
+    stop-color: get(skills_svg_gradient_1) !important;
+  }
+  stop:nth-of-type(2) {
+    stop-color: get(skills_svg_gradient_2) !important;
+  }
+  stop:nth-of-type(3) {
+    stop-color: get(skills_svg_gradient_3) !important;
+  }
+  stop:nth-of-type(4) {
+    stop-color: get(skills_svg_gradient_4) !important;
+  }
+  stop:nth-of-type(5) {
+    stop-color: get(skills_svg_gradient_5) !important;
+  }
+}
+
+.react_rotate {
+  transform-origin: 250.5px 186.5px;
+  animation: rotation 4s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
