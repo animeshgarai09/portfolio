@@ -3,7 +3,7 @@ import Skills from '../../public/svg/skills.svg'
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { useEffect, useState } from 'react';
 
-const FourthSection = () => {
+const FourthSection = ({ refs }) => {
     const [state, setState] = useState({
         title: "React JS",
         info: "Powerful modern frontend framework for building single page application",
@@ -37,21 +37,21 @@ const FourthSection = () => {
         let arr = []
         let i = 0;
         while (i < split[0]) {
-            arr.push(<FaStar size={20} />)
+            arr.push(<FaStar key={i} size={20} />)
             i++
         }
         if (split.length == 2) {
-            arr.push(<FaStarHalfAlt size={20} />)
+            arr.push(<FaStarHalfAlt key={7} size={20} />)
         }
         i = 0
         while (i < blank) {
-            arr.push(<FaRegStar size={20} />)
+            arr.push(<FaRegStar key={10 + i} size={20} />)
             i++
         }
         return arr
     }
     return (
-        <div className={styles.container}>
+        <section ref={(el) => refs.current.push(el)} className={styles.container}>
             <span className={styles.shadow_T}>skills</span>
             <div className={styles.col}>
                 <div className={styles.text}>
@@ -71,7 +71,7 @@ const FourthSection = () => {
                 </div>
             </div>
 
-        </div>
+        </section>
     )
 }
 

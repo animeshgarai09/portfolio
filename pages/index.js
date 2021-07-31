@@ -7,10 +7,12 @@ import SecondSection from '../components/sections/SecondSection'
 import ThirdSection from '../components/sections/ThirdSection'
 import FourthSection from '../components/sections/FourthSection'
 import FifthSection from '../components/sections/FifthSection'
-import { useEffect, useState } from 'react'
+import { React, useEffect, useState, useRef } from 'react'
 
 export default function Home() {
     const [load, setLoad] = useState(false)
+    const refs = useRef(new Array());
+
     useEffect(() => {
         setTimeout(() => {
             setLoad(true);
@@ -26,14 +28,14 @@ export default function Home() {
             <div className={styles.layout__container}>
                 <div className={styles.layout}>
                     <div className={styles.floating__nav}>
-                        <FloatingNav />
+                        <FloatingNav refs={refs} />
                     </div>
                     <div className={styles.body__main}>
-                        <FirstSection load={load} />
-                        {load && <SecondSection />}
-                        {load && <ThirdSection />}
-                        {load && <FourthSection />}
-                        {load && <FifthSection />}
+                        <FirstSection refs={refs} load={load} />
+                        {load && <SecondSection refs={refs} />}
+                        {load && <ThirdSection refs={refs} />}
+                        {load && <FourthSection refs={refs} />}
+                        {load && <FifthSection refs={refs} />}
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@ import DashL from '../../public/svg/dashL.svg'
 import DashR from '../../public/svg/dashR.svg'
 // import Iphone from '../../public/svg/iphone.svg'
 
-const SecondSection = () => {
+const SecondSection = ({ refs }) => {
     useEffect(() => {
         const tl = gsap.timeline({
             scrollTrigger: {

@@ -5,7 +5,7 @@ import Blob from '../../public/svg/secBlob.svg'
 import { useEffect } from 'react'
 import gsap from 'gsap'
 
-const ThirdSection = () => {
+const ThirdSection = ({ refs }) => {
     useEffect(() => {
         setTimeout(() => {
             let el = document.querySelector('#path_line');
@@ -20,7 +20,8 @@ const ThirdSection = () => {
                     start: 'top top',
                     end: '+=800',
                     scrub: true,
-                    pin: true
+                    pin: true,
+                    anticipatePin: 1
                 }
             })
 
@@ -51,7 +52,7 @@ const ThirdSection = () => {
         }, 100)
     })
     return (
-        <div className={styles.container} id='section3'>
+        <section ref={(el) => refs.current.push(el)} className={styles.container} id='section3'>
             <span className={styles.shadow_T}>career</span>
             <div className={styles.path_con}>
                 <Path className={styles.path} />
@@ -78,7 +79,7 @@ const ThirdSection = () => {
                 <Blob className={styles.blob} />
             </div>
 
-        </div>
+        </section>
     )
 }
 

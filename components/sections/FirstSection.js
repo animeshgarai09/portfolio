@@ -5,7 +5,7 @@ import gsap from 'gsap'
 import author from '../../public/author.jpeg'
 import Blob from '../../public/svg/FirstBlob.svg'
 import { useEffect, useRef } from 'react'
-const FirstSection = ({ load }) => {
+const FirstSection = ({ refs, load }) => {
     const leftCol = useRef(null);
     const blob = useRef(null);
 
@@ -61,7 +61,7 @@ const FirstSection = ({ load }) => {
                     <h3 className='introSkills'>Graphic Creator</h3>
                     <h3 className='introSkills'>UI Designer</h3>
                 </div>
-                {load && <About lefRef={leftCol} />}
+                {load && <About refs={refs} lefRef={leftCol} />}
             </div>
             <div className={styles.right_col} id="rightCol">
 
@@ -85,7 +85,7 @@ const FirstSection = ({ load }) => {
     )
 }
 
-function About({ lefRef }) {
+function About({ refs, lefRef }) {
     useEffect(() => {
 
         const scrollAnimation = gsap.timeline({
@@ -141,8 +141,8 @@ function About({ lefRef }) {
 
     })
     return (
-        <div className={styles.about_con} id='ab_con'>
-            <span className={styles.shadow_T}>about</span>
+        <div ref={(el) => refs.current.push(el)} className={styles.about_con} id='ab_con'>
+            <span className={styles.shadow_T} >about</span>
             <p className={styles.title + ' about_animation'}>I&apos;m a front-end developer and UI designer
                 from the city of joy Kolkata, India.</p>
             <blockquote className={styles.quote + ' about_animation'}>I enjoy the challenge of creating something new from scartch, and that&apos;s drive me to push my creative imagination</blockquote>
