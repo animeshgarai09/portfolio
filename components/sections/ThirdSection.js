@@ -5,7 +5,7 @@ import Blob from '../../public/svg/secBlob.svg'
 import { useEffect } from 'react'
 import gsap from 'gsap'
 
-const ThirdSection = ({ refs }) => {
+const ThirdSection = ({ refs, setActiveNav }) => {
     useEffect(() => {
         setTimeout(() => {
             let el = document.querySelector('#path_line');
@@ -14,6 +14,21 @@ const ThirdSection = ({ refs }) => {
             el.style.strokeDashoffset = len;
             console.log(len);
 
+            const navAnimation = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#section3',
+                    start: 'top top+=250',
+                    onEnter: (() => setActiveNav(2)),
+                }
+            })
+            const navAnimationBack = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#section3',
+                    start: 'bottom top-=350px',
+                    onEnterBack: (() => setActiveNav(2)),
+                    // markers: true
+                }
+            })
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '#section3',

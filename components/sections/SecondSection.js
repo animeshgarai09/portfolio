@@ -73,7 +73,7 @@ const SecondSection = ({ refs }) => {
                 </div>
                 <DashR className={styles.dash_path} />
             </div>
-            <div className={styles.right}>
+            <div className={styles.right} id="right_card_col">
                 <div className={styles.card + ' top_cards'}>
                     <p>Creating  elegant design with SEO
                         ready web pages using trending

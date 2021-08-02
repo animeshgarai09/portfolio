@@ -2,8 +2,8 @@ import styles from './FourthSection.module.scss'
 import Skills from '../../public/svg/skills.svg'
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { useEffect, useState } from 'react';
-
-const FourthSection = ({ refs }) => {
+import gsap from 'gsap'
+const FourthSection = ({ refs, setActiveNav }) => {
     const [state, setState] = useState({
         title: "React JS",
         info: "Powerful modern frontend framework for building single page application",
@@ -28,6 +28,23 @@ const FourthSection = ({ refs }) => {
             })
         })
 
+        const navAnimation = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#section4',
+                start: 'bottom top+=150',
+                onEnter: (() => setActiveNav(3)),
+                markers: true
+            }
+        })
+        const navAnimationBack = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#section4',
+                // start: 'bottom top-=350px',
+                start: 'bottom top',
+                // onEnterBack: (() => setActiveNav(3)),
+                // markers: true
+            }
+        })
 
     }, [])
 
@@ -51,7 +68,7 @@ const FourthSection = ({ refs }) => {
         return arr
     }
     return (
-        <section ref={(el) => refs.current.push(el)} className={styles.container}>
+        <section ref={(el) => refs.current.push(el)} className={styles.container} id="section4">
             <span className={styles.shadow_T}>skills</span>
             <div className={styles.col}>
                 <div className={styles.text}>

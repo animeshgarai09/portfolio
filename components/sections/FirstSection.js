@@ -5,16 +5,11 @@ import gsap from 'gsap'
 import author from '../../public/author.jpeg'
 import Blob from '../../public/svg/FirstBlob.svg'
 import { useEffect, useRef } from 'react'
-const FirstSection = ({ refs, load }) => {
+const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
     const leftCol = useRef(null);
     const blob = useRef(null);
 
     useEffect(() => {
-        // setTimeout(() => {
-        //     document.body.style.overflowY = 'overlay';
-        // }, 6400);
-
-
         const initialAnimation = gsap.timeline()
 
         initialAnimation.to('#section1', .5, {
@@ -61,7 +56,7 @@ const FirstSection = ({ refs, load }) => {
                     <h3 className='introSkills'>Graphic Creator</h3>
                     <h3 className='introSkills'>UI Designer</h3>
                 </div>
-                {load && <About refs={refs} lefRef={leftCol} />}
+                {load && <About navRef={navRef} setActiveNav={setActiveNav} refs={refs} lefRef={leftCol} />}
             </div>
             <div className={styles.right_col} id="rightCol">
 
@@ -74,7 +69,6 @@ const FirstSection = ({ refs, load }) => {
                         height={500}
                         width={500}
                         quality='75'
-                        // unoptimized='true'
                         className='author_image' //style in global
                     />
                 </div>
@@ -85,17 +79,31 @@ const FirstSection = ({ refs, load }) => {
     )
 }
 
-function About({ refs, lefRef }) {
+function About({ refs, lefRef, navRef, setActiveNav }) {
     useEffect(() => {
-
+        const navAnimation = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#ab_con',
+                start: 'top top+=250',
+                onEnter: (() => setActiveNav(1)),
+                onLeaveBack: (() => navRef.removeAttribute('class'))
+            }
+        })
+        const navAnimationBack = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#iphone_img',
+                start: 'bottom top-=350px',
+                end: 'bottom top-=350px',
+                onEnterBack: (() => setActiveNav(1)),
+            }
+        })
         const scrollAnimation = gsap.timeline({
             scrollTrigger: {
                 trigger: '#rightCol',
                 start: 'top top',
                 end: `+=${lefRef.current.offsetHeight} bottom`,
                 pin: true,
-                // markers: true,
-                scrub: true,
+                scrub: 0.5,
             }
         })
         scrollAnimation.to('.arr_ele', {
@@ -103,12 +111,10 @@ function About({ refs, lefRef }) {
             opacity: 0,
             stagger: 0.05,
             scrollTrigger: {
-                scrub: true,
+                scrub: 0.5,
                 end: '+=200',
 
-                onEnterBack: (() => console.log('enter')),
                 onLeaveBack: (() => {
-                    console.log('leave')
                     document.querySelector('#arr_head').style.opacity = 1
                 })
             },
@@ -123,7 +129,8 @@ function About({ refs, lefRef }) {
                 start: 'top center',
 
                 end: 'center center',
-                scrub: true
+                scrub: 0.5,
+
             }
         }).to('#links', {
             x: '300px',
@@ -134,8 +141,7 @@ function About({ refs, lefRef }) {
                 start: 'bottom bottom',
 
                 end: '+=100',
-                // markers: true,
-                scrub: true,
+                scrub: 0.5,
             }
         })
 

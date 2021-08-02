@@ -12,7 +12,7 @@
     opacity: 0;
 
     li {
-      padding: 0.35em 0.3em;
+      padding: 0.37em 0.35em;
     }
   }
   a {
@@ -26,6 +26,13 @@
     color: get(float-icon-color);
     transition: 0.2s;
     cursor: pointer;
+    &.active {
+      background: get(primary);
+      color: #ffffff;
+      &:hover {
+        background: get(primary);
+      }
+    }
     &:hover {
       background: get(float-icon-bg-hover);
       color: get(float-icon-color-hover);
@@ -33,7 +40,7 @@
   }
   span {
     display: flex;
-    // visibility: hidden;
+    visibility: hidden;
     justify-content: center;
     margin-bottom: -2em;
     margin-top: 1.5em;
