@@ -33,7 +33,7 @@ const FourthSection = ({ refs, setActiveNav }) => {
                 trigger: '#section4',
                 start: 'bottom top+=150',
                 onEnter: (() => setActiveNav(3)),
-                markers: true
+                // markers: true
             }
         })
         const navAnimationBack = gsap.timeline({
