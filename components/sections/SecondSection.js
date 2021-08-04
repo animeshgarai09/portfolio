@@ -16,7 +16,7 @@ const SecondSection = ({ refs }) => {
                 end: '+=800',
                 // markers: true,
                 pin: true,
-                scrub: true,
+                scrub: 0.5,
 
             }
         });

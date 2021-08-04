@@ -19,7 +19,7 @@ const FloatingNav = ({ refs, navRef, setActiveNav }) => {
                 trigger: '#section1',
                 start: 'bottom center+=150',
                 end: '+=1',
-                scrub: true
+                scrub: 0.5
                 // markers: true
             }
         })

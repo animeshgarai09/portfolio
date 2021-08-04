@@ -1,0 +1,69 @@
+@use '../../constants/css/theme' as *;
+
+.container {
+  height: 120px;
+  background: #271f2d;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  .footer {
+    width: 90%;
+    padding: 0 2em;
+    .top_row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      padding: 0.8em 0;
+      &:after {
+        content: " ";
+        position: absolute;
+        left: -95px;
+        bottom: 0;
+        display: block;
+        width: 115%;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          red,
+          purple,
+          transparent
+        );
+      }
+      .logo_con {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        & > svg {
+          fill: #fff;
+          width: 40px;
+          height: 40px;
+          margin-right: 1em;
+        }
+        p svg {
+          color: crimson;
+          margin-bottom: -3px;
+        }
+      }
+      .social_con {
+        font-size: 1.5em;
+        color: #fff;
+        svg {
+          margin-left: 1em;
+        }
+      }
+    }
+    .bottom_row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #989898;
+      font-size: 0.85em;
+      font-weight: 600;
+      a {
+        margin-right: 3em;
+      }
+    }
+  }
+}

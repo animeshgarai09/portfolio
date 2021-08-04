@@ -34,7 +34,7 @@ const ThirdSection = ({ refs, setActiveNav }) => {
                     trigger: '#section3',
                     start: 'top top',
                     end: '+=800',
-                    scrub: true,
+                    scrub: 0.5,
                     pin: true,
                     anticipatePin: 1
                 }

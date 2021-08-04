@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Logo_el, P_link_el } from '../../constants/_animationDuration'
 import styles from './Header.module.scss'
 import Logo from '../../public/svg/logo.svg'

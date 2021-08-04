@@ -1,5 +1,6 @@
 import AppHead from '../constants/AppHead';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import styles from '../styles/Index.module.scss'
 import FloatingNav from '../components/FloatingNav/';
 import FirstSection from '../components/sections/FirstSection'
@@ -18,9 +19,7 @@ export default function Home() {
 
     function setActiveNav(num) {
         let activeC = nav.active
-        console.log(navRef.current)
         for (let i = 0; i < 5; i++) {
-            console.log(navRef.current[i])
             if (num == navRef.current[i].id) {
                 navRef.current[i].classList.add(activeC)
             } else if (navRef.current[i].classList) {
@@ -54,6 +53,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            {load && <Footer />}
         </>
     );
 }
