@@ -1,16 +1,19 @@
 $light: (
-  overlay-color: #290e3e,
+  bg: #fff,
   primary: #621a9a,
   primary-light: #f700f7,
-  //not required
-  bg: #fff,
+  primary-dark: #ac4ff4,
   primary-hover: #ac4ff4,
+  block-text: #8c8c8c40,
+  mb-nav-color: #191919,
+  mb-nav-border: #d8d8d8,
+  mb-nav-bg: #876d9a35,
+  mb-nav-link: #333333,
+  //   primary-hover: #ac4ff4,
   //not required
   accent: #fb7575,
   switcher: linear-gradient(to top left, #fecc51, #fcb033, #fa961b, #fa8607),
   arrow-color: #ac4ff4,
-  primary-link: #621a9a,
-  primary-link-hover: #ac4ff4,
   /////////////////////////////////////////Float Icon Settings
   float-icon-color: #621a9a,
   float-icon-bg-hover: #e2bcff,
@@ -40,18 +43,21 @@ $light: (
 );
 
 $dark: (
-  overlay-color: #281c2f,
-  primary: #f47458,
-  primary-light: #621a9a,
-  //not required
-  bg: #2c2f33,
-  primary-hover: #ff9680,
+  bg: #1f1927,
+  primary: #8d15ea,
+  primary-light: #b351ff,
+  primary-dark: #6e2ca0,
+  primary-hover: #c588f5,
+  block-text: #8c8c8c14,
+  mb-nav-color: #fff,
+  mb-nav-border: #4e4e4e,
+  mb-nav-bg: rgba(255, 255, 255, 0.1),
+  mb-nav-link: #f3f3f3,
+  //   primary-hover: #ff9680,
   //not required
   accent: #ffbd26,
   switcher: #fff,
   arrow-color: #d1d0d0,
-  primary-link: #f47458,
-  primary-link-hover: #ff9680,
   /////////////////////////////////////////Float Icon Settings
   float-icon-color: #d1d0d0,
   float-icon-bg-hover: #484a4c,
@@ -59,12 +65,12 @@ $dark: (
   float-icon-color-hover: #d1d0d0,
   ////////////////////////////////////////
   text-color: #d1d0d0,
-  skills_svg_gradient_1: #f47458,
+  skills_svg_gradient_1: #d8861e,
   skills_svg_gradient_2: #d14e33,
   skills_svg_gradient_3: #e6674d,
   skills_svg_gradient_4: #f06044,
   skills_svg_gradient_5: #ff9680,
-  blob-color: #50505075,
+  blob-color: #50505029,
   black: #232323,
   btn-shadow: (
     -10px -10px 30px #ffffff,

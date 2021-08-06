@@ -1,22 +1,33 @@
 @use '../constants/css/theme' as *;
-
+@import "../constants/css/breakpoints.scss";
 .layout__container {
   display: flex;
   justify-content: center;
   .layout {
     display: grid;
     width: 90vw;
-    grid-template-columns: 6em auto;
+    grid-template-columns: minmax(2em, 6em) 1fr;
+
+    @include media("<tablet") {
+      display: block;
+      width: 100vw;
+    }
     column-gap: 4em;
     .floating__nav {
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      @include media("<tablet") {
+        display: none;
+      }
     }
     .body__main {
       display: grid;
       row-gap: 8em;
+      @include media("<tablet") {
+        display: block;
+      }
     }
   }
 }

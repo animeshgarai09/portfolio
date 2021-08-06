@@ -7,10 +7,7 @@ import { FiSmile, FiFeather, FiLayers, FiMessageCircle, FiFlag, FiArrowUp } from
 import { useEffect } from 'react';
 
 const FloatingNav = ({ refs, navRef, setActiveNav }) => {
-    // refs.current=array(4).fill(0).map((ref,i)=>{
-    //     refs.current[i]=React.createRef()
-    // })
-    // const [ctive, setActive] = useState(initialState)
+
     useEffect(() => {
         // setTimeout(() => {
         gsap.to("#top", {

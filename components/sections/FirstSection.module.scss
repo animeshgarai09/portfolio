@@ -1,19 +1,31 @@
 @use '../../constants/css/theme' as *;
+@import "../../constants/css/breakpoints.scss";
 
 .container {
   //   min-height: 100vh;
   //   margin-bottom: 5em;
   display: flex;
-  visibility: hidden;
+  flex-wrap: wrap;
+  @include media("<tablet") {
+    flex-direction: column-reverse;
+    margin-top: 5em;
+  }
+  //   visibility: hidden; ///comment
   //   scroll-snap-align: start;
   .left_col {
-    width: 50%;
+    flex: 1 1 0;
     overflow: hidden;
     .intro_con,
     .about_con {
       height: 100vh;
       display: flex;
       flex-direction: column;
+    }
+    .intro_con {
+      @include media("<tablet") {
+        text-align: center;
+        font-size: 0.8em;
+      }
     }
     .about_con {
       .title {
@@ -49,16 +61,20 @@
       font-size: 10em;
       font-weight: 700;
       letter-spacing: -5px;
-      color: #8c8c8c40;
+      color: get(block-text);
     }
     h1 {
       position: relative;
       z-index: 4;
       font-size: 4em;
-      color: get(primary-hover);
+      color: get(primary-dark);
       font-weight: 500;
       margin-bottom: 0.2em;
       margin-top: 0;
+      visibility: hidden;
+      @include media("<tablet") {
+        visibility: visible;
+      }
       span {
         color: get(primary);
         font-weight: 700;
@@ -71,24 +87,51 @@
       font-size: 1.9em;
       font-weight: 600;
       color: get(text-color);
+      visibility: hidden;
+      @include media("<tablet") {
+        visibility: visible;
+      }
     }
   }
   .right_col {
-    width: 50%;
+    flex: 1 1 0;
     height: 100vh;
     // overflow: hidden;
     position: relative;
     z-index: 4;
     display: flex;
-    flex-flow: row-reverse;
+    justify-content: center;
     align-items: center;
+
     .author_container {
-      width: 24em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      width: 20em;
+      margin-left: 7em;
+      @include media("<tablet") {
+        margin-left: 0;
+        width: 17em;
+      }
+      & > div {
+        position: unset !important;
+        overflow: visible !important;
+      }
+      .author_image {
+        visibility: hidden;
+        transform-origin: center;
+        object-fit: contain;
+        width: 90% !important;
+        position: relative !important;
+        height: unset !important;
+        border-radius: 50%;
+        //   visibility: hidden; ///comment
+        box-shadow: rgb(29 24 29) 9px 8px 25px -10px;
+        border: 6px solid white !important;
+        @include media("<tablet") {
+          visibility: visible;
+        }
+      }
     }
     svg.firstBlob {
+      visibility: hidden;
       position: absolute;
       right: -8em;
       top: -3.5em;

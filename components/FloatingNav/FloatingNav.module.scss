@@ -1,8 +1,12 @@
 @use '../../constants/css/theme' as *;
+@import "../../constants/css/breakpoints.scss";
 
 .container {
   position: fixed;
   z-index: 12;
+  @include media("<tablet") {
+    display: none;
+  }
   ul {
     list-style-type: none;
     margin: 0;

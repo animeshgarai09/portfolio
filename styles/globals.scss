@@ -1,5 +1,4 @@
 @use '../constants/css/theme' as *;
-
 @font-face {
   font-family: "Raleway";
   src: url(../public/fonts/Raleway-Medium.woff2) format("woff2");
@@ -80,15 +79,7 @@ a {
 *:focus {
   outline: none;
 }
-.author_image {
-  transform-origin: center;
-  min-width: 80% !important;
-  min-height: 80% !important;
-  border-radius: 50%;
-  visibility: hidden;
-  box-shadow: rgb(29 24 29) 9px 8px 25px -10px;
-  border: 6px solid white !important;
-}
+
 .arr_ele {
   opacity: 0;
 }
