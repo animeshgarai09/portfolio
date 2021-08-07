@@ -4,7 +4,7 @@
 .container {
   position: fixed;
   z-index: 12;
-  @include media("<tablet") {
+  @include media("<laptop") {
     display: none;
   }
   ul {
@@ -30,6 +30,9 @@
     color: get(float-icon-color);
     transition: 0.2s;
     cursor: pointer;
+    @include media("<desktop") {
+      font-size: 17px;
+    }
     &.active {
       background: get(primary);
       color: #ffffff;

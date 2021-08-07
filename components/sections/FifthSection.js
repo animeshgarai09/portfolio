@@ -48,9 +48,9 @@ const FifthSection = ({ refs }) => {
     }
     return (
         <section ref={(el) => refs.current.push(el)} className={styles.container} id='section5'>
-            <span className={styles.shadow_T}>contact</span>
-            <div className={styles.sub_con}>
-                <form onSubmit={(e) => handleSubmit(e)} className={styles.left_col} noValidate autoComplete='off'>
+            <div className={styles.left_col}>
+                <span className={styles.shadow_T}>contact</span>
+                <form onSubmit={(e) => handleSubmit(e)} noValidate autoComplete='off'>
                     <div className={styles.top_con}>
                         <div>
                             <label htmlFor="name">Name</label>
@@ -90,11 +90,16 @@ const FifthSection = ({ refs }) => {
                     </div>
                     <button>Send</button>
                 </form>
+            </div>
 
-                <div className={styles.right_col}>
+
+            <div className={styles.right_col}>
+
+                <div className={styles.svg_con}>
                     <Bubble />
                     <SecGuy />
                 </div>
+
             </div>
         </section>
     )

@@ -1,8 +1,13 @@
 @use '../../constants/css/theme' as *;
+@import "../../constants/css/breakpoints.scss";
 
 .container {
   min-height: 100vh;
   position: relative;
+  margin-bottom: 8em;
+  @include media("<desktop") {
+    font-size: 0.9em;
+  }
   .shadow_T {
     font-size: 10em;
     font-weight: 700;

@@ -6,28 +6,30 @@
   .layout {
     display: grid;
     width: 90vw;
-    grid-template-columns: minmax(2em, 6em) 1fr;
-
-    @include media("<tablet") {
-      display: block;
-      width: 100vw;
-    }
+    grid-template-columns: 6em minmax(0, 1fr);
     column-gap: 4em;
+    @include media("<desktop") {
+      grid-template-columns: 3em minmax(0, 1fr);
+    }
+    @include media("<laptop") {
+      display: block;
+      //   width: 100vw;
+    }
     .floating__nav {
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      @include media("<tablet") {
+      @include media("<laptop") {
         display: none;
       }
     }
-    .body__main {
-      display: grid;
-      row-gap: 8em;
-      @include media("<tablet") {
-        display: block;
-      }
-    }
+    // .body__main {
+    //   display: grid;
+    //   row-gap: 8em;
+    //   @include media("<tablet") {
+    //     display: block;
+    //   }
+    // }
   }
 }

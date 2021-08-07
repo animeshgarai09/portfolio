@@ -36,6 +36,7 @@ const ThirdSection = ({ refs, setActiveNav }) => {
                     end: '+=800',
                     scrub: 0.5,
                     pin: true,
+                    // invalidateOnRefresh: true,
                     anticipatePin: 1
                 }
             })

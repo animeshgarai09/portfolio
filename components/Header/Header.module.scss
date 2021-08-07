@@ -36,7 +36,6 @@
     }
     @include media("<desktop") {
       width: 92vw;
-      padding: 20px 0;
     }
     @include media("<tablet") {
       width: 90vw;

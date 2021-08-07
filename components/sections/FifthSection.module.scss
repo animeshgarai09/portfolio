@@ -1,102 +1,112 @@
 @use '../../constants/css/theme' as *;
-
+@import "../../constants/css/breakpoints.scss";
 .container {
   height: calc(100vh - 110px);
-  .shadow_T {
-    font-size: 10em;
-    font-weight: 700;
-    // line-height: 0.6;
-    letter-spacing: -5px;
-    color: #8c8c8c40;
+  display: flex;
+  @include media("<desktop") {
+    font-size: 0.9em;
   }
-  .sub_con {
-    display: flex;
-    .left_col {
-      flex: 1 1 0px;
-      .top_con {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        height: 86px;
-        div {
-          flex: 1 1 0px;
-          &:first-child {
-            margin-right: 20px;
-          }
-        }
-      }
-      label {
-        color: get(primary);
-        font-size: 0.9em;
-        font-weight: 700;
-        margin-left: 10px;
-      }
-      input,
-      textarea {
-        width: 100%;
-        height: 2.5em;
-        border: none;
-        font-size: 1.1em;
-        border-radius: 10px;
-        padding: 0px 15px;
-        margin: 5px 0;
-        color: #464646;
-        background: #f5f5f5;
-        box-shadow: inset 0px -2px 9px -5px rgb(0 0 0 / 34%);
-        transition: 0.1s;
-        &::placeholder {
-          color: #c7c7c7;
-          font-size: 0.8em;
-        }
-        &:focus {
-          border: 2px solid get(primary);
-        }
-      }
-      textarea {
-        min-width: 550px;
-        max-width: 55px;
-        min-height: 6em;
-        min-height: 8em;
-        padding: 15px;
-      }
-      .error {
-        margin-left: 5px;
-        font-size: 0.75em;
-        font-weight: 600;
-        color: #ff7068;
-      }
-      button {
-        width: 9em;
-        height: 2.5em;
-        border: none;
-        border-radius: 25px;
-        font-size: 1.1em;
-        color: #ffffff;
-        background: linear-gradient(to right, get(primary), get(primary-light));
-        margin-top: 10px;
-        transition: 0.2s;
-        cursor: pointer;
-        &:hover {
-          font-size: 1.15em;
-          transform: scale(1.05);
+  .left_col {
+    flex: 1 1 0px;
+    .shadow_T {
+      font-size: 10em;
+      font-weight: 700;
+      // line-height: 0.6;
+      letter-spacing: -5px;
+      color: #8c8c8c40;
+    }
+
+    .top_con {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      height: 86px;
+      div {
+        flex: 1 1 0px;
+        &:first-child {
+          margin-right: 20px;
         }
       }
     }
-    .right_col {
-      flex: 1 1 0px;
-      padding-left: 13em;
+    label {
+      color: get(primary);
+      font-size: 0.9em;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+    input,
+    textarea {
+      width: 100%;
+      height: 2.5em;
+      border: none;
+      font-size: 1.1em;
+      border-radius: 10px;
+      padding: 0px 15px;
+      margin: 5px 0;
+      color: #464646;
+      background: #f5f5f5;
+      box-shadow: inset 0px -2px 9px -5px rgb(0 0 0 / 34%);
+      transition: 0.1s;
+      &::placeholder {
+        color: #c7c7c7;
+        font-size: 0.8em;
+      }
+      &:focus {
+        border: 2px solid get(primary);
+      }
+    }
+    textarea {
+      min-width: 550px;
+      max-width: 55px;
+      min-height: 6em;
+      min-height: 8em;
+      padding: 15px;
+    }
+    .error {
+      margin-left: 5px;
+      font-size: 0.75em;
+      font-weight: 600;
+      color: #ff7068;
+    }
+    button {
+      width: 9em;
+      height: 2.5em;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.1em;
+      color: #ffffff;
+      background: linear-gradient(to right, get(primary), get(primary-light));
+      margin-top: 10px;
+      transition: 0.2s;
+      cursor: pointer;
+      &:hover {
+        font-size: 1.15em;
+        transform: scale(1.05);
+      }
+    }
+  }
+  .right_col {
+    flex: 1 1 0px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    .svg_con {
       position: relative;
       svg:nth-of-type(2) {
-        width: 300px;
-        height: 330px;
+        width: 19em;
+        height: 21em;
+        margin-bottom: -1px;
+        @include media("<desktop") {
+          margin-bottom: -5px;
+        }
       }
       svg:nth-of-type(1) {
-        width: 240px;
-        height: 220px;
+        width: 14em;
+        height: 12em;
         position: absolute;
-        left: 4em;
-        top: -10em;
+        left: -8em;
+        top: -9em;
       }
     }
   }

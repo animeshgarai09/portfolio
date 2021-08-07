@@ -2,24 +2,32 @@
 @import "../../constants/css/breakpoints.scss";
 
 .container {
-  //   min-height: 100vh;
-  //   margin-bottom: 5em;
   display: flex;
-  flex-wrap: wrap;
+  //   flex-wrap: wrap;
+  @include media("<laptop") {
+    margin-top: 5em;
+  }
   @include media("<tablet") {
     flex-direction: column-reverse;
     margin-top: 5em;
   }
-  //   visibility: hidden; ///comment
-  //   scroll-snap-align: start;
+
   .left_col {
     flex: 1 1 0;
     overflow: hidden;
+    @include media("<desktop") {
+      font-size: 0.9em;
+    }
     .intro_con,
     .about_con {
       height: 100vh;
       display: flex;
       flex-direction: column;
+    }
+    .intro_con {
+      //   @include media("<1133px") {
+      //     font-size: 0.8em;
+      //   }
     }
     .intro_con {
       @include media("<tablet") {
@@ -106,6 +114,9 @@
     .author_container {
       width: 20em;
       margin-left: 7em;
+      @include media("<desktop") {
+        width: 19em;
+      }
       @include media("<tablet") {
         margin-left: 0;
         width: 17em;
@@ -138,14 +149,30 @@
       width: 41em;
       z-index: -1;
       fill: get(blob-color);
+      @include media("<desktop") {
+        width: 39em;
+      }
+      @include media("<1180px") {
+        width: 38em;
+      }
     }
     svg.arrow {
       position: absolute;
       left: -13em;
       top: 46%;
-      width: 75%;
+      width: 22em;
       z-index: 0;
       fill: get(arrow-color);
+      @include media("<desktop") {
+        width: 20em;
+        left: -10em;
+      }
+      @include media("<1260px") {
+        width: 19em;
+      }
+      @include media("<1180px") {
+        width: 18em;
+      }
     }
   }
 }

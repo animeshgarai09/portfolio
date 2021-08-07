@@ -68,7 +68,7 @@ const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
     }, [])
 
     return (
-        <section className={styles.container} id='section1'>
+        <section className={styles.container} id='section1' style={{ marginBottom: load ? '8em' : '0' }}>
             <div ref={leftCol} className={styles.left_col} id="leftCol">
                 <div className={styles.intro_con}>
                     <span className={styles.shadow_T}>intro</span>
