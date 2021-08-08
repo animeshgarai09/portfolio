@@ -1,9 +1,16 @@
 @use '../../constants/css/theme' as *;
+@import "../../constants/css/breakpoints.scss";
 
 .container {
   display: flex;
   min-height: 100vh;
   margin-bottom: 8em;
+  @include media("<desktop") {
+    font-size: 0.9em;
+  }
+  @include media("<laptop") {
+    min-height: calc(100vh - 5.6em);
+  }
   .card {
     padding: 1.4em;
     margin: 4em 1em;

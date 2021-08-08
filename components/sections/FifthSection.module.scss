@@ -6,8 +6,13 @@
   @include media("<desktop") {
     font-size: 0.9em;
   }
+  @include media("<laptop") {
+    font-size: 0.85em;
+    height: calc(100vh - (80px + 5.5em));
+  }
   .left_col {
     flex: 1 1 0px;
+
     .shadow_T {
       font-size: 10em;
       font-weight: 700;
@@ -57,10 +62,10 @@
       }
     }
     textarea {
-      min-width: 550px;
-      max-width: 55px;
+      min-width: 100%;
+      max-width: 100%;
       min-height: 6em;
-      min-height: 8em;
+      max-height: 8em;
       padding: 15px;
     }
     .error {
@@ -96,10 +101,7 @@
       svg:nth-of-type(2) {
         width: 19em;
         height: 21em;
-        margin-bottom: -1px;
-        @include media("<desktop") {
-          margin-bottom: -5px;
-        }
+        margin-bottom: -5px;
       }
       svg:nth-of-type(1) {
         width: 14em;
@@ -107,7 +109,14 @@
         position: absolute;
         left: -8em;
         top: -9em;
+        @include media("<950px") {
+          font-size: 0.9em;
+        }
       }
+    }
+    @include media("<970px") {
+      font-size: 0.9em;
+      margin-left: 7em;
     }
   }
 }

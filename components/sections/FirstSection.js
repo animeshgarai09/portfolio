@@ -81,23 +81,23 @@ const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
                 {load && <About navRef={navRef} setActiveNav={setActiveNav} refs={refs} lefRef={leftCol} />}
             </div>
             <div className={styles.right_col} id="rightCol">
-
-                <Arrow id='arrow' className={styles.arrow} />
-                <div className={styles.author_container}>
-                    <Image
-                        src={author}
-                        alt="Picture of the author"
-                        priority='true'
-                        layout="fill"
-                        // height={500}
-                        // width={500}
-                        quality='75'
-                        className={styles.author_image}
-                        id='author_image'
-                    />
+                <div className={styles.sub_con}>
+                    <Arrow id='arrow' className={styles.arrow} />
+                    <div className={styles.author_container}>
+                        <Image
+                            src={author}
+                            alt="Picture of the author"
+                            priority='true'
+                            layout="fill"
+                            // height={500}
+                            // width={500}
+                            quality='75'
+                            className={styles.author_image}
+                            id='author_image'
+                        />
+                    </div>
+                    <Blob id='firstBlob' className={styles.firstBlob} />
                 </div>
-                <Blob id='firstBlob' className={styles.firstBlob} />
-
             </div>
         </section>
     )
@@ -124,7 +124,8 @@ function About({ refs, lefRef, navRef, setActiveNav }) {
         })
 
         ScrollTrigger.matchMedia({
-            "(min-width:768px)": () => scrollAnimation(lefRef)
+            "(min-width:1130px)": () => scrollAnimation(lefRef),
+            "(min-width:850px) and (max-width:1129px)": () => scrollAnimation(lefRef, "tablet"),
         })
 
     }, [])
@@ -138,11 +139,12 @@ function About({ refs, lefRef, navRef, setActiveNav }) {
     )
 }
 
-function scrollAnimation(lefRef) {
+function scrollAnimation(lefRef, screen) {
+    console.log(screen)
     const scrollAnimation = gsap.timeline({
         scrollTrigger: {
             trigger: '#rightCol',
-            start: 'top top',
+            start: `top ${screen == 'tablet' ? 'top+=90' : 'top'}`,
             end: `+=${lefRef.current.offsetHeight} bottom`,
             pin: true,
             scrub: 0.5,
@@ -174,17 +176,20 @@ function scrollAnimation(lefRef) {
             scrub: 0.5,
 
         }
-    }).to('#links', {
-        x: '300px',
-        autoAlpha: 0,
-        ease: 'power3.inOut',
-        scrollTrigger: {
-            trigger: '#section1',
-            start: 'bottom bottom',
-
-            end: '+=100',
-            scrub: 0.5,
-        }
     })
+    if (screen != 'tablet') {
+        scrollAnimation.to('#links', {
+            x: '300px',
+            autoAlpha: 0,
+            ease: 'power3.inOut',
+            scrollTrigger: {
+                trigger: '#section1',
+                start: 'bottom bottom',
+
+                end: '+=100',
+                scrub: 0.5,
+            }
+        })
+    }
 }
 export default FirstSection

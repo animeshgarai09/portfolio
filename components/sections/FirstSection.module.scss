@@ -3,9 +3,11 @@
 
 .container {
   display: flex;
+  min-height: 100vh;
   //   flex-wrap: wrap;
   @include media("<laptop") {
-    margin-top: 5em;
+    padding-top: 5em;
+    // font-size: 0.9em;
   }
   @include media("<tablet") {
     flex-direction: column-reverse;
@@ -23,11 +25,9 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
-    }
-    .intro_con {
-      //   @include media("<1133px") {
-      //     font-size: 0.8em;
-      //   }
+      @include media("<laptop") {
+        height: calc(100vh - 5.6em);
+      }
     }
     .intro_con {
       @include media("<tablet") {
@@ -86,6 +86,10 @@
       span {
         color: get(primary);
         font-weight: 700;
+        @include media("<1000px") {
+          display: block;
+          font-size: 1.3em;
+        }
       }
     }
     h3 {
@@ -110,68 +114,94 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    .author_container {
-      width: 20em;
-      margin-left: 7em;
-      @include media("<desktop") {
-        width: 19em;
-      }
-      @include media("<tablet") {
-        margin-left: 0;
-        width: 17em;
-      }
-      & > div {
-        position: unset !important;
-        overflow: visible !important;
-      }
-      .author_image {
-        visibility: hidden;
-        transform-origin: center;
-        object-fit: contain;
-        width: 90% !important;
-        position: relative !important;
-        height: unset !important;
-        border-radius: 50%;
-        //   visibility: hidden; ///comment
-        box-shadow: rgb(29 24 29) 9px 8px 25px -10px;
-        border: 6px solid white !important;
+    @include media("<laptop") {
+      height: calc(100vh - 5.6em);
+    }
+    .sub_con {
+      position: relative;
+      .author_container {
+        width: 20em;
+        margin-left: 7em;
+        @include media("<desktop") {
+          width: 19em;
+        }
+        @include media("<laptop") {
+          width: 17.5em;
+        }
         @include media("<tablet") {
-          visibility: visible;
+          margin-left: 0;
+          width: 17em;
+        }
+        & > div {
+          position: unset !important;
+          overflow: visible !important;
+        }
+        .author_image {
+          visibility: hidden;
+          transform-origin: center;
+          object-fit: contain;
+          width: 90% !important;
+          position: relative !important;
+          height: unset !important;
+          border-radius: 50%;
+          //   visibility: hidden; ///comment
+          box-shadow: rgb(29 24 29) 9px 8px 25px -10px;
+          border: 6px solid white !important;
+          @include media("<tablet") {
+            visibility: visible;
+          }
         }
       }
-    }
-    svg.firstBlob {
-      visibility: hidden;
-      position: absolute;
-      right: -8em;
-      top: -3.5em;
-      width: 41em;
-      z-index: -1;
-      fill: get(blob-color);
-      @include media("<desktop") {
-        width: 39em;
+      svg.firstBlob {
+        visibility: hidden;
+        position: absolute;
+        right: -40%;
+        top: -55%;
+        width: 41em;
+        height: 39em;
+        z-index: -1;
+        fill: get(blob-color);
+        @include media("<desktop") {
+          width: 39em;
+          height: 36em;
+          top: -52%;
+        }
+        @include media("<laptop") {
+          width: 34.5em;
+          height: 31.5em;
+          top: -44%;
+        }
+        //   @include media("<laptop") {
+        //     width: 36em;
+        //     height: 33em;
+        //     top: 0;
+        //   }
+        //   @include media("<1000px") {
+        //     width: 34.5em;
+        //     height: 31.5em;
+        //     top: 0;
+        //   }
       }
-      @include media("<1180px") {
-        width: 38em;
-      }
-    }
-    svg.arrow {
-      position: absolute;
-      left: -13em;
-      top: 46%;
-      width: 22em;
-      z-index: 0;
-      fill: get(arrow-color);
-      @include media("<desktop") {
-        width: 20em;
-        left: -10em;
-      }
-      @include media("<1260px") {
-        width: 19em;
-      }
-      @include media("<1180px") {
-        width: 18em;
+      svg.arrow {
+        position: absolute;
+        left: -55%;
+        top: 46%;
+        width: 22em;
+        z-index: 0;
+        fill: get(arrow-color);
+        @include media("<desktop") {
+          width: 20em;
+          left: -48%;
+        }
+        @include media("<1260px") {
+          width: 19em;
+        }
+        @include media("<1180px") {
+          width: 18em;
+        }
+        @include media("<1000px") {
+          display: none;
+        }
       }
     }
   }

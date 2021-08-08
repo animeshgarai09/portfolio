@@ -8,6 +8,9 @@
   @include media("<desktop") {
     font-size: 0.9em;
   }
+  @include media("<laptop") {
+    min-height: calc(100vh - 5.6em);
+  }
   .shadow_T {
     font-size: 10em;
     font-weight: 700;
@@ -20,7 +23,8 @@
 
     padding-top: 1.7em;
     .path {
-      width: 120vw;
+      width: 107em;
+      height: 19em;
       position: absolute;
       z-index: -1;
       left: -21em;

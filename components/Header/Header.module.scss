@@ -4,15 +4,27 @@
 .main {
   display: flex;
   justify-content: center;
+  position: fixed;
+  z-index: 10;
+  width: 102%;
+  @include media("<laptop") {
+    background: get(lp-nav-bg);
+    backdrop-filter: blur(20px);
+  }
   .container {
     visibility: hidden;
     width: 90vw;
-    padding: 20px;
+    padding: 20px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    z-index: 10;
+    @include media("<laptop") {
+      padding: 10px 0;
+    }
+    @include media("<tablet") {
+      width: 90vw;
+      padding: 20px 10px;
+    }
     .nav_drop {
       display: none;
       #themeSwitcher + label {
@@ -34,13 +46,7 @@
         }
       }
     }
-    @include media("<desktop") {
-      width: 92vw;
-    }
-    @include media("<tablet") {
-      width: 90vw;
-      padding: 20px 10px;
-    }
+
     .logo svg {
       fill: get(primary);
       width: 68px;
