@@ -5,44 +5,16 @@ import Image from 'next/image'
 import iphone from '../../public/svg/iphone.png'
 import DashL from '../../public/svg/dashL.svg'
 import DashR from '../../public/svg/dashR.svg'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
+
 // import Iphone from '../../public/svg/iphone.svg'
 
 const SecondSection = ({ refs }) => {
     useEffect(() => {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#section2',
-                start: 'top top',
-                end: '+=800',
-                // markers: true,
-                pin: true,
-                scrub: 0.5,
-
-            }
-        });
-        tl.to('#iphone_img', {
-            scale: .85,
-            duration: 0.4,
-        }, '-=1').from('.left_dash', {
-            opacity: 0,
-            stagger: 0.1,
-            duration: 0.2,
-            ease: 'power4.out'
-        }, '-=1').from('.right_dash', {
-            opacity: 0,
-            stagger: 0.1,
-            delay: -1.9,
-            duration: 0.2,
-            ease: 'power4.out'
-        }, '-=1').from('.top_cards', {
-            scale: 0.5,
-            autoAlpha: 0,
-            duration: 0.5,
-        }, '-=0.90').from('.bottom_cards', {
-            scale: 0.5,
-            autoAlpha: 0,
-            duration: 0.5,
-        }, '-=0.30')
+        ScrollTrigger.matchMedia({
+            "(min-width:1130px)": () => scrollAnimation(),
+            "(min-width:850px) and (max-width:1129px)": () => scrollAnimation("tablet"),
+        })
     })
     return (
         <section className={styles.container} id='section2' >
@@ -64,11 +36,10 @@ const SecondSection = ({ refs }) => {
                     <Image
                         src={iphone}
                         alt="Picture of iphone"
-                        width={410}
-                        height={650}
+                        layout='fill'
                         quality='75'
-                    // unoptimized='true'
-                    // className={styles.iphone}
+                        // unoptimized='true'
+                        className={styles.image}
                     />
                 </div>
                 <DashR className={styles.dash_path} />
@@ -89,4 +60,40 @@ const SecondSection = ({ refs }) => {
     )
 }
 
+const scrollAnimation = (screen) => {
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '#section2',
+            start: `top ${screen == 'tablet' ? 'top+=60' : 'top'}`,
+            end: '+=800',
+            // markers: true,
+            pin: true,
+            scrub: 0.5,
+            anticipatePin: 1
+        }
+    });
+    tl.to('#iphone_img', {
+        scale: .85,
+        duration: 0.4,
+    }, '-=1').from('.left_dash', {
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.2,
+        ease: 'power4.out'
+    }, '-=1').from('.right_dash', {
+        opacity: 0,
+        stagger: 0.1,
+        delay: -1.9,
+        duration: 0.2,
+        ease: 'power4.out'
+    }, '-=1').from('.top_cards', {
+        scale: 0.5,
+        autoAlpha: 0,
+        duration: 0.5,
+    }, '-=0.90').from('.bottom_cards', {
+        scale: 0.5,
+        autoAlpha: 0,
+        duration: 0.5,
+    }, '-=0.30')
+}
 export default SecondSection

@@ -2,6 +2,7 @@ import { Logo_el, P_link_el } from '../../constants/_animationDuration'
 import styles from './Header.module.scss'
 import Logo from '../../public/svg/logo.svg'
 import useDarkMode from "use-dark-mode";
+import useWindowSize from '../../constants/useWindowSize'
 import Link from 'next/link'
 import gsap from 'gsap'
 import { useEffect, useState } from 'react';
@@ -16,14 +17,20 @@ const Header = () => {
     const [mount, setMount] = useState(false);
     const [mbMenu, setMbMenu] = useState(false)
     console.log(darkMode.value)
-
+    const screen = useWindowSize()
     const openNav = () => {
         // document.body.style.overflowY = 'hidden'
         document.documentElement.style.overflowY = 'hidden'
         setMbMenu(true)
     }
 
+    useEffect(() => {
+        if (screen.width > 1129) {
+            document.documentElement.style.overflowY = 'overlay'
 
+            setMbMenu(false)
+        }
+    }, [screen.width])
     useEffect(() => {
 
         setMount(true)
@@ -82,8 +89,9 @@ const Header = () => {
                         <button onClick={openNav}><CgMenuRightAlt /></button>
                     </div>
                 </div>
-                {mbMenu && <DropNav setMbMenu={setMbMenu} />}
             </div>
+            {mbMenu && <DropNav setMbMenu={setMbMenu} />}
+
         </>
     );
 }
@@ -96,31 +104,33 @@ const DropNav = ({ setMbMenu }) => {
         setMbMenu(false)
     }
     return (
-        <div className={styles.dropNav_con}>
-            <div className={styles.top}>
-                <span><CgMenuRightAlt />Menu</span>
-                <button onClick={closeNav}><CgClose /></button>
-            </div>
-            <div className={styles.nav}>
-                <ul>
-                    <li>About</li>
-                    <li>Career</li>
-                    <li>Skills</li>
-                    <li>Portfolio</li>
-                    <li>Contact</li>
-                </ul>
-                <div className={styles.mb_links}>
-                    <Link href="https://www.linkedin.com/in/animesh-garai-29a5251b4">
-                        <a target="_blank" className='mb-link'><RiLinkedinLine /></a>
-                    </Link>
-                    {/* <Link href="/projects"> */}
-                    <a className='mb-link'><FiGithub /></a>
-                    <a className='mb-link'><RiTwitterLine /></a>
-                    <a className='mb-link'><HiOutlineMail /></a>
+        <div className={styles.wrapper}>
+            <div className={styles.dropNav_con}>
+                <div className={styles.top}>
+                    <span><CgMenuRightAlt />Menu</span>
+                    <button onClick={closeNav}><CgClose /></button>
                 </div>
-            </div>
-            <div className={styles.social}>
+                <div className={styles.nav}>
+                    <ul>
+                        <li>About</li>
+                        <li>Career</li>
+                        <li>Skills</li>
+                        <li>Portfolio</li>
+                        <li>Contact</li>
+                    </ul>
+                    <div className={styles.mb_links}>
+                        <Link href="https://www.linkedin.com/in/animesh-garai-29a5251b4">
+                            <a target="_blank" className='mb-link'><RiLinkedinLine /></a>
+                        </Link>
+                        {/* <Link href="/projects"> */}
+                        <a className='mb-link'><FiGithub /></a>
+                        <a className='mb-link'><RiTwitterLine /></a>
+                        <a className='mb-link'><HiOutlineMail /></a>
+                    </div>
+                </div>
+                <div className={styles.social}>
 
+                </div>
             </div>
         </div>
     )

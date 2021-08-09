@@ -4,68 +4,38 @@ import Guy from '../../public/svg/guy.svg'
 import Blob from '../../public/svg/secBlob.svg'
 import { useEffect } from 'react'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
 
 const ThirdSection = ({ refs, setActiveNav }) => {
     useEffect(() => {
-        setTimeout(() => {
-            let el = document.querySelector('#path_line');
-            let len = el.getTotalLength();
-            el.style.strokeDasharray = len;
-            el.style.strokeDashoffset = len;
-            console.log(len);
+        // setTimeout(() => {
+        let el = document.querySelector('#path_line');
+        let len = el.getTotalLength();
+        el.style.strokeDasharray = len;
+        el.style.strokeDashoffset = len;
+        console.log(len);
 
-            const navAnimation = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '#section3',
-                    start: 'top top+=250',
-                    onEnter: (() => setActiveNav(2)),
-                }
-            })
-            const navAnimationBack = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '#section3',
-                    start: 'bottom top-=350px',
-                    onEnterBack: (() => setActiveNav(2)),
-                    // markers: true
-                }
-            })
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '#section3',
-                    start: 'top top',
-                    end: '+=800',
-                    scrub: 0.5,
-                    pin: true,
-                    // invalidateOnRefresh: true,
-                    anticipatePin: 1
-                }
-            })
+        const navAnimation = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#section3',
+                start: 'top top+=250',
+                onEnter: (() => setActiveNav(2)),
+            }
+        })
+        const navAnimationBack = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#section3',
+                start: 'bottom top-=350px',
+                onEnterBack: (() => setActiveNav(2)),
+                // markers: true
+            }
+        })
 
-            tl.to('#path_line', {
-                strokeDashoffset: 0,
-                duration: 0.7,
-            }, '-=0.4').from('.point', {
-                transformOrigin: 'center',
-                opacity: 0,
-                scale: 0,
-                duration: 0.1,
-                delay: -0.7,
-                stagger: 0.1,
-            }).from('.path_info', {
-                opacity: 0,
-                duration: 0.1,
-                delay: -0.7,
-                stagger: 0.1,
-            }).from('#guy', {
-                y: 200,
-                ease: 'power3.out',
-                duration: 0.5
-            }, '-=.7').from('#secBlob', {
-                opacity: 0,
-                ease: 'power1.in',
-                duration: 0.2,
-            }, '-=.5')
-        }, 100)
+        ScrollTrigger.matchMedia({
+            "(min-width:1130px)": () => scrollAnimation(),
+            "(min-width:850px) and (max-width:1129px)": () => scrollAnimation("tablet"),
+        })
+        // }, 100)
     })
     return (
         <section ref={(el) => refs.current.push(el)} className={styles.container} id='section3'>
@@ -98,5 +68,42 @@ const ThirdSection = ({ refs, setActiveNav }) => {
         </section>
     )
 }
+const scrollAnimation = (screen) => {
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '#section3',
+            start: `top ${screen == 'tablet' ? 'top+=60' : 'top'}`,
+            end: '+=800',
+            scrub: 0.5,
+            pin: true,
+            // invalidateOnRefresh: true,
+            anticipatePin: 1
+        }
+    })
 
+    tl.to('#path_line', {
+        strokeDashoffset: 0,
+        duration: 0.7,
+    }, '-=0.4').from('.point', {
+        transformOrigin: 'center',
+        opacity: 0,
+        scale: 0,
+        duration: 0.1,
+        delay: -0.7,
+        stagger: 0.1,
+    }).from('.path_info', {
+        opacity: 0,
+        duration: 0.1,
+        delay: -0.7,
+        stagger: 0.1,
+    }).from('#guy', {
+        y: 200,
+        ease: 'power3.out',
+        duration: 0.5
+    }, '-=.7').from('#secBlob', {
+        opacity: 0,
+        ease: 'power1.in',
+        duration: 0.2,
+    }, '-=.5')
+}
 export default ThirdSection

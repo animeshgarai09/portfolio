@@ -9,7 +9,7 @@
     font-size: 0.9em;
   }
   @include media("<laptop") {
-    min-height: calc(100vh - 5.6em);
+    min-height: calc(100vh - 2em);
   }
   .shadow_T {
     font-size: 10em;
