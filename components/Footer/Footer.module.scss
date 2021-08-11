@@ -43,11 +43,10 @@
           transparent
         );
       }
-      p:last-of-type {
+      & > p {
         display: none;
         font-size: 0.75em;
-        margin-top: 0.5em;
-        margin-bottom: 0;
+        margin: 0;
         color: #989898;
         @include media("<tablet") {
           display: initial;
@@ -67,15 +66,16 @@
             display: none;
           }
         }
+        @include media("<tablet") {
+          p {
+            color: #fff;
+            margin: 0.4em 0;
+            margin-bottom: 0.2;
+          }
+        }
         p svg {
           color: crimson;
           margin-bottom: -3px;
-        }
-        @include media("<tablet") {
-          p {
-            font-size: 0.9em;
-            color: #fff;
-          }
         }
       }
       .social_con {
@@ -88,7 +88,7 @@
           margin-left: 1em;
         }
         @include media("<tablet") {
-          font-size: 2em;
+          font-size: 2.2em;
           margin-bottom: 0.3em;
           svg:nth-of-type(1) {
             margin: 0;

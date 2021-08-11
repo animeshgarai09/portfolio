@@ -49,8 +49,12 @@ const FifthSection = ({ refs }) => {
     return (
         <section ref={(el) => refs.current.push(el)} className={styles.container} id='section5'>
             <div className={styles.left_col}>
-                <span className={styles.shadow_T}>contact</span>
                 <form onSubmit={(e) => handleSubmit(e)} noValidate autoComplete='off'>
+                    <span className={styles.shadow_T}>contact</span>
+                    {/* <div className={styles.text}> */}
+                    {/* <span>A simple Hello will start the conversation</span> */}
+                    <span className={styles.text}>Always ready to create something amazing. Say HI.</span>
+                    {/* </div> */}
                     <div className={styles.top_con}>
                         <div>
                             <label htmlFor="name">Name</label>

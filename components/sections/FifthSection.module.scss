@@ -8,17 +8,37 @@
   }
   @include media("<laptop") {
     font-size: 0.85em;
-    height: calc(100vh - (80px + 5.5em));
+    height: calc(100vh - (+ 5.5em));
+  }
+  @include media("<tablet") {
+    font-size: 0.85em;
+    height: auto;
   }
   .left_col {
     flex: 1 1 0px;
-
+    @include media("<tablet") {
+      margin-bottom: 2em;
+    }
+    .text {
+      display: block;
+      text-align: center;
+      font-size: 1.3em;
+      color: ivory;
+      margin-bottom: 1em;
+    }
     .shadow_T {
       font-size: 10em;
       font-weight: 700;
       // line-height: 0.6;
       letter-spacing: -5px;
       color: #8c8c8c40;
+      @include media("<tablet") {
+        display: block;
+        text-align: center;
+        font-size: 4em;
+        color: #fffefea3;
+        letter-spacing: -1px;
+      }
     }
 
     .top_con {
@@ -33,12 +53,36 @@
           margin-right: 20px;
         }
       }
+      @include media("<tablet") {
+        height: auto;
+        flex-direction: column;
+        div {
+          flex: none;
+          height: 7em;
+          &:first-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+    form {
+      @include media("<tablet") {
+        padding: 2em 2em;
+        border-radius: 20px;
+        background: linear-gradient(to top left, #320b50, #750fce);
+        box-shadow: #00000040 0px 14px 28px, #00000040 0px 10px 10px;
+      }
     }
     label {
       color: get(primary);
       font-size: 0.9em;
       font-weight: 700;
       margin-left: 10px;
+      @include media("<tablet") {
+        color: rgba(255, 255, 255, 0.582);
+        font-size: 1.1em;
+        font-weight: 600;
+      }
     }
     input,
     textarea {
@@ -55,10 +99,12 @@
       transition: 0.1s;
       &::placeholder {
         color: #c7c7c7;
-        font-size: 0.8em;
       }
       &:focus {
         border: 2px solid get(primary);
+      }
+      @include media("<tablet") {
+        height: 3em;
       }
     }
     textarea {
@@ -96,6 +142,13 @@
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    @include media("<970px") {
+      font-size: 0.9em;
+      margin-left: 7em;
+    }
+    @include media("<tablet") {
+      display: none;
+    }
     .svg_con {
       position: relative;
       svg:nth-of-type(2) {
@@ -113,10 +166,6 @@
           font-size: 0.9em;
         }
       }
-    }
-    @include media("<970px") {
-      font-size: 0.9em;
-      margin-left: 7em;
     }
   }
 }

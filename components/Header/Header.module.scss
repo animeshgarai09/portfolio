@@ -27,11 +27,12 @@
     .nav_drop {
       display: none;
       #themeSwitcher + label {
-        height: 27px;
-        width: 27px;
+        height: 24px;
+        width: 24px;
       }
       @include media("<laptop") {
-        display: initial;
+        display: flex;
+        align-items: center;
       }
       button {
         all: unset;
@@ -73,7 +74,7 @@
     box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.22);
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     border-left: 1px solid rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(25px);
+    backdrop-filter: blur(56px);
     .top {
       padding: 20px;
       display: flex;
@@ -164,7 +165,7 @@
   display: none;
   &:checked + label {
     background-color: transparent;
-    box-shadow: inset 4px -5px 1px 1px get(switcher);
+    box-shadow: inset 8px -7px get(switcher);
   }
   &:not(:checked) + label {
     background: get(switcher);
