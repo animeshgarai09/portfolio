@@ -11,7 +11,7 @@
   }
   @include media("<tablet") {
     flex-direction: column-reverse;
-    margin-top: 5em;
+    min-height: auto;
   }
 
   .left_col {
@@ -28,19 +28,42 @@
       @include media("<laptop") {
         height: calc(100vh - 5.6em);
       }
+      @include media("<tablet") {
+        height: auto;
+      }
     }
     .intro_con {
       @include media("<tablet") {
+        height: calc(100vh - (5.6em + 23em));
+        justify-content: center;
         text-align: center;
         font-size: 0.8em;
+        padding-bottom: 2em;
+      }
+      .shadow_T {
+        @include media("<tablet") {
+          display: none;
+        }
+      }
+      @include media("<tablet", "height<736px") {
+        font-size: 0.7em;
       }
     }
     .about_con {
+      @include media("<tablet") {
+        font-size: 0.8em;
+        text-align: center;
+      }
       .title {
         font-size: 1.5em;
         width: 90%;
         color: get(primary);
         padding-left: 19px;
+        @include media("<tablet") {
+          width: 85%;
+          padding: 0;
+          margin: 1em auto;
+        }
       }
       .quote {
         font-size: 1.7em;
@@ -63,6 +86,11 @@
           content: close-quote;
           margin: -10px 0;
         }
+        @include media("<tablet") {
+          margin-top: 1em;
+          padding: 0;
+          font-size: 1.78em;
+        }
       }
     }
     .shadow_T {
@@ -82,6 +110,8 @@
       visibility: hidden;
       @include media("<tablet") {
         visibility: visible;
+        font-size: 4.8em;
+        line-height: 1.1;
       }
       span {
         color: get(primary);
@@ -89,6 +119,9 @@
         @include media("<1000px") {
           display: block;
           font-size: 1.3em;
+        }
+        @include media("<tablet") {
+          font-size: 1.35em;
         }
       }
     }
@@ -102,6 +135,77 @@
       visibility: hidden;
       @include media("<tablet") {
         visibility: visible;
+        font-size: 2em;
+      }
+    }
+
+    a {
+      font-size: 1.1em;
+      font-weight: 600;
+      margin: 1em 2px;
+      display: inline-block;
+      color: get(primary);
+      width: 4.3em;
+      line-height: 0.3;
+      letter-spacing: 1px;
+      visibility: hidden;
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 2px;
+        background: get(primary);
+        transition: width 0.2s ease-in;
+      }
+      &:hover:after {
+        width: 100%;
+      }
+      @include media("<tablet") {
+        visibility: visible;
+        width: auto;
+        font-size: 1.4em;
+        &:after {
+          visibility: hidden;
+        }
+      }
+    }
+    .scrollDown {
+      margin-left: 10px;
+      margin-top: 5em;
+      visibility: hidden;
+      @include media("<tablet") {
+        visibility: visible;
+        align-self: center;
+        margin-left: 0;
+        margin-top: 0;
+      }
+      span {
+        width: 13px;
+        height: 13px;
+        display: block;
+        border-right: 2px solid get(primary);
+        border-bottom: 2px solid get(primary);
+        transform: rotate(45deg);
+        margin-top: -5px;
+        animation: animate 2s infinite;
+        &:nth-child(2) {
+          animation-delay: -0.2s;
+        }
+        &:nth-child(3) {
+          animation-delay: -0.4s;
+        }
+      }
+    }
+    @keyframes animate {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+        transform: rotate(45deg) translate(10px, 10px);
+      }
+      100% {
+        opacity: 0;
       }
     }
   }
@@ -131,6 +235,9 @@
         @include media("<tablet") {
           margin-left: 0;
           width: 17em;
+        }
+        @include media("<tablet", "height<736px") {
+          width: 15em;
         }
         & > div {
           position: unset !important;
@@ -170,6 +277,9 @@
           width: 34.5em;
           height: 31.5em;
           top: -44%;
+        }
+        @include media("<tablet") {
+          display: none;
         }
         //   @include media("<laptop") {
         //     width: 36em;

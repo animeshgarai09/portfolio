@@ -56,6 +56,15 @@ const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
                     scale: 0,
                     transformOrigin: 'center',
                     ease: 'power3.out',
+                }).from('#resume', .2, {
+                    autoAlpha: 0,
+                    transformOrigin: 'center',
+                    ease: 'power3.out',
+                }).from('#scrollDown', .2, {
+                    autoAlpha: 0,
+                    y: -50,
+                    transformOrigin: 'center',
+                    ease: 'power3.out',
                 })
             }
         }
@@ -77,6 +86,12 @@ const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
                     <h3 className='introSkills'>Front-end Developer</h3>
                     <h3 className='introSkills'>Graphic Creator</h3>
                     <h3 className='introSkills'>UI Designer</h3>
+                    <a href="" id="resume">Resume</a>
+                    <div className={styles.scrollDown} id="scrollDown">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
                 {load && <About navRef={navRef} setActiveNav={setActiveNav} refs={refs} lefRef={leftCol} />}
             </div>
@@ -141,6 +156,18 @@ function About({ refs, lefRef, navRef, setActiveNav }) {
 
 function scrollAnimation(lefRef, screen) {
     console.log(screen)
+    // gsap
+    gsap.to('#scrollDown', {
+        opacity: 0,
+        scrollTrigger: {
+            trigger: '#scrollDown',
+            scrub: true,
+            start: 'top+=70 bottom-=100',
+            // duration: .2,
+            end: '+=50',
+            onLeaveBack: () => document.querySelector('#scrollDown').style.opacity = 1,
+        }
+    })
     const scrollAnimation = gsap.timeline({
         scrollTrigger: {
             trigger: '#rightCol',

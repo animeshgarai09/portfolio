@@ -32,16 +32,16 @@
     .info {
       position: absolute;
       &:nth-of-type(1) {
-        top: 100px;
-        left: 50px;
+        top: 6em;
+        left: 4em;
       }
       &:nth-of-type(2) {
-        top: 100px;
-        left: 350px;
+        top: 6.7em;
+        left: 23.5em;
       }
       &:nth-of-type(3) {
-        top: 330px;
-        left: 330px;
+        top: 21em;
+        left: 22em;
       }
       span {
         font-size: 1.4em;
@@ -63,6 +63,10 @@
     position: absolute;
     right: 7em;
     bottom: 0;
+    @include media("<laptop") {
+      font-size: 0.9em;
+      bottom: -1em;
+    }
     .text {
       position: absolute;
       top: 40%;

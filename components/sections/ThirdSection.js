@@ -32,11 +32,11 @@ const ThirdSection = ({ refs, setActiveNav }) => {
         })
 
         ScrollTrigger.matchMedia({
-            "(min-width:1130px)": () => scrollAnimation(),
-            "(min-width:850px) and (max-width:1129px)": () => scrollAnimation("tablet"),
+            "(min-width:1131px)": () => scrollAnimation(),
+            "(min-width:850px) and (max-width:1130px)": () => scrollAnimation("tablet"),
         })
         // }, 100)
-    })
+    }, [])
     return (
         <section ref={(el) => refs.current.push(el)} className={styles.container} id='section3'>
             <span className={styles.shadow_T}>career</span>
@@ -105,5 +105,6 @@ const scrollAnimation = (screen) => {
         ease: 'power1.in',
         duration: 0.2,
     }, '-=.5')
+    // ScrollTrigger.update()
 }
 export default ThirdSection

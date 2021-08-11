@@ -1,7 +1,7 @@
 @use '../../constants/css/theme' as *;
+@import "../../constants/css/breakpoints.scss";
 
 .container {
-  height: 120px;
   background: #271f2d;
   display: flex;
   justify-content: center;
@@ -11,17 +11,29 @@
     padding: 0 2em;
     .top_row {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       position: relative;
-      padding: 0.8em 0;
+      padding-top: 0.8em;
+      @include media("<tablet") {
+        flex-direction: column-reverse;
+        padding-top: 2em;
+        &:before {
+          content: " ";
+        }
+      }
+      @include media(">tablet") {
+        &:after {
+          content: " ";
+        }
+      }
+      &:before,
       &:after {
-        content: " ";
-        position: absolute;
-        left: -95px;
-        bottom: 0;
         display: block;
-        width: 115%;
+        width: 120%;
+        margin: 0 -4em;
+        margin-top: 0.6em;
         height: 3px;
         background: linear-gradient(
           to right,
@@ -31,8 +43,19 @@
           transparent
         );
       }
+      p:last-of-type {
+        display: none;
+        font-size: 0.75em;
+        margin-top: 0.5em;
+        margin-bottom: 0;
+        color: #989898;
+        @include media("<tablet") {
+          display: initial;
+        }
+      }
       .logo_con {
         display: flex;
+        flex: 1;
         align-items: center;
         color: #fff;
         & > svg {
@@ -40,17 +63,36 @@
           width: 40px;
           height: 40px;
           margin-right: 1em;
+          @include media("<tablet") {
+            display: none;
+          }
         }
         p svg {
           color: crimson;
           margin-bottom: -3px;
         }
+        @include media("<tablet") {
+          p {
+            font-size: 0.9em;
+            color: #fff;
+          }
+        }
       }
       .social_con {
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
         font-size: 1.5em;
         color: #fff;
         svg {
           margin-left: 1em;
+        }
+        @include media("<tablet") {
+          font-size: 2em;
+          margin-bottom: 0.3em;
+          svg:nth-of-type(1) {
+            margin: 0;
+          }
         }
       }
     }
@@ -63,6 +105,21 @@
       font-weight: 600;
       a {
         margin-right: 3em;
+      }
+      @include media("<tablet") {
+        font-size: 0.75em;
+        flex-direction: column-reverse;
+        margin: 1em 0;
+
+        a {
+          margin-right: 2em;
+          &:last-of-type {
+            margin: 0;
+          }
+        }
+        p {
+          display: none;
+        }
       }
     }
   }

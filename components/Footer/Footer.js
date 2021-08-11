@@ -9,6 +9,7 @@ const Footer = () => {
         <div className={styles.container}>
             <div className={styles.footer}>
                 <div className={styles.top_row}>
+                    <p>&#169; copyright reserved 2021</p>
                     <div className={styles.logo_con}>
                         <Logo />
                         <p>Handcrafted with <FaHeart /> by me</p>
