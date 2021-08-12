@@ -16,7 +16,6 @@
 
   .left_col {
     flex: 1 1 0;
-    overflow: hidden;
     @include media("<desktop") {
       font-size: 0.9em;
     }
@@ -164,8 +163,12 @@
         visibility: visible;
         width: auto;
         font-size: 1.4em;
+        text-decoration: underline;
         &:after {
-          visibility: hidden;
+          content: unset;
+        }
+        &:active {
+          opacity: 0.7;
         }
       }
     }

@@ -2,32 +2,40 @@ import styles from './FloatingNav.module.scss'
 import { FloatingNav_el } from '../../constants/_animationDuration'
 import gsap from 'gsap'
 
-import { Tween } from 'react-gsap'
+// import { Tween } from 'react-gsap'
 import { FiSmile, FiFeather, FiLayers, FiMessageCircle, FiFlag, FiArrowUp } from "react-icons/fi";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const FloatingNav = ({ refs, navRef, setActiveNav }) => {
-
     useEffect(() => {
-        // setTimeout(() => {
+        const delay = localStorage.getItem('initAnimation') === false ? .5 : 5
+        const tl = gsap.timeline({})
+        tl.fromTo('#nav_ul', { opacity: 0, transformOrigin: 'center', scale: 0 }, {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            delay: delay,
+            ease: "expo.out(0.9, 0.1)"
+        }).fromTo('.nav_btn', { x: '-10px', opacity: '0' }, {
+            x: '0px',
+            opacity: '1',
+            duration: 1,
+            stagger: 0.1,
+            delay: -0.8,
+            ease: "expo.out(0.9, 0.1)"
+        })
+
         gsap.to("#top", {
             autoAlpha: 1,
             scrollTrigger: {
                 trigger: '#section1',
                 start: 'bottom center+=150',
-                end: '+=1',
+                end: '+=10',
                 scrub: 0.5
-                // markers: true
             }
         })
-        // }, 6400);
     }, [])
     function scroll(el, num) {
-        // console.log(el.parentElement)
-        // el.classlist.add('active')
-        // console.log(num, navRef.current[0].id)
-
-        // setActiveNav(num)
         if (el) {
             let position
             if (el.id == "section3") {
@@ -65,29 +73,13 @@ const FloatingNav = ({ refs, navRef, setActiveNav }) => {
 
 
         <div className={styles.container}>
-            <Tween
-                from={{ opacity: 0, transformOrigin: 'center', scale: 0 }}
-                to={{ opacity: 1, scale: 1 }}
-                delay={FloatingNav_el.delay}
-                duration={FloatingNav_el.duration}
-                ease="expo.out(0.9, 0.1)">
-                <ul >
-                    <Tween
-                        from={{ x: '-10px', opacity: '0' }}
-                        to={{ x: '0px', opacity: '1' }}
-                        delay={FloatingNav_el.delay}
-                        duration={FloatingNav_el.duration}
-                        stagger={0.3}
-                        ease="expo.out(0.9, 0.1)">
-                        {/* <li className="navlink1"><Link to="about" spy={true} smooth={true}><a data-tip="About" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiSmile /></a></Link></li> */}
-                        <li onClick={() => scroll(refs.current[0], 1)}><a id="1" ref={(el) => navRef.current.push(el)} data-tip="About" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiSmile /></a></li>
-                        <li onClick={() => scroll(refs.current[1], 2)}><a id="2" ref={(el) => navRef.current.push(el)} data-tip="Career" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiFlag /></a></li>
-                        <li onClick={() => scroll(refs.current[2], 3)}><a id="3" ref={(el) => navRef.current.push(el)} data-tip="Skills" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiFeather /></a></li>
-                        <li onClick={() => scroll(refs.current[3], 4)}><a id="4" ref={(el) => navRef.current.push(el)} data-tip="Portfolio" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiLayers /></a></li>
-                        <li onClick={() => scroll(refs.current[4], 5)}><a id="5" ref={(el) => navRef.current.push(el)} data-tip="Contact" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiMessageCircle /></a></li>
-                    </Tween>
-                </ul>
-            </Tween>
+            <ul id="nav_ul">
+                <li className='nav_btn' onClick={() => scroll(refs.current[0], 1)}><a id="1" ref={(el) => navRef.current.push(el)} data-tip="About" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiSmile /></a></li>
+                <li className='nav_btn' onClick={() => scroll(refs.current[1], 2)}><a id="2" ref={(el) => navRef.current.push(el)} data-tip="Career" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiFlag /></a></li>
+                <li className='nav_btn' onClick={() => scroll(refs.current[2], 3)}><a id="3" ref={(el) => navRef.current.push(el)} data-tip="Skills" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiFeather /></a></li>
+                <li className='nav_btn' onClick={() => scroll(refs.current[3], 4)}><a id="4" ref={(el) => navRef.current.push(el)} data-tip="Portfolio" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiLayers /></a></li>
+                <li className='nav_btn' onClick={() => scroll(refs.current[4], 5)}><a id="5" ref={(el) => navRef.current.push(el)} data-tip="Contact" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiMessageCircle /></a></li>
+            </ul>
 
             <span id="top" onClick={() => scroll()}><a data-tip="Top" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiArrowUp /></a></span>
         </div>

@@ -2,7 +2,6 @@ import { Logo_el, P_link_el } from '../../constants/_animationDuration'
 import styles from './Header.module.scss'
 import Logo from '../../public/svg/logo.svg'
 import useDarkMode from "use-dark-mode";
-import useWindowSize from '../../constants/useWindowSize'
 import Link from 'next/link'
 import gsap from 'gsap'
 import { useEffect, useState } from 'react';
@@ -12,12 +11,10 @@ import { RiTwitterLine, RiLinkedinLine } from 'react-icons/ri'
 import { FiGithub } from 'react-icons/fi'
 import { CgMenuRightAlt, CgClose } from 'react-icons/cg'
 
-const Header = () => {
+const Header = ({ screen }) => {
     const darkMode = useDarkMode();
     const [mount, setMount] = useState(false);
     const [mbMenu, setMbMenu] = useState(false)
-    console.log(darkMode.value)
-    const screen = useWindowSize()
     const openNav = () => {
         // document.body.style.overflowY = 'hidden'
         document.documentElement.style.overflowY = 'hidden'
@@ -32,30 +29,36 @@ const Header = () => {
         }
     }, [screen.width])
     useEffect(() => {
-
         setMount(true)
-        const tl = gsap.timeline();
+        if (localStorage.getItem('initAnimation') == null) {
+            console.log('in')
+            const tl = gsap.timeline();
+            tl.from('.ad_logo', .4, {
 
-        tl.to('#header_con', { visibility: 'visible', delay: Logo_el.delay - 0.5 }).from('.ad_logo', Logo_el.duration, {
-
-            y: '-40px',
-            autoAlpha: 0,
-            ease: "power4.out"
-
-        }).from('.p-link', P_link_el.duration, {
-            y: '-10px',
-            autoAlpha: 0,
-            delay: -0.7,
-            ease: "power4.out",
-            stagger: 0.2
-        })
+                y: '-40px',
+                autoAlpha: 0,
+                ease: "power4.out",
+                delay: 5
+            }).from('.p-link', .5, {
+                y: '-10px',
+                autoAlpha: 0,
+                delay: -0.7,
+                ease: "power4.out",
+                stagger: 0.2
+            })
+        } else {
+            // document.querySelector('.ad_logo').style.visibility = 'visible'
+            document.querySelectorAll('.p-link, .ad_logo').forEach((el) => {
+                el.style.visibility = 'visible'
+            })
+        }
     }, [])
 
     return (
         <>
             {mount && <ReactTooltip type={darkMode.value ? 'dark' : 'light'} effect='solid' />}
             <div className={styles.main}>
-                <div className={styles.container} id='header_con'>
+                <div className={styles.container}>
                     <div className={styles.logo + ' logo'}>
                         <Logo />
                     </div>

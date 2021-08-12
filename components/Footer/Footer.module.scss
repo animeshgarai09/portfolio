@@ -9,6 +9,9 @@
   .footer {
     width: 90%;
     padding: 0 2em;
+    @include media("<tablet") {
+      padding: 0;
+    }
     .top_row {
       display: flex;
       flex-wrap: wrap;
@@ -21,6 +24,7 @@
         padding-top: 2em;
         &:before {
           content: " ";
+          width: 100% !important;
         }
       }
       @include media(">tablet") {
@@ -88,10 +92,13 @@
           margin-left: 1em;
         }
         @include media("<tablet") {
-          font-size: 2.2em;
-          margin-bottom: 0.3em;
-          svg:nth-of-type(1) {
-            margin: 0;
+          font-size: 2em;
+          margin-bottom: 0.5em;
+          svg {
+            margin-left: 1.2em;
+            &:nth-of-type(1) {
+              margin: 0;
+            }
           }
         }
       }

@@ -40,6 +40,8 @@ $light: (
     inset 6px -6px 12px rgba(255, 255, 255, 0.9),
     inset -6px 6px 15px rgba(216, 216, 216, 0.9),
   ),
+  input-color: #464646,
+  input-bg: #f5f5f5,
 );
 
 $dark: (
@@ -85,6 +87,9 @@ $dark: (
     inset 6px -6px 12px rgba(255, 255, 255, 0.9),
     inset -6px 6px 15px rgba(216, 216, 216, 0.9),
   ),
+  //////////////////////////////////////////////////////
+  input-color: #f5f5f5,
+  input-bg: #2b064b,
 );
 
 @function get($key) {

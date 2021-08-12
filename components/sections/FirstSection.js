@@ -13,65 +13,93 @@ const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
     const leftCol = useRef(null);
 
     useEffect(() => {
+        // const media = window.matchMedia('(max-width:850px)')
 
-        const media = window.matchMedia('(max-width:768px)')
+        // function handleMatch(matches) {
+        //     if (initialAnimation) {
+        //         killTimeline(initialAnimation)
+        //     }
 
-        function handleMatch(matches) {
-            if (initialAnimation) {
-                killTimeline(initialAnimation)
-            }
+        //     if (matches) {
+        //         console.log("matched")
+        //         return
+        //     } else {
+        //         console.log("not matched")
+        if (localStorage.getItem('initAnimation') == null) {
 
-            if (matches) {
-                console.log("matched")
-                return
-            } else {
-                console.log("not matched")
-                initialAnimation = gsap.timeline()
-                initialAnimation.to('#section1', .5, {
-                    css: { visibility: 'visible' }
-                }).from('#introText', 1, {
-                    autoAlpha: 0,
-                    y: 30,
-                    ease: 'power4.out',
-                    skewX: 7,
-                }).from('#author_image', 1.2, {
-                    transformOrigin: 'center',
-                    ease: "back.out(1)",
-                    autoAlpha: 0,
-                    scale: 0.3
-                }).to('.arr_ele', {
-                    duration: 0.5,
-                    delay: -.5,
-                    opacity: 1,
-                    stagger: -0.05,
-                    ease: "elastic.out(1,0.3)",
-                }).from('.introSkills', {
-                    autoAlpha: 0,
-                    x: -100,
-                    ease: 'power4.out',
-                    stagger: 0.5,
-                    duration: 2
-                }).from('#firstBlob', .6, {
-                    autoAlpha: 0,
-                    scale: 0,
-                    transformOrigin: 'center',
-                    ease: 'power3.out',
-                }).from('#resume', .2, {
-                    autoAlpha: 0,
-                    transformOrigin: 'center',
-                    ease: 'power3.out',
-                }).from('#scrollDown', .2, {
-                    autoAlpha: 0,
-                    y: -50,
-                    transformOrigin: 'center',
-                    ease: 'power3.out',
-                })
-            }
+            let initialAnimation = gsap.timeline()
+            initialAnimation.to('#section1', .5, {
+                css: { visibility: 'visible' }
+            }).from('#introText', 1, {
+                autoAlpha: 0,
+                y: 30,
+                ease: 'power4.out',
+                skewX: 7,
+            }).from('.introSkills', {
+                autoAlpha: 0,
+                x: -50,
+                ease: 'power4.out',
+                stagger: 0.5,
+                duration: 1
+            }).from('#author_image', 1, {
+                transformOrigin: 'center',
+                ease: "Elastic.easeOut",
+                autoAlpha: 0,
+                scale: 0.8
+            }).to('.arr_ele', {
+                duration: 0.2,
+                delay: -.3,
+                // opacity: 1,
+                autoAlpha: 1,
+                stagger: -0.03,
+                ease: "expo.easeOut",
+            }).from('#resume', .2, {
+                autoAlpha: 0,
+                transformOrigin: 'center',
+                ease: 'power3.out',
+            }).from('#firstBlob', .8, {
+                autoAlpha: 0,
+                scale: .95,
+                transformOrigin: 'center',
+                ease: 'Elastic.easeOut',
+                delay: .7,
+            }).from('#scrollDown', .2, {
+                autoAlpha: 0,
+                y: -50,
+                transformOrigin: 'center',
+                ease: 'power3.out',
+            })
+        } else {
+            document.querySelectorAll('#introText, .introSkills, #resume, #firstBlob').forEach((el) => {
+                el.style.visibility = 'visible'
+            })
+            let initialAnimation = gsap.timeline()
+            initialAnimation.from('#author_image', 1, {
+                delay: .7,
+                transformOrigin: 'center',
+                ease: "Elastic.easeOut",
+                autoAlpha: 0,
+                scale: 0.7
+            }).to('.arr_ele', {
+                duration: 0.2,
+                delay: -.3,
+                // opacity: 1,
+                autoAlpha: 1,
+                stagger: -0.03,
+                ease: "expo.easeOut",
+            }).from('#scrollDown', .2, {
+                autoAlpha: 0,
+                y: -50,
+                transformOrigin: 'center',
+                ease: 'power3.out',
+            })
         }
+        // }
+        // }
 
-        let initialAnimation
-        media.addListener((e) => handleMatch(e.matches));
-        handleMatch(media.matches);
+        // let initialAnimation
+        // media.addListener((e) => handleMatch(e.matches));
+        // handleMatch(media.matches);
 
 
     }, [])
@@ -86,7 +114,7 @@ const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
                     <h3 className='introSkills'>Front-end Developer</h3>
                     <h3 className='introSkills'>Graphic Creator</h3>
                     <h3 className='introSkills'>UI Designer</h3>
-                    <a href="" id="resume">Resume</a>
+                    <a href="#" id="resume">Resume</a>
                     <div className={styles.scrollDown} id="scrollDown">
                         <span></span>
                         <span></span>
@@ -107,6 +135,7 @@ const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
                             // height={500}
                             // width={500}
                             quality='75'
+                            placeholder='blur'
                             className={styles.author_image}
                             id='author_image'
                         />
@@ -118,7 +147,7 @@ const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
     )
 }
 
-function About({ refs, lefRef, navRef, setActiveNav }) {
+function About({ refs, lefRef, navRef, playAnimation, setActiveNav }) {
 
     useEffect(() => {
         const navAnimation = gsap.timeline({
@@ -179,17 +208,14 @@ function scrollAnimation(lefRef, screen) {
     })
     scrollAnimation.to('.arr_ele', {
         duration: 0.5,
-        opacity: 0,
+        // opacity: 0,
+        autoAlpha: 0,
         stagger: 0.05,
         scrollTrigger: {
             scrub: 0.5,
             end: '+=200',
-
-            onLeaveBack: (() => {
-                document.querySelector('#arr_head').style.opacity = 1
-            })
         },
-        ease: "elastic.out(1,0.3)",
+        ease: "power2.in",
     }).from('.about_animation', {
         opacity: 0,
         scale: .5,

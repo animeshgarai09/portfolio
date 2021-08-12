@@ -9,10 +9,10 @@
   width: 102%;
   @include media("<laptop") {
     background: get(lp-nav-bg);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(30px);
   }
   .container {
-    visibility: hidden;
+    // visibility: hidden;
     width: 90vw;
     padding: 20px 10px;
     display: flex;
@@ -27,8 +27,8 @@
     .nav_drop {
       display: none;
       #themeSwitcher + label {
-        height: 24px;
-        width: 24px;
+        height: 26px;
+        width: 26px;
       }
       @include media("<laptop") {
         display: flex;
@@ -36,7 +36,7 @@
       }
       button {
         all: unset;
-        font-size: 2em;
+        font-size: 2.5em;
         color: get(primary);
         transition: 0.2s;
         cursor: pointer;
@@ -48,6 +48,7 @@
     }
 
     .logo svg {
+      visibility: hidden;
       fill: get(primary);
       width: 68px;
       @include media("<desktop") {
@@ -136,6 +137,7 @@
     display: none;
   }
   a {
+    visibility: hidden;
     display: flex;
     align-items: center;
     height: 50px;

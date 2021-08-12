@@ -43,6 +43,7 @@ body {
   background: get(bg);
   overflow-x: hidden;
   overflow-y: overlay;
+  -webkit-tap-highlight-color: transparent;
 }
 h1,
 h2,
@@ -81,7 +82,8 @@ a {
 }
 
 .arr_ele {
-  opacity: 0;
+  visibility: hidden;
+  //   opacity: 0;
 }
 
 ::-webkit-scrollbar {
