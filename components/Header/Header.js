@@ -1,4 +1,3 @@
-import { Logo_el, P_link_el } from '../../constants/_animationDuration'
 import styles from './Header.module.scss'
 import Logo from '../../public/svg/logo.svg'
 import useDarkMode from "use-dark-mode";
@@ -11,7 +10,7 @@ import { RiTwitterLine, RiLinkedinLine } from 'react-icons/ri'
 import { FiGithub } from 'react-icons/fi'
 import { CgMenuRightAlt, CgClose } from 'react-icons/cg'
 
-const Header = ({ screen }) => {
+const Header = () => {
     const darkMode = useDarkMode();
     const [mount, setMount] = useState(false);
     const [mbMenu, setMbMenu] = useState(false)
@@ -22,12 +21,16 @@ const Header = ({ screen }) => {
     }
 
     useEffect(() => {
-        if (screen.width > 1129) {
-            document.documentElement.style.overflowY = 'overlay'
-
-            setMbMenu(false)
+        const media = window.matchMedia('(max-width:850px)')
+        function handleMatch(matches) {
+            if (!matches) {
+                document.documentElement.style.overflowY = 'overlay'
+                setMbMenu(false)
+            }
         }
-    }, [screen.width])
+        media.addListener((e) => handleMatch(e.matches));
+        handleMatch(media.matches);
+    }, [])
     useEffect(() => {
         setMount(true)
         if (localStorage.getItem('initAnimation') == null) {

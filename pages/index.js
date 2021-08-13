@@ -9,7 +9,7 @@ import ThirdSection from '../components/sections/ThirdSection'
 import FourthSection from '../components/sections/FourthSection'
 import FifthSection from '../components/sections/FifthSection'
 import nav from '../components/FloatingNav/FloatingNav.module.scss'
-import useWindowSize from '../constants/useWindowSize'
+// import useWindowSize from '../constants/useWindowSize'
 import { React, useEffect, useState, useRef } from 'react'
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
     // const [activeNav, setActiveNav] = useState(0)
     const refs = useRef(new Array());
     const navRef = useRef(new Array());
-    const screen = useWindowSize()
+    // const screen = useWindowSize()
 
     function setActiveNav(num) {
         let activeC = nav.active
@@ -43,7 +43,7 @@ export default function Home() {
         <>
             <AppHead title='Home - Portfolio' />
             {/* <Overlay /> */}
-            <Header screen={screen} />
+            <Header />
             {/* <Section/> */}
             <div className={styles.layout__container}>
                 <div className={styles.layout}>
