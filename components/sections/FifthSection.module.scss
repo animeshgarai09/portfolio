@@ -72,7 +72,7 @@
       @include media("<tablet") {
         padding: 2em 2em;
         border-radius: 20px;
-        background: linear-gradient(to top left, #320b50, #750fce);
+        background: get(gradient);
         box-shadow: #00000040 0px 14px 28px, #00000040 0px 10px 10px;
       }
     }

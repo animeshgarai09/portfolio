@@ -13,12 +13,31 @@
   }
   .card {
     padding: 1.4em;
-    margin: 4em 1em;
+    margin: 4em 2em;
     background-color: get(blob-color);
     border-radius: 20px;
+    background: get(gradient);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    color: #fff;
+    .head {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.6em;
+      img {
+        width: 1.7em;
+        margin-right: 1em;
+        margin-top: -5px;
+      }
+      h3 {
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+    }
     p {
       margin: 0;
-      font-size: 1em;
+      font-size: 0.9em;
+      color: #d29bff;
+      letter-spacing: 0.5px;
     }
   }
   .left,
@@ -32,21 +51,11 @@
     width: 100%;
     position: relative;
     .iphone {
-      width: 25em;
       position: absolute;
-      left: -4em;
-      transform: scale(1.1);
-      //   margin-top: -10px;
-      & > div {
-        position: unset !important;
-        overflow: visible !important;
-      }
-      .image {
-        object-fit: contain;
-        width: 100% !important;
-        position: relative !important;
-        height: unset !important;
-      }
+      left: 50%;
+      top: 50%;
+      z-index: 5;
+      transform: translate(-50%, -50%) scale(1.05);
     }
     .dash_path {
       fill: get(primary);
@@ -58,7 +67,7 @@
       transform: translate(0, -50%);
       &:last-child {
         left: unset;
-        right: -46%;
+        right: -51%;
       }
     }
   }

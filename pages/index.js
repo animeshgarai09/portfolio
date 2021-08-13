@@ -33,7 +33,7 @@ export default function Home() {
         if (localStorage.getItem('initAnimation')) {
             setLoad(true);
         } else {
-            // localStorage.setItem('initAnimation', false)
+            localStorage.setItem('initAnimation', false)
             setTimeout(() => {
                 setLoad(true);
             }, 4000);

@@ -1,15 +1,23 @@
+/* eslint-disable @next/next/no-img-element */
 import styles from './SecondSection.module.scss'
 import gsap from 'gsap'
 import { useEffect } from 'react'
-import Image from 'next/image'
-import iphone from '../../public/svg/iphone.png'
 import DashL from '../../public/svg/dashL.svg'
 import DashR from '../../public/svg/dashR.svg'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
-
-// import Iphone from '../../public/svg/iphone.svg'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
+// import seo from '../../public/svg/vector.png'
+import Lottie from 'react-lottie'
+import * as lottieData from '../../public/lottie/laptopGuy.json'
 
 const SecondSection = ({ refs }) => {
+    const lottieOption = {
+        loop: true,
+        autoplay: true,
+        animationData: lottieData,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYmid slice'
+        }
+    }
     useEffect(() => {
         ScrollTrigger.matchMedia({
             "(min-width:1130px)": () => scrollAnimation(),
@@ -20,11 +28,19 @@ const SecondSection = ({ refs }) => {
         <section className={styles.container} id='section2' >
             <div className={styles.left}>
                 <div className={styles.card + ' top_cards'}>
+                    <div className={styles.head}>
+                        <img src='/svg/vector.png' alt="" />
+                        <h3>Elegant design</h3>
+                    </div>
                     <p>Bringing brands image to life
                         through website is art and i love
                         being an artist</p>
                 </div>
                 <div className={styles.card + ' bottom_cards'}>
+                    <div className={styles.head}>
+                        <img src='/svg/responsive.png' alt="" />
+                        <h3>Responsive pages</h3>
+                    </div>
                     <p>Mobile first approch to UI design
                         makes my layouts responsive
                         to any device</p>
@@ -33,24 +49,25 @@ const SecondSection = ({ refs }) => {
             <div className={styles.mid}>
                 <DashL className={styles.dash_path} />
                 <div className={styles.iphone} id='iphone_img'>
-                    <Image
-                        src={iphone}
-                        alt="Picture of iphone"
-                        layout='fill'
-                        quality='75'
-                        // unoptimized='true'
-                        className={styles.image}
-                    />
+                    <Lottie options={lottieOption} height={650} width={650} />
                 </div>
                 <DashR className={styles.dash_path} />
             </div>
             <div className={styles.right} id="right_card_col">
                 <div className={styles.card + ' top_cards'}>
+                    <div className={styles.head}>
+                        <img src='/svg/search.png' alt="" />
+                        <h3>Seo ready</h3>
+                    </div>
                     <p>Creating  elegant design with SEO
                         ready web pages using trending
                         libraries is my priority.</p>
                 </div>
                 <div className={styles.card + ' bottom_cards'}>
+                    <div className={styles.head}>
+                        <img src='/svg/quality.png' alt="" />
+                        <h3>User friendly</h3>
+                    </div>
                     <p>Passionate about making every
                         UI easy to interact for better
                         UX result overall.</p>
@@ -65,7 +82,7 @@ const scrollAnimation = (screen) => {
         scrollTrigger: {
             trigger: '#section2',
             start: `top ${screen == 'tablet' ? 'top+=60' : 'top'}`,
-            end: '+=800',
+            end: '+=600',
             // markers: true,
             pin: true,
             scrub: 0.5,
