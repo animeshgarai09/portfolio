@@ -10,9 +10,9 @@ const ThirdSection = ({ refs, setActiveNav }) => {
     useEffect(() => {
         // setTimeout(() => {
         let el = document.querySelector('#path_line');
-        let len = el.getTotalLength();
-        el.style.strokeDasharray = len;
-        el.style.strokeDashoffset = len;
+        let len = el.getTotalLength()
+        el.style.strokeDasharray = len
+        el.style.strokeDashoffset = len
         console.log(len);
 
         const navAnimation = gsap.timeline({
@@ -48,11 +48,11 @@ const ThirdSection = ({ refs, setActiveNav }) => {
                 </div>
                 <div className={styles.info + ' path_info'}>
                     <span>2016</span>
-                    <p>Started working as a graphic designer at webb4biz</p>
+                    <p>Started working as a graphic designer at <a href='https://www.webb4biz.com'>webb4biz</a></p>
                 </div>
                 <div className={styles.info + ' path_info'}>
                     <span>2018</span>
-                    <p>Joined TCS as Assistant system engineer. Still working</p>
+                    <p>Joined <a href='https://www.tcs.com/'>TCS</a> as Assistant system engineer. Still working</p>
                 </div>
             </div>
             <Guy className={styles.guy} />

@@ -70,7 +70,7 @@ const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
                 ease: 'power3.out',
             })
         } else {
-            document.querySelectorAll('#introText, .introSkills, #resume, #firstBlob').forEach((el) => {
+            document.querySelectorAll('#introText, .introSkills,.arr_ele, #resume, #firstBlob').forEach((el) => {
                 el.style.visibility = 'visible'
             })
             let initialAnimation = gsap.timeline()
@@ -80,13 +80,6 @@ const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
                 ease: "Elastic.easeOut",
                 autoAlpha: 0,
                 scale: 0.7
-            }).to('.arr_ele', {
-                duration: 0.2,
-                delay: -.3,
-                // opacity: 1,
-                autoAlpha: 1,
-                stagger: -0.03,
-                ease: "expo.easeOut",
             }).from('#scrollDown', .2, {
                 autoAlpha: 0,
                 y: -50,

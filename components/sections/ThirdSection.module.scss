@@ -23,33 +23,42 @@
 
     padding-top: 1.7em;
     .path {
-      width: 107em;
-      height: 19em;
+      width: 91em;
+      height: 18em;
       position: absolute;
       z-index: -1;
-      left: -21em;
+      left: -17em;
     }
     .info {
       position: absolute;
       &:nth-of-type(1) {
-        top: 6em;
-        left: 4em;
+        top: 5em;
+        left: 2em;
       }
       &:nth-of-type(2) {
-        top: 6.7em;
-        left: 23.5em;
+        top: 6em;
+        left: 21em;
       }
       &:nth-of-type(3) {
-        top: 21em;
-        left: 22em;
+        top: 20.5em;
+        left: 20.5em;
       }
       span {
         font-size: 1.4em;
         font-weight: 700;
+        color: get(primary);
       }
       p {
         margin: 10px 0;
         width: 13em;
+        color: get(text-color);
+        a {
+          color: get(primary-hover);
+          font-weight: 600;
+          &:hover {
+            color: get(primary-light);
+          }
+        }
       }
     }
   }
@@ -61,7 +70,7 @@
   }
   .secBlob {
     position: absolute;
-    right: 7em;
+    right: 9em;
     bottom: 0;
     @include media("<laptop") {
       font-size: 0.9em;
@@ -70,7 +79,7 @@
     .text {
       position: absolute;
       top: 40%;
-      right: -8em;
+      right: -9em;
       color: get(text-color);
       & > span:nth-of-type(1) {
         font-size: 8em;
@@ -97,6 +106,6 @@
   }
   .blob {
     fill: get(blob-color);
-    width: 18em;
+    width: 16em;
   }
 }

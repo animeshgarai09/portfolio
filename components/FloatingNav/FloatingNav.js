@@ -8,27 +8,23 @@ import { useEffect, useState } from 'react';
 
 const FloatingNav = ({ refs, navRef, setActiveNav }) => {
     useEffect(() => {
-        if (localStorage.getItem('initAnimation') == null) {
-            const delay = localStorage.getItem('initAnimation') === false ? .5 : 5
-            const tl = gsap.timeline({})
-            tl.fromTo('#nav_ul', { opacity: 0, transformOrigin: 'center', scale: 0 }, {
-                opacity: 1,
-                scale: 1,
-                duration: 1,
-                delay: delay,
-                ease: "expo.out(0.9, 0.1)"
-            }).fromTo('.nav_btn', { x: '-10px', opacity: '0' }, {
-                x: '0px',
-                opacity: '1',
-                duration: 1,
-                stagger: 0.1,
-                delay: -0.8,
-                ease: "expo.out(0.9, 0.1)"
-            })
-        } else {
-            // document.querySelector('.ad_logo').style.visibility = 'visible'
-            document.querySelector('#nav_ul').style.opacity = 1
-        }
+        const delay = localStorage.getItem('initAnimation') == null ? 5 : .5
+        const tl = gsap.timeline({})
+        tl.fromTo('#nav_ul', { opacity: 0, transformOrigin: 'center', scale: 0 }, {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            delay: delay,
+            ease: "expo.out(0.9, 0.1)"
+        }).fromTo('.nav_btn', { x: '-10px', opacity: '0' }, {
+            x: '0px',
+            opacity: '1',
+            duration: 1,
+            stagger: 0.1,
+            delay: -0.8,
+            ease: "expo.out(0.9, 0.1)"
+        })
+
         gsap.to("#top", {
             autoAlpha: 1,
             scrollTrigger: {
@@ -43,7 +39,7 @@ const FloatingNav = ({ refs, navRef, setActiveNav }) => {
         if (el) {
             let position
             if (el.id == "section3") {
-
+                console.log(el.parentElement.offsetTop, el.offsetHeight)
                 position = el.parentElement.offsetTop + el.offsetHeight
             } else {
                 position = el.offsetTop
