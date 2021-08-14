@@ -5,17 +5,17 @@ import { useEffect } from 'react'
 import DashL from '../../public/svg/dashL.svg'
 import DashR from '../../public/svg/dashR.svg'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
-// import seo from '../../public/svg/vector.png'
 import Lottie from 'react-lottie'
 import * as lottieData from '../../public/lottie/laptopGuy.json'
-
+import useWindowSize from '../../constants/useWindowSize'
 const SecondSection = ({ refs }) => {
+    const screen = useWindowSize()
     const lottieOption = {
         loop: true,
         autoplay: true,
         animationData: lottieData,
         rendererSettings: {
-            preserveAspectRatio: 'xMidYmid slice'
+            preserveAspectRatio: 'xMidYMid slice'
         }
     }
     useEffect(() => {
@@ -23,9 +23,12 @@ const SecondSection = ({ refs }) => {
             "(min-width:1130px)": () => scrollAnimation(),
             "(min-width:850px) and (max-width:1129px)": () => scrollAnimation("tablet"),
         })
-    })
+    }, [])
     return (
         <section className={styles.container} id='section2' >
+            <div className={styles.mob_lottie} id='iphone_img'>
+                {screen.width < 850 && <Lottie options={lottieOption} height={500} width={500} />}
+            </div>
             <div className={styles.left}>
                 <div className={styles.card + ' top_cards'}>
                     <div className={styles.head}>
@@ -48,8 +51,8 @@ const SecondSection = ({ refs }) => {
             </div>
             <div className={styles.mid}>
                 <DashL className={styles.dash_path} />
-                <div className={styles.iphone} id='iphone_img'>
-                    <Lottie options={lottieOption} height={650} width={650} />
+                <div className={styles.lottie} id='iphone_img'>
+                    {screen.width > 849 && <Lottie options={lottieOption} height={650} width={650} />}
                 </div>
                 <DashR className={styles.dash_path} />
             </div>

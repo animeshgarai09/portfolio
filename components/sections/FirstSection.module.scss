@@ -12,6 +12,7 @@
   @include media("<tablet") {
     flex-direction: column-reverse;
     min-height: auto;
+    margin-bottom: 0 !important;
   }
 
   .left_col {

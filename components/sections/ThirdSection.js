@@ -5,7 +5,6 @@ import Blob from '../../public/svg/secBlob.svg'
 import { useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
-
 const ThirdSection = ({ refs, setActiveNav }) => {
     useEffect(() => {
         // setTimeout(() => {
@@ -55,6 +54,7 @@ const ThirdSection = ({ refs, setActiveNav }) => {
                     <p>Joined <a href='https://www.tcs.com/'>TCS</a> as Assistant system engineer. Still working</p>
                 </div>
             </div>
+
             <Guy className={styles.guy} />
             <div className={styles.secBlob} id="secBlob">
                 <div className={styles.text}>
@@ -73,7 +73,7 @@ const scrollAnimation = (screen) => {
         scrollTrigger: {
             trigger: '#section3',
             start: `top ${screen == 'tablet' ? 'top+=60' : 'top'}`,
-            end: '+=800',
+            end: '+=630',
             scrub: 0.5,
             pin: true,
             // invalidateOnRefresh: true,

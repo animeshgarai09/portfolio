@@ -3,6 +3,7 @@
 
 .container {
   display: flex;
+  flex-wrap: wrap;
   min-height: 100vh;
   margin-bottom: 8em;
   @include media("<desktop") {
@@ -19,6 +20,10 @@
     background: get(gradient);
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
     color: #fff;
+    @include media("<tablet") {
+      font-size: 1.3em;
+      margin: 1em 0.5em;
+    }
     .head {
       display: flex;
       align-items: center;
@@ -48,10 +53,18 @@
     flex-direction: column;
     justify-content: center;
   }
+  .mob_lottie {
+    width: 100%;
+    display: flex;
+  }
+
   .mid {
     width: 100%;
     position: relative;
-    .iphone {
+    @include media("<tablet") {
+      display: none;
+    }
+    .lottie {
       position: absolute;
       left: 50%;
       top: 50%;

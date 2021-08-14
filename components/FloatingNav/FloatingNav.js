@@ -28,10 +28,10 @@ const FloatingNav = ({ refs, navRef, setActiveNav }) => {
         gsap.to("#top", {
             autoAlpha: 1,
             scrollTrigger: {
-                trigger: '#section1',
-                start: 'bottom center+=150',
-                end: '+=10',
-                scrub: 0.5
+                trigger: 'body',
+                start: 'top+=400 top',
+                end: '+=20',
+                scrub: true,
             }
         })
     }, [])
