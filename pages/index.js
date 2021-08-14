@@ -30,8 +30,11 @@ export default function Home() {
         }
     }
     useEffect(() => {
+        document.body.style.transition = '.2s'
         if (localStorage.getItem('initAnimation')) {
-            setLoad(true);
+            setTimeout(() => {
+                setLoad(true);
+            }, 500)
         } else {
             localStorage.setItem('initAnimation', false)
             setTimeout(() => {
