@@ -4,11 +4,11 @@
             d="M13 63.6714C114.666 38.3121 311.781 8.51669 431 6.99991C588.2 4.99991 491 120 491 120C396.5 251 475 313.5 812 157C994.734 72.1398 1191.34 39.4267 1309.5 29.3171"
             stroke="url(#paint0_linear)" stroke-width="11" stroke-linecap="round" />
     </g>
-    <rect class='point' x="261" y="4.99976" width="26" height="26" rx="13" fill="#A815DE" stroke="white"
+    <rect class='point' x="261" y="4.99976" width="26" height="26" rx="13" fill="white" stroke="#6e22b1"
         stroke-width="8" />
-    <rect class='point' x="505" y="58.9999" width="26" height="26" rx="13" fill="#A815DE" stroke="white"
+    <rect class='point' x="505" y="58.9999" width="26" height="26" rx="13" fill="white" stroke="#6e22b1"
         stroke-width="8" />
-    <rect class='point' x="539" y="233" width="26" height="26" rx="13" fill="#A815DE" stroke="white" stroke-width="8" />
+    <rect class='point' x="539" y="233" width="26" height="26" rx="13" fill="white" stroke="#6e22b1" stroke-width="8" />
     <defs>
         <filter id="filter0_d" x="0.498718" y="0.474121" width="1321.5" height="267.474" filterUnits="userSpaceOnUse"
             color-interpolation-filters="sRGB">

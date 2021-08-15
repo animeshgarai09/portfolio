@@ -8,6 +8,8 @@ import SecondSection from '../components/sections/SecondSection'
 import ThirdSection from '../components/sections/ThirdSection'
 import FourthSection from '../components/sections/FourthSection'
 import FifthSection from '../components/sections/FifthSection'
+import SixthSection from '../components/sections/SixthSection'
+import SeventhSection from '../components/sections/SeventhSection'
 import nav from '../components/FloatingNav/FloatingNav.module.scss'
 // import useWindowSize from '../constants/useWindowSize'
 import { React, useEffect, useState, useRef } from 'react'
@@ -61,6 +63,8 @@ export default function Home() {
                         {load && <ThirdSection refs={refs} setActiveNav={setActiveNav} />}
                         {load && <FourthSection refs={refs} setActiveNav={setActiveNav} />}
                         {load && <FifthSection refs={refs} setActiveNav={setActiveNav} />}
+                        {load && <SixthSection refs={refs} setActiveNav={setActiveNav} />}
+                        {load && <SeventhSection refs={refs} setActiveNav={setActiveNav} />}
                     </div>
                 </div>
             </div>

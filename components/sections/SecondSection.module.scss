@@ -3,7 +3,6 @@
 
 .container {
   display: flex;
-  flex-wrap: wrap;
   min-height: 100vh;
   margin-bottom: 8em;
   @include media("<desktop") {
@@ -11,6 +10,9 @@
   }
   @include media("<laptop") {
     min-height: calc(100vh - 5.6em);
+  }
+  @include media("<tablet") {
+    flex-wrap: wrap;
   }
   .card {
     padding: 1.4em;

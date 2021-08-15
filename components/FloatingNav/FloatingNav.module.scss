@@ -4,6 +4,7 @@
 .container {
   position: fixed;
   z-index: 12;
+  margin-top: 1.3em;
   @include media("<laptop") {
     display: none;
   }

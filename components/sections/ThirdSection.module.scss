@@ -16,11 +16,15 @@
     font-weight: 700;
     line-height: 0.7;
     letter-spacing: -5px;
-    color: #8c8c8c40;
+    color: get(block-text);
+    @include media("<tablet") {
+      font-size: 7.7em;
+      display: block;
+      text-align: center;
+    }
   }
   .path_con {
     position: relative;
-
     padding-top: 1.7em;
     .path {
       width: 91em;
@@ -28,20 +32,45 @@
       position: absolute;
       z-index: -1;
       left: -17em;
+      @include media("<tablet") {
+        display: none;
+      }
+    }
+    .pathMB {
+      position: absolute;
+      left: -2.5em;
+      @include media(">tablet") {
+        display: none;
+      }
     }
     .info {
       position: absolute;
+      @include media("<tablet") {
+        font-size: 1.2em;
+      }
       &:nth-of-type(1) {
         top: 5em;
         left: 2em;
+        @include media("<tablet") {
+          top: 8em;
+          left: 8em;
+        }
       }
       &:nth-of-type(2) {
         top: 6em;
         left: 21em;
+        @include media("<tablet") {
+          top: 17.9em;
+          left: 8em;
+        }
       }
       &:nth-of-type(3) {
         top: 20.5em;
         left: 20.5em;
+        @include media("<tablet") {
+          top: 27.5em;
+          left: 8em;
+        }
       }
       span {
         font-size: 1.4em;
@@ -67,14 +96,24 @@
     position: absolute;
     bottom: 1em;
     left: 0;
+    @include media("<tablet") {
+      width: 12em;
+      bottom: -13em;
+    }
   }
   .secBlob {
     position: absolute;
     right: 9em;
     bottom: 0;
+    font-style: italic;
     @include media("<laptop") {
       font-size: 0.9em;
       bottom: -1em;
+    }
+    @include media("<tablet") {
+      font-size: 0.8em;
+      bottom: 5em;
+      width: 10em;
     }
     .text {
       position: absolute;
@@ -88,13 +127,18 @@
         line-height: 0.4;
         left: -84px;
         color: get(primary);
+        @include media("<tablet") {
+          left: -57px;
+        }
       }
       & > span:nth-of-type(2) {
         font-size: 2em;
         font-weight: 600;
         right: 0;
-        margin-left: -13px;
         display: block;
+        // @include media("<tablet") {
+        //   margin-left: -8px;
+        // }
       }
       & > span:nth-of-type(3) {
         font-size: 2em;
@@ -107,5 +151,8 @@
   .blob {
     fill: get(blob-color);
     width: 16em;
+    @include media("<laptop") {
+      display: none;
+    }
   }
 }

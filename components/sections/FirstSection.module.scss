@@ -100,6 +100,9 @@
       font-weight: 700;
       letter-spacing: -5px;
       color: get(block-text);
+      @include media("<tablet") {
+        font-size: 8.7em;
+      }
     }
     h1 {
       position: relative;

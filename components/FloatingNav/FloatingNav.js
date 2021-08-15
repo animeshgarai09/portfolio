@@ -4,6 +4,8 @@ import gsap from 'gsap'
 
 // import { Tween } from 'react-gsap'
 import { FiSmile, FiFeather, FiLayers, FiMessageCircle, FiFlag, FiArrowUp } from "react-icons/fi";
+import { HiOutlinePencil } from "react-icons/hi";
+
 import { useEffect, useState } from 'react';
 
 const FloatingNav = ({ refs, navRef, setActiveNav }) => {
@@ -78,7 +80,8 @@ const FloatingNav = ({ refs, navRef, setActiveNav }) => {
                 <li className='nav_btn' onClick={() => scroll(refs.current[1], 2)}><a id="2" ref={(el) => navRef.current.push(el)} data-tip="Career" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiFlag /></a></li>
                 <li className='nav_btn' onClick={() => scroll(refs.current[2], 3)}><a id="3" ref={(el) => navRef.current.push(el)} data-tip="Skills" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiFeather /></a></li>
                 <li className='nav_btn' onClick={() => scroll(refs.current[3], 4)}><a id="4" ref={(el) => navRef.current.push(el)} data-tip="Portfolio" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiLayers /></a></li>
-                <li className='nav_btn' onClick={() => scroll(refs.current[4], 5)}><a id="5" ref={(el) => navRef.current.push(el)} data-tip="Contact" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiMessageCircle /></a></li>
+                <li className='nav_btn' onClick={() => scroll(refs.current[4], 5)}><a id="5" ref={(el) => navRef.current.push(el)} data-tip="Blog" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><HiOutlinePencil /></a></li>
+                <li className='nav_btn' onClick={() => scroll(refs.current[5], 6)}><a id="6" ref={(el) => navRef.current.push(el)} data-tip="Contact" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiMessageCircle /></a></li>
             </ul>
 
             <span id="top" onClick={() => scroll()}><a data-tip="Top" data-class='nav_tip' data-place='right' data-offset='{"right":6}'><FiArrowUp /></a></span>

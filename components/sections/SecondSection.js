@@ -26,9 +26,9 @@ const SecondSection = ({ refs }) => {
     }, [])
     return (
         <section className={styles.container} id='section2' >
-            <div className={styles.mob_lottie} id='iphone_img'>
-                {screen.width < 850 && <Lottie options={lottieOption} height={500} width={500} />}
-            </div>
+            {screen.width < 850 && <div className={styles.mob_lottie} id='iphone_img'>
+                <Lottie options={lottieOption} height={500} width={500} />
+            </div>}
             <div className={styles.left}>
                 <div className={styles.card + ' top_cards'}>
                     <div className={styles.head}>

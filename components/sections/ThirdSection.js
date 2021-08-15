@@ -1,11 +1,13 @@
 import styles from './ThirdSection.module.scss'
 import Path from '../../public/svg/path.svg'
+import PathMB from '../../public/svg/path_mob.svg'
 import Guy from '../../public/svg/guy.svg'
 import Blob from '../../public/svg/secBlob.svg'
 import { useEffect } from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 const ThirdSection = ({ refs, setActiveNav }) => {
+
     useEffect(() => {
         // setTimeout(() => {
         let el = document.querySelector('#path_line');
@@ -40,6 +42,7 @@ const ThirdSection = ({ refs, setActiveNav }) => {
         <section ref={(el) => refs.current.push(el)} className={styles.container} id='section3'>
             <span className={styles.shadow_T}>career</span>
             <div className={styles.path_con}>
+                <PathMB className={styles.pathMB} />
                 <Path className={styles.path} />
                 <div className={styles.info + ' path_info'}>
                     <span>2015</span>
@@ -88,7 +91,7 @@ const scrollAnimation = (screen) => {
         transformOrigin: 'center',
         opacity: 0,
         scale: 0,
-        duration: 0.1,
+        duration: 0.05,
         delay: -0.7,
         stagger: 0.1,
     }).from('.path_info', {
@@ -98,13 +101,17 @@ const scrollAnimation = (screen) => {
         stagger: 0.1,
     }).from('#guy', {
         y: 200,
-        ease: 'power3.out',
+        opacity: 0,
+        ease: 'power3.easeOut',
         duration: 0.5
     }, '-=.7').from('#secBlob', {
         opacity: 0,
-        ease: 'power1.in',
+        scale: .8,
+        x: 150,
+        ease: 'power4.easeOut',
         duration: 0.2,
     }, '-=.5')
     // ScrollTrigger.update()
+    return tl
 }
 export default ThirdSection
