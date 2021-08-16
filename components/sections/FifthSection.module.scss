@@ -6,8 +6,20 @@
   .shadow_T {
     font-size: 10em;
     font-weight: 700;
-    line-height: 0.7;
+    line-height: 0.9;
     letter-spacing: -5px;
     color: get(block-text);
+  }
+  div {
+    margin-top: 3em;
+    h1 {
+      font-size: 6em;
+      color: get(block-text);
+    }
+    h3 {
+      font-size: 7em;
+      font-style: italic;
+      color: #35353573;
+    }
   }
 }

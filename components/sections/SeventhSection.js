@@ -1,12 +1,23 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './SeventhSection.module.scss'
 import SecGuy from '../../public/svg/secGuy.svg'
 import Bubble from '../../public/svg/bubble.svg'
-const SeventhSection = ({ refs }) => {
+import gsap from 'gsap'
+const SeventhSection = ({ refs, setActiveNav }) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
     const [validationState, setValidationState] = useState([false, false, false])
+
+    useEffect(() => {
+        const navAnimation = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#section7',
+                start: 'top top+=250',
+                onEnter: (() => setActiveNav(6)),
+            }
+        })
+    })
     const handleSubmit = (e) => {
         e.preventDefault();
         let regName = /^[a-zA-Z]{3,}(?: [a-zA-Z]+){0,2}$/;
@@ -47,7 +58,7 @@ const SeventhSection = ({ refs }) => {
         // }
     }
     return (
-        <section ref={(el) => refs.current.push(el)} className={styles.container} id='section5'>
+        <section ref={(el) => refs.current.push(el)} className={styles.container} id='section7'>
             <div className={styles.left_col}>
                 <form onSubmit={(e) => handleSubmit(e)} noValidate autoComplete='off'>
                     <span className={styles.shadow_T}>contact</span>

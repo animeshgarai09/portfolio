@@ -23,7 +23,8 @@ export default function Home() {
 
     function setActiveNav(num) {
         let activeC = nav.active
-        for (let i = 0; i < 5; i++) {
+        console.log(navRef)
+        for (let i = 0; i < 6; i++) {
             if (num == navRef.current[i].id) {
                 navRef.current[i].classList.add(activeC)
             } else if (navRef.current[i].classList) {

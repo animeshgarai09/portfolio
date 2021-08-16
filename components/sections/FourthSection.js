@@ -39,7 +39,8 @@ const FourthSection = ({ refs, setActiveNav }) => {
         const navAnimationBack = gsap.timeline({
             scrollTrigger: {
                 trigger: '#section4',
-                start: 'bottom top-=350px',
+                start: 'bottom center',
+                end: 'bottom center',
                 // start: 'bottom top',
                 onEnterBack: (() => setActiveNav(3)),
                 // markers: true

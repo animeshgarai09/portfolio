@@ -14,7 +14,8 @@ const FifthSection = ({ refs, setActiveNav }) => {
         const navAnimationBack = gsap.timeline({
             scrollTrigger: {
                 trigger: '#section5',
-                start: 'bottom top-=350px',
+                start: 'bottom center',
+                end: 'bottom center',
                 onEnterBack: (() => setActiveNav(4)),
                 // markers: true
             }
@@ -23,6 +24,10 @@ const FifthSection = ({ refs, setActiveNav }) => {
     return (
         <section ref={(el) => refs.current.push(el)} className={styles.container} id='section5'>
             <span className={styles.shadow_T}>portfolio</span>
+            <div>
+                <h1>New projects are cooking.</h1>
+                <h3>#staytuned</h3>
+            </div>
         </section>
     )
 }
