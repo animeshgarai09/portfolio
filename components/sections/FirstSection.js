@@ -294,8 +294,8 @@ function mbScrollAnimation() {
         stagger: 0.3,
         scrollTrigger: {
             trigger: '#ab_con',
-            start: 'top bottom-=200',
-            end: 'center bottom-=200',
+            start: 'top bottom-=250',
+            end: 'center bottom-=250',
             scrub: 1,
         }
     })

@@ -63,12 +63,11 @@
 .wrapper {
   display: flex;
   justify-content: center;
-  visibility: hidden;
   //   align-items: center;
-  @include media(">tablet") {
-    visibility: hidden;
-  }
+
   .dropNav_con {
+    visibility: hidden;
+
     position: fixed;
     min-height: calc(var(--vh, 1vh) * 96);
     width: 94vw;
@@ -82,6 +81,10 @@
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     border-left: 1px solid rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(56px);
+
+    @include media(">tablet") {
+      visibility: hidden;
+    }
     .top {
       padding: 20px;
       display: flex;
