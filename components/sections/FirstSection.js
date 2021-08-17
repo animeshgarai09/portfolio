@@ -9,11 +9,11 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
 import { killTimeline } from '../../constants/HelperFunctions'
 
 
-const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
+const FirstSection = ({ refs, load, navRef, mobNavRef, setActiveNav }) => {
     const leftCol = useRef(null);
 
     useEffect(() => {
-        // const media = window.matchMedia('(max-width:850px)')
+        const media = window.matchMedia('(max-width:850px)')
 
         // function handleMatch(matches) {
         //     if (initialAnimation) {
@@ -25,19 +25,19 @@ const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
         //         return
         //     } else {
         //         console.log("not matched")
-        if (localStorage.getItem('initAnimation') == null) {
-
+        if (media.matches) {
+            // if (localStorage.getItem('initAnimation') == null) {
             let initialAnimation = gsap.timeline()
-            initialAnimation.to('#section1', .5, {
-                css: { visibility: 'visible' }
-            }).from('#introText', 1, {
+            initialAnimation.set('#leftCol', { y: -200, })
+            initialAnimation.from('#introText', 1, {
                 autoAlpha: 0,
                 y: 30,
                 ease: 'power4.out',
                 skewX: 7,
+                delay: .5
             }).from('.introSkills', {
                 autoAlpha: 0,
-                x: -50,
+                y: -20,
                 ease: 'power4.out',
                 stagger: 0.5,
                 duration: 1
@@ -45,47 +45,88 @@ const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
                 transformOrigin: 'center',
                 ease: "Elastic.easeOut",
                 autoAlpha: 0,
-                scale: 0.8
-            }).to('.arr_ele', {
-                duration: 0.2,
-                delay: -.3,
-                // opacity: 1,
-                autoAlpha: 1,
-                stagger: -0.03,
-                ease: "expo.easeOut",
+                scale: 0.8,
+                delay: .5
+            }).to('#leftCol', {
+                y: 0,
+                delay: -1,
+                ease: "power4.out"
             }).from('#resume', .2, {
                 autoAlpha: 0,
                 transformOrigin: 'center',
                 ease: 'power3.out',
-            }).from('#firstBlob', .8, {
-                autoAlpha: 0,
-                scale: .95,
-                transformOrigin: 'center',
-                ease: 'Elastic.easeOut',
-                delay: .7,
             }).from('#scrollDown', .2, {
                 autoAlpha: 0,
-                y: -50,
+                y: -30,
                 transformOrigin: 'center',
                 ease: 'power3.out',
             })
+            // } else {
+            //     console.log('mob els')
+            // }
         } else {
-            document.querySelectorAll('#introText, .introSkills,.arr_ele, #resume, #firstBlob').forEach((el) => {
-                el.style.visibility = 'visible'
-            })
-            let initialAnimation = gsap.timeline()
-            initialAnimation.from('#author_image', 1, {
-                delay: .7,
-                transformOrigin: 'center',
-                ease: "Elastic.easeOut",
-                autoAlpha: 0,
-                scale: 0.7
-            }).from('#scrollDown', .2, {
-                autoAlpha: 0,
-                y: -50,
-                transformOrigin: 'center',
-                ease: 'power3.out',
-            })
+            if (localStorage.getItem('initAnimation') == null) {
+
+                let initialAnimation = gsap.timeline()
+                initialAnimation.to('#section1', .5, {
+                    css: { visibility: 'visible' }
+                }).from('#introText', 1, {
+                    autoAlpha: 0,
+                    y: 30,
+                    ease: 'power4.out',
+                    skewX: 15,
+                }).from('.introSkills', {
+                    autoAlpha: 0,
+                    x: -50,
+                    ease: 'power4.out',
+                    stagger: 0.5,
+                    duration: 1
+                }).from('#author_image', 1, {
+                    transformOrigin: 'center',
+                    ease: "Elastic.easeOut",
+                    autoAlpha: 0,
+                    scale: 0.8
+                }).to('.arr_ele', {
+                    duration: 0.2,
+                    delay: -.3,
+                    // opacity: 1,
+                    autoAlpha: 1,
+                    stagger: -0.03,
+                    ease: "expo.easeOut",
+                }).from('#resume', .2, {
+                    autoAlpha: 0,
+                    transformOrigin: 'center',
+                    ease: 'power3.out',
+                }).from('#firstBlob', .8, {
+                    autoAlpha: 0,
+                    scale: .95,
+                    transformOrigin: 'center',
+                    ease: 'Elastic.easeOut',
+                    delay: .7,
+                }).from('#scrollDown', .2, {
+                    autoAlpha: 0,
+                    y: -50,
+                    transformOrigin: 'center',
+                    ease: 'power3.out',
+                })
+            } else {
+                document.querySelectorAll('#introText, .introSkills,.arr_ele, #resume, #firstBlob').forEach((el) => {
+                    el.style.visibility = 'visible'
+                })
+                let initialAnimation = gsap.timeline()
+                initialAnimation.from('#author_image', 1, {
+                    delay: .7,
+                    transformOrigin: 'center',
+                    ease: "Elastic.easeOut",
+                    autoAlpha: 0,
+                    scale: 0.7
+                }).from('#scrollDown', .2, {
+                    autoAlpha: 0,
+                    y: -50,
+                    transformOrigin: 'center',
+                    ease: 'power3.out',
+                })
+            }
         }
         // }
         // }
@@ -114,7 +155,7 @@ const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
                         <span></span>
                     </div>
                 </div>
-                {load && <About navRef={navRef} setActiveNav={setActiveNav} refs={refs} lefRef={leftCol} />}
+                {load && <About navRef={navRef} setActiveNav={setActiveNav} refs={refs} mobNavRef={mobNavRef} lefRef={leftCol} />}
             </div>
             <div className={styles.right_col} id="rightCol">
                 <div className={styles.sub_con}>
@@ -140,7 +181,7 @@ const FirstSection = ({ refs, load, navRef, setActiveNav }) => {
     )
 }
 
-function About({ refs, lefRef, navRef, playAnimation, setActiveNav }) {
+function About({ refs, lefRef, navRef, mobNavRef, setActiveNav }) {
 
     useEffect(() => {
         const navAnimation = gsap.timeline({
@@ -148,7 +189,10 @@ function About({ refs, lefRef, navRef, playAnimation, setActiveNav }) {
                 trigger: '#ab_con',
                 start: 'top top+=250',
                 onEnter: (() => setActiveNav(1)),
-                onLeaveBack: (() => navRef.removeAttribute('class'))
+                onLeaveBack: (() => {
+                    navRef.removeAttribute('class')
+                    mobNavRef.removeAttribute('class')
+                })
             }
         })
         const navAnimationBack = gsap.timeline({
@@ -163,6 +207,7 @@ function About({ refs, lefRef, navRef, playAnimation, setActiveNav }) {
         ScrollTrigger.matchMedia({
             "(min-width:1130px)": () => scrollAnimation(lefRef),
             "(min-width:850px) and (max-width:1129px)": () => scrollAnimation(lefRef, "tablet"),
+            "(max-width:849px)": () => mbScrollAnimation(),
         })
 
     }, [])
@@ -196,7 +241,7 @@ function scrollAnimation(lefRef, screen) {
             start: `top ${screen == 'tablet' ? 'top+=90' : 'top'}`,
             end: `+=${lefRef.current.offsetHeight} bottom`,
             pin: true,
-            scrub: 0.5,
+            scrub: 1,
         }
     })
     scrollAnimation.to('.arr_ele', {
@@ -205,7 +250,7 @@ function scrollAnimation(lefRef, screen) {
         autoAlpha: 0,
         stagger: 0.05,
         scrollTrigger: {
-            scrub: 0.5,
+            scrub: 1,
             end: '+=200',
         },
         ease: "power2.in",
@@ -219,7 +264,7 @@ function scrollAnimation(lefRef, screen) {
             start: 'top center',
 
             end: 'center center',
-            scrub: 0.5,
+            scrub: 1,
 
         }
     })
@@ -233,9 +278,26 @@ function scrollAnimation(lefRef, screen) {
                 start: 'bottom bottom',
 
                 end: '+=100',
-                scrub: 0.5,
+                scrub: 1,
             }
         })
     }
+}
+
+
+function mbScrollAnimation() {
+    const scrollAnimation = gsap.timeline()
+    scrollAnimation.from('.about_animation', {
+        autoAlpha: 0,
+        scale: .8,
+        yPercent: 100,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: '#ab_con',
+            start: 'top bottom-=200',
+            end: 'center bottom-=200',
+            scrub: 1,
+        }
+    })
 }
 export default FirstSection

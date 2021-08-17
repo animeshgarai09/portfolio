@@ -45,6 +45,9 @@ body {
   overflow-y: overlay;
   -webkit-tap-highlight-color: transparent;
 }
+#main {
+  overflow-x: hidden;
+}
 h1,
 h2,
 h3,
@@ -158,4 +161,15 @@ a {
   to {
     transform: rotate(359deg);
   }
+}
+
+#nav_ul .active {
+  background: get(primary);
+  color: #ffffff;
+  &:hover {
+    background: get(primary);
+  }
+}
+#mb_nav_ul .active {
+  color: violet;
 }

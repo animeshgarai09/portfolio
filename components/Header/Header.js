@@ -9,58 +9,101 @@ import { HiOutlineMail } from 'react-icons/hi'
 import { RiTwitterLine, RiLinkedinLine } from 'react-icons/ri'
 import { FiGithub } from 'react-icons/fi'
 import { CgMenuRightAlt, CgClose } from 'react-icons/cg'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 
-const Header = () => {
+const Header = ({ refs, mobNavRef }) => {
     const darkMode = useDarkMode();
     const [mount, setMount] = useState(false);
-    const [mbMenu, setMbMenu] = useState(false)
+
     const openNav = () => {
         // document.body.style.overflowY = 'hidden'
         document.documentElement.style.overflowY = 'hidden'
-        setMbMenu(true)
+        // setMbMenu(true)
+        gsap.set('.mb_nav_btn', { clearProps: "all" })
+        const mbAnimation = gsap.timeline()
+        mbAnimation.to('#mb_wrapper', {
+            scale: 1,
+            autoAlpha: 1,
+            ease: 'power4.out',
+            duration: .3
+        }).from('.mb_nav_btn', {
+            x: -20,
+            autoAlpha: 0,
+            duration: 1,
+            stagger: 0.1,
+            delay: -0.3,
+            ease: "expo.out(0.9, 0.1)"
+        })
     }
-
     useEffect(() => {
         const media = window.matchMedia('(max-width:850px)')
         function handleMatch(matches) {
             if (!matches) {
                 document.documentElement.style.overflowY = 'overlay'
-                setMbMenu(false)
             }
         }
         media.addListener((e) => handleMatch(e.matches));
         handleMatch(media.matches);
+
+        gsap.set('#mb_wrapper', {
+            scale: .9,
+            autoAlpha: 0,
+            // delay: 7,
+        })
+
+
     }, [])
     useEffect(() => {
         setMount(true)
-        if (localStorage.getItem('initAnimation') == null) {
-            console.log('in')
+        const media = window.matchMedia('(max-width:850px)')
+        if (media.matches) {
             const tl = gsap.timeline();
             tl.from('.ad_logo', .4, {
-
                 y: '-40px',
                 autoAlpha: 0,
+                stagger: 0.2,
                 ease: "power4.out",
-                delay: 5
-            }).from('.p-link', .5, {
-                y: '-10px',
+                delay: 3
+            }).from('.mb_nav', .5, {
+                y: '-20px',
                 autoAlpha: 0,
-                delay: -0.7,
                 ease: "power4.out",
-                stagger: 0.2
+                stagger: 0.2,
+                delay: -0.7
             })
         } else {
-            // document.querySelector('.ad_logo').style.visibility = 'visible'
-            document.querySelectorAll('.p-link, .ad_logo').forEach((el) => {
-                el.style.visibility = 'visible'
-            })
+            if (localStorage.getItem('initAnimation') == null) {
+                console.log('in')
+                const tl = gsap.timeline();
+                tl.from('.ad_logo', .4, {
+
+                    y: '-40px',
+                    autoAlpha: 0,
+                    ease: "power4.out",
+                    delay: 5
+                }).from('.p-link', .5, {
+                    y: '-10px',
+                    autoAlpha: 0,
+                    delay: -0.7,
+                    ease: "power4.out",
+                    stagger: 0.2
+                })
+            } else {
+                // document.querySelector('.ad_logo').style.visibility = 'visible'
+                document.querySelectorAll('.p-link, .ad_logo').forEach((el) => {
+                    el.style.visibility = 'visible'
+                })
+            }
         }
+        ScrollTrigger.matchMedia({
+            "(max-width:850px)": () => scrollAnimation()
+        })
     }, [])
 
     return (
         <>
             {mount && <ReactTooltip type={darkMode.value ? 'dark' : 'light'} effect='solid' />}
-            <div className={styles.main}>
+            <div className={styles.main} id='nav_con'>
                 <div className={styles.container}>
                     <div className={styles.logo + ' logo'}>
                         <Logo />
@@ -91,38 +134,54 @@ const Header = () => {
                             checked={darkMode.value}
                             onChange={darkMode.toggle}
                         />
-                        <label htmlFor={styles.themeSwitcher}></label>
-                        <button onClick={openNav}><CgMenuRightAlt /></button>
+                        <label htmlFor={styles.themeSwitcher} className='mb_nav'></label>
+                        <button onClick={openNav} className='mb_nav'><CgMenuRightAlt /></button>
                     </div>
                 </div>
             </div>
-            {mbMenu && <DropNav setMbMenu={setMbMenu} />}
+            <DropNav refs={refs} mobNavRef={mobNavRef} />
 
         </>
     );
 }
 
 
-const DropNav = ({ setMbMenu }) => {
+const DropNav = ({ refs, mobNavRef }) => {
+
     const closeNav = () => {
         document.documentElement.style.overflowY = 'overlay'
-
-        setMbMenu(false)
+        const mbAnimation = gsap.timeline()
+        mbAnimation.to('.mb_nav_btn', {
+            x: 20,
+            autoAlpha: 0,
+            duration: 1,
+            stagger: 0.1,
+            // delay: -0.3,
+            ease: "expo.out(0.9, 0.1)"
+        }).to('#mb_wrapper', {
+            scale: .7,
+            autoAlpha: 0,
+            ease: 'power4.in',
+            duration: .3,
+            delay: -1.2
+        })
+        // open(false)
     }
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.dropNav_con}>
+        <div className={styles.wrapper} >
+            <div className={styles.dropNav_con} id="mb_wrapper">
                 <div className={styles.top}>
                     <span><CgMenuRightAlt />Menu</span>
                     <button onClick={closeNav}><CgClose /></button>
                 </div>
                 <div className={styles.nav}>
-                    <ul>
-                        <li>About</li>
-                        <li>Career</li>
-                        <li>Skills</li>
-                        <li>Portfolio</li>
-                        <li>Contact</li>
+                    <ul id="mb_nav_ul">
+                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[0], 1)}><a id="1" ref={(el) => mobNavRef.current.push(el)} >About</a></li>
+                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[1], 2)}><a id="2" ref={(el) => mobNavRef.current.push(el)} >Career</a></li>
+                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[2], 3)}><a id="3" ref={(el) => mobNavRef.current.push(el)} >Skills</a></li>
+                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[3], 4)}><a id="4" ref={(el) => mobNavRef.current.push(el)} >Portfolio</a></li>
+                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[4], 5)}><a id="5" ref={(el) => mobNavRef.current.push(el)} >Blogs</a></li>
+                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[5], 6)}><a id="6" ref={(el) => mobNavRef.current.push(el)} >Contact</a></li>
                     </ul>
                     <div className={styles.mb_links}>
                         <Link href="https://www.linkedin.com/in/animesh-garai-29a5251b4">
@@ -142,3 +201,21 @@ const DropNav = ({ setMbMenu }) => {
     )
 }
 export default Header
+
+
+function scrollAnimation() {
+    const showAnim = gsap.from('#nav_con', {
+        yPercent: -100,
+        paused: true,
+        duration: 0.2
+    }).progress(1);
+
+    ScrollTrigger.create({
+        start: "top top",
+        end: 99999,
+        onUpdate: (self) => {
+            self.direction === -1 ? showAnim.play() : showAnim.reverse()
+        }
+    });
+
+}

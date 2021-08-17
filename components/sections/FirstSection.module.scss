@@ -34,8 +34,7 @@
     }
     .intro_con {
       @include media("<tablet") {
-        height: calc(100vh - (5.6em + 23em));
-        justify-content: center;
+        height: calc(100vh - (5.6em + 27em));
         text-align: center;
         font-size: 0.8em;
         padding-bottom: 2em;
@@ -116,6 +115,7 @@
       @include media("<tablet") {
         visibility: visible;
         font-size: 4.8em;
+        margin-top: 1em;
         line-height: 1.1;
       }
       span {
@@ -228,7 +228,7 @@
     justify-content: center;
     align-items: center;
     @include media("<laptop") {
-      height: calc(100vh - 5.6em);
+      margin-top: 2em;
     }
     .sub_con {
       position: relative;

@@ -34,13 +34,6 @@
     @include media("<desktop") {
       font-size: 17px;
     }
-    &.active {
-      background: get(primary);
-      color: #ffffff;
-      &:hover {
-        background: get(primary);
-      }
-    }
     &:hover {
       background: get(float-icon-bg-hover);
       color: get(float-icon-color-hover);

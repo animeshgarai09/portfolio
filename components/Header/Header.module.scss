@@ -27,6 +27,7 @@
     .nav_drop {
       display: none;
       #themeSwitcher + label {
+        visibility: hidden;
         height: 26px;
         width: 26px;
       }
@@ -35,6 +36,7 @@
         align-items: center;
       }
       button {
+        visibility: hidden;
         all: unset;
         font-size: 2.5em;
         color: get(primary);
@@ -61,7 +63,11 @@
 .wrapper {
   display: flex;
   justify-content: center;
+  visibility: hidden;
   //   align-items: center;
+  @include media(">tablet") {
+    visibility: hidden;
+  }
   .dropNav_con {
     position: fixed;
     min-height: calc(var(--vh, 1vh) * 96);
@@ -108,8 +114,13 @@
           font-size: 2em;
           text-align: center;
           color: get(mb-nav-link);
-          &:hover {
+          &:active {
             background: #ffffff3d;
+          }
+          a {
+            &.active {
+              color: violet;
+            }
           }
         }
       }
@@ -118,6 +129,8 @@
         margin-top: 3em;
         a {
           font-size: 2em;
+          visibility: visible;
+
           &:nth-of-type(4):after {
             display: none;
           }

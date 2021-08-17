@@ -10,56 +10,62 @@ import FourthSection from '../components/sections/FourthSection'
 import FifthSection from '../components/sections/FifthSection'
 import SixthSection from '../components/sections/SixthSection'
 import SeventhSection from '../components/sections/SeventhSection'
-import nav from '../components/FloatingNav/FloatingNav.module.scss'
-// import useWindowSize from '../constants/useWindowSize'
 import { React, useEffect, useState, useRef } from 'react'
 
 export default function Home() {
     const [load, setLoad] = useState(false)
-    // const [activeNav, setActiveNav] = useState(0)
-    const refs = useRef(new Array());
-    const navRef = useRef(new Array());
-    // const screen = useWindowSize()
+    const refs = useRef(new Array())
+    const navRef = useRef(new Array())
+    const mobNavRef = useRef(new Array())
 
     function setActiveNav(num) {
-        let activeC = nav.active
-        console.log(navRef)
+        let activeC = 'active'
+        // console.log(navRef)
+        // console.log(mobNavRef)
         for (let i = 0; i < 6; i++) {
-            if (num == navRef.current[i].id) {
+            if (num == navRef.current[i].id && num == mobNavRef.current[i].id) {
                 navRef.current[i].classList.add(activeC)
-            } else if (navRef.current[i].classList) {
+                mobNavRef.current[i].classList.add(activeC)
+                console.log()
+            } else if (navRef.current[i].classList && mobNavRef.current[i].classList) {
                 navRef.current[i].classList.remove(activeC)
+                mobNavRef.current[i].classList.remove(activeC)
             }
         }
     }
     useEffect(() => {
         document.body.style.transition = '.2s'
-        if (localStorage.getItem('initAnimation')) {
+        const media = window.matchMedia('(max-width:850px)')
+        if (media.matches) {
             setTimeout(() => {
                 setLoad(true);
-            }, 500)
+            }, 4800)
         } else {
-            localStorage.setItem('initAnimation', false)
-            setTimeout(() => {
-                setLoad(true);
-            }, 4000);
+            if (localStorage.getItem('initAnimation')) {
+                setTimeout(() => {
+                    setLoad(true);
+                }, 500)
+            } else {
+                localStorage.setItem('initAnimation', false)
+                setTimeout(() => {
+                    setLoad(true);
+                }, 4000);
+            }
         }
     }, [])
     return (
         <>
             <AppHead title='Home - Portfolio' />
-            {/* <Overlay /> */}
-            <Header />
-            {/* <Section/> */}
+            <Header refs={refs} mobNavRef={mobNavRef} />
             <div className={styles.layout__container}>
                 <div className={styles.layout}>
                     <div className={styles.floating__nav}>
                         {/* {screen.width > 849 &&  */}
-                        <FloatingNav refs={refs} navRef={navRef} setActiveNav={setActiveNav} />
+                        <FloatingNav refs={refs} navRef={navRef} />
                         {/* } */}
                     </div>
                     <div className={styles.body__main}>
-                        <FirstSection refs={refs} load={load} navRef={navRef.current[0]} setActiveNav={setActiveNav} />
+                        <FirstSection refs={refs} load={load} navRef={navRef.current[0]} mobNavRef={mobNavRef.current[0]} setActiveNav={setActiveNav} />
                         {load && <SecondSection />}
                         {load && <ThirdSection refs={refs} setActiveNav={setActiveNav} />}
                         {load && <FourthSection refs={refs} setActiveNav={setActiveNav} />}

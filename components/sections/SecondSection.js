@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 import Lottie from 'react-lottie'
 import * as lottieData from '../../public/lottie/laptopGuy.json'
 import useWindowSize from '../../constants/useWindowSize'
-const SecondSection = ({ refs }) => {
+const SecondSection = () => {
     const screen = useWindowSize()
     const lottieOption = {
         loop: true,
