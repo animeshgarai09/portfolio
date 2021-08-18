@@ -45,12 +45,6 @@ const Header = ({ refs, mobNavRef }) => {
         media.addListener((e) => handleMatch(e.matches));
         handleMatch(media.matches);
 
-        gsap.set('#mb_wrapper', {
-            scale: .9,
-            autoAlpha: 0,
-            // delay: 7,
-        })
-
 
     }, [])
     useEffect(() => {

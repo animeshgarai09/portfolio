@@ -11,13 +11,13 @@ const ThirdSection = ({ refs, setActiveNav }) => {
     useEffect(() => {
         // setTimeout(() => {
         let el = document.querySelector('#path_line');
-        // let mb_el = document.querySelector('#pathMB');
+        let mb_el = document.querySelector('#pathMB');
         let len = el.getTotalLength()
-        // let mb_len = mb_el.getTotalLength()
+        let mb_len = mb_el.getTotalLength()
         el.style.strokeDasharray = len
-        // mb_el.style.strokeDasharray = mb_len
+        mb_el.style.strokeDasharray = mb_len
         el.style.strokeDashoffset = len
-        // mb_el.style.strokeDashoffset = mb_len
+        mb_el.style.strokeDashoffset = mb_len
 
         const navAnimation = gsap.timeline({
             scrollTrigger: {
@@ -38,7 +38,7 @@ const ThirdSection = ({ refs, setActiveNav }) => {
         ScrollTrigger.matchMedia({
             "(min-width:1131px)": () => scrollAnimation(),
             "(min-width:850px) and (max-width:1130px)": () => scrollAnimation("tablet"),
-            // "(max-width:849px)": () => mbScrollAnimation(),
+            "(max-width:849px)": () => mbScrollAnimation(),
         })
         // }, 100)
     }, [])
@@ -121,33 +121,35 @@ const scrollAnimation = (screen) => {
 }
 
 function mbScrollAnimation() {
-    const tl = gsap.timeline()
-    console.log('in')
-    // tl.to('#pathMB', {
-    //     strokeDashoffset: 0,
-    //     scrollTrigger: {
-    //         trigger: '#section3',
-    //         start: `top center`,
-    //         end: '+=330',
-    //         scrub: 1,
-    //         // pin: true,
-    //         // invalidateOnRefresh: true,
-    //         // anticipatePin: 1,
-    //         // markers: true
-    //     }
-    // })
-    // .from('.point', {
-    //     transformOrigin: 'center',
-    //     opacity: 0,
-    //     scale: 0,
-    //     duration: 0.05,
-    //     delay: -0.7,
-    //     stagger: 0.1,
-    // }).from('.path_info', {
-    //     opacity: 0,
-    //     duration: 0.1,
-    //     delay: -0.7,
-    //     stagger: 0.1,
-    // })
+    // gsap.set('#guy,#secBlob', { opacity: 0 })
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '#section3',
+            start: `top center`,
+            end: '+=770',
+            scrub: 1,
+        }
+    })
+    tl.to('#pathMB', {
+        strokeDashoffset: 0
+    }).from('.mb_point', {
+        transformOrigin: 'center',
+        opacity: 0,
+        scale: 0,
+        duration: 0.05,
+        // delay: -0.7,
+        stagger: 0.1,
+    }, "-=0.5").from('.path_info', {
+        x: -70,
+        opacity: 0,
+        duration: 0.1,
+        // delay: -0.7,
+        stagger: 0.1,
+    }, "-=0.5").from('#guy', {
+        x: -100,
+        autoAlpha: 0,
+        ease: 'power3.easeOut',
+        duration: 0.5
+    })
 }
 export default ThirdSection

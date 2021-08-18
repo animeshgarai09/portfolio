@@ -4,9 +4,9 @@
             d="M12.5288 7C61.1324 15.483 112 42.5127 112 118.5C112 289.501 112 304.001 112 467C112 550.977 62.4977 579.878 14.5 588.163"
             stroke="url(#paint10_linear)" stroke-width="11" stroke-linecap="round" />
     </g>
-    <circle cx="112" cy="125" r="13" fill="white" stroke="#621A9A" stroke-width="8" />
-    <circle cx="112" cy="297" r="13" fill="white" stroke="#621A9A" stroke-width="8" />
-    <circle cx="112" cy="469" r="13" fill="white" stroke="#621A9A" stroke-width="8" />
+    <circle class="mb_point" cx="112" cy="125" r="13" fill="white" stroke="#621A9A" stroke-width="8" />
+    <circle class="mb_point" cx="112" cy="297" r="13" fill="white" stroke="#621A9A" stroke-width="8" />
+    <circle class="mb_point" cx="112" cy="469" r="13" fill="white" stroke="#621A9A" stroke-width="8" />
     <defs>
         <filter id="filter10_d" x="0.027832" y="0.499023" width="124.472" height="606.165" filterUnits="userSpaceOnUse"
             color-interpolation-filters="sRGB">
