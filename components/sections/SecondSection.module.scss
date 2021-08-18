@@ -13,6 +13,7 @@
   }
   @include media("<tablet") {
     flex-wrap: wrap;
+    margin-bottom: 4em;
   }
   .card {
     padding: 1.4em;
@@ -58,6 +59,9 @@
   .mob_lottie {
     width: 100%;
     display: flex;
+    @include media(">tablet") {
+      display: none;
+    }
   }
 
   .mid {

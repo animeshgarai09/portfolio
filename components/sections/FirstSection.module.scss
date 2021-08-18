@@ -34,7 +34,7 @@
     }
     .intro_con {
       @include media("<tablet") {
-        height: calc(100vh - (5.6em + 27em));
+        height: calc(100vh - (5.6em + 27.7em));
         text-align: center;
         font-size: 0.8em;
         padding-bottom: 2em;

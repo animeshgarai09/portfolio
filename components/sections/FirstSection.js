@@ -290,8 +290,9 @@ function mbScrollAnimation() {
     scrollAnimation.from('.about_animation', {
         autoAlpha: 0,
         scale: .8,
-        yPercent: 100,
+        yPercent: 50,
         stagger: 0.3,
+        ease: 'power3.easeOut',
         scrollTrigger: {
             trigger: '#ab_con',
             start: 'top bottom-=250',

@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 import Lottie from 'react-lottie'
 import * as lottieData from '../../public/lottie/laptopGuy.json'
 import useWindowSize from '../../constants/useWindowSize'
+import { CgCardSpades } from 'react-icons/cg'
 const SecondSection = () => {
     const screen = useWindowSize()
     const lottieOption = {
@@ -22,15 +23,16 @@ const SecondSection = () => {
         ScrollTrigger.matchMedia({
             "(min-width:1130px)": () => scrollAnimation(),
             "(min-width:850px) and (max-width:1129px)": () => scrollAnimation("tablet"),
+            "(max-width:849px)": () => mbScrollAnimation(),
         })
     }, [])
     return (
         <section className={styles.container} id='section2' >
-            {screen.width < 850 && <div className={styles.mob_lottie} id='iphone_img'>
-                <Lottie options={lottieOption} height={500} width={500} />
-            </div>}
+            <div className={styles.mob_lottie} id='lottie_an'>
+                {screen.width < 850 && <Lottie options={lottieOption} height={500} width={500} />}
+            </div>
             <div className={styles.left}>
-                <div className={styles.card + ' top_cards'}>
+                <div className={styles.card + ' top_cards mb_cards'}>
                     <div className={styles.head}>
                         <img src='/svg/vector.png' alt="" />
                         <h3>Elegant design</h3>
@@ -39,7 +41,7 @@ const SecondSection = () => {
                         through website is art and i love
                         being an artist</p>
                 </div>
-                <div className={styles.card + ' bottom_cards'}>
+                <div className={styles.card + ' bottom_cards mb_cards'}>
                     <div className={styles.head}>
                         <img src='/svg/responsive.png' alt="" />
                         <h3>Responsive pages</h3>
@@ -57,7 +59,7 @@ const SecondSection = () => {
                 <DashR className={styles.dash_path} />
             </div>
             <div className={styles.right} id="right_card_col">
-                <div className={styles.card + ' top_cards'}>
+                <div className={styles.card + ' top_cards mb_cards'}>
                     <div className={styles.head}>
                         <img src='/svg/search.png' alt="" />
                         <h3>Seo ready</h3>
@@ -66,7 +68,7 @@ const SecondSection = () => {
                         ready web pages using trending
                         libraries is my priority.</p>
                 </div>
-                <div className={styles.card + ' bottom_cards'}>
+                <div className={styles.card + ' bottom_cards mb_cards'}>
                     <div className={styles.head}>
                         <img src='/svg/quality.png' alt="" />
                         <h3>User friendly</h3>
@@ -115,5 +117,39 @@ const scrollAnimation = (screen) => {
         autoAlpha: 0,
         duration: 0.5,
     }, '-=0.30')
+}
+
+function mbScrollAnimation() {
+    const tl = gsap.timeline()
+    tl.from('#lottie_an', {
+        autoAlpha: 0,
+        scale: .8,
+        y: 50,
+        ease: 'power3.easeOut',
+        scrollTrigger: {
+            trigger: '#lottie_an',
+            start: 'top bottom-=100',
+            end: '+=90',
+            scrub: 1,
+        }
+    })
+    const cards = gsap.utils.toArray('.mb_cards')
+    cards.forEach((card) => {
+        gsap.from(card, {
+            autoAlpha: 0,
+            scale: .8,
+            y: 50,
+            ease: 'power3.easeOut',
+            // stagger: 0.3,
+            scrollTrigger: {
+                trigger: card,
+                start: 'top bottom',
+                end: '+=50',
+                scrub: 1,
+                // markers: true
+            }
+        })
+    })
+
 }
 export default SecondSection

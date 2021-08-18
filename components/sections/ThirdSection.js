@@ -11,10 +11,13 @@ const ThirdSection = ({ refs, setActiveNav }) => {
     useEffect(() => {
         // setTimeout(() => {
         let el = document.querySelector('#path_line');
+        // let mb_el = document.querySelector('#pathMB');
         let len = el.getTotalLength()
+        // let mb_len = mb_el.getTotalLength()
         el.style.strokeDasharray = len
+        // mb_el.style.strokeDasharray = mb_len
         el.style.strokeDashoffset = len
-        console.log(len);
+        // mb_el.style.strokeDashoffset = mb_len
 
         const navAnimation = gsap.timeline({
             scrollTrigger: {
@@ -35,6 +38,7 @@ const ThirdSection = ({ refs, setActiveNav }) => {
         ScrollTrigger.matchMedia({
             "(min-width:1131px)": () => scrollAnimation(),
             "(min-width:850px) and (max-width:1130px)": () => scrollAnimation("tablet"),
+            // "(max-width:849px)": () => mbScrollAnimation(),
         })
         // }, 100)
     }, [])
@@ -87,7 +91,8 @@ const scrollAnimation = (screen) => {
     tl.to('#path_line', {
         strokeDashoffset: 0,
         duration: 0.7,
-    }, '-=0.4').from('.point', {
+        // delay: -1,
+    }, '-=0.1').from('.point', {
         transformOrigin: 'center',
         opacity: 0,
         scale: 0,
@@ -113,5 +118,36 @@ const scrollAnimation = (screen) => {
     }, '-=.5')
     // ScrollTrigger.update()
     return tl
+}
+
+function mbScrollAnimation() {
+    const tl = gsap.timeline()
+    console.log('in')
+    // tl.to('#pathMB', {
+    //     strokeDashoffset: 0,
+    //     scrollTrigger: {
+    //         trigger: '#section3',
+    //         start: `top center`,
+    //         end: '+=330',
+    //         scrub: 1,
+    //         // pin: true,
+    //         // invalidateOnRefresh: true,
+    //         // anticipatePin: 1,
+    //         // markers: true
+    //     }
+    // })
+    // .from('.point', {
+    //     transformOrigin: 'center',
+    //     opacity: 0,
+    //     scale: 0,
+    //     duration: 0.05,
+    //     delay: -0.7,
+    //     stagger: 0.1,
+    // }).from('.path_info', {
+    //     opacity: 0,
+    //     duration: 0.1,
+    //     delay: -0.7,
+    //     stagger: 0.1,
+    // })
 }
 export default ThirdSection
