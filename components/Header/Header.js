@@ -11,7 +11,7 @@ import { FiGithub } from 'react-icons/fi'
 import { CgMenuRightAlt, CgClose } from 'react-icons/cg'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 
-const Header = ({ refs, mobNavRef }) => {
+const Header = ({ refs, mobNavRef, mbload }) => {
     const darkMode = useDarkMode();
     const [mount, setMount] = useState(false);
 
@@ -59,13 +59,13 @@ const Header = ({ refs, mobNavRef }) => {
         if (media.matches) {
             const tl = gsap.timeline();
             tl.from('.ad_logo', .4, {
-                y: '-40px',
+                y: -40,
                 autoAlpha: 0,
                 stagger: 0.2,
                 ease: "power4.out",
                 delay: 3
             }).from('.mb_nav', .5, {
-                y: '-20px',
+                y: -20,
                 autoAlpha: 0,
                 ease: "power4.out",
                 stagger: 0.2,

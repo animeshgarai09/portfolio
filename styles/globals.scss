@@ -173,3 +173,22 @@ a {
 #mb_nav_ul .active {
   color: violet;
 }
+
+.con_404 {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  & > div {
+    position: unset !important;
+    overflow: visible !important;
+  }
+  .img_404 {
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+    //   visibility: hidden; ///comment
+  }
+}

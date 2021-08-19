@@ -113,7 +113,6 @@
       margin-top: 0;
       visibility: hidden;
       @include media("<tablet") {
-        visibility: visible;
         font-size: 4.8em;
         margin-top: 1em;
         line-height: 1.1;
@@ -139,7 +138,6 @@
       color: get(text-color);
       visibility: hidden;
       @include media("<tablet") {
-        visibility: visible;
         font-size: 2em;
       }
     }
@@ -166,7 +164,6 @@
         width: 100%;
       }
       @include media("<tablet") {
-        visibility: visible;
         width: auto;
         font-size: 1.4em;
         text-decoration: underline;
@@ -183,7 +180,6 @@
       margin-top: 5em;
       visibility: hidden;
       @include media("<tablet") {
-        visibility: visible;
         align-self: center;
         margin-left: 0;
         margin-top: 0;
@@ -260,12 +256,8 @@
           position: relative !important;
           height: unset !important;
           border-radius: 50%;
-          //   visibility: hidden; ///comment
           box-shadow: rgb(29 24 29) 9px 8px 25px -10px;
           border: 6px solid white !important;
-          @include media("<tablet") {
-            visibility: visible;
-          }
         }
       }
       svg.firstBlob {

@@ -12,7 +12,6 @@
     backdrop-filter: blur(30px);
   }
   .container {
-    // visibility: hidden;
     width: 90vw;
     padding: 20px 10px;
     display: flex;
@@ -36,8 +35,8 @@
         align-items: center;
       }
       button {
-        visibility: hidden;
         all: unset;
+        visibility: hidden;
         font-size: 2.5em;
         color: get(primary);
         transition: 0.2s;
@@ -132,6 +131,7 @@
         margin-top: 3em;
         a {
           font-size: 2em;
+          opacity: 0;
           &:nth-of-type(4):after {
             display: none;
           }

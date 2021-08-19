@@ -34,7 +34,6 @@ const FirstSection = ({ refs, load, navRef, mobNavRef, setActiveNav }) => {
                 y: 30,
                 ease: 'power4.out',
                 skewX: 7,
-                delay: .5
             }).from('.introSkills', {
                 autoAlpha: 0,
                 y: -20,
@@ -51,7 +50,8 @@ const FirstSection = ({ refs, load, navRef, mobNavRef, setActiveNav }) => {
                 y: 0,
                 delay: -1,
                 ease: "power4.out"
-            }).from('#resume', .2, {
+            }).from('#resume', .4, {
+                y: -20,
                 autoAlpha: 0,
                 transformOrigin: 'center',
                 ease: 'power3.out',

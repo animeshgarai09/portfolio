@@ -29,7 +29,7 @@ const SecondSection = () => {
     return (
         <section className={styles.container} id='section2' >
             <div className={styles.mob_lottie} id='lottie_an'>
-                {screen.width < 850 && <Lottie options={lottieOption} height={500} width={500} />}
+                {screen.width < 850 && <Lottie options={lottieOption} />}
             </div>
             <div className={styles.left}>
                 <div className={styles.card + ' top_cards mb_cards'}>
@@ -135,9 +135,9 @@ function mbScrollAnimation() {
     })
     const cards = gsap.utils.toArray('.mb_cards')
     cards.forEach((card) => {
-        gsap.from(card, {
+        tl.from(card, {
             autoAlpha: 0,
-            scale: .8,
+            scale: .9,
             y: 50,
             ease: 'power3.easeOut',
             // stagger: 0.3,
@@ -146,7 +146,6 @@ function mbScrollAnimation() {
                 start: 'top bottom',
                 end: '+=50',
                 scrub: 1,
-                // markers: true
             }
         })
     })

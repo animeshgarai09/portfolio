@@ -126,7 +126,7 @@ function mbScrollAnimation() {
         scrollTrigger: {
             trigger: '#section3',
             start: `top center`,
-            end: '+=770',
+            end: '+=900',
             scrub: 1,
         }
     })
@@ -148,7 +148,7 @@ function mbScrollAnimation() {
     }, "-=0.5").from('#guy', {
         x: -100,
         autoAlpha: 0,
-        ease: 'power3.easeOut',
+        ease: 'power3.easeIn',
         duration: 0.5
     })
 }
