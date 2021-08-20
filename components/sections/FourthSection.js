@@ -1,5 +1,8 @@
 import styles from './FourthSection.module.scss'
-import Skills from '../../public/svg/skills.svg'
+import skillCSS from '../Skills/Skills.module.scss'
+// import Skills from '../../public/svg/skills.svg'
+import { distributeByPosition } from '../../constants/HelperFunctions'
+import Skills from '../Skills'
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { useEffect, useState } from 'react';
 import gsap from 'gsap'
@@ -13,6 +16,7 @@ const FourthSection = ({ refs, setActiveNav }) => {
     })
     useEffect(() => {
         let skills = document.querySelectorAll('.svg_skill')
+        let skillClass = skillCSS.skill_item
         skills.forEach((el) => {
             el.addEventListener('click', function () {
                 document.querySelector('.svg_skill.active').classList.remove('active')
@@ -44,6 +48,24 @@ const FourthSection = ({ refs, setActiveNav }) => {
                 // start: 'bottom top',
                 onEnterBack: (() => setActiveNav(3)),
                 // markers: true
+            }
+        })
+        const tl = gsap.timeline()
+        tl.from(`.${skillClass}`, {
+            duration: 5,
+            autoAlpha: 0,
+            scale: 0,
+            ease: 'power4.easeOut',
+            stagger: distributeByPosition({
+                amount: 2,
+                from: "center"
+            }),
+            scrollTrigger: {
+                trigger: '#section4',
+                start: "top top",
+                // end: "+=100",
+                // toggleActions: "play reset play none",
+                markers: true
             }
         })
 
@@ -84,9 +106,9 @@ const FourthSection = ({ refs, setActiveNav }) => {
                     </div>
                     <span className={styles.tag}>growing more</span>
                 </div>
-                <div className={styles.skills_con}>
-                    <Skills />
-                </div>
+                {/* <div className={styles.skills_con}> */}
+                <Skills />
+                {/* </div> */}
             </div>
 
         </section>

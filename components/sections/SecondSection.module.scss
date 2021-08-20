@@ -73,10 +73,11 @@
     }
     .lottie {
       position: absolute;
-      left: 50%;
-      top: 50%;
+      left: -41%;
+      //   left: 50%;
+      //   top: 50%;
       z-index: 5;
-      transform: translate(-50%, -50%) scale(1.05);
+      //   transform: translate(-50%, -50%) scale(1.05);
     }
     .dash_path {
       fill: get(primary);

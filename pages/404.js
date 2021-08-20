@@ -1,4 +1,4 @@
-import Error from '../public/svg/404.png'
+import Error from '../public/png/404.png'
 import AppHead from '../constants/AppHead';
 import Header from '../components/Header';
 import Image from 'next/image'

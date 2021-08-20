@@ -126,7 +126,7 @@ function mbScrollAnimation() {
         scrollTrigger: {
             trigger: '#section3',
             start: `top center`,
-            end: '+=900',
+            end: '+=850',
             scrub: 1,
         }
     })
@@ -145,11 +145,12 @@ function mbScrollAnimation() {
         duration: 0.1,
         // delay: -0.7,
         stagger: 0.1,
-    }, "-=0.5").from('#guy', {
-        x: -100,
-        autoAlpha: 0,
-        ease: 'power3.easeIn',
-        duration: 0.5
-    })
+    }, "-=0.5").from('#secBlob', {
+        opacity: 0,
+        scale: .8,
+        x: 100,
+        ease: 'power4.easeOut',
+        duration: 0.2,
+    }, '-=0.25')
 }
 export default ThirdSection

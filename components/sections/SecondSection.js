@@ -8,7 +8,6 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 import Lottie from 'react-lottie'
 import * as lottieData from '../../public/lottie/laptopGuy.json'
 import useWindowSize from '../../constants/useWindowSize'
-import { CgCardSpades } from 'react-icons/cg'
 const SecondSection = () => {
     const screen = useWindowSize()
     const lottieOption = {
@@ -34,7 +33,7 @@ const SecondSection = () => {
             <div className={styles.left}>
                 <div className={styles.card + ' top_cards mb_cards'}>
                     <div className={styles.head}>
-                        <img src='/svg/vector.png' alt="" />
+                        <img src='/png/vector.png' alt="" />
                         <h3>Elegant design</h3>
                     </div>
                     <p>Bringing brands image to life
@@ -43,7 +42,7 @@ const SecondSection = () => {
                 </div>
                 <div className={styles.card + ' bottom_cards mb_cards'}>
                     <div className={styles.head}>
-                        <img src='/svg/responsive.png' alt="" />
+                        <img src='/png/responsive.png' alt="" />
                         <h3>Responsive pages</h3>
                     </div>
                     <p>Mobile first approch to UI design
@@ -61,7 +60,7 @@ const SecondSection = () => {
             <div className={styles.right} id="right_card_col">
                 <div className={styles.card + ' top_cards mb_cards'}>
                     <div className={styles.head}>
-                        <img src='/svg/search.png' alt="" />
+                        <img src='/png/search.png' alt="" />
                         <h3>Seo ready</h3>
                     </div>
                     <p>Creating  elegant design with SEO
@@ -70,7 +69,7 @@ const SecondSection = () => {
                 </div>
                 <div className={styles.card + ' bottom_cards mb_cards'}>
                     <div className={styles.head}>
-                        <img src='/svg/quality.png' alt="" />
+                        <img src='/png/quality.png' alt="" />
                         <h3>User friendly</h3>
                     </div>
                     <p>Passionate about making every
