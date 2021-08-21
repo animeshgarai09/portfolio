@@ -16,7 +16,8 @@ const FourthSection = ({ refs, setActiveNav }) => {
     })
     useEffect(() => {
         let skills = document.querySelectorAll('.svg_skill')
-        let skillClass = skillCSS.skill_item
+        const skillClass = skillCSS.skill_item
+        const skillCon = skillCSS.container
         skills.forEach((el) => {
             el.addEventListener('click', function () {
                 document.querySelector('.svg_skill.active').classList.remove('active')
@@ -50,22 +51,58 @@ const FourthSection = ({ refs, setActiveNav }) => {
                 // markers: true
             }
         })
-        const tl = gsap.timeline()
-        tl.from(`.${skillClass}`, {
-            duration: 5,
-            autoAlpha: 0,
-            scale: 0,
-            ease: 'power4.easeOut',
-            stagger: distributeByPosition({
-                amount: 2,
-                from: "center"
-            }),
+        gsap.set(`.${styles.text} h2,
+         .${styles.border},
+        .${styles.text} p,
+        .${styles.info},
+        .${styles.tag}`,
+            { autoAlpha: 0, xPercent: -6 })
+        // gsap
+        const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: '#section4',
-                start: "top top",
+                start: 'top top',
+                end: '+=60',
+                pin: true,
+                anticipatePin: 1,
+                scrub: true,
+            }
+        }).from(`.${skillClass}`, {
+            duration: 1,
+            autoAlpha: 0,
+            scale: 0.1,
+            ease: 'power3.inOut',
+            stagger: distributeByPosition({
+                each: 0.2,
+                from: 8,
+                // ease: 'power2'
+            }),
+            onComplete: () => document.querySelectorAll(`.${skillClass}`)[8].classList.add(skillCSS.active),
+            scrollTrigger: {
+                trigger: '#section4',
+                start: "top top+=50",
+                end: "+=50",
+                scrub: true,
+                onEnter: () => document.querySelectorAll(`.${skillClass}`)[8].classList.remove(skillCSS.active)
                 // end: "+=100",
                 // toggleActions: "play reset play none",
-                markers: true
+            }
+        }).to(`.${styles.text} h2,
+         .${styles.border},
+        .${styles.text} p,
+        .${styles.info},
+        .${styles.tag}`, {
+            xPercent: 0,
+            autoAlpha: 1,
+            // delay: -.6,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '#section4',
+                start: "top top+=250",
+                end: "top top",
+                scrub: true,
+                // end: "+=100",
+                // toggleActions: "play reset play none",
             }
         })
 

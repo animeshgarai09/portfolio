@@ -102,3 +102,108 @@ export function scroll(el, num) {
         gsap.to(window, { duration: calculateDuration(0), scrollTo: 0, ease: "power2" })
     }
 }
+
+export const skillData = {
+    0: {
+        name: 'Python',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "3",
+        ex: "1 year of AI ML experiments",
+    },
+    1: {
+        name: 'Sass',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "4",
+        ex: "3 years of easy styling",
+    },
+    2: {
+        name: 'Flask',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "3",
+        ex: "2 years of building and debugging",
+    },
+    3: {
+        name: 'Adobe XD',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "4",
+        ex: "2 years of layout design and prototyping",
+    },
+    4: {
+        name: 'HTML 5',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "4.5",
+        ex: "6 years of structuring web pages",
+    },
+    5: {
+        name: 'CSS 3',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "4.5",
+        ex: "6 years of styling and designing",
+    },
+    6: {
+        name: 'Photoshop',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "3",
+        ex: "2 years of graphic designing",
+    },
+    7: {
+        name: 'Next.js',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "4",
+        ex: "1 year of building and debugging",
+    },
+    8: {
+        name: 'React.js',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "4.5",
+        ex: "2 years of building and debugging",
+    },
+    9: {
+        name: 'Redux',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "4.5",
+        ex: "2 years of building and debugging",
+    },
+    10: {
+        name: 'Figma',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "4",
+        ex: "2 years of layout design and prototyping",
+    },
+    11: {
+        name: 'Javascript',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "4.5",
+        ex: "6 years of building and debugging",
+    },
+    12: {
+        name: 'Node.js',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "4",
+        ex: "2 years of building and debugging",
+    },
+    13: {
+        name: 'Illustrator',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "3.5",
+        ex: "2 years of graphic designing",
+    },
+    14: {
+        name: 'Django',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "2.5",
+        ex: "8 months of building one project",
+    },
+    15: {
+        name: 'Tailwind CSS',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "4",
+        ex: "1 year of web designing",
+    },
+    16: {
+        name: 'Material UI',
+        info: 'Powerful modern frontend framework for building single page application',
+        stars: "3.5",
+        ex: "5 months of UI project",
+    },
+}

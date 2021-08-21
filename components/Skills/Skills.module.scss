@@ -5,6 +5,7 @@
   position: relative;
   width: 35em;
   height: 100%;
+  margin: 4em 0;
   .skill_item {
     display: flex;
     justify-content: center;
@@ -14,7 +15,7 @@
     color: #fff;
     border-radius: 10px;
     font-size: 2em;
-    background: #b059f5;
+    background: #984fd2;
     transform: rotate(45deg);
     margin: 0 auto;
     transition: 0.2s;
@@ -29,8 +30,16 @@
       transform: rotate(-45deg);
     }
     &:hover {
-      background: chocolate;
-      transform: rotate(45deg) scale(1.1);
+      //   background: chocolate;
+      transform: rotate(45deg) scale(1.1) !important;
+    }
+    &.active {
+      background: #8f67af;
+      box-shadow: inset -3px 20px 11px -10px #14141559,
+        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+      &:hover {
+        transform: rotate(45deg) !important;
+      }
     }
   }
 
