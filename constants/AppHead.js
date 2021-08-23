@@ -2,7 +2,6 @@ import Head from "next/head"
 const AppHead = ({ title }) => {
     return (
         <Head>
-            <html lang="en-us" />
             <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
             <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
@@ -17,6 +16,7 @@ const AppHead = ({ title }) => {
                 <link href="/fonts/Raleway-SemiBold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
                 <link href="/fonts/Raleway-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /> */}
             <title>{title}</title>
+            <html lang="en-us" />
         </Head>
     )
 }

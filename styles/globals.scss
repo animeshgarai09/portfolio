@@ -150,19 +150,6 @@ a {
   }
 }
 
-.react_rotate {
-  transform-origin: 250.5px 186.5px;
-  animation: rotation 4s infinite linear;
-}
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
-}
-
 #nav_ul .active {
   background: get(primary);
   color: #ffffff;

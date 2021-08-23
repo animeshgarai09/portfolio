@@ -3,9 +3,12 @@
 
 .container {
   position: relative;
-  width: 35em;
+  flex: 1 1;
   height: 100%;
   margin: 4em 0;
+  @include media("<tablet") {
+    font-size: 0.9em;
+  }
   .skill_item {
     display: flex;
     justify-content: center;
@@ -34,9 +37,9 @@
       transform: rotate(45deg) scale(1.1) !important;
     }
     &.active {
-      background: #8f67af;
-      box-shadow: inset -3px 20px 11px -10px #14141559,
-        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+      background: #5b3e73;
+      box-shadow: inset -15px 13px 15px #3754aa26, inset -6px 7px 20px #3a363666,
+        inset -1px 7px 6px 1px #00000026;
       &:hover {
         transform: rotate(45deg) !important;
       }
@@ -61,7 +64,18 @@
       width: 2.5em;
       svg {
         font-size: 1.8em;
+        transform-origin: center;
+        animation: rotation 5s infinite linear;
       }
+    }
+  }
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
     }
   }
 }

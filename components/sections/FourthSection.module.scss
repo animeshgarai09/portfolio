@@ -17,11 +17,19 @@
     line-height: 0.9;
     // letter-spacing: -5px;
     color: #8c8c8c40;
+    @include media("<tablet") {
+      font-size: 8em;
+      display: block;
+      text-align: center;
+    }
   }
   .col {
     display: flex;
+    @include media("<tablet") {
+      flex-direction: column-reverse;
+    }
     .text {
-      width: 50%;
+      flex: 1 1;
       h2 {
         font-size: 3.5em;
         margin-top: 1em;
@@ -60,13 +68,21 @@
       }
       .info {
         display: inline-flex;
+        label {
+          display: block;
+          font-weight: 700;
+          font-size: 0.84em;
+          letter-spacing: 0.3px;
+          margin-bottom: 7px;
+          color: #464646ad;
+        }
         .ex {
           color: get(text-color);
         }
         .stars {
           margin-right: 20px;
           svg {
-            margin: 0 2px;
+            margin-right: 2px;
             color: #ef9824;
           }
         }

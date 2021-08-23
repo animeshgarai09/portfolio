@@ -1,91 +1,68 @@
 import styles from './Skills.module.scss'
-import { DiPython } from 'react-icons/di'
-import { FaSass } from 'react-icons/fa'
-import { FiFigma } from 'react-icons/fi'
-import { DiJavascript1 } from 'react-icons/di'
-import { SiFlask, SiAdobexd, SiCss3, SiHtml5, SiAdobephotoshop, SiNextDotJs, SiReact, SiRedux, SiNodeDotJs, SiAdobeillustrator, SiDjango, SiTailwindcss, SiJava } from 'react-icons/si'
-const Skills = () => {
-    const list = [
-        DiPython,
-        FaSass,
-        SiFlask,
-        SiAdobexd,
-        SiHtml5,
-        SiCss3,
-        SiAdobephotoshop,
-        SiNextDotJs,
-        SiReact,
-        SiRedux,
-        FiFigma,
-        DiJavascript1,
-        SiNodeDotJs,
-        SiAdobeillustrator,
-        SiDjango,
-        SiTailwindcss,
-        SiJava
-    ]
+import { getSkillIcon } from '../../constants/HelperFunctions'
 
+const Skills = () => {
     return (
         <div className={styles.container}>
             <div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto' }}>
-                <div className={styles.skill_item}>
-                    <DiPython />
+                <div className={styles.skill_item} data-index='0'>
+                    {getSkillIcon(0)}
                 </div>
-                <div className={styles.skill_item}>
-                    <FaSass />
+                <div className={styles.skill_item} data-index='1'>
+                    {getSkillIcon(1)}
                 </div>
-                <div className={styles.skill_item}>
-                    <SiFlask />
-                </div>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto auto' }}>
-                <div className={styles.skill_item}>
-                    <SiAdobexd />
-                </div>
-                <div className={styles.skill_item}>
-                    <SiHtml5 />
-                </div>
-                <div className={styles.skill_item}>
-                    <SiCss3 />
-                </div>
-                <div className={styles.skill_item}>
-                    <SiAdobephotoshop />
-                </div>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto' }}>
-                <div className={styles.skill_item}>
-                    <SiNextDotJs />
-                </div>
-                <div className={styles.skill_item}>
-                    <SiReact />
-                </div>
-                <div className={styles.skill_item}>
-                    <SiRedux />
+                <div className={styles.skill_item} data-index='2'>
+                    {getSkillIcon(2)}
                 </div>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto auto' }}>
-                <div className={styles.skill_item}>
-                    <FiFigma />
+                <div className={styles.skill_item} data-index='3'>
+                    {getSkillIcon(3)}
                 </div>
-                <div className={styles.skill_item}>
-                    <DiJavascript1 />
+                <div className={styles.skill_item} data-index='4'>
+                    {getSkillIcon(4)}
                 </div>
-                <div className={styles.skill_item}>
-                    <SiNodeDotJs />
+                <div className={styles.skill_item} data-index='5'>
+                    {getSkillIcon(5)}
                 </div>
-                <div className={styles.skill_item}>
-                    <SiAdobeillustrator />
+                <div className={styles.skill_item} data-index='6'>
+                    {getSkillIcon(6)}
                 </div>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto' }}>
-                <div className={styles.skill_item}>
-                    <SiDjango />
+                <div className={styles.skill_item} data-index='7'>
+                    {getSkillIcon(7)}
                 </div>
-                <div className={styles.skill_item}>
-                    <SiTailwindcss />
+                <div className={styles.skill_item} data-index='8'>
+                    {getSkillIcon(8)}
                 </div>
-                <div className={styles.skill_item}>
-                    <SiJava />
+                <div className={styles.skill_item} data-index='9'>
+                    {getSkillIcon(9)}
+                </div>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto auto' }}>
+                <div className={styles.skill_item} data-index='10'>
+                    {getSkillIcon(10)}
+                </div>
+                <div className={styles.skill_item} data-index='11'>
+                    {getSkillIcon(11)}
+                </div>
+                <div className={styles.skill_item} data-index='12'>
+                    {getSkillIcon(12)}
+                </div>
+                <div className={styles.skill_item} data-index='13'>
+                    {getSkillIcon(13)}
+                </div>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto' }}>
+                <div className={styles.skill_item} data-index='14'>
+                    {getSkillIcon(14)}
+                </div>
+                <div className={styles.skill_item} data-index='15'>
+                    {getSkillIcon(15)}
+                </div>
+                <div className={styles.skill_item} data-index='16'>
+                    {getSkillIcon(16)}
                 </div>
             </div>
         </div>

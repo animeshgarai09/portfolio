@@ -4,7 +4,7 @@
 .container {
   min-height: 100vh;
   position: relative;
-  margin-bottom: 8em;
+  margin-bottom: 12em;
   @include media("<desktop") {
     font-size: 0.9em;
   }

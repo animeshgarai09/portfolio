@@ -7,6 +7,7 @@ import FirstSection from '../components/sections/FirstSection'
 import SecondSection from '../components/sections/SecondSection'
 import ThirdSection from '../components/sections/ThirdSection'
 import FourthSection from '../components/sections/FourthSection'
+import FourthSectionMB from '../components/sections/FourthSectionMB'
 import FifthSection from '../components/sections/FifthSection'
 import SixthSection from '../components/sections/SixthSection'
 import SeventhSection from '../components/sections/SeventhSection'
@@ -14,6 +15,7 @@ import { React, useEffect, useState, useRef } from 'react'
 
 export default function Home() {
     const [load, setLoad] = useState(false)
+    const [fourthSection, setFourthSection] = useState(false)
     const refs = useRef(new Array())
     const navRef = useRef(new Array())
     const mobNavRef = useRef(new Array())
@@ -40,6 +42,7 @@ export default function Home() {
             setTimeout(() => {
                 setLoad(true);
             }, 4800)
+
         } else {
             if (localStorage.getItem('initAnimation')) {
                 setTimeout(() => {
@@ -52,6 +55,15 @@ export default function Home() {
                 }, 4000);
             }
         }
+
+        function handleMatch(matches) {
+            if (matches) {
+                setFourthSection(true)
+                console.log(fourthSection)
+            }
+        }
+        media.addListener((e) => handleMatch(e.matches));
+        handleMatch(media.matches);
     }, [])
     return (
         <>
@@ -68,7 +80,8 @@ export default function Home() {
                         <FirstSection refs={refs} load={load} navRef={navRef.current[0]} mobNavRef={mobNavRef.current[0]} setActiveNav={setActiveNav} />
                         {load && <SecondSection />}
                         {load && <ThirdSection refs={refs} setActiveNav={setActiveNav} />}
-                        {load && <FourthSection refs={refs} setActiveNav={setActiveNav} />}
+                        {load && !fourthSection && <FourthSection refs={refs} setActiveNav={setActiveNav} />}
+                        {load && fourthSection && <FourthSectionMB refs={refs} setActiveNav={setActiveNav} />}
                         {load && <FifthSection refs={refs} setActiveNav={setActiveNav} />}
                         {load && <SixthSection refs={refs} setActiveNav={setActiveNav} />}
                         {load && <SeventhSection refs={refs} setActiveNav={setActiveNav} />}
