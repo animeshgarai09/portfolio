@@ -16,7 +16,7 @@ const AppHead = ({ title }) => {
                 <link href="/fonts/Raleway-SemiBold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
                 <link href="/fonts/Raleway-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /> */}
             <title>{title}</title>
-            <html lang="en-us" />
+            <html lang="en-US" />
         </Head>
     )
 }

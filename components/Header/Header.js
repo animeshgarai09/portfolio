@@ -3,37 +3,26 @@ import Logo from '../../public/svg/logo.svg'
 import useDarkMode from "use-dark-mode";
 import Link from 'next/link'
 import gsap from 'gsap'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import ReactTooltip from 'react-tooltip';
 import { HiOutlineMail } from 'react-icons/hi'
 import { RiTwitterLine, RiLinkedinLine } from 'react-icons/ri'
 import { FiGithub } from 'react-icons/fi'
 import { CgMenuRightAlt, CgClose } from 'react-icons/cg'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
-
+import { FiSmile, FiFeather, FiLayers, FiMessageCircle, FiFlag, FiArrowUp } from "react-icons/fi";
+import { HiOutlinePencil } from "react-icons/hi";
 const Header = ({ refs, mobNavRef, mbload }) => {
     const darkMode = useDarkMode();
     const [mount, setMount] = useState(false);
-
+    const navAnimation = useRef()
     const openNav = () => {
         // document.body.style.overflowY = 'hidden'
         document.documentElement.style.overflowY = 'hidden'
         // setMbMenu(true)
-        gsap.set('.mb_nav_btn', { clearProps: "all" })
-        const mbAnimation = gsap.timeline()
-        mbAnimation.to('#mb_wrapper', {
-            scale: 1,
-            autoAlpha: 1,
-            ease: 'power4.out',
-            duration: .3
-        }).from('.mb_nav_btn', {
-            x: -20,
-            autoAlpha: 0,
-            duration: 1,
-            stagger: 0.1,
-            delay: -0.3,
-            ease: "expo.out(0.9, 0.1)"
-        })
+        // gsap.set('.mb_nav_btn', { clearProps: "all" })
+        console.log('inside')
+        navAnimation.current.play()
     }
     useEffect(() => {
         const media = window.matchMedia('(max-width:850px)')
@@ -45,12 +34,15 @@ const Header = ({ refs, mobNavRef, mbload }) => {
         media.addListener((e) => handleMatch(e.matches));
         handleMatch(media.matches);
 
-        gsap.set('#mb_wrapper', {
-            scale: .9,
-            autoAlpha: 0,
-            // delay: 7,
+        // gsap.set(`.${dropNav}`, {
+        //     css:{
+        //         filter:"blur(0px)"
+        //     }
+        // })
+        navAnimation.current = gsap.timeline({ paused: true })
+        navAnimation.current.from(`.${styles.dropNav}`, {
+            autoAlpha: 1
         })
-
 
     }, [])
     useEffect(() => {
@@ -139,14 +131,33 @@ const Header = ({ refs, mobNavRef, mbload }) => {
                     </div>
                 </div>
             </div>
-            <DropNav refs={refs} mobNavRef={mobNavRef} />
+            <div className={styles.dropNav_con}>
+                <div className={styles.dropNav}>
+                    <ul>
+                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[0], 1)}><a className={styles.active} id="1" ref={(el) => mobNavRef.current.push(el)} ><FiSmile /> About</a></li>
+                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[1], 2)}><a id="2" ref={(el) => mobNavRef.current.push(el)} ><FiFlag />Career</a></li>
+                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[2], 3)}><a id="3" ref={(el) => mobNavRef.current.push(el)} ><FiFeather />Skills</a></li>
+                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[3], 4)}><a id="4" ref={(el) => mobNavRef.current.push(el)} ><FiLayers />Portfolio</a></li>
+                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[4], 5)}><a id="5" ref={(el) => mobNavRef.current.push(el)} ><HiOutlinePencil />Blogs</a></li>
+                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[5], 6)}><a id="6" ref={(el) => mobNavRef.current.push(el)} ><FiMessageCircle />Contact</a></li>
+                    </ul>
+                    <div className={styles.mb_links}>
+                        <Link href="https://www.linkedin.com/in/animesh-garai-29a5251b4">
+                            <a target="_blank" className='mb-link'><RiLinkedinLine /></a>
+                        </Link>
+                        {/* <Link href="/projects"> */}
+                        <a className='mb-link'><FiGithub /></a>
+                        <a className='mb-link'><RiTwitterLine /></a>
+                        <a className='mb-link'><HiOutlineMail /></a>
+                    </div>
+                </div>
+            </div>
 
         </>
     );
 }
 
-
-const DropNav = ({ refs, mobNavRef }) => {
+const DropNavOld = ({ refs, mobNavRef }) => {
 
     const closeNav = () => {
         document.documentElement.style.overflowY = 'overlay'

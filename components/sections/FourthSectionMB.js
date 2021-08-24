@@ -4,9 +4,9 @@ import { useEffect } from 'react';
 import gsap from 'gsap'
 const FourthSectionMB = ({ refs, setActiveNav }) => {
     useEffect(() => {
-        gsap.utils.toArray(`.${styles.card}`).forEach(card => {
+        gsap.utils.toArray(`.${styles.card}`).forEach((card, i) => {
             gsap.timeline({
-                defaults: { ease: 'power1.in' },
+                // defaults: { ease: 'power1.in' },
                 scrollTrigger: {
                     scroller: card.closest(`.${styles.card_con}`),
                     horizontal: true,

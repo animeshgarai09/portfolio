@@ -8,8 +8,8 @@
   z-index: 10;
   width: 102%;
   @include media("<laptop") {
-    background: get(lp-nav-bg);
-    backdrop-filter: blur(30px);
+    background: get(bg);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
   }
   .container {
     width: 90vw;
@@ -37,10 +37,11 @@
       button {
         all: unset;
         visibility: hidden;
-        font-size: 2.5em;
+        font-size: 2.3em;
         color: get(primary);
         transition: 0.2s;
         cursor: pointer;
+        line-height: 0.5;
         &:hover,
         :focus {
           color: get(primary-light);
@@ -53,91 +54,78 @@
       fill: get(primary);
       width: 68px;
       @include media("<desktop") {
-        width: 57px;
-        height: 46px;
+        width: 46px;
+        height: 35px;
       }
     }
   }
 }
-.wrapper {
-  display: flex;
-  justify-content: center;
-  //   align-items: center;
 
-  .dropNav_con {
+.dropNav_con {
+  visibility: hidden;
+  position: fixed;
+  z-index: 7;
+  min-height: calc(var(--vh, 1vh) * 100);
+  background: get(lp-nav-bg);
+  backdrop-filter: blur(30px);
+  width: 100vw;
+  .dropNav {
     visibility: hidden;
-
-    position: fixed;
-    min-height: calc(var(--vh, 1vh) * 96);
-    width: 94vw;
-    margin-top: calc(var(--vh, 1vh) * 2);
-    // margin: auto;
-    z-index: 20;
-    // background: rgba(255, 255, 255, 0.1);
     background: get(mb-nav-bg);
-    border-radius: 20px;
-    box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.22);
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-left: 1px solid rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(56px);
-    transform: scale(0.9);
-    @include media(">tablet") {
-      visibility: hidden;
-    }
-    .top {
-      padding: 20px;
+    border-radius: 0 0 50px 50px;
+    padding: 3em 1em;
+    padding-top: 5em;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1.5em;
-      color: get(mb-nav-color);
-      font-weight: 700;
-      margin-bottom: 10px;
-      border-bottom: 2px solid get(mb-nav-border);
-      span {
-        display: flex;
-        align-items: center;
-        color: get(mb-nav-link);
-        svg {
-          color: get(primary);
+      justify-content: center;
+      flex-wrap: wrap;
+      li {
+        flex-basis: 50%;
+        visibility: hidden;
+        a {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-size: 1em;
+          color: #8c8c8c;
+          border-radius: 10px;
+          padding: 2em;
+          font-weight: 600;
+          &.active {
+            color: get(primary);
+            background: get(mb-nav-active-bg);
+          }
+          svg {
+            font-size: 1.3em;
+            // color: get(primary);
+            margin-bottom: 5px;
+          }
         }
-      }
-      button {
-        all: unset;
-        cursor: pointer;
       }
     }
-    .nav {
-      ul {
-        padding: inherit;
-        li {
-          list-style: none;
-          padding: 20px;
-          font-size: 2em;
-          text-align: center;
-          color: get(mb-nav-link);
-          &:active {
-            background: #ffffff3d;
-          }
-          a {
-            &.active {
-              color: violet;
-            }
-          }
-        }
-      }
-      .mb_links {
-        justify-content: center;
-        margin-top: 3em;
-        a {
-          font-size: 2em;
-          opacity: 0;
-          &:nth-of-type(4):after {
-            display: none;
-          }
-        }
-        @include media("<laptop") {
-          display: flex;
+    .mb_links {
+      visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      bottom: -1.4em;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 64vw;
+      border-radius: 30px;
+      background: get(mb-nav-bg);
+      border: 3px solid get(mb-nav-border);
+      a {
+        height: 45px;
+        &:last-child:after {
+          display: none;
         }
       }
     }
@@ -194,7 +182,6 @@
     height: 20px;
     margin-right: 1em;
     border-radius: 50%;
-    margin-top: -4px;
     transition: all 0.3s ease-in-out;
   }
 }
