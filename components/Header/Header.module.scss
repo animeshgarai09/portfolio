@@ -70,14 +70,12 @@
   backdrop-filter: blur(30px);
   width: 100vw;
   .dropNav {
-    visibility: hidden;
     background: get(mb-nav-bg);
     border-radius: 0 0 50px 50px;
     padding: 3em 1em;
     padding-top: 5em;
     position: relative;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
     ul {
       margin: 0;
       padding: 0;
@@ -123,6 +121,7 @@
       background: get(mb-nav-bg);
       border: 3px solid get(mb-nav-border);
       a {
+        visibility: inherit;
         height: 45px;
         &:last-child:after {
           display: none;
@@ -184,4 +183,82 @@
     border-radius: 50%;
     transition: all 0.3s ease-in-out;
   }
+}
+
+.menu {
+  width: 26px;
+  height: 20px;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.menu span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: get(primary);
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+.menu span:nth-child(1) {
+  top: 0px;
+}
+
+.menu span:nth-child(2),
+.menu span:nth-child(3) {
+  top: 9px;
+  width: 70%;
+  right: 0;
+  left: unset;
+}
+
+.menu span:nth-child(4) {
+  top: 18px;
+}
+
+.menu.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.menu.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 100%;
+}
+
+.menu.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 100%;
+}
+
+.menu.open span:nth-child(4) {
+  top: 9px;
+  width: 0%;
+  left: 50%;
 }
