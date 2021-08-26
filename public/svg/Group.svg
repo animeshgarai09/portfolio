@@ -1,0 +1,25 @@
+<svg clipPathUnits="objectBoundingBox">
+    <clipPath id="clip">
+        <path
+            d="M20.6887 455.127C-29.4495 356.605 21.5877 205.18 103.305 109.848C185.022 14.5158 297.911 -24.853 410.371 16.0729C523.321 56.8699 635.47 178.633 628.847 297.781C622.109 416.387 497.205 532.792 358.924 567.371C221.016 601.28 70.452 554.32 20.6887 455.127Z" />
+    </clipPath>
+    <g filter="url(#filter0_i)">
+        <path
+            d="M20.6887 455.127C-29.4495 356.605 21.5877 205.18 103.305 109.848C185.022 14.5158 297.911 -24.853 410.371 16.0729C523.321 56.8699 635.47 178.633 628.847 297.781C622.109 416.387 497.205 532.792 358.924 567.371C221.016 601.28 70.452 554.32 20.6887 455.127Z" />
+    </g>
+    <defs>
+        <filter id="filter0_i" x="-29.1875" y="0" width="658.314" height="582.314" filterUnits="userSpaceOnUse"
+            colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha" />
+            <feOffset dx="-30" dy="4" />
+            <feGaussianBlur stdDeviation="25.5" />
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+            <feBlend mode="normal" in2="shape" result="effect1_innerShadow" />
+        </filter>
+    </defs>
+
+</svg>

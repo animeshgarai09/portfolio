@@ -221,16 +221,24 @@
     position: relative;
     z-index: 4;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    @include media("<laptop") {
-      margin-top: 2em;
+    // @include media("<laptop") {
+    //   margin-top: 2em;
+    // }
+    @include media("<tablet") {
+      margin-top: 1em;
+      justify-content: center;
     }
     .sub_con {
       position: relative;
       .author_container {
-        width: 20em;
-        margin-left: 7em;
+        width: 86%;
+        position: absolute;
+        z-index: 1;
+        padding-top: 3em;
+        padding-left: 2.5em;
+        clip-path: url(#clip);
         @include media("<desktop") {
           width: 19em;
         }
@@ -238,12 +246,13 @@
           width: 17.5em;
         }
         @include media("<tablet") {
-          margin-left: 0;
-          width: 17em;
+          width: 93%;
+          padding-top: 1em;
+          padding-left: 1.5em;
         }
-        @include media("<tablet", "height<736px") {
-          width: 15em;
-        }
+        // @include media("<tablet", "height<736px") {
+        //   width: 15em;
+        // }
         & > div {
           position: unset !important;
           overflow: visible !important;
@@ -255,20 +264,17 @@
           width: 90% !important;
           position: relative !important;
           height: unset !important;
-          border-radius: 50%;
-          box-shadow: rgb(29 24 29) 9px 8px 25px -10px;
-          border: 6px solid white !important;
+          filter: drop-shadow(-16px 15px 24px #00000090) !important;
         }
       }
       svg.firstBlob {
         visibility: hidden;
-        position: absolute;
-        right: -40%;
-        top: -55%;
-        width: 41em;
-        height: 39em;
-        z-index: -1;
-        fill: get(blob-color);
+        width: 28em;
+        height: 26em;
+        fill: get(primary);
+        path {
+          transform: scale(0.68);
+        }
         @include media("<desktop") {
           width: 39em;
           height: 36em;
@@ -280,7 +286,12 @@
           top: -44%;
         }
         @include media("<tablet") {
-          display: none;
+          //   display: none;
+          width: 100%;
+          height: 17em;
+          path {
+            transform: scale(0.47);
+          }
         }
         //   @include media("<laptop") {
         //     width: 36em;
@@ -295,11 +306,13 @@
       }
       svg.arrow {
         position: absolute;
-        left: -55%;
+        left: -54%;
         top: 46%;
-        width: 22em;
+        width: 20em;
         z-index: 0;
+        transform: rotate(10deg);
         fill: get(arrow-color);
+        filter: drop-shadow(2px 2px 3px #0a0a0a40);
         @include media("<desktop") {
           width: 20em;
           left: -48%;

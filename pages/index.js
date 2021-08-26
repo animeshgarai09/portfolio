@@ -44,16 +44,9 @@ export default function Home() {
             }, 4800)
 
         } else {
-            if (localStorage.getItem('initAnimation')) {
-                setTimeout(() => {
-                    setLoad(true);
-                }, 500)
-            } else {
-                localStorage.setItem('initAnimation', false)
-                setTimeout(() => {
-                    setLoad(true);
-                }, 4000);
-            }
+            setTimeout(() => {
+                setLoad(true);
+            }, 4200);
         }
 
         function handleMatch(matches) {

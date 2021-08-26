@@ -85,28 +85,21 @@ const Header = ({ refs, mobNavRef }) => {
                 delay: -0.7
             })
         } else {
-            if (localStorage.getItem('initAnimation') == null) {
-                console.log('in')
-                const tl = gsap.timeline();
-                tl.from('.ad_logo', .4, {
+            const tl = gsap.timeline();
+            tl.from('.ad_logo', .4, {
 
-                    y: '-40px',
-                    autoAlpha: 0,
-                    ease: "power4.out",
-                    delay: 5
-                }).from('.p-link', .5, {
-                    y: '-10px',
-                    autoAlpha: 0,
-                    delay: -0.7,
-                    ease: "power4.out",
-                    stagger: 0.2
-                })
-            } else {
-                // document.querySelector('.ad_logo').style.visibility = 'visible'
-                document.querySelectorAll('.p-link, .ad_logo').forEach((el) => {
-                    el.style.visibility = 'visible'
-                })
-            }
+                y: '-40px',
+                autoAlpha: 0,
+                ease: "power4.out",
+                delay: 5
+            }).from('.p-link', .5, {
+                y: '-10px',
+                autoAlpha: 0,
+                delay: -0.7,
+                ease: "power4.out",
+                stagger: 0.2
+            })
+
         }
         ScrollTrigger.matchMedia({
             "(max-width:850px)": () => scrollAnimation()
