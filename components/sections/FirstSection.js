@@ -4,13 +4,11 @@ import Image from 'next/image'
 import gsap from 'gsap'
 import author from '../../public/png/author.png'
 import { useEffect, useRef } from 'react'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
-import { killTimeline } from '../../constants/HelperFunctions'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
+import { sectionRefs } from '../../constants/HelperFunctions'
 
-
-const FirstSection = ({ refs, load, navRef, mobNavRef, setActiveNav }) => {
+const FirstSection = ({ load }) => {
     const leftCol = useRef(null);
-
     useEffect(() => {
         const media = window.matchMedia('(max-width:850px)')
 
@@ -35,9 +33,11 @@ const FirstSection = ({ refs, load, navRef, mobNavRef, setActiveNav }) => {
                 // delay: -.1,
             }).from('#author_image', {
                 transformOrigin: 'bottom',
-                ease: "power3.out",
+                ease: "expo.easeOut",
                 autoAlpha: 0,
                 scale: .9,
+                yPercent: 20,
+                delay: -1,
                 duration: .5,
             }).to('#leftCol', {
                 y: 0,
@@ -112,13 +112,14 @@ const FirstSection = ({ refs, load, navRef, mobNavRef, setActiveNav }) => {
                     <h3 className='introSkills'>Graphic Creator</h3>
                     <h3 className='introSkills'>UI Designer</h3>
                     <a href="#" id="resume">Resume</a>
+                    {/* <Link href="certificates"><a>Certi</a></Link> */}
                     <div className={styles.scrollDown} id="scrollDown">
                         <span></span>
                         <span></span>
                         <span></span>
                     </div>
                 </div>
-                {load && <About navRef={navRef} setActiveNav={setActiveNav} refs={refs} mobNavRef={mobNavRef} lefRef={leftCol} />}
+                {load && <About lefRef={leftCol} />}
             </div>
             <div className={styles.right_col} id="rightCol">
                 <div className={styles.sub_con}>
@@ -172,29 +173,9 @@ const FirstSection = ({ refs, load, navRef, mobNavRef, setActiveNav }) => {
     )
 }
 
-function About({ refs, lefRef, navRef, mobNavRef, setActiveNav }) {
+function About({ lefRef }) {
 
     useEffect(() => {
-        const navAnimation = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#ab_con',
-                start: 'top top+=250',
-                onEnter: (() => setActiveNav(1)),
-                onLeaveBack: (() => {
-                    navRef.removeAttribute('class')
-                    mobNavRef.removeAttribute('class')
-                })
-            }
-        })
-        const navAnimationBack = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#iphone_img',
-                start: 'bottom top-=350px',
-                end: 'bottom top-=350px',
-                onEnterBack: (() => setActiveNav(1)),
-            }
-        })
-
         ScrollTrigger.matchMedia({
             "(min-width:1130px)": () => scrollAnimation(lefRef),
             "(min-width:850px) and (max-width:1129px)": () => scrollAnimation(lefRef, "tablet"),
@@ -203,7 +184,7 @@ function About({ refs, lefRef, navRef, mobNavRef, setActiveNav }) {
 
     }, [])
     return (
-        <div ref={(el) => refs.current.push(el)} className={styles.about_con} id='ab_con'>
+        <div ref={(el) => sectionRefs[0] = el} className={styles.about_con} id='ab_con'>
             <span className={styles.shadow_T} >about</span>
             <p className={styles.title + ' about_animation'}>I&apos;m a front-end developer and UI designer
                 from the city of joy Kolkata, India.</p>

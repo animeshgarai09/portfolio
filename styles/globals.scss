@@ -157,8 +157,9 @@ a {
     background: get(primary);
   }
 }
-#mb_nav_ul .active {
-  color: violet;
+#dropNav_con .active {
+  color: get(primary);
+  background: get(mb-nav-active-bg);
 }
 
 .con_404 {

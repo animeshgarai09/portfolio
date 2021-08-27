@@ -1,11 +1,18 @@
 import gsap from 'gsap'
-import { useRef } from 'react'
 import { DiPython } from 'react-icons/di'
 import { FaSass } from 'react-icons/fa'
 import { FiFigma } from 'react-icons/fi'
 import { DiJavascript1 } from 'react-icons/di'
 import { SiFlask, SiMaterialUi, SiAdobexd, SiCss3, SiHtml5, SiAdobephotoshop, SiNextDotJs, SiReact, SiRedux, SiNodeDotJs, SiAdobeillustrator, SiDjango, SiTailwindcss, SiJava } from 'react-icons/si'
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
+
+export const sectionRefs = new Array(6)
+export const navRef = new Array(6)
+export const mobNavRef = new Array(6)
+
+let lastScrollPosition = 0
+
 
 export function distributeByPosition(vars) {
     var ease = vars.ease,
@@ -76,40 +83,6 @@ export function killTimeline(timeline) {
     }
 }
 
-export function calculateDuration(position) {
-    let totalTravel = Math.abs(window.scrollY - position)
-    console.log(totalTravel)
-    if (totalTravel < 1000) {
-        return 0.6
-    } else if (totalTravel < 2000) {
-        return 0.8
-    } else if (totalTravel < 3000) {
-        return 1
-    } else if (totalTravel < 4000) {
-        return 1.5
-    } else {
-        return 2
-    }
-}
-
-export function scroll(el, num) {
-    if (el) {
-        let position
-        if (el.id == "section3") {
-            console.log(el.parentElement.offsetTop, el.offsetHeight)
-            position = el.parentElement.offsetTop + el.offsetHeight
-        } else if (el.id == "section4") {
-            position = el.parentElement.offsetTop + 60
-        } else {
-            position = el.offsetTop
-        }
-
-        // setNav(num)
-        gsap.to(window, { duration: calculateDuration(position), scrollTo: position, ease: "power2" })
-    } else {
-        gsap.to(window, { duration: calculateDuration(0), scrollTo: 0, ease: "power2" })
-    }
-}
 
 export const SkillData = {
     0: {
@@ -238,7 +211,7 @@ export function getSkillIcon(index) {
     return <Temp />
 }
 
-export const loadStars = (count) => {
+export function loadStars(count) {
     let split = count.split('.')
     let blank = split.length == 2 ? 4 - parseInt(split[0]) : 5 - parseInt(split[0])
     let arr = []
@@ -256,4 +229,156 @@ export const loadStars = (count) => {
         i++
     }
     return arr
+}
+
+export function calculateDuration(position) {
+    let totalTravel = Math.abs(window.scrollY - position)
+    console.log(totalTravel)
+    if (totalTravel < 1000) {
+        return 0.6
+    } else if (totalTravel < 2000) {
+        return 0.8
+    } else if (totalTravel < 3000) {
+        return 1
+    } else if (totalTravel < 4000) {
+        return 1.5
+    } else {
+        return 2
+    }
+}
+
+
+export function scroll(el, screen) {
+    if (el) {
+        let position
+        if (el.id == "section3" && !screen) {
+            console.log(el.parentElement.offsetTop, el.offsetHeight)
+            position = el.getBoundingClientRect().top + (window.scrollY || window.pageYOffset) + el.offsetHeight
+        }
+        else {
+            position = el.getBoundingClientRect().top + window.scrollY || window.pageYOffset
+        }
+        lastScrollPosition = position = lastScrollPosition > position ? position - 60 : position
+        gsap.to(window, { duration: calculateDuration(position), scrollTo: position, ease: "power2" })
+    } else {
+        gsap.to(window, { duration: calculateDuration(0), scrollTo: 0, ease: "power2" })
+    }
+}
+
+function setActiveNav(num) {
+    console.log('active', num)
+    let activeC = 'active'
+    for (let i = 0; i < 6; i++) {
+        if (num == navRef[i].id && num == mobNavRef[i].id) {
+            navRef[i].classList.add(activeC)
+            mobNavRef[i].classList.add(activeC)
+        } else if (navRef[i].classList && mobNavRef[i].classList) {
+            navRef[i].classList.remove(activeC)
+            mobNavRef[i].classList.remove(activeC)
+        }
+    }
+}
+
+export function desktopNavigation() {
+    ////////////////////////////////////////////////// Intro section
+    ScrollTrigger.create({
+        trigger: '#ab_con',
+        start: 'top top+=250',
+        end: 'top top+=250',
+        onEnter: (() => setActiveNav(1)),
+        onLeaveBack: (() => {
+            navRef[0].removeAttribute('class')
+            mobNavRef[0].removeAttribute('class')
+        }),
+    })
+    ScrollTrigger.create({
+        trigger: '#lottie',
+        start: 'bottom top-=350px',
+        end: 'bottom top-=350px',
+        onEnterBack: (() => setActiveNav(1)),
+    })
+
+    ////////////////////////////////////////////////// Career section
+    ScrollTrigger.create({
+        trigger: '#section3',
+        start: 'top top+=250',
+        end: 'top top+=250',
+        onEnter: (() => setActiveNav(2)),
+    })
+    ScrollTrigger.create({
+        trigger: '#section3',
+        start: 'bottom center+=100',
+        onEnterBack: (() => setActiveNav(2)),
+    })
+
+    ///////////////////////////////////////////////// Skills section
+    ScrollTrigger.create({
+        trigger: '#section4',
+        start: 'top top+=250',
+        end: 'top top+=250',
+        onEnter: (() => setActiveNav(3)),
+    })
+    ScrollTrigger.create({
+        trigger: '#section4',
+        start: 'bottom center+=100',
+        end: 'bottom center+=100',
+        onEnterBack: (() => setActiveNav(3)),
+    })
+
+    ///////////////////////////////////////////////// Projects section
+    ScrollTrigger.create({
+        trigger: '#section5',
+        start: 'top top+=250',
+        end: 'top top+=250',
+        onEnter: (() => setActiveNav(4)),
+    })
+    ScrollTrigger.create({
+        trigger: '#section5',
+        start: 'bottom center+=100',
+        end: 'bottom center+=100',
+        onEnterBack: (() => setActiveNav(4)),
+    })
+
+    ///////////////////////////////////////////////// Blogs section
+    ScrollTrigger.create({
+        trigger: '#section6',
+        start: 'top top+=250',
+        end: 'top top+=250',
+        onEnter: (() => setActiveNav(5)),
+    })
+    ScrollTrigger.create({
+        trigger: '#section6',
+        start: 'bottom center+=100',
+        end: 'bottom center+=100',
+        onEnterBack: (() => setActiveNav(5)),
+    })
+
+    ///////////////////////////////////////////////// Contact section
+    ScrollTrigger.create({
+        trigger: '#section7',
+        start: 'top top+=250',
+        end: 'top top+=250',
+        onEnter: (() => setActiveNav(6)),
+    })
+}
+
+export function mobileNavigation() {
+    ScrollTrigger.create({
+        trigger: '#ab_con',
+        start: 'top top+=250',
+        end: 'top top+=250',
+        onEnter: (() => setActiveNav(1)),
+        onLeaveBack: (() => {
+            navRef[0].removeAttribute('class')
+            mobNavRef[0].removeAttribute('class')
+        }),
+        // markers: true
+    })
+    // ScrollTrigger.create({
+    //     trigger: '#lottie',
+    //     start: 'bottom top-=350px',
+    //     end: 'bottom top-=350px',
+    //     onEnterBack: (() => setActiveNav(1)),
+    //     markers: true
+    // })
 }

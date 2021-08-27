@@ -8,17 +8,18 @@ import ReactTooltip from 'react-tooltip';
 import { HiOutlineMail } from 'react-icons/hi'
 import { RiTwitterLine, RiLinkedinLine } from 'react-icons/ri'
 import { FiGithub } from 'react-icons/fi'
+import { sectionRefs, mobNavRef, scroll } from '../../constants/HelperFunctions'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 import { FiSmile, FiFeather, FiLayers, FiMessageCircle, FiFlag, FiArrowUp } from "react-icons/fi";
 import { HiOutlinePencil } from "react-icons/hi";
 
-const Header = ({ refs, mobNavRef }) => {
+const Header = () => {
     const darkMode = useDarkMode();
     const [mount, setMount] = useState(false);
     const [navState, setNavState] = useState(false)
     const navAnimation = useRef()
 
-    const navToggle = () => {
+    const navToggle = (ref, num) => {
 
         if (!navState) {
             document.documentElement.style.overflowY = 'hidden'
@@ -28,6 +29,9 @@ const Header = ({ refs, mobNavRef }) => {
             document.documentElement.style.overflowY = 'overlay'
             console.log('inside')
             navAnimation.current.timeScale(2).reverse()
+            if (ref && num) {
+                scroll(ref, num, true)
+            }
         }
         setNavState(!navState)
     }
@@ -52,7 +56,7 @@ const Header = ({ refs, mobNavRef }) => {
             duration: 0.7,
             delay: -0.5,
             ease: "power4.out"
-        }).from(`.mb_nav_btn`, {
+        }).from(`.${styles.dropNav} li`, {
             scale: 0,
             autoAlpha: 0,
             ease: "power3.out",
@@ -151,15 +155,15 @@ const Header = ({ refs, mobNavRef }) => {
                     </div>
                 </div>
             </div>
-            <div className={styles.dropNav_con}>
+            <div className={styles.dropNav_con} id="dropNav_con">
                 <div className={styles.dropNav}>
                     <ul>
-                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[0], 1)}><a className={styles.active} id="1" ref={(el) => mobNavRef.current.push(el)} ><FiSmile /> About</a></li>
-                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[1], 2)}><a id="2" ref={(el) => mobNavRef.current.push(el)} ><FiFlag />Career</a></li>
-                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[2], 3)}><a id="3" ref={(el) => mobNavRef.current.push(el)} ><FiFeather />Skills</a></li>
-                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[3], 4)}><a id="4" ref={(el) => mobNavRef.current.push(el)} ><FiLayers />Portfolio</a></li>
-                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[4], 5)}><a id="5" ref={(el) => mobNavRef.current.push(el)} ><HiOutlinePencil />Blogs</a></li>
-                        <li className='mb_nav_btn' onClick={() => scroll(refs.current[5], 6)}><a id="6" ref={(el) => mobNavRef.current.push(el)} ><FiMessageCircle />Contact</a></li>
+                        <li onClick={() => navToggle(sectionRefs[0], 1)}><a id="1" ref={(el) => mobNavRef[0] = el} ><FiSmile /> About</a></li>
+                        <li onClick={() => navToggle(sectionRefs[1], 2)}><a id="2" ref={(el) => mobNavRef[1] = el} ><FiFlag />Career</a></li>
+                        <li onClick={() => navToggle(sectionRefs[2], 3)}><a id="3" ref={(el) => mobNavRef[2] = el} ><FiFeather />Skills</a></li>
+                        <li onClick={() => navToggle(sectionRefs[3], 4)}><a id="4" ref={(el) => mobNavRef[3] = el} ><FiLayers />Projects</a></li>
+                        <li onClick={() => navToggle(sectionRefs[4], 5)}><a id="5" ref={(el) => mobNavRef[4] = el} ><HiOutlinePencil />Blogs</a></li>
+                        <li onClick={() => navToggle(sectionRefs[5], 6)}><a id="6" ref={(el) => mobNavRef[5] = el} ><FiMessageCircle />Contact</a></li>
                     </ul>
                     <div className={styles.mb_links}>
                         <Link href="https://www.linkedin.com/in/animesh-garai-29a5251b4">

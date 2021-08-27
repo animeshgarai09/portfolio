@@ -3,10 +3,11 @@ import Path from '../../public/svg/path.svg'
 import PathMB from '../../public/svg/path_mob.svg'
 import Guy from '../../public/svg/guy.svg'
 import Blob from '../../public/svg/secBlob.svg'
+import { sectionRefs } from '../../constants/HelperFunctions'
 import { useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
-const ThirdSection = ({ refs, setActiveNav }) => {
+const ThirdSection = () => {
 
     useEffect(() => {
         // setTimeout(() => {
@@ -19,21 +20,7 @@ const ThirdSection = ({ refs, setActiveNav }) => {
         el.style.strokeDashoffset = len
         mb_el.style.strokeDashoffset = mb_len
 
-        const navAnimation = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#section3',
-                start: 'top top+=250',
-                onEnter: (() => setActiveNav(2)),
-            }
-        })
-        const navAnimationBack = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#section3',
-                start: 'bottom top-=350px',
-                onEnterBack: (() => setActiveNav(2)),
-                // markers: true
-            }
-        })
+
 
         ScrollTrigger.matchMedia({
             "(min-width:1131px)": () => scrollAnimation(),
@@ -43,7 +30,7 @@ const ThirdSection = ({ refs, setActiveNav }) => {
         // }, 100)
     }, [])
     return (
-        <section ref={(el) => refs.current.push(el)} className={styles.container} id='section3'>
+        <section ref={(el) => sectionRefs[1] = el} className={styles.container} id='section3'>
             <span className={styles.shadow_T}>career</span>
             <div className={styles.path_con}>
                 <PathMB className={styles.pathMB} />

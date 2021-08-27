@@ -1,5 +1,5 @@
 import styles from './FourthSectionMB.module.scss'
-import { SkillData, getSkillIcon, loadStars } from '../../constants/HelperFunctions'
+import { SkillData, getSkillIcon, loadStars, sectionRefs } from '../../constants/HelperFunctions'
 import { useEffect } from 'react';
 import gsap from 'gsap'
 const FourthSectionMB = ({ refs, setActiveNav }) => {
@@ -21,7 +21,7 @@ const FourthSectionMB = ({ refs, setActiveNav }) => {
     }, [])
 
     return (
-        <section ref={(el) => refs.current.push(el)} className={styles.container} id="section4">
+        <section ref={(el) => sectionRefs[2] = el} className={styles.container} id="section4">
             <span className={styles.shadow_T}>skills</span>
             <div className={styles.card_con}>
                 <div className={styles.row}>

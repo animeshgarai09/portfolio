@@ -52,7 +52,7 @@ const SecondSection = () => {
             </div>
             <div className={styles.mid}>
                 <DashL className={styles.dash_path} />
-                <div className={styles.lottie} id='iphone_img'>
+                <div className={styles.lottie} id='lottie'>
                     {screen.width > 849 && <Lottie options={lottieOption} height={650} width={650} />}
                 </div>
                 <DashR className={styles.dash_path} />
@@ -93,7 +93,7 @@ const scrollAnimation = (screen) => {
             anticipatePin: 1
         }
     });
-    tl.to('#iphone_img', {
+    tl.to('#lottie', {
         scale: .85,
         duration: 0.4,
     }, '-=1').from('.left_dash', {

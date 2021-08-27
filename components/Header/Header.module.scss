@@ -7,8 +7,9 @@
   position: fixed;
   z-index: 10;
   width: 102%;
+  backdrop-filter: blur(15px);
   @include media("<laptop") {
-    background: get(bg);
+    background: get(mb-nav-header-bg);
     box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
   }
   .container {
@@ -95,10 +96,6 @@
           border-radius: 10px;
           padding: 2em;
           font-weight: 600;
-          &.active {
-            color: get(primary);
-            background: get(mb-nav-active-bg);
-          }
           svg {
             font-size: 1.3em;
             // color: get(primary);

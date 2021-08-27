@@ -11,48 +11,35 @@ import FourthSectionMB from '../components/sections/FourthSectionMB'
 import FifthSection from '../components/sections/FifthSection'
 import SixthSection from '../components/sections/SixthSection'
 import SeventhSection from '../components/sections/SeventhSection'
-import { React, useEffect, useState, useRef } from 'react'
+import { desktopNavigation, mobileNavigation } from '../constants/HelperFunctions'
+import { React, useEffect, useState } from 'react'
 
 export default function Home() {
     const [load, setLoad] = useState(false)
     const [fourthSection, setFourthSection] = useState(false)
-    const refs = useRef(new Array())
-    const navRef = useRef(new Array())
-    const mobNavRef = useRef(new Array())
 
-    function setActiveNav(num) {
-        let activeC = 'active'
-        // console.log(navRef)
-        // console.log(mobNavRef)
-        for (let i = 0; i < 6; i++) {
-            if (num == navRef.current[i].id && num == mobNavRef.current[i].id) {
-                navRef.current[i].classList.add(activeC)
-                mobNavRef.current[i].classList.add(activeC)
-                console.log()
-            } else if (navRef.current[i].classList && mobNavRef.current[i].classList) {
-                navRef.current[i].classList.remove(activeC)
-                mobNavRef.current[i].classList.remove(activeC)
-            }
-        }
-    }
     useEffect(() => {
         document.body.style.transition = '.2s'
         const media = window.matchMedia('(max-width:850px)')
         if (media.matches) {
             setTimeout(() => {
-                setLoad(true);
+                setLoad(true)
+                setTimeout(() => {
+                    mobileNavigation()
+                }, 500)
             }, 4800)
-
         } else {
             setTimeout(() => {
                 setLoad(true);
+                setTimeout(() => {
+                    desktopNavigation()
+                }, 500)
             }, 4200);
         }
 
         function handleMatch(matches) {
             if (matches) {
                 setFourthSection(true)
-                console.log(fourthSection)
             }
         }
         media.addListener((e) => handleMatch(e.matches));
@@ -61,23 +48,21 @@ export default function Home() {
     return (
         <>
             <AppHead title='Home - Portfolio' />
-            <Header refs={refs} mobNavRef={mobNavRef} />
+            <Header />
             <div className={styles.layout__container}>
                 <div className={styles.layout}>
                     <div className={styles.floating__nav}>
-                        {/* {screen.width > 849 &&  */}
-                        <FloatingNav refs={refs} navRef={navRef} />
-                        {/* } */}
+                        <FloatingNav />
                     </div>
                     <div className={styles.body__main}>
-                        <FirstSection refs={refs} load={load} navRef={navRef.current[0]} mobNavRef={mobNavRef.current[0]} setActiveNav={setActiveNav} />
+                        <FirstSection load={load} />
                         {load && <SecondSection />}
-                        {load && <ThirdSection refs={refs} setActiveNav={setActiveNav} />}
-                        {load && !fourthSection && <FourthSection refs={refs} setActiveNav={setActiveNav} />}
-                        {load && fourthSection && <FourthSectionMB refs={refs} setActiveNav={setActiveNav} />}
-                        {load && <FifthSection refs={refs} setActiveNav={setActiveNav} />}
-                        {load && <SixthSection refs={refs} setActiveNav={setActiveNav} />}
-                        {load && <SeventhSection refs={refs} setActiveNav={setActiveNav} />}
+                        {load && <ThirdSection />}
+                        {load && !fourthSection && <FourthSection />}
+                        {load && fourthSection && <FourthSectionMB />}
+                        {load && <FifthSection />}
+                        {load && <SixthSection />}
+                        {load && <SeventhSection />}
                     </div>
                 </div>
             </div>

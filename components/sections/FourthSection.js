@@ -1,12 +1,12 @@
 import styles from './FourthSection.module.scss'
 import skillCSS from '../Skills/Skills.module.scss'
-import { distributeByPosition, SkillData, loadStars } from '../../constants/HelperFunctions'
+import { distributeByPosition, SkillData, loadStars, sectionRefs } from '../../constants/HelperFunctions'
 import Skills from '../Skills'
 import { useEffect, useState } from 'react';
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 
-const FourthSection = ({ refs, setActiveNav }) => {
+const FourthSection = () => {
     const [skillInfo, setSkillInfo] = useState({
         name: "React JS",
         info: "Powerful modern frontend framework for building single page application",
@@ -36,24 +36,7 @@ const FourthSection = ({ refs, setActiveNav }) => {
             })
         })
 
-        const navAnimation = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#section4',
-                start: 'top top+=250',
-                onEnter: (() => setActiveNav(3)),
-                // markers: true
-            }
-        })
-        const navAnimationBack = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#section4',
-                start: 'bottom center',
-                end: 'bottom center',
-                // start: 'bottom top',
-                onEnterBack: (() => setActiveNav(3)),
-                // markers: true
-            }
-        })
+
         ScrollTrigger.matchMedia({
             "(min-width:1131px)": () => scrollAnimation(),
             // "(min-width:850px) and (max-width:1130px)": () => scrollAnimation("tablet"),
@@ -64,7 +47,7 @@ const FourthSection = ({ refs, setActiveNav }) => {
 
 
     return (
-        <section ref={(el) => refs.current.push(el)} className={styles.container} id="section4">
+        <section ref={(el) => sectionRefs[2] = el} className={styles.container} id="section4">
             <span className={styles.shadow_T}>skills</span>
             <div className={styles.col}>
                 <div className={styles.text}>
@@ -120,14 +103,14 @@ function scrollAnimation() {
         { autoAlpha: 0, yPercent: -50 })
     // gsap
     const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: '#section4',
-            start: 'top top',
-            end: '+=60',
-            pin: true,
-            anticipatePin: 1,
-            scrub: true,
-        }
+        //     scrollTrigger: {
+        //         trigger: '#section4',
+        //         start: 'top top',
+        //         end: '+=60',
+        //         // pin: true,
+        //         // anticipatePin: 1,
+        //         scrub: true,
+        //     }
     }).from(`.${skillClass}`, {
         duration: 1,
         autoAlpha: 0,

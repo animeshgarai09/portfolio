@@ -8,10 +8,11 @@ $light: (
   mb-nav-active-bg: #e4e4e4,
   mb-nav-border: #fff,
   mb-nav-bg: #f7f7f7,
+  mb-nav-header-bg: #ffffff15,
   //   primary-hover: #ac4ff4,
   //not required
   switcher: linear-gradient(to top left, #fecc51, #fcb033, #fa961b, #fa8607),
-  arrow-color: #af48f8,
+  arrow-color: #a72aff,
   /////////////////////////////////////////Float Icon Settings
   float-icon-color: #621a9a,
   float-icon-bg-hover: #e2bcff,
@@ -54,8 +55,7 @@ $dark: (
   mb-nav-active-bg: #2e263c,
   mb-nav-border: #2d2638,
   mb-nav-bg: #241e2d,
-  //   primary-hover: #ff9680,
-  //not required
+  mb-nav-header-bg: #1f192725,
   accent: #ffbd26,
   switcher: #fff,
   arrow-color: #d1d0d0,
