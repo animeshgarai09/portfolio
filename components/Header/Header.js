@@ -19,18 +19,18 @@ const Header = () => {
     const [navState, setNavState] = useState(false)
     const navAnimation = useRef()
 
-    const navToggle = (ref, num) => {
+    const navToggle = (ref) => {
 
         if (!navState) {
             document.documentElement.style.overflowY = 'hidden'
-            console.log('inside')
             navAnimation.current.timeScale(1).play()
         } else {
             document.documentElement.style.overflowY = 'overlay'
-            console.log('inside')
             navAnimation.current.timeScale(2).reverse()
-            if (ref && num) {
-                scroll(ref, num, true)
+            if (ref) {
+                setTimeout(() => {
+                    scroll(ref, true)
+                }, 400)
             }
         }
         setNavState(!navState)
@@ -158,12 +158,12 @@ const Header = () => {
             <div className={styles.dropNav_con} id="dropNav_con">
                 <div className={styles.dropNav}>
                     <ul>
-                        <li onClick={() => navToggle(sectionRefs[0], 1)}><a id="1" ref={(el) => mobNavRef[0] = el} ><FiSmile /> About</a></li>
-                        <li onClick={() => navToggle(sectionRefs[1], 2)}><a id="2" ref={(el) => mobNavRef[1] = el} ><FiFlag />Career</a></li>
-                        <li onClick={() => navToggle(sectionRefs[2], 3)}><a id="3" ref={(el) => mobNavRef[2] = el} ><FiFeather />Skills</a></li>
-                        <li onClick={() => navToggle(sectionRefs[3], 4)}><a id="4" ref={(el) => mobNavRef[3] = el} ><FiLayers />Projects</a></li>
-                        <li onClick={() => navToggle(sectionRefs[4], 5)}><a id="5" ref={(el) => mobNavRef[4] = el} ><HiOutlinePencil />Blogs</a></li>
-                        <li onClick={() => navToggle(sectionRefs[5], 6)}><a id="6" ref={(el) => mobNavRef[5] = el} ><FiMessageCircle />Contact</a></li>
+                        <li onClick={() => navToggle(sectionRefs[0])}><a id="1" ref={(el) => mobNavRef[0] = el} ><FiSmile /> About</a></li>
+                        <li onClick={() => navToggle(sectionRefs[1])}><a id="2" ref={(el) => mobNavRef[1] = el} ><FiFlag />Career</a></li>
+                        <li onClick={() => navToggle(sectionRefs[2])}><a id="3" ref={(el) => mobNavRef[2] = el} ><FiFeather />Skills</a></li>
+                        <li onClick={() => navToggle(sectionRefs[3])}><a id="4" ref={(el) => mobNavRef[3] = el} ><FiLayers />Projects</a></li>
+                        <li onClick={() => navToggle(sectionRefs[4])}><a id="5" ref={(el) => mobNavRef[4] = el} ><HiOutlinePencil />Blogs</a></li>
+                        <li onClick={() => navToggle(sectionRefs[5])}><a id="6" ref={(el) => mobNavRef[5] = el} ><FiMessageCircle />Contact</a></li>
                     </ul>
                     <div className={styles.mb_links}>
                         <Link href="https://www.linkedin.com/in/animesh-garai-29a5251b4">

@@ -4,12 +4,16 @@
 .container {
   min-height: 100vh;
   position: relative;
-  margin-bottom: 12em;
+  margin-bottom: 8em;
   @include media("<desktop") {
     font-size: 0.9em;
   }
   @include media("<laptop") {
     min-height: calc(100vh - 2em);
+  }
+  @include media("<tablet") {
+    min-height: unset;
+    margin-bottom: 4em;
   }
   .shadow_T {
     font-size: 10em;
@@ -91,68 +95,68 @@
       }
     }
   }
-  .guy {
-    width: 17em;
-    position: absolute;
-    bottom: 1em;
-    left: 0;
+
+  .text_con {
+    height: 30em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
     @include media("<tablet") {
-      width: 12em;
-      bottom: -13em;
+      height: 56em;
     }
-  }
-  .secBlob {
-    position: absolute;
-    right: 9em;
-    bottom: 0;
-    font-style: italic;
-    @include media("<laptop") {
-      font-size: 0.9em;
-      bottom: -1em;
+    .guy {
+      width: 17em;
+      height: 17em;
+      @include media("<tablet") {
+        width: 12em;
+        height: 12em;
+      }
     }
-    @include media("<tablet") {
-      font-size: 0.8em;
-      bottom: 5em;
-      width: 10em;
-    }
-    .text {
-      position: absolute;
-      top: 40%;
-      right: -9em;
-      color: get(text-color);
-      & > span:nth-of-type(1) {
-        font-size: 8em;
-        font-weight: 700;
-        position: absolute;
-        line-height: 0.4;
-        left: -84px;
-        color: get(primary);
-        @include media("<tablet") {
-          left: -57px;
+    .secBlob {
+      font-style: italic;
+      display: flex;
+      margin-bottom: 8em;
+      @include media("<laptop") {
+        font-size: 0.9em;
+      }
+      @include media("<tablet") {
+        font-size: 0.8em;
+        width: 10em;
+      }
+      .text {
+        color: get(text-color);
+        & > span {
+          font-size: 2em;
+          font-weight: 600;
+          display: block;
+          @include media("<tablet") {
+            font-size: 1.2em;
+          }
+        }
+        & > span:nth-of-type(1) {
+          font-size: 8em;
+          font-weight: 700;
+          position: absolute;
+          line-height: 0.4;
+          left: -84px;
+          color: get(primary);
+          @include media("<tablet") {
+            left: -57px;
+          }
         }
       }
-      & > span:nth-of-type(2) {
-        font-size: 2em;
-        font-weight: 600;
-        right: 0;
-        display: block;
-        // @include media("<tablet") {
-        //   margin-left: -8px;
-        // }
-      }
-      & > span:nth-of-type(3) {
-        font-size: 2em;
-        font-weight: 600;
-        right: 0;
-        display: block;
-      }
     }
-  }
-  .blob {
-    fill: get(blob-color);
-    width: 16em;
-    @include media("<laptop") {
-      display: none;
+    .blob {
+      fill: get(blob-color);
+      width: 16em;
+      height: 15em;
+      position: absolute;
+      left: -50%;
+      top: -110%;
+      z-index: -1;
+      @include media("<laptop") {
+        display: none;
+      }
     }
   }
 }

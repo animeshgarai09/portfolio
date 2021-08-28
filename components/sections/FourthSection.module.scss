@@ -16,7 +16,7 @@
     font-weight: 700;
     line-height: 0.9;
     // letter-spacing: -5px;
-    color: #8c8c8c40;
+    color: get(block-text);
     @include media("<tablet") {
       font-size: 8em;
       display: block;

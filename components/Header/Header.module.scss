@@ -7,8 +7,8 @@
   position: fixed;
   z-index: 10;
   width: 102%;
-  backdrop-filter: blur(15px);
   @include media("<laptop") {
+    backdrop-filter: blur(15px);
     background: get(mb-nav-header-bg);
     box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
   }
@@ -100,6 +100,13 @@
             font-size: 1.3em;
             // color: get(primary);
             margin-bottom: 5px;
+          }
+          &:active {
+            background: get(primary);
+            color: #fff;
+            svg {
+              transform: scale(1.2);
+            }
           }
         }
       }

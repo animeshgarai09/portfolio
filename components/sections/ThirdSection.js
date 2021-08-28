@@ -49,14 +49,16 @@ const ThirdSection = () => {
                 </div>
             </div>
 
-            <Guy className={styles.guy} />
-            <div className={styles.secBlob} id="secBlob">
-                <div className={styles.text}>
-                    <span>a</span>
-                    <span>long way <span>ahead</span></span>
-                    <span>lot more to <span>achive</span></span>
+            <div className={styles.text_con}>
+                <Guy className={styles.guy} />
+                <div className={styles.secBlob} id="secBlob">
+                    <div className={styles.text}>
+                        <span>a</span>
+                        <span>long way <span>ahead</span></span>
+                        <span>lot more to <span>achive</span></span>
+                    </div>
+                    <Blob className={styles.blob} />
                 </div>
-                <Blob className={styles.blob} />
             </div>
 
         </section>
@@ -112,8 +114,8 @@ function mbScrollAnimation() {
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: '#section3',
-            start: `top center`,
-            end: '+=850',
+            start: `top bottom-=200`,
+            end: '+=700',
             scrub: 1,
         }
     })
