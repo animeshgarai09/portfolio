@@ -1,4 +1,4 @@
-import AppHead from '../constants/AppHead';
+import Head from 'next/head'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styles from '../styles/Index.module.scss'
@@ -47,7 +47,10 @@ export default function Home() {
     }, [])
     return (
         <>
-            <AppHead title='Home - Portfolio' />
+            <Head>
+                <title>Home - Portfolio</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+            </Head>
             <Header />
             <div className={styles.layout__container}>
                 <div className={styles.layout}>

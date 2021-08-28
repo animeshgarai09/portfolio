@@ -1,11 +1,9 @@
 import Error from '../public/png/404.png'
-import AppHead from '../constants/AppHead';
 import Header from '../components/Header';
 import Image from 'next/image'
 const NotFound = () => {
     return (
         <>
-            <AppHead title='Not found - Portfolio' />
             {/* <Header mbload={false}/> */}
             <div className='con_404'>
                 < Image

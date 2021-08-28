@@ -38,6 +38,9 @@
       background: get(float-icon-bg-hover);
       color: get(float-icon-color-hover);
     }
+    &:active {
+      transform: scale(1.2);
+    }
   }
   span {
     display: flex;
@@ -55,6 +58,12 @@
     &:hover {
       background: get(primary);
       transform: scale(1.2);
+      a {
+        background: unset;
+      }
+    }
+    &:active {
+      transform: scale(1.3);
     }
   }
 }
