@@ -20,8 +20,7 @@ const ThirdSection = () => {
         el.style.strokeDashoffset = len
         mb_el.style.strokeDashoffset = mb_len
 
-
-
+        ScrollTrigger.saveStyles(['.point', '.path_info', '#guy', '#secBlob'])
         ScrollTrigger.matchMedia({
             "(min-width:1131px)": () => scrollAnimation(),
             "(min-width:850px) and (max-width:1130px)": () => scrollAnimation("tablet"),
@@ -105,8 +104,6 @@ const scrollAnimation = (screen) => {
         ease: 'power4.easeOut',
         duration: 0.2,
     }, '-=.5')
-    // ScrollTrigger.update()
-    return tl
 }
 
 function mbScrollAnimation() {

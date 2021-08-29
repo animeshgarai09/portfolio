@@ -75,7 +75,7 @@ export function distributeByPosition(vars) {
 export function killTimeline(timeline) {
     const targets = timeline.getChildren()
 
-    timeline.kill();
+    // timeline.kill();
     for (let target of targets) {
         if (target.targets().length) {
             gsap.set(target.targets(), { clearProps: "all" })
@@ -296,7 +296,6 @@ function topToBottomNavigation() {
     })
 }
 export function desktopNavigation() {
-
     topToBottomNavigation()
 
     ////////////////////////////////////////////////// Intro section
@@ -305,6 +304,8 @@ export function desktopNavigation() {
         start: 'bottom top-=350px',
         end: 'bottom top-=350px',
         onEnterBack: (() => setActiveNav(1)),
+        markers: true
+
     })
 
     ////////////////////////////////////////////////// Career section
@@ -349,6 +350,7 @@ export function mobileNavigation() {
                 start: 'bottom center+=100',
                 end: 'bottom center+=100',
                 onEnterBack: (() => setActiveNav(i + 1)),
+                markers: true
             })
         }
     })

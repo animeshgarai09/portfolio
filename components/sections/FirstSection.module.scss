@@ -52,6 +52,7 @@
         text-align: center;
       }
       .title {
+        visibility: hidden;
         font-size: 1.5em;
         width: 90%;
         color: get(primary);

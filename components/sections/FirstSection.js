@@ -13,91 +13,9 @@ const FirstSection = ({ load }) => {
         const media = window.matchMedia('(max-width:850px)')
 
         if (media.matches) {
-            let initialAnimation = gsap.timeline()
-            initialAnimation.set('#leftCol', { y: -200, })
-            initialAnimation.from('#introText', 1, {
-                autoAlpha: 0,
-                y: 30,
-                ease: 'power4.out',
-                skewX: 7,
-            }).from('.introSkills', {
-                autoAlpha: 0,
-                y: -20,
-                ease: 'power4.out',
-                stagger: 0.5,
-                duration: 1
-            }).from('#firstBlob', {
-                autoAlpha: 0,
-                ease: 'expo.easeOut',
-                duration: .4,
-                // delay: -.1,
-            }).from('#author_image', {
-                transformOrigin: 'bottom',
-                ease: "expo.easeOut",
-                autoAlpha: 0,
-                scale: .9,
-                yPercent: 20,
-                delay: -1,
-                duration: .5,
-            }).to('#leftCol', {
-                y: 0,
-                delay: -1,
-                ease: "power4.out"
-            }).from('#resume', .4, {
-                y: -20,
-                autoAlpha: 0,
-                transformOrigin: 'center',
-                ease: 'power3.out',
-            }).from('#scrollDown', .2, {
-                autoAlpha: 0,
-                y: -30,
-                transformOrigin: 'center',
-                ease: 'power3.out',
-            })
+            initAnimation()
         } else {
-            let initialAnimation = gsap.timeline()
-            initialAnimation.to('#section1', .5, {
-                css: { visibility: 'visible' }
-            }).from('#introText', {
-                duration: 1,
-                autoAlpha: 0,
-                y: 30,
-                ease: 'power4.out',
-                skewX: 15,
-            }).from('.introSkills', {
-                autoAlpha: 0,
-                x: -50,
-                ease: 'power4.out',
-                stagger: 0.5,
-                duration: 1
-            }).from('#firstBlob', {
-                autoAlpha: 0,
-                ease: 'expo.easeOut',
-                duration: .4,
-                // delay: -.1,
-            }).from('#author_image', {
-                transformOrigin: 'bottom',
-                ease: "power3.out",
-                autoAlpha: 0,
-                scale: .9,
-                duration: .5,
-            }).to('.arr_ele', {
-                duration: 0.2,
-                delay: .2,
-                // opacity: 1,
-                autoAlpha: 1,
-                stagger: -0.03,
-                ease: "power4.out",
-            }).from('#resume', .2, {
-                autoAlpha: 0,
-                transformOrigin: 'center',
-                ease: 'power3.out',
-            }).from('#scrollDown', .2, {
-                autoAlpha: 0,
-                y: -50,
-                transformOrigin: 'center',
-                ease: 'power3.out',
-            })
+            mbInitAnimation()
         }
     }, [])
 
@@ -176,6 +94,7 @@ const FirstSection = ({ load }) => {
 function About({ lefRef }) {
 
     useEffect(() => {
+        ScrollTrigger.saveStyles(['.about_animation'])
         ScrollTrigger.matchMedia({
             "(min-width:1130px)": () => scrollAnimation(lefRef),
             "(min-width:850px) and (max-width:1129px)": () => scrollAnimation(lefRef, "tablet"),
@@ -193,16 +112,106 @@ function About({ lefRef }) {
     )
 }
 
+
+
+function initAnimation() {
+    let initialAnimation = gsap.timeline()
+    initialAnimation.set('#leftCol', { y: -200, })
+    initialAnimation.from('#introText', 1, {
+        autoAlpha: 0,
+        y: 30,
+        ease: 'power4.out',
+        skewX: 7,
+    }).from('.introSkills', {
+        autoAlpha: 0,
+        y: -20,
+        ease: 'power4.out',
+        stagger: 0.5,
+        duration: 1
+    }).from('#firstBlob', {
+        autoAlpha: 0,
+        ease: 'expo.easeOut',
+        duration: .4,
+        // delay: -.1,
+    }).from('#author_image', {
+        transformOrigin: 'bottom',
+        ease: "expo.easeOut",
+        autoAlpha: 0,
+        scale: .9,
+        yPercent: 20,
+        delay: -1,
+        duration: .5,
+    }).to('#leftCol', {
+        y: 0,
+        delay: -1,
+        ease: "power4.out"
+    }).from('#resume', .4, {
+        y: -20,
+        autoAlpha: 0,
+        transformOrigin: 'center',
+        ease: 'power3.out',
+    }).from('#scrollDown', .2, {
+        autoAlpha: 0,
+        y: -30,
+        transformOrigin: 'center',
+        ease: 'power3.out',
+    })
+}
+
+
+function mbInitAnimation() {
+    let initialAnimation = gsap.timeline()
+    initialAnimation.to('#section1', .5, {
+        css: { visibility: 'visible' }
+    }).from('#introText', {
+        duration: 1,
+        autoAlpha: 0,
+        y: 30,
+        ease: 'power4.out',
+        skewX: 15,
+    }).from('.introSkills', {
+        autoAlpha: 0,
+        x: -50,
+        ease: 'power4.out',
+        stagger: 0.5,
+        duration: 1
+    }).from('#firstBlob', {
+        autoAlpha: 0,
+        ease: 'expo.easeOut',
+        duration: .4,
+        // delay: -.1,
+    }).from('#author_image', {
+        transformOrigin: 'bottom',
+        ease: "power3.out",
+        autoAlpha: 0,
+        scale: .9,
+        duration: .5,
+    }).to('.arr_ele', {
+        duration: 0.2,
+        delay: .2,
+        // opacity: 1,
+        autoAlpha: 1,
+        stagger: -0.03,
+        ease: "power4.out",
+    }).from('#resume', .2, {
+        autoAlpha: 0,
+        transformOrigin: 'center',
+        ease: 'power3.out',
+    }).from('#scrollDown', .2, {
+        autoAlpha: 0,
+        y: -50,
+        transformOrigin: 'center',
+        ease: 'power3.out',
+    })
+}
+
 function scrollAnimation(lefRef, screen) {
-    console.log(screen)
-    // gsap
     gsap.to('#scrollDown', {
         opacity: 0,
         scrollTrigger: {
             trigger: '#scrollDown',
             scrub: true,
             start: 'top+=70 bottom-=100',
-            // duration: .2,
             end: '+=50',
             onLeaveBack: () => document.querySelector('#scrollDown').style.opacity = 1,
         }
@@ -218,7 +227,6 @@ function scrollAnimation(lefRef, screen) {
     })
     scrollAnimation.to('.arr_ele', {
         duration: 0.5,
-        // opacity: 0,
         autoAlpha: 0,
         stagger: 0.05,
         scrollTrigger: {
@@ -227,7 +235,7 @@ function scrollAnimation(lefRef, screen) {
         },
         ease: "power2.in",
     }).from('.about_animation', {
-        opacity: 0,
+        autoAlpha: 0,
         scale: .5,
         x: -100,
         stagger: 0.3,
@@ -254,6 +262,7 @@ function scrollAnimation(lefRef, screen) {
             }
         })
     }
+    return scrollAnimation
 }
 
 
@@ -272,5 +281,6 @@ function mbScrollAnimation() {
             scrub: 1,
         }
     })
+    return scrollAnimation
 }
 export default FirstSection

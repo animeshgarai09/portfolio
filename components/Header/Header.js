@@ -20,14 +20,14 @@ const Header = () => {
     const navAnimation = useRef()
 
     const navToggle = (ref) => {
-
+        console.log(ref.target)
         if (!navState) {
             document.documentElement.style.overflowY = 'hidden'
             navAnimation.current.timeScale(1).play()
         } else {
             document.documentElement.style.overflowY = 'overlay'
             navAnimation.current.timeScale(2).reverse()
-            if (ref) {
+            if (!ref.target) {
                 setTimeout(() => {
                     scroll(ref, true)
                 }, 400)

@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html lang="en">
+            <Html lang="en" className="notranslate">
                 <Head>
                     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
                     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
@@ -20,6 +20,7 @@ class MyDocument extends Document {
                     <meta name="msapplication-TileColor" content="#ffc40d" />
                     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
                     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2c2f33" />
+                    <meta name="google" content="notranslate" />
                 </Head>
                 <body>
                     <Main />

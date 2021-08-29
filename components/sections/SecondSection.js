@@ -19,6 +19,7 @@ const SecondSection = () => {
         }
     }
     useEffect(() => {
+        ScrollTrigger.saveStyles(['.left_dash', '.right_dash', '.top_cards', '.bottom_cards'])
         ScrollTrigger.matchMedia({
             "(min-width:1130px)": () => scrollAnimation(),
             "(min-width:850px) and (max-width:1129px)": () => scrollAnimation("tablet"),

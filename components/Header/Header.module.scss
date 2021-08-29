@@ -53,7 +53,8 @@
     .logo svg {
       visibility: hidden;
       fill: get(primary);
-      width: 68px;
+      width: 60px;
+      height: 50px;
       @include media("<desktop") {
         width: 46px;
         height: 35px;

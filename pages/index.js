@@ -13,6 +13,7 @@ import SixthSection from '../components/sections/SixthSection'
 import SeventhSection from '../components/sections/SeventhSection'
 import { desktopNavigation, mobileNavigation } from '../constants/HelperFunctions'
 import { React, useEffect, useState } from 'react'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 
 export default function Home() {
     const [load, setLoad] = useState(false)
@@ -24,27 +25,33 @@ export default function Home() {
         if (media.matches) {
             setTimeout(() => {
                 setLoad(true)
-                setTimeout(() => {
-                    mobileNavigation()
-                }, 500)
             }, 4800)
         } else {
             setTimeout(() => {
-                setLoad(true);
-                setTimeout(() => {
-                    desktopNavigation()
-                }, 500)
+                setLoad(true)
             }, 4200);
         }
 
         function handleMatch(matches) {
             if (matches) {
+                console.log("resize")
                 setFourthSection(true)
+            } else {
+                setFourthSection(false)
             }
         }
         media.addListener((e) => handleMatch(e.matches));
         handleMatch(media.matches);
     }, [])
+
+    useEffect(() => {
+        if (load) {
+            ScrollTrigger.matchMedia({
+                "(min-width:850px)": () => desktopNavigation(),
+                "(max-width:849px)": () => mobileNavigation(),
+            })
+        }
+    }, [load])
     return (
         <>
             <Head>
