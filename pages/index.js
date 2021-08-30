@@ -12,13 +12,12 @@ import FifthSection from '../components/sections/FifthSection'
 import SixthSection from '../components/sections/SixthSection'
 import SeventhSection from '../components/sections/SeventhSection'
 import { desktopNavigation, mobileNavigation } from '../constants/HelperFunctions'
-import { React, useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 
 export default function Home() {
     const [load, setLoad] = useState(false)
     const [fourthSection, setFourthSection] = useState(false)
-
     useEffect(() => {
         document.body.style.transition = '.2s'
         const media = window.matchMedia('(max-width:850px)')
@@ -40,11 +39,12 @@ export default function Home() {
                 setFourthSection(false)
             }
         }
-        media.addListener((e) => handleMatch(e.matches));
-        handleMatch(media.matches);
+        media.addListener((e) => handleMatch(e.matches))
+        handleMatch(media.matches)
     }, [])
 
     useEffect(() => {
+        console.log(load)
         if (load) {
             ScrollTrigger.matchMedia({
                 "(min-width:850px)": () => desktopNavigation(),

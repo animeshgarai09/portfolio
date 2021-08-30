@@ -1,8 +1,10 @@
 import styles from './FourthSectionMB.module.scss'
-import { SkillData, getSkillIcon, loadStars, sectionRefs } from '../../constants/HelperFunctions'
+import { SkillData, getSkillIcon, loadStars, sectionRefs, setActiveNav } from '../../constants/HelperFunctions'
 import { useEffect } from 'react';
 import gsap from 'gsap'
-const FourthSectionMB = ({ refs, setActiveNav }) => {
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
+
+const FourthSectionMB = ({ setMounted }) => {
     useEffect(() => {
         gsap.utils.toArray(`.${styles.card}`).forEach((card, i) => {
             gsap.timeline({
@@ -18,6 +20,26 @@ const FourthSectionMB = ({ refs, setActiveNav }) => {
                 }
             }).from(card, { scale: 0.8 }, 0)
         })
+
+        ScrollTrigger.create({
+            id: "section4Top",
+            trigger: '#section4',
+            start: 'top top+=250',
+            end: 'top top+=250',
+            onEnter: (() => setActiveNav(3)),
+        })
+        ScrollTrigger.create({
+            id: "section4Bottom",
+            trigger: '#section4',
+            start: 'bottom center+=100',
+            end: 'bottom center+=100',
+            onEnterBack: (() => setActiveNav(3)),
+        })
+        return () => {
+            ScrollTrigger.getById("section4Top").kill()
+            ScrollTrigger.getById("section4Bottom").kill()
+        }
+
     }, [])
 
     return (

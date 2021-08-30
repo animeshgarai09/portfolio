@@ -266,7 +266,7 @@ export function scroll(el, screen) {
     }
 }
 
-function setActiveNav(num) {
+export function setActiveNav(num) {
     let activeC = 'active'
     for (let i = 0; i < 6; i++) {
         if (num == navRef[i].id && num == mobNavRef[i].id) {
@@ -281,30 +281,34 @@ function setActiveNav(num) {
 
 const topToBottomNavTarget = ['#ab_con', '#section3', '#section4', '#section5', '#section6', '#section7']
 
-function topToBottomNavigation() {
+function topToBottomNavigation(el, i) {
     gsap.utils.toArray(topToBottomNavTarget).forEach((el, i) => {
-        ScrollTrigger.create({
-            trigger: el,
-            start: 'top top+=250',
-            end: 'top top+=250',
-            onEnter: (() => setActiveNav(i + 1)),
-            onLeaveBack: i == 0 && (() => {
-                navRef[0].removeAttribute('class')
-                mobNavRef[0].removeAttribute('class')
-            }),
-        })
+        if (i != 2) {
+
+            ScrollTrigger.create({
+                trigger: el,
+                start: 'top top+=250',
+                end: 'top top+=250',
+                onEnter: (() => setActiveNav(i + 1)),
+                onLeaveBack: i == 0 && (() => {
+                    navRef[0].removeAttribute('class')
+                    mobNavRef[0].removeAttribute('class')
+                }),
+            })
+        }
     })
 }
 export function desktopNavigation() {
+    console.log('desktop')
     topToBottomNavigation()
 
     ////////////////////////////////////////////////// Intro section
     ScrollTrigger.create({
-        trigger: '#lottie',
-        start: 'bottom top-=350px',
-        end: 'bottom top-=350px',
+        trigger: '#section2',
+        start: 'bottom center',
+        end: 'bottom center',
         onEnterBack: (() => setActiveNav(1)),
-        markers: true
+        // markers: true
 
     })
 
@@ -316,12 +320,12 @@ export function desktopNavigation() {
     })
 
     ///////////////////////////////////////////////// Skills section
-    ScrollTrigger.create({
-        trigger: '#section4',
-        start: 'bottom center+=100',
-        end: 'bottom center+=100',
-        onEnterBack: (() => setActiveNav(3)),
-    })
+    // ScrollTrigger.create({
+    //     trigger: '#section4',
+    //     start: 'bottom center+=100',
+    //     end: 'bottom center+=100',
+    //     onEnterBack: (() => setActiveNav(3)),
+    // })
 
     ///////////////////////////////////////////////// Projects section
     ScrollTrigger.create({
@@ -341,16 +345,17 @@ export function desktopNavigation() {
 }
 
 export function mobileNavigation() {
+    console.log("mobile")
     topToBottomNavigation()
 
     gsap.utils.toArray(topToBottomNavTarget).forEach((el, i) => {
-        if (i != 5) {
+        if (i != 5 && 1 != 2) {
             ScrollTrigger.create({
                 trigger: i == 0 ? '#section2' : el,
                 start: 'bottom center+=100',
                 end: 'bottom center+=100',
                 onEnterBack: (() => setActiveNav(i + 1)),
-                markers: true
+                // markers: true
             })
         }
     })
