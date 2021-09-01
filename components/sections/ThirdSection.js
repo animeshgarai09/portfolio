@@ -26,7 +26,6 @@ const ThirdSection = () => {
             "(min-width:850px) and (max-width:1130px)": () => scrollAnimation("tablet"),
             "(max-width:849px)": () => mbScrollAnimation(),
         })
-        // }, 100)
     }, [])
     return (
         <section ref={(el) => sectionRefs[1] = el} className={styles.container} id='section3'>
@@ -104,6 +103,7 @@ const scrollAnimation = (screen) => {
         ease: 'power4.easeOut',
         duration: 0.2,
     }, '-=.5')
+    ScrollTrigger.refresh()
 }
 
 function mbScrollAnimation() {
@@ -138,5 +138,6 @@ function mbScrollAnimation() {
         ease: 'power4.easeOut',
         duration: 0.2,
     }, '-=0.25')
+
 }
 export default ThirdSection

@@ -1,12 +1,12 @@
 import styles from './FourthSection.module.scss'
 import skillCSS from '../Skills/Skills.module.scss'
-import { distributeByPosition, SkillData, loadStars, sectionRefs, setActiveNav } from '../../constants/HelperFunctions'
+import { distributeByPosition, SkillData, loadStars, sectionRefs } from '../../constants/HelperFunctions'
 import Skills from '../Skills'
 import { useEffect, useState } from 'react';
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 
-const FourthSection = ({ setMounted }) => {
+const FourthSection = () => {
     const [skillInfo, setSkillInfo] = useState({
         name: "React JS",
         info: "Powerful modern frontend framework for building single page application",
@@ -36,35 +36,16 @@ const FourthSection = ({ setMounted }) => {
             })
         })
 
-        ScrollTrigger.create({
-            id: "section4Top",
-            trigger: '#section4',
-            start: 'top top+=250',
-            end: 'top top+=250',
-            onEnter: (() => setActiveNav(3)),
-        })
-
-        ScrollTrigger.create({
-            id: "section4Bottom",
-            trigger: '#section4',
-            start: 'bottom center+=100',
-            end: 'bottom center+=100',
-            onEnterBack: (() => setActiveNav(3)),
-        })
         ScrollTrigger.matchMedia({
             "(min-width:1131px)": () => scrollAnimation(),
             //     // "(min-width:850px) and (max-width:1130px)": () => scrollAnimation("tablet"),
             //     // "(max-width:849px)": () => mbScrollAnimation(),
         })
-        return () => {
-            ScrollTrigger.getById("section4Top").kill()
-            ScrollTrigger.getById("section4Bottom").kill()
-        }
     }, [])
 
 
     return (
-        <section ref={(el) => sectionRefs[2] = el} className={styles.container} id="section4">
+        <section ref={(el) => sectionRefs[2] = el} className={styles.container} >
             <span className={styles.shadow_T}>skills</span>
             <div className={styles.col}>
                 <div className={styles.text}>
@@ -176,7 +157,6 @@ function scrollAnimation() {
             // toggleActions: "play reset play none",
         }
     })
-
 }
 
 

@@ -4,6 +4,7 @@ import SecGuy from '../../public/svg/secGuy.svg'
 import Bubble from '../../public/svg/bubble.svg'
 import { sectionRefs } from '../../constants/HelperFunctions'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 
 
 const SeventhSection = () => {
@@ -51,6 +52,12 @@ const SeventhSection = () => {
         //     setValidationState(ini => ini.fill(true))
         // }
     }
+    // useEffect(() => {
+    //     ScrollTrigger.matchMedia({
+    //         "(min-width:1131px)": () => scrollAnimation(),
+    //         "(max-width:849px)": () => scrollAnimation(),
+    //     })
+    // }, [])
     return (
         <section ref={(el) => sectionRefs[5] = el} className={styles.container} id='section7'>
             <div className={styles.left_col}>
@@ -113,6 +120,10 @@ const SeventhSection = () => {
         </section>
     )
 }
+
+// function scrollAnimation() {
+
+// }
 
 export default SeventhSection
 

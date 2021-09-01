@@ -11,7 +11,6 @@ const FirstSection = ({ load }) => {
     const leftCol = useRef(null);
     useEffect(() => {
         const media = window.matchMedia('(max-width:850px)')
-
         if (media.matches) {
             initAnimation()
         } else {
@@ -262,7 +261,7 @@ function scrollAnimation(lefRef, screen) {
             }
         })
     }
-    return scrollAnimation
+
 }
 
 
@@ -281,6 +280,5 @@ function mbScrollAnimation() {
             scrub: 1,
         }
     })
-    return scrollAnimation
 }
 export default FirstSection

@@ -280,22 +280,19 @@ export function setActiveNav(num) {
 }
 
 const topToBottomNavTarget = ['#ab_con', '#section3', '#section4', '#section5', '#section6', '#section7']
-
 function topToBottomNavigation(el, i) {
     gsap.utils.toArray(topToBottomNavTarget).forEach((el, i) => {
-        if (i != 2) {
 
-            ScrollTrigger.create({
-                trigger: el,
-                start: 'top top+=250',
-                end: 'top top+=250',
-                onEnter: (() => setActiveNav(i + 1)),
-                onLeaveBack: i == 0 && (() => {
-                    navRef[0].removeAttribute('class')
-                    mobNavRef[0].removeAttribute('class')
-                }),
-            })
-        }
+        ScrollTrigger.create({
+            trigger: el,
+            start: 'top top+=250',
+            end: 'top top+=250',
+            onEnter: (() => setActiveNav(i + 1)),
+            onLeaveBack: i == 0 && (() => {
+                navRef[0].removeAttribute('class')
+                mobNavRef[0].removeAttribute('class')
+            }),
+        })
     })
 }
 export function desktopNavigation() {
@@ -320,12 +317,12 @@ export function desktopNavigation() {
     })
 
     ///////////////////////////////////////////////// Skills section
-    // ScrollTrigger.create({
-    //     trigger: '#section4',
-    //     start: 'bottom center+=100',
-    //     end: 'bottom center+=100',
-    //     onEnterBack: (() => setActiveNav(3)),
-    // })
+    ScrollTrigger.create({
+        trigger: '#section4',
+        start: 'bottom center+=100',
+        end: 'bottom center+=100',
+        onEnterBack: (() => setActiveNav(3)),
+    })
 
     ///////////////////////////////////////////////// Projects section
     ScrollTrigger.create({
@@ -349,7 +346,7 @@ export function mobileNavigation() {
     topToBottomNavigation()
 
     gsap.utils.toArray(topToBottomNavTarget).forEach((el, i) => {
-        if (i != 5 && 1 != 2) {
+        if (i != 5) {
             ScrollTrigger.create({
                 trigger: i == 0 ? '#section2' : el,
                 start: 'bottom center+=100',

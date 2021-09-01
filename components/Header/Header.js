@@ -20,7 +20,6 @@ const Header = () => {
     const navAnimation = useRef()
 
     const navToggle = (ref) => {
-        console.log(ref.target)
         if (!navState) {
             document.documentElement.style.overflowY = 'hidden'
             navAnimation.current.timeScale(1).play()
@@ -105,6 +104,8 @@ const Header = () => {
             })
 
         }
+
+        ScrollTrigger.saveStyles(["#nav_con"])
         ScrollTrigger.matchMedia({
             "(max-width:850px)": () => scrollAnimation()
         })

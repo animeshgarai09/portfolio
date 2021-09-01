@@ -18,6 +18,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 export default function Home() {
     const [load, setLoad] = useState(false)
     const [fourthSection, setFourthSection] = useState(false)
+    let mounted = useRef(false)
     useEffect(() => {
         document.body.style.transition = '.2s'
         const media = window.matchMedia('(max-width:850px)')
@@ -68,8 +69,10 @@ export default function Home() {
                         <FirstSection load={load} />
                         {load && <SecondSection />}
                         {load && <ThirdSection />}
-                        {load && !fourthSection && <FourthSection />}
-                        {load && fourthSection && <FourthSectionMB />}
+                        <div id="section4">
+                            {load && !fourthSection && <FourthSection mounted={mounted} />}
+                            {load && fourthSection && <FourthSectionMB />}
+                        </div>
                         {load && <FifthSection />}
                         {load && <SixthSection />}
                         {load && <SeventhSection />}

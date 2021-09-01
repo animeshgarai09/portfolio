@@ -1,8 +1,7 @@
 import styles from './FourthSectionMB.module.scss'
-import { SkillData, getSkillIcon, loadStars, sectionRefs, setActiveNav } from '../../constants/HelperFunctions'
+import { SkillData, getSkillIcon, loadStars, sectionRefs, initTopToBottom, initBottomToTop } from '../../constants/HelperFunctions'
 import { useEffect } from 'react';
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 
 const FourthSectionMB = ({ setMounted }) => {
     useEffect(() => {
@@ -20,30 +19,10 @@ const FourthSectionMB = ({ setMounted }) => {
                 }
             }).from(card, { scale: 0.8 }, 0)
         })
-
-        ScrollTrigger.create({
-            id: "section4Top",
-            trigger: '#section4',
-            start: 'top top+=250',
-            end: 'top top+=250',
-            onEnter: (() => setActiveNav(3)),
-        })
-        ScrollTrigger.create({
-            id: "section4Bottom",
-            trigger: '#section4',
-            start: 'bottom center+=100',
-            end: 'bottom center+=100',
-            onEnterBack: (() => setActiveNav(3)),
-        })
-        return () => {
-            ScrollTrigger.getById("section4Top").kill()
-            ScrollTrigger.getById("section4Bottom").kill()
-        }
-
     }, [])
 
     return (
-        <section ref={(el) => sectionRefs[2] = el} className={styles.container} id="section4">
+        <section ref={(el) => sectionRefs[2] = el} className={styles.container} >
             <span className={styles.shadow_T}>skills</span>
             <div className={styles.card_con}>
                 <div className={styles.row}>
