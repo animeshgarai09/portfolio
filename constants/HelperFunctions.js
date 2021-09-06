@@ -2,7 +2,7 @@ import gsap from 'gsap'
 import { DiPython } from 'react-icons/di'
 import { FaSass } from 'react-icons/fa'
 import { FiFigma } from 'react-icons/fi'
-import { DiJavascript1 } from 'react-icons/di'
+import { DiJavascript1, DiGoogleCloudPlatform } from 'react-icons/di'
 import { SiFlask, SiMaterialUi, SiAdobexd, SiCss3, SiHtml5, SiAdobephotoshop, SiNextDotJs, SiReact, SiRedux, SiNodeDotJs, SiAdobeillustrator, SiDjango, SiTailwindcss, SiJava } from 'react-icons/si'
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
@@ -206,8 +206,30 @@ export const SkillData = {
     },
 }
 
-export function getSkillIcon(index) {
-    let Temp = SkillData[index].icon
+export const featuredProjects = [{
+    name: "wanderer",
+    intro: "Are you looking to travel someplace for first time, or visiting the same place, Well wanderer can help you plan the whole trip in easy steps and make your trip memorable.",
+    features: ["Integrated Google map", "Rating based Filter ", "Trip planner", "Tourist attraction"],
+    tech: [{
+        icon: SiNextDotJs,
+        name: "Next.js"
+    }, {
+        icon: DiGoogleCloudPlatform,
+        name: "Google API"
+    }, {
+        icon: SiRedux,
+        name: "Redux"
+    }]
+}
+]
+
+export function getSkillIcon(index, data) {
+    let Temp
+    if (data === "Skill") {
+        Temp = SkillData[index].icon
+    } else {
+        Temp = featuredProjects[index]?.tech[data].icon
+    }
     return <Temp />
 }
 

@@ -4,7 +4,6 @@ import { scroll, sectionRefs, navRef } from '../../constants/HelperFunctions';
 import { FiSmile, FiFeather, FiLayers, FiMessageCircle, FiFlag, FiArrowUp } from "react-icons/fi";
 import { HiOutlinePencil } from "react-icons/hi";
 import { useEffect } from 'react';
-
 const FloatingNav = () => {
     useEffect(() => {
         const tl = gsap.timeline({})
@@ -23,8 +22,9 @@ const FloatingNav = () => {
             ease: "expo.out(0.9, 0.1)"
         })
 
-        gsap.to("#top", {
-            autoAlpha: 1,
+        const animation = gsap.from("#top", {
+            autoAlpha: 0,
+            yPercent: 80,
             scrollTrigger: {
                 trigger: 'body',
                 start: 'top+=400 top',
@@ -32,6 +32,7 @@ const FloatingNav = () => {
                 scrub: true,
             }
         })
+        return () => animation.kill()
     }, [])
 
     return (

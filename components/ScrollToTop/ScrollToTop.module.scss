@@ -1,0 +1,29 @@
+@use '../../constants/css/theme' as *;
+@import "../../constants/css/breakpoints.scss";
+
+.mobile {
+  position: fixed;
+  z-index: 20;
+  bottom: 30px;
+  right: 5%;
+  visibility: hidden;
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5em;
+  width: 1.5em;
+  font-size: 1.4em;
+  border-radius: 50%;
+  background: get(primary);
+  transition: 0.2s;
+  a {
+    height: 1em;
+    color: get(float-icon-color-hover);
+  }
+  &:active {
+    transform: scale(1.3);
+  }
+}

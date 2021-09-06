@@ -1,0 +1,110 @@
+@use '../../constants/css/theme' as *;
+@import "../../constants/css/breakpoints.scss";
+
+.card_con {
+  display: flex;
+  margin: 6em 0;
+  &.switch {
+    flex-direction: row-reverse;
+    text-align: right;
+    .intro_con {
+      margin: 0;
+      margin-left: -8em;
+      @include media("<tablet") {
+        margin: 0;
+      }
+    }
+    .tech_con {
+      & > span {
+        margin: 0;
+        margin-left: 20px;
+      }
+    }
+    .header {
+      flex-direction: row-reverse;
+    }
+    .feature_con {
+      span::after {
+        margin-left: auto;
+      }
+    }
+  }
+  .left_col,
+  .right_col {
+    flex: 1 1;
+  }
+
+  .right_col {
+    @include media("<tablet") {
+      display: none;
+    }
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      font-size: 5em;
+      color: get(block-text);
+    }
+    h2 {
+      font-size: 2.5em;
+      color: get(primary);
+    }
+    h5 {
+      font-size: 1em;
+      font-weight: 700;
+      color: get(dTone-color);
+    }
+  }
+  .intro_con {
+    position: relative;
+    margin-right: -8em;
+    background: get(gradient);
+    color: #d1d0d0;
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+      rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+      rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    p {
+      margin: 0;
+    }
+    @include media("<tablet") {
+      margin: 0;
+    }
+  }
+  .feature_con {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 20px;
+    row-gap: 10px;
+    margin: 1.5em 0;
+    span {
+      font-size: 0.9em;
+      font-weight: 600;
+      color: get(text-color);
+      &::after {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 4px;
+        margin-top: 5px;
+        background: get(primary);
+      }
+    }
+  }
+  .tech_con {
+    & > span {
+      font-size: 1em;
+      font-weight: 600;
+      margin-right: 20px;
+      display: inline-flex;
+      align-items: center;
+      color: get(tech-color);
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+}

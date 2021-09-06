@@ -56,7 +56,7 @@ const generateCard = (index) => {
     return (
         <div className={styles.card}>
             <div className={styles.heading}>
-                {getSkillIcon(index)}
+                {getSkillIcon(index, 'Skill')}
                 <span>{SkillData[index].name}</span>
             </div>
             <p>{SkillData[8].info}</p>
