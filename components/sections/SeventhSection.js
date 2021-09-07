@@ -70,6 +70,7 @@ const SeventhSection = () => {
                     <div className={styles.top_con}>
                         <div>
                             <label htmlFor="name">Name</label>
+
                             <input
                                 id="name"
                                 type="text"
@@ -77,6 +78,7 @@ const SeventhSection = () => {
                                 placeholder="e.x. Elon musk"
                                 value={name}
                                 onChange={e => setName(e.target.value)}
+                                className={validationState[0] && styles.err}
                             />
                             {validationState[0] && <span className={styles.error}>Please check you name</span>}
                         </div>
@@ -89,6 +91,7 @@ const SeventhSection = () => {
                                 placeholder="e.x. elonmusk@mars.com"
                                 value={email}
                                 onChange={e => setEmail(e.target.value)}
+                                className={validationState[1] && styles.err}
                             />
                             {validationState[1] && <span className={styles.error}>Please check your email</span>}
                         </div>
@@ -101,6 +104,7 @@ const SeventhSection = () => {
                             value={message}
                             placeholder="Write down a short message"
                             onChange={e => setMessage(e.target.value)}
+                            className={validationState[2] && styles.err}
                         />
                         {validationState[2] && <span className={styles.error}>Please check your message</span>}
                     </div>

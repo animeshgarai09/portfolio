@@ -20,22 +20,11 @@ $light: (
   float-icon-color-hover: #fff,
   ////////////////////////////////////////
   text-color: #505050,
-  tech-color: #b65cff,
+  tech-color: #8e8e8e,
   dTone-color: #000,
   blob-color: #f6ebff,
-  btn-shadow: (
-    -10px -10px 30px #ffffff,
-    10px 10px 30px rgba(174, 174, 192, 0.4),
-  ),
-  inp-shadow: (
-    -1px 1px 2px rgba(255, 255, 255, 0.3),
-    1px -1px 2px rgba(216, 216, 216, 0.5),
-    inset 6px 6px 12px rgba(216, 216, 216, 0.2),
-    inset -6px -6px 12px rgba(216, 216, 216, 0.2),
-    inset 6px -6px 12px rgba(255, 255, 255, 0.9),
-    inset -6px 6px 15px rgba(216, 216, 216, 0.9),
-  ),
   //////////////////////////////////
+  input-border: #e4c3ff,
   input-color: #464646,
   input-bg: #f5f5f5,
   gradient: linear-gradient(to top left, #750fce, #551b88),
@@ -65,19 +54,8 @@ $dark: (
   tech-color: #6e657a,
   dTone-color: #fff,
   blob-color: #50505029,
-  btn-shadow: (
-    -10px -10px 30px #ffffff,
-    10px 10px 30px rgba(174, 174, 192, 0.4),
-  ),
-  inp-shadow: (
-    -1px 1px 2px rgba(255, 255, 255, 0.3),
-    1px -1px 2px rgba(216, 216, 216, 0.5),
-    inset 6px 6px 12px rgba(216, 216, 216, 0.2),
-    inset -6px -6px 12px rgba(216, 216, 216, 0.2),
-    inset 6px -6px 12px rgba(255, 255, 255, 0.9),
-    inset -6px 6px 15px rgba(216, 216, 216, 0.9),
-  ),
   //////////////////////////////////////////////////////
+  input-border: #4645488a,
   input-color: #f5f5f5,
   input-bg: #2b064b,
   gradient: linear-gradient(to top left, #320b50, #750fce),
