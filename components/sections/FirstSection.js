@@ -39,54 +39,31 @@ const FirstSection = ({ load }) => {
                 {load && <About lefRef={leftCol} />}
             </div>
             <div className={styles.right_col} id="rightCol">
-                <div className={styles.sub_con}>
-                    <Arrow id='arrow' className={styles.arrow} />
-                    <div className={styles.author_container}>
-                        <Image
-                            src={author}
-                            alt="Picture of the author"
-                            priority='true'
-                            layout="fill"
-                            // height={500}
-                            // width={500}
-                            quality='75'
-                            placeholder='blur'
-                            className={styles.author_image}
-                            id='author_image'
-                        />
+                {/* <div className={styles.sub_con}> */}
+                <Arrow id='arrow' className={styles.arrow} />
+                <div className={styles.author_container}>
+                    <Image
+                        src={author}
+                        alt="Picture of the author"
+                        priority='true'
+                        layout="fill"
+                        // height={500}
+                        // width={500}
+                        quality='75'
+                        placeholder='blur'
+                        className={styles.author_image}
+                        id='author_image'
+                    />
 
-                    </div>
-                    {/* <Blob id='firstBlob' className={styles.firstBlob} /> */}
-                    <svg id='firstBlob' clipPathUnits="objectBoundingBox" className={styles.firstBlob} >
-                        <clipPath id="clip">
-                            <path
-                                d="M20.6887 455.127C-29.4495 356.605 21.5877 205.18 103.305 109.848C185.022 14.5158 297.911 -24.853 410.371 16.0729C523.321 56.8699 635.47 178.633 628.847 297.781C622.109 416.387 497.205 532.792 358.924 567.371C221.016 601.28 70.452 554.32 20.6887 455.127Z"
-                                fill="none" />
-                        </clipPath>
-                        <g filter="url(#filter0_i)">
-                            <path
-                                d="M20.6887 455.127C-29.4495 356.605 21.5877 205.18 103.305 109.848C185.022 14.5158 297.911 -24.853 410.371 16.0729C523.321 56.8699 635.47 178.633 628.847 297.781C622.109 416.387 497.205 532.792 358.924 567.371C221.016 601.28 70.452 554.32 20.6887 455.127Z"
-                            />
-                        </g>
-                        <defs>
-                            <filter id="filter0_i" x="-29.1875" y="0" width="658.314" height="582.314" filterUnits="userSpaceOnUse"
-                                colorInterpolationFilters="sRGB">
-                                <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                                    result="hardAlpha" />
-                                <feOffset dx="-30" dy="4" />
-                                <feGaussianBlur stdDeviation="25.5" />
-                                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-                                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                                <feBlend mode="normal" in2="shape" result="effect1_innerShadow" />
-                            </filter>
-                        </defs>
-
-                    </svg>
                 </div>
+                <svg id='firstBlob' className={styles.firstBlob}>
+                    <clipPath id="clip" clipPathUnits="objectBoundingBox">
+                        <path d="M20.842 455.346C-29.2961 356.824 21.7411 205.399 103.458 110.067C185.176 14.7349 298.064 -24.6339 410.524 16.292C523.474 57.0891 635.623 178.852 629 298C622.262 416.606 497.358 533.011 359.077 567.59C221.169 601.499 70.6053 554.539 20.842 455.346Z" fill="#621A9A" />
+                    </clipPath>
+                </svg>
+
             </div>
-        </section>
+        </section >
     )
 }
 
@@ -95,8 +72,7 @@ function About({ lefRef }) {
     useEffect(() => {
         ScrollTrigger.saveStyles(['.about_animation'])
         ScrollTrigger.matchMedia({
-            "(min-width:1130px)": () => scrollAnimation(lefRef),
-            "(min-width:850px) and (max-width:1129px)": () => scrollAnimation(lefRef, "tablet"),
+            "(min-width:850px)": () => scrollAnimation(lefRef),
             "(max-width:849px)": () => mbScrollAnimation(),
         })
 
@@ -218,7 +194,7 @@ function scrollAnimation(lefRef, screen) {
     const scrollAnimation = gsap.timeline({
         scrollTrigger: {
             trigger: '#rightCol',
-            start: `top ${screen == 'tablet' ? 'top+=90' : 'top'}`,
+            start: `top top`,
             end: `+=${lefRef.current.offsetHeight} bottom`,
             pin: true,
             scrub: 1,
@@ -247,20 +223,18 @@ function scrollAnimation(lefRef, screen) {
 
         }
     })
-    if (screen != 'tablet') {
-        scrollAnimation.to('#links', {
-            x: '300px',
-            autoAlpha: 0,
-            ease: 'power3.inOut',
-            scrollTrigger: {
-                trigger: '#section1',
-                start: 'bottom bottom',
+    scrollAnimation.to('#links', {
+        x: '300px',
+        autoAlpha: 0,
+        ease: 'power3.inOut',
+        scrollTrigger: {
+            trigger: '#section1',
+            start: 'bottom bottom',
 
-                end: '+=100',
-                scrub: 1,
-            }
-        })
-    }
+            end: '+=100',
+            scrub: 1,
+        }
+    })
 
 }
 

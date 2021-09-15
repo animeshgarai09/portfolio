@@ -16,6 +16,9 @@
   }
   .left_col {
     flex: 1 1 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     @include media("<tablet") {
       margin-bottom: 2em;
     }

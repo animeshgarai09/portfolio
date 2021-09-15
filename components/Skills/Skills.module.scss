@@ -4,8 +4,6 @@
 .container {
   position: relative;
   flex: 1 1;
-  height: 100%;
-  margin: 4em 0;
   @include media("<tablet") {
     font-size: 0.9em;
   }
