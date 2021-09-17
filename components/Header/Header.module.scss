@@ -6,7 +6,7 @@
   justify-content: center;
   position: fixed;
   z-index: 10;
-  width: 102%;
+  width: 100%;
   @include media("<laptop") {
     backdrop-filter: blur(15px);
     background: get(mb-nav-header-bg);
@@ -50,14 +50,17 @@
       }
     }
 
-    .logo svg {
-      visibility: hidden;
-      fill: get(primary);
-      width: 60px;
-      height: 50px;
-      @include media("<desktop") {
-        width: 46px;
-        height: 35px;
+    .logo {
+      padding: 0 10px;
+      svg {
+        visibility: hidden;
+        fill: get(primary);
+        width: 60px;
+        height: 50px;
+        @include media("<desktop") {
+          width: 46px;
+          height: 35px;
+        }
       }
     }
   }

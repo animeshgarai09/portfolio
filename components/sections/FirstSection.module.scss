@@ -103,7 +103,7 @@
     h1 {
       position: relative;
       z-index: 4;
-      font-size: clamp(2.5em, 4.9vw, 6em);
+      font-size: clamp(4em, 4.9vw, 6em);
       color: get(primary-dark);
       font-weight: 500;
       margin-bottom: 0.2em;
@@ -130,7 +130,7 @@
       position: relative;
       z-index: 4;
       margin: 0 0 0.3em 0;
-      font-size: clamp(1.3em, 2.3vw, 3em);
+      font-size: clamp(1.9em, 2.3vw, 3em);
       font-weight: 500;
       color: get(text-color);
       visibility: hidden;
@@ -231,7 +231,15 @@
       z-index: 1;
       padding: 2em;
       clip-path: url(#clip);
-      background-color: get(primary);
+      background-color: get(image-bg-color);
+      @include media("<1200px") {
+        width: 25.5em;
+        height: 23.5em;
+      }
+      @include media("<laptop") {
+        width: 24em;
+        height: 22em;
+      }
       @include media("<tablet") {
         width: 20em;
         height: 18em;
@@ -274,7 +282,7 @@
       z-index: 2;
       transform: rotate(10deg);
       fill: get(arrow-color);
-      filter: drop-shadow(2px 2px 3px #49414140);
+      filter: drop-shadow(-2px 2px 3px #49414160);
       @include media("<desktop") {
         width: 20em;
       }
