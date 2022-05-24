@@ -1,214 +1,209 @@
-@use '../../constants/css/theme' as *;
+@use "../../constants/css/theme" as *;
 @import "../../constants/css/breakpoints.scss";
 .container {
-  height: calc(100vh - 110px);
-  display: flex;
-  @include media("<desktop") {
-    font-size: 0.9em;
-  }
-  @include media("<laptop") {
-    font-size: 0.85em;
-    height: calc(100vh - (+ 5.5em));
-  }
-  @include media("<tablet") {
-    font-size: 0.85em;
-    height: auto;
-  }
-  .left_col {
-    flex: 1 1 0px;
+    height: calc(100vh - 110px);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include media("<desktop") {
+        font-size: 0.9em;
+    }
+    @include media("<laptop") {
+        font-size: 0.85em;
+        height: calc(100vh - (+ 5.5em));
+    }
     @include media("<tablet") {
-      margin-bottom: 2em;
-    }
-    .text {
-      display: none;
-      text-align: center;
-      font-size: 1.3em;
-      color: #fafafa8f;
-      margin: 1em 0;
-      @include media("<tablet") {
-        display: block;
-      }
-    }
-    .shadow_T {
-      font-size: 10em;
-      font-weight: 700;
-      line-height: 0.9;
-      letter-spacing: -5px;
-      color: #8c8c8c40;
-      @include media("<tablet") {
-        display: block;
-        text-align: center;
-        font-size: 4em;
-        color: #ffffff;
-        letter-spacing: -1px;
-      }
-    }
-
-    .top_con {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      margin-top: 1em;
-      height: 86px;
-      div {
-        flex: 1 1 0px;
-        &:first-child {
-          margin-right: 20px;
-        }
-      }
-      @include media("<tablet") {
+        font-size: 0.85em;
         height: auto;
+    }
+    .left_col {
+        flex: 1 1 0px;
+        display: flex;
         flex-direction: column;
-        div {
-          flex: none;
-          height: 6em;
-          &:first-child {
-            margin: 0;
-          }
-        }
-      }
-    }
-    form {
-      @include media("<tablet") {
-        padding: 2em 2em;
-        border-radius: 20px;
-        background: get(gradient);
-        box-shadow: #00000040 0px 14px 28px, #00000040 0px 10px 10px;
-      }
-    }
-    label {
-      color: get(primary);
-      font-size: 0.9em;
-      font-weight: 600;
-      margin-left: 10px;
-      @include media("<tablet") {
-        color: rgba(255, 255, 255, 0.959);
-        font-size: 1.1em;
-        font-weight: 600;
-      }
-    }
-    input,
-    textarea {
-      width: 100%;
-      resize: none;
-      height: 3em;
-      border: none;
-      font-size: 1em;
-      border-radius: 10px;
-      padding: 0px 15px;
-      margin: 5px 0;
-      color: get(input-color);
-      background: get(float-icon-background);
-      border: 2px solid get(input-border);
-      transition: 0.1s;
-      box-shadow: #0000001a 0px 10px 15px -3px, #0000000d 0px 4px 6px -2px;
-      &::placeholder {
-        color: #5c5c5c8a;
-      }
-      &:focus {
-        border-color: get(primary);
-      }
-      @include media("<tablet") {
-        font-size: 1.2em;
-        color: get(input-color);
-        background: get(input-bg);
-        border: none;
-      }
-    }
-    textarea {
-      min-height: 12em;
-      padding: 15px;
-    }
-    .err {
-      border-color: #ff7068;
-    }
-    .error {
-      margin-left: 5px;
-      margin-top: 2px;
-      font-size: 0.75em;
-      font-weight: 600;
-      color: #ff7068;
-      float: right;
-      @include media("<tablet") {
-        // display: block;
-        // text-align: right;
-        float: right;
-        margin-top: 4px;
-        margin-right: 4px;
-      }
-    }
-    button {
-      min-width: 9em;
-      height: 2.5em;
-      border: none;
-      border-radius: 25px;
-      padding: 0 2em;
-      font-size: 1em;
-      color: #ffffff;
-      margin-top: 10px;
-      background-image: linear-gradient(
-        to right,
-        get(primary),
-        get(primary-light)
-      );
-      background-size: 150% auto;
-      transition: 0.3s;
-      cursor: pointer;
-      //   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-      @include media("<tablet") {
-        height: 2.7em;
-        font-size: 1.3em;
-        background: #380b5f;
-      }
-      &:hover {
-        background-position: right center;
-        transform: translateY(-2px);
-        box-shadow: rgba(23, 23, 24, 0.7) 0px 12px 30px -10px;
+        justify-content: center;
         @include media("<tablet") {
-          transform: none;
-          box-shadow: none;
+            margin-bottom: 2em;
         }
-      }
-      &:active {
-        transform: scale(0.95);
-      }
-    }
-  }
-  .right_col {
-    flex: 1 1 0px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    @include media("<970px") {
-      font-size: 0.9em;
-      margin-left: 7em;
-    }
-    @include media("<tablet") {
-      display: none;
-    }
-    .svg_con {
-      position: relative;
-      svg:nth-of-type(2) {
-        width: 19em;
-        height: 21em;
-        margin-bottom: -5px;
-      }
-      svg:nth-of-type(1) {
-        width: 14em;
-        height: 12em;
-        position: absolute;
-        left: -8em;
-        top: -9em;
-        @include media("<950px") {
-          font-size: 0.9em;
+        .text {
+            display: none;
+            text-align: center;
+            font-size: 1.3em;
+            color: #fafafa8f;
+            margin: 1em 0;
+            @include media("<tablet") {
+                display: block;
+            }
         }
-      }
+        .shadow_T {
+            font-size: 10em;
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: -5px;
+            color: #8c8c8c40;
+            @include media("<tablet") {
+                display: block;
+                text-align: center;
+                font-size: 4em;
+                color: #ffffff;
+                letter-spacing: -1px;
+            }
+        }
+
+        .top_con {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            margin-top: 1em;
+            height: 86px;
+            div {
+                flex: 1 1 0px;
+                &:first-child {
+                    margin-right: 20px;
+                }
+            }
+            @include media("<tablet") {
+                height: auto;
+                flex-direction: column;
+                div {
+                    flex: none;
+                    height: 6em;
+                    &:first-child {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+        form {
+            @include media("<tablet") {
+                padding: 2em 2em;
+                border-radius: 20px;
+                background: get(gradient);
+                box-shadow: #00000040 0px 14px 28px, #00000040 0px 10px 10px;
+            }
+        }
+        label {
+            color: get(primary);
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+            @include media("<tablet") {
+                color: rgba(255, 255, 255, 0.959);
+                font-size: 1.1em;
+                font-weight: 600;
+            }
+        }
+        input,
+        textarea {
+            width: 100%;
+            resize: none;
+            height: 3.2em;
+            border: none;
+            font-size: 0.9em;
+            border-radius: 10px;
+            padding: 0px 15px;
+            margin: 5px 0;
+            color: get(input-color);
+            background: get(float-icon-background);
+            border: 1px solid transparent;
+            transition: 0.1s;
+            &::placeholder {
+                color: #5c5c5c8a;
+            }
+            &:focus {
+                border-color: get(primary);
+            }
+            @include media("<tablet") {
+                font-size: 1.2em;
+                color: get(input-color);
+                background: get(input-bg);
+                border: none;
+            }
+        }
+        textarea {
+            min-height: 12em;
+            padding: 15px;
+            font-family: inherit;
+        }
+        .err {
+            border-color: #ff7068;
+        }
+        .error {
+            margin-left: 5px;
+            margin-top: 2px;
+            font-size: 0.75em;
+            font-weight: 600;
+            color: #ff7068;
+            float: right;
+            @include media("<tablet") {
+                // display: block;
+                // text-align: right;
+                float: right;
+                margin-top: 4px;
+                margin-right: 4px;
+            }
+        }
+        button {
+            min-width: 9em;
+            height: 2.5em;
+            border: none;
+            border-radius: 25px;
+            padding: 0 2em;
+            font-size: 1em;
+            color: #ffffff;
+            margin-top: 10px;
+            background-image: linear-gradient(to right, get(primary), get(primary-dark));
+            background-size: 150% auto;
+            transition: 0.3s;
+            cursor: pointer;
+            //   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+            @include media("<tablet") {
+                height: 2.7em;
+                font-size: 1.3em;
+                background: #380b5f;
+            }
+            &:hover {
+                background-position: right center;
+                transform: translateY(-2px);
+                box-shadow: rgba(23, 23, 24, 0.7) 0px 12px 30px -10px;
+                @include media("<tablet") {
+                    transform: none;
+                    box-shadow: none;
+                }
+            }
+            &:active {
+                transform: scale(0.95);
+            }
+        }
     }
-  }
+    .right_col {
+        flex: 1 1 0px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        @include media("<970px") {
+            font-size: 0.9em;
+            margin-left: 7em;
+        }
+        @include media("<tablet") {
+            display: none;
+        }
+        .svg_con {
+            position: relative;
+            svg:nth-of-type(2) {
+                width: 19em;
+                height: 21em;
+                margin-bottom: -5px;
+            }
+            svg:nth-of-type(1) {
+                width: 14em;
+                height: 12em;
+                position: absolute;
+                left: -8em;
+                top: -9em;
+                @include media("<950px") {
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
 }

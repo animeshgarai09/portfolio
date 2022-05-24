@@ -69,7 +69,7 @@ const SeventhSection = () => {
                     {/* </div> */}
                     <div className={styles.top_con}>
                         <div>
-                            <label htmlFor="name">Name</label>
+                            <label htmlFor="name">Your Name</label>
 
                             <input
                                 id="name"
@@ -83,7 +83,7 @@ const SeventhSection = () => {
                             {validationState[0] && <span className={styles.error}>Please check you name</span>}
                         </div>
                         <div>
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="email">Your Email</label>
                             <input
                                 id="email"
                                 type="email"
@@ -97,6 +97,7 @@ const SeventhSection = () => {
                         </div>
                     </div>
                     <div>
+
                         {/* <label htmlFor="message">Message</label> */}
                         <textarea
                             id="message"

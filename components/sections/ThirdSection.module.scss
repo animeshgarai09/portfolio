@@ -1,162 +1,163 @@
-@use '../../constants/css/theme' as *;
+@use "../../constants/css/theme" as *;
 @import "../../constants/css/breakpoints.scss";
 
 .container {
-  min-height: 100vh;
-  position: relative;
-  margin-bottom: 8em !important;
-  @include media("<desktop") {
-    font-size: 0.9em;
-  }
-  @include media("<laptop") {
-    min-height: calc(100vh - 2em);
-  }
-  @include media("<tablet") {
-    min-height: unset;
-    margin-bottom: 4em;
-  }
-  .shadow_T {
-    font-size: 10em;
-    font-weight: 700;
-    line-height: 0.7;
-    letter-spacing: -5px;
-    color: get(block-text);
-    @include media("<tablet") {
-      font-size: 7.7em;
-      display: block;
-      text-align: center;
-    }
-  }
-  .path_con {
+    min-height: 100vh;
     position: relative;
-    padding-top: 1.7em;
-    .path {
-      width: 91em;
-      height: 18em;
-      position: absolute;
-      z-index: -1;
-      left: -17em;
-      @include media("<tablet") {
-        display: none;
-      }
-    }
-    .pathMB {
-      position: absolute;
-      left: -2.7em;
-      @include media(">tablet") {
-        display: none;
-      }
-    }
-    .info {
-      position: absolute;
-      @include media("<tablet") {
-        font-size: 1.2em;
-      }
-      &:nth-of-type(1) {
-        top: 5em;
-        left: 2em;
-        @include media("<tablet") {
-          top: 8em;
-          left: 8em;
-        }
-      }
-      &:nth-of-type(2) {
-        top: 6em;
-        left: 21em;
-        @include media("<tablet") {
-          top: 17.9em;
-          left: 8em;
-        }
-      }
-      &:nth-of-type(3) {
-        top: 20.5em;
-        left: 20.5em;
-        @include media("<tablet") {
-          top: 27.5em;
-          left: 8em;
-        }
-      }
-      span {
-        font-size: 1.4em;
-        font-weight: 700;
-        color: get(primary);
-      }
-      p {
-        margin: 10px 0;
-        width: 13em;
-        color: get(text-color);
-        a {
-          color: get(primary-hover);
-          font-weight: 600;
-          &:hover {
-            color: get(primary-light);
-          }
-        }
-      }
-    }
-  }
-
-  .text_con {
-    height: 76vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    @include media("<tablet") {
-      height: 56em;
-    }
-    .guy {
-      width: 17em;
-      height: 17em;
-      @include media("<tablet") {
-        width: 12em;
-        height: 12em;
-      }
-    }
-    .secBlob {
-      font-style: italic;
-      display: flex;
-      margin-bottom: 8em;
-      @include media("<laptop") {
+    margin-bottom: 8em !important;
+    @include media("<desktop") {
         font-size: 0.9em;
-      }
-      @include media("<tablet") {
-        font-size: 0.8em;
-        width: 10em;
-      }
-      .text {
-        color: get(text-color);
-        & > span {
-          font-size: 2em;
-          font-weight: 600;
-          display: block;
-          @include media("<tablet") {
-            font-size: 1.2em;
-          }
-        }
-        & > span:nth-of-type(1) {
-          font-size: 8em;
-          font-weight: 700;
-          position: absolute;
-          line-height: 0.4;
-          left: -84px;
-          color: get(primary);
-          @include media("<tablet") {
-            left: -57px;
-          }
-        }
-      }
     }
-    .blob {
-      fill: get(blob-color);
-      width: 16em;
-      height: 15em;
-      position: absolute;
-      left: -50%;
-      top: -110%;
-      z-index: -1;
-      @include media("<laptop") {
-        display: none;
-      }
+    @include media("<laptop") {
+        min-height: calc(100vh - 2em);
     }
-  }
+    @include media("<tablet") {
+        min-height: unset;
+        margin-bottom: 4em;
+    }
+    .shadow_T {
+        font-size: 10em;
+        font-weight: 700;
+        line-height: 0.7;
+        letter-spacing: -5px;
+        color: get(block-text);
+        @include media("<tablet") {
+            font-size: 7.7em;
+            display: block;
+            text-align: center;
+        }
+    }
+    .path_con {
+        position: relative;
+        padding-top: 1.7em;
+        .path {
+            width: 91em;
+            height: 18em;
+            position: absolute;
+            z-index: -1;
+            left: -17em;
+            @include media("<tablet") {
+                display: none;
+            }
+        }
+        .pathMB {
+            position: absolute;
+            left: -2.7em;
+            @include media(">tablet") {
+                display: none;
+            }
+        }
+        .info {
+            position: absolute;
+            @include media("<tablet") {
+                font-size: 1.2em;
+            }
+            &:nth-of-type(1) {
+                top: 5em;
+                left: 2em;
+                @include media("<tablet") {
+                    top: 8em;
+                    left: 8em;
+                }
+            }
+            &:nth-of-type(2) {
+                top: 6em;
+                left: 21em;
+                @include media("<tablet") {
+                    top: 17.9em;
+                    left: 8em;
+                }
+            }
+            &:nth-of-type(3) {
+                top: 20.5em;
+                left: 20.5em;
+                @include media("<tablet") {
+                    top: 27.5em;
+                    left: 8em;
+                }
+            }
+            span {
+                font-size: 1.4em;
+                font-weight: 700;
+                color: get(primary);
+            }
+            p {
+                margin: 10px 0;
+                width: 13em;
+                line-height: 1.4;
+                color: get(text-color);
+                a {
+                    color: get(primary);
+                    font-weight: 600;
+                    &:hover {
+                        color: get(primary-dark);
+                    }
+                }
+            }
+        }
+    }
+
+    .text_con {
+        height: 76vh;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        @include media("<tablet") {
+            height: 56em;
+        }
+        .guy {
+            width: 17em;
+            height: 17em;
+            @include media("<tablet") {
+                width: 12em;
+                height: 12em;
+            }
+        }
+        .secBlob {
+            font-style: italic;
+            display: flex;
+            margin-bottom: 8em;
+            @include media("<laptop") {
+                font-size: 0.9em;
+            }
+            @include media("<tablet") {
+                font-size: 0.8em;
+                width: 10em;
+            }
+            .text {
+                color: get(text-color);
+                & > span {
+                    font-size: 2em;
+                    font-weight: 600;
+                    display: block;
+                    @include media("<tablet") {
+                        font-size: 1.2em;
+                    }
+                }
+                & > span:nth-of-type(1) {
+                    font-size: 8em;
+                    font-weight: 700;
+                    position: absolute;
+                    line-height: 0.4;
+                    left: -84px;
+                    color: get(primary);
+                    @include media("<tablet") {
+                        left: -57px;
+                    }
+                }
+            }
+        }
+        .blob {
+            fill: get(blob-color);
+            width: 16em;
+            height: 15em;
+            position: absolute;
+            left: -50%;
+            top: -110%;
+            z-index: -1;
+            @include media("<laptop") {
+                display: none;
+            }
+        }
+    }
 }

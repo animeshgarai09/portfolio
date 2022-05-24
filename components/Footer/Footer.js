@@ -12,7 +12,7 @@ const Footer = () => {
                     <p>&#169; copyright reserved 2021</p>
                     <div className={styles.logo_con}>
                         <Logo />
-                        <p>Handcrafted with <FaHeart /> by me</p>
+                        <p>Handcrafted with <FaHeart /> & imagination.</p>
                     </div>
                     <div className={styles.social_con}>
                         <RiLinkedinLine />

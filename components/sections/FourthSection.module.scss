@@ -1,93 +1,93 @@
-@use '../../constants/css/theme' as *;
+@use "../../constants/css/theme" as *;
 @import "../../constants/css/breakpoints.scss";
 
 .container {
-  min-height: 100vh;
-  position: relative;
-  margin-bottom: 8em;
-  @include media("<desktop") {
-    font-size: 0.9em;
-  }
-  @include media("<laptop") {
-    min-height: calc(100vh - 5.6em);
-  }
-  .shadow_T {
-    font-size: 10em;
-    font-weight: 700;
-    line-height: 0.9;
-    // letter-spacing: -5px;
-    color: get(block-text);
-    @include media("<tablet") {
-      font-size: 8em;
-      display: block;
-      text-align: center;
+    min-height: 100vh;
+    position: relative;
+    margin-bottom: 8em;
+    @include media("<desktop") {
+        font-size: 0.9em;
     }
-  }
-  .col {
-    display: flex;
-    height: 78vh;
-    align-items: center;
-    @include media("<tablet") {
-      flex-direction: column-reverse;
+    @include media("<laptop") {
+        min-height: calc(100vh - 5.6em);
     }
-    .text {
-      flex: 1 1;
-      h2 {
-        font-size: 3.5em;
-        color: get(primary);
-      }
-      .border {
-        display: inline-block;
-        height: 5px;
-        position: relative;
-        width: 100px;
-        border-radius: 20px;
-        background-color: #b17cdc;
-        &:after {
-          content: " ";
-          height: 5px;
-          width: 30px;
-          display: inline-block;
-          border-radius: 20px;
-          margin: 0 20px;
-          position: absolute;
-          right: -60px;
-          background-color: #e0a5ff;
-        }
-      }
-      p {
-        font-size: 1.4em;
-        width: 90%;
-        color: get(text-color);
-      }
-      .tag {
-        font-size: 4em;
-        color: #8c8c8c40;
+    .shadow_T {
+        font-size: 10em;
         font-weight: 700;
-        margin-top: 0.6em;
-        display: block;
-      }
-      .info {
-        display: inline-flex;
-        label {
-          display: block;
-          font-weight: 700;
-          font-size: 0.84em;
-          letter-spacing: 0.3px;
-          margin-bottom: 7px;
-          color: #464646ad;
+        line-height: 0.9;
+        // letter-spacing: -5px;
+        color: get(block-text);
+        @include media("<tablet") {
+            font-size: 8em;
+            display: block;
+            text-align: center;
         }
-        .ex {
-          color: get(text-color);
-        }
-        .stars {
-          margin-right: 20px;
-          svg {
-            margin-right: 2px;
-            color: #ef9824;
-          }
-        }
-      }
     }
-  }
+    .col {
+        display: flex;
+        height: 78vh;
+        align-items: center;
+        @include media("<tablet") {
+            flex-direction: column-reverse;
+        }
+        .text {
+            flex: 1 1;
+            h2 {
+                font-size: 3.5em;
+                color: get(primary);
+            }
+            .border {
+                display: inline-block;
+                height: 5px;
+                position: relative;
+                width: 100px;
+                border-radius: 20px;
+                background-color: var(--primary-dark);
+                &:after {
+                    content: " ";
+                    height: 5px;
+                    width: 30px;
+                    display: inline-block;
+                    border-radius: 20px;
+                    margin: 0 20px;
+                    position: absolute;
+                    right: -60px;
+                    background-color: var(--accent);
+                }
+            }
+            p {
+                font-size: 1.4em;
+                width: 90%;
+                color: get(text-color);
+            }
+            .tag {
+                font-size: 4em;
+                color: #8c8c8c40;
+                font-weight: 700;
+                margin-top: 0.6em;
+                display: block;
+            }
+            .info {
+                display: inline-flex;
+                label {
+                    display: block;
+                    font-weight: 700;
+                    font-size: 0.84em;
+                    letter-spacing: 0.3px;
+                    margin-bottom: 7px;
+                    color: #464646ad;
+                }
+                .ex {
+                    color: get(text-color);
+                }
+                .stars {
+                    margin-right: 20px;
+                    svg {
+                        margin-right: 2px;
+                        color: #ef9824;
+                    }
+                }
+            }
+        }
+    }
 }

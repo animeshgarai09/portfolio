@@ -3,8 +3,9 @@ import { DiPython } from 'react-icons/di'
 import { FaSass } from 'react-icons/fa'
 import { FiFigma } from 'react-icons/fi'
 import { DiJavascript1, DiGoogleCloudPlatform } from 'react-icons/di'
-import { SiFlask, SiMaterialUi, SiAdobexd, SiCss3, SiHtml5, SiAdobephotoshop, SiNextDotJs, SiReact, SiRedux, SiNodeDotJs, SiAdobeillustrator, SiDjango, SiTailwindcss, SiJava } from 'react-icons/si'
+import { SiFlask, SiMaterialUi, SiAdobexd, SiCss3, SiHtml5, SiNpm, SiAdobephotoshop, SiNextDotJs, SiReact, SiRedux, SiNodeDotJs, SiAdobeillustrator, SiDjango, SiTailwindcss, SiJava } from 'react-icons/si'
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"
+import { CgNpm } from "react-icons/cg"
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 
 export const sectionRefs = new Array(6)
@@ -206,21 +207,61 @@ export const SkillData = {
     },
 }
 
-export const featuredProjects = [{
-    name: "wanderer",
-    intro: "Are you looking to travel someplace for first time, or visiting the same place, Well wanderer can help you plan the whole trip in easy steps and make your trip memorable.",
-    features: ["Integrated Google map", "Rating based Filter ", "Trip planner", "Tourist attraction"],
-    tech: [{
-        icon: SiNextDotJs,
-        name: "Next.js"
+export const featuredProjects = [
+    {
+        name: "Felix UI",
+        intro: "Felix UI is an open source react component library which extends as a CSS styling framework, which helps developers to use best styles and components, by using pre-defined classnames. Felix UI helps you to quickly build your dream project, by focusing much on functionality, because we take care of your designs.",
+        features: ["Easy installation through NPM", "Modular components", "Highly customizable with CSS", "Beautifully designed components"],
+        tech: [{
+            icon: <SiReact />,
+            name: "ReactJS"
+        }, {
+            icon: <FaSass />,
+            name: "SCSS"
+        }, {
+            icon: <CgNpm />,
+            name: "NPM"
+        }, {
+            name: "RollUp"
+        }
+        ]
     }, {
-        icon: DiGoogleCloudPlatform,
-        name: "Google API"
+        name: "Felix Store",
+        intro: "An organic groceries portal for every health conscious people out there. This shop is one stop solution for any organic need, be it fruits or plants for your beautiful garden, Felix Store has it all. ",
+        features: ["Complete checkout process", "Product filter for easy access", "Engaging design", "Profile dashboard for order history",],
+        tech: [{
+            icon: <SiReact />,
+            name: "ReactJS"
+        }, {
+            icon: <FaSass />,
+            name: "SCSS"
+        }]
     }, {
-        icon: SiRedux,
-        name: "Redux"
-    }]
-}
+        name: "Felix TV",
+        intro: "A digital content platform around farming, research documentary and gardening for those who is try to figure out how to save our green planet from global warming. Join Us!",
+        features: ["Playlist management", "Integrated notes with time stamp", "Great user experience"],
+        tech: [{
+            icon: <SiNextDotJs />,
+            name: "ReactJS"
+        }, {
+            icon: <DiGoogleCloudPlatform />,
+            name: "SCSS"
+        },]
+    }, {
+        name: "Felix Social",
+        intro: "A social media platform inspired from instagram and twitter and mixing it to one to provide users the best of both platform. 'Share moments' - 'Connect' - 'Know the world'",
+        features: ["Photo post with caption", "Follow/Unfollow users", "Comment and like posts", "Great user experience"],
+        tech: [{
+            icon: <SiNextDotJs />,
+            name: "ReactJS"
+        }, {
+            icon: <SiRedux />,
+            name: "Redux"
+        }, {
+            icon: <FaSass />,
+            name: "Sass"
+        }]
+    }
 ]
 
 export function getSkillIcon(index, data) {

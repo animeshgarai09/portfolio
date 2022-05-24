@@ -23,7 +23,7 @@ const ProjectCard = ({ info, index, layout }) => {
                 </div>
                 <div className={styles.tech_con}>
                     {info.tech.map((item, i) => (
-                        <span key={i}> {getSkillIcon(0, i)} <span></span> {item.name}</span>
+                        <span key={i}> {item.icon} {item.name}</span>
                     ))}
                 </div>
             </div>
