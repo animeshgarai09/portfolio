@@ -5,20 +5,17 @@ import { sectionRefs, featuredProjects } from '../../constants/HelperFunctions'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 import ProjectCard from '../ProjectCard'
+
+import cardStyles from "../ProjectCard/ProjectCard.module.scss"
 const FifthSection = () => {
-    // useEffect(() => {
-    //     ScrollTrigger.matchMedia({
-    //         "(min-width:1131px)": () => scrollAnimation(),
-    //         "(max-width:849px)": () => scrollAnimation(),
-    //     })
-    // }, [])
+
     return (
         <section ref={(el) => sectionRefs[3] = el} className={styles.container} id='section5'>
             <span className={styles.shadow_T}>projects</span>
             <div className={styles.con}>
                 {
                     featuredProjects.map((project, i) => {
-                        return <ProjectCard key={i} info={project} index={i + 1} layout={(i + 1) % 2 === 0 && "jkh"} />
+                        return <ProjectCard key={i} id={`projectCard-${i}`} info={project} index={i + 1} layout={(i + 1) % 2 === 0 && "jkh"} />
                     })
                 }
 
@@ -36,5 +33,8 @@ const FifthSection = () => {
         </section>
     )
 }
+
+
+
 
 export default FifthSection

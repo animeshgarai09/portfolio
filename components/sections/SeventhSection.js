@@ -23,29 +23,21 @@ const SeventhSection = () => {
         // !regEmail.test(email) ? setValidationState(ini => ini[1] = true) : setValidationState(ini => ini[1] = false)
 
         // !regMessage.test(email) ? setValidationState(ini => ini[2] = true) : setValidationState(ini => ini[2] = false)
-        console.log(name, email, message)
-        console.log(regName.test(name))
         if (regName.test(name)) {
-            console.log(2)
             setValidationState(ini => [false, ini[1], ini[2]])
         } else {
-            console.log(22)
             setValidationState(ini => [true, ini[1], ini[2]])
         }
         if (regEmail.test(email)) {
-            console.log(3)
             setValidationState(ini => [ini[0], false, ini[2]])
         } else {
-            console.log(33)
             setValidationState(ini => [ini[0], true, ini[2]])
         }
         if (message && regMessage.test(regMessage)) {
-            console.log(4)
             setValidationState(ini => [ini[0], ini[1], false])
 
         } else {
             setValidationState(ini => [ini[0], ini[1], true])
-            console.log(44)
         }
         // } else {
         //     console.log(5)

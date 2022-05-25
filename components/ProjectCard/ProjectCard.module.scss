@@ -3,13 +3,43 @@
 
 .card_con {
     display: flex;
-    margin: 6em 0;
+    margin-bottom: 8em;
+    align-items: center;
+    position: relative;
+    @include media("<tablet") {
+        flex-direction: column;
+        margin-bottom: 5rem;
+    }
+    .overlay {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        background: #0000004f;
+        visibility: hidden;
+        transition: 0.02s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        // color: var(--text-color);
+        span {
+            background: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+        }
+    }
+
     &.switch {
         flex-direction: row-reverse;
         text-align: right;
+        @include media("<tablet") {
+            flex-direction: column;
+        }
         .intro_con {
             margin: 0;
-            margin-left: -8em;
+            margin-left: -4em;
             @include media("<tablet") {
                 margin: 0;
             }
@@ -23,11 +53,27 @@
         }
         .header {
             flex-direction: row-reverse;
+            h1 {
+                margin-left: 2rem;
+                @include media("<tablet") {
+                    margin: 0;
+                }
+            }
+            h5 {
+                margin-right: 3px;
+            }
         }
         .feature_con {
             span::after {
                 margin-left: auto;
             }
+        }
+    }
+    .left_col {
+        position: relative;
+        z-index: 1;
+        @include media("<tablet") {
+            margin-bottom: 2rem;
         }
     }
     .left_col,
@@ -36,8 +82,18 @@
     }
 
     .right_col {
+        position: relative;
+        z-index: 0;
+        overflow: hidden;
+        height: fit-content;
+        border-radius: 1rem;
         @include media("<tablet") {
-            display: none;
+            border-radius: 0.5rem;
+        }
+        &:hover {
+            .overlay {
+                visibility: visible;
+            }
         }
     }
     .header {
@@ -46,7 +102,11 @@
         align-items: center;
         h1 {
             font-size: 5em;
+            margin-right: 2rem;
             color: get(block-text);
+            @include media("<tablet") {
+                margin: 0;
+            }
         }
         h2 {
             font-size: 2.5em;
@@ -55,12 +115,13 @@
         h5 {
             font-size: 1em;
             font-weight: 700;
+            margin-left: 3px;
             color: get(dTone-color);
         }
     }
     .intro_con {
         position: relative;
-        margin-right: -8em;
+        margin-right: -4em;
         background: get(gradient);
         color: #fff;
         padding: 1.5em;
@@ -69,6 +130,8 @@
         box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
         p {
             margin: 0;
+            font-size: 0.94rem;
+            color: #dbfced;
         }
         @include media("<tablet") {
             margin: 0;
@@ -94,6 +157,12 @@
                 background: get(primary);
             }
         }
+        @include media("<tablet") {
+            // padding: 0;
+            span {
+                font-size: 0.8em;
+            }
+        }
     }
     .tech_con {
         display: flex;
@@ -109,5 +178,21 @@
                 margin-right: 5px;
             }
         }
+    }
+}
+.img_container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    & > div {
+        position: unset !important;
+        overflow: visible !important;
+    }
+    .projectImg {
+        object-fit: contain;
+        width: 100% !important;
+        position: relative !important;
+        height: unset !important;
     }
 }

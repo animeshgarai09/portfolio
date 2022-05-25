@@ -33,7 +33,6 @@ export default function Home() {
 
         function handleMatch(matches) {
             if (matches) {
-                console.log("resize")
                 setMobileView(true)
             } else {
                 setMobileView(false)
@@ -44,7 +43,6 @@ export default function Home() {
     }, [])
 
     useEffect(() => {
-        console.log(load)
         if (load) {
             setTimeout(() => {
                 ScrollTrigger.matchMedia({

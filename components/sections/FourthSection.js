@@ -22,7 +22,6 @@ const FourthSection = () => {
         skills.forEach((el) => {
             el.addEventListener('click', function () {
                 if (!this.classList.contains(activeClass)) {
-                    console.log('Hello')
                     let check = document.querySelector(`.${skillClass}.${activeClass}`)
                     check && check.classList.remove(activeClass)
                     this.classList.add(activeClass)
@@ -98,19 +97,19 @@ function scrollAnimation() {
         .${styles.text} p,
         .${styles.info},
         .${styles.tag}`,
-        { autoAlpha: 0, yPercent: -50 })
+        { autoAlpha: 0, yPercent: -20 })
     // gsap
     const tl = gsap.timeline({
-        //     scrollTrigger: {
-        //         trigger: '#section4',
-        //         start: 'top top',
-        //         end: '+=60',
-        //         // pin: true,
-        //         // anticipatePin: 1,
-        //         scrub: true,
-        //     }
+        // scrollTrigger: {
+        //     trigger: '#section4',
+        //     start: 'top top',
+        //     end: '+=60',
+        //     // pin: true,
+        //     // anticipatePin: 1,
+        //     scrub: true,
+        // }
     }).from(`.${skillClass}`, {
-        duration: 1,
+        duration: 2,
         autoAlpha: 0,
         scale: 0.1,
         ease: 'power3.inOut',
@@ -128,7 +127,7 @@ function scrollAnimation() {
         },
         scrollTrigger: {
             trigger: '#section4',
-            start: "top top+=50",
+            start: "top top+=80",
             end: "+=50",
             scrub: true,
             onEnter: () => {

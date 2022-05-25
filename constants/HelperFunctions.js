@@ -7,6 +7,10 @@ import { SiFlask, SiMaterialUi, SiAdobexd, SiCss3, SiHtml5, SiNpm, SiAdobephotos
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"
 import { CgNpm } from "react-icons/cg"
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
+import felixUi from "../public/png/felix-ui.png"
+import felixTv from "../public/png/felix-tv.png"
+import felixStore from "../public/png/felix-store.png"
+import felixSocial from "../public/png/felix-social.png"
 
 export const sectionRefs = new Array(6)
 export const navRef = new Array(6)
@@ -223,8 +227,20 @@ export const featuredProjects = [
             name: "NPM"
         }, {
             name: "RollUp"
-        }
-        ]
+        }],
+        image: felixUi
+    }, {
+        name: "Felix TV",
+        intro: "A digital content platform around farming, research documentary and gardening for those who is try to figure out how to save our green planet from global warming. Join Us!",
+        features: ["Playlist management", "Integrated notes with time stamp", "Great user experience"],
+        tech: [{
+            icon: <SiNextDotJs />,
+            name: "ReactJS"
+        }, {
+            icon: <FaSass />,
+            name: "SCSS"
+        }],
+        image: felixTv
     }, {
         name: "Felix Store",
         intro: "An organic groceries portal for every health conscious people out there. This shop is one stop solution for any organic need, be it fruits or plants for your beautiful garden, Felix Store has it all. ",
@@ -235,18 +251,8 @@ export const featuredProjects = [
         }, {
             icon: <FaSass />,
             name: "SCSS"
-        }]
-    }, {
-        name: "Felix TV",
-        intro: "A digital content platform around farming, research documentary and gardening for those who is try to figure out how to save our green planet from global warming. Join Us!",
-        features: ["Playlist management", "Integrated notes with time stamp", "Great user experience"],
-        tech: [{
-            icon: <SiNextDotJs />,
-            name: "ReactJS"
-        }, {
-            icon: <DiGoogleCloudPlatform />,
-            name: "SCSS"
-        },]
+        }],
+        image: felixStore
     }, {
         name: "Felix Social",
         intro: "A social media platform inspired from instagram and twitter and mixing it to one to provide users the best of both platform. 'Share moments' - 'Connect' - 'Know the world'",
@@ -260,7 +266,8 @@ export const featuredProjects = [
         }, {
             icon: <FaSass />,
             name: "Sass"
-        }]
+        }],
+        image: felixSocial
     }
 ]
 
@@ -296,7 +303,6 @@ export function loadStars(count) {
 
 export function calculateDuration(position) {
     let totalTravel = Math.abs(window.scrollY - position)
-    console.log(totalTravel)
     if (totalTravel < 1000) {
         return 0.6
     } else if (totalTravel < 2000) {
@@ -315,7 +321,6 @@ export function scroll(el, screen) {
     if (el) {
         let position
         if (el.id == "section3" && !screen) {
-            console.log(el.parentElement.offsetTop, el.offsetHeight)
             // position = el.getBoundingClientRect().top + (window.scrollY || window.pageYOffset) + el.offsetHeight
             position = el.parentElement.offsetTop + el.offsetHeight
         }
@@ -359,7 +364,6 @@ function topToBottomNavigation(el, i) {
     })
 }
 export function desktopNavigation() {
-    console.log('desktop')
     topToBottomNavigation()
 
     ////////////////////////////////////////////////// Intro section
@@ -405,7 +409,6 @@ export function desktopNavigation() {
 }
 
 export function mobileNavigation() {
-    console.log("mobile")
     topToBottomNavigation()
 
     gsap.utils.toArray(topToBottomNavTarget).forEach((el, i) => {
