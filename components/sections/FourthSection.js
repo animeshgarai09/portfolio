@@ -37,8 +37,9 @@ const FourthSection = () => {
 
         ScrollTrigger.matchMedia({
             "(min-width:1131px)": () => scrollAnimation(),
-            //     // "(min-width:850px) and (max-width:1130px)": () => scrollAnimation("tablet"),
-            //     // "(max-width:849px)": () => mbScrollAnimation(),
+            // ToDo for different screen size animations
+            // "(min-width:850px) and (max-width:1130px)": () => scrollAnimation("tablet"),
+            // "(max-width:849px)": () => mbScrollAnimation(),
         })
     }, [])
 
@@ -65,9 +66,7 @@ const FourthSection = () => {
                     </div>
                     <span className={styles.tag}>growing more</span>
                 </div>
-                {/* <div className={styles.skills_con}> */}
                 <Skills />
-                {/* </div> */}
             </div>
 
         </section>
@@ -98,17 +97,7 @@ function scrollAnimation() {
         .${styles.info},
         .${styles.tag}`,
         { autoAlpha: 0, yPercent: -20 })
-    // gsap
-    const tl = gsap.timeline({
-        // scrollTrigger: {
-        //     trigger: '#section4',
-        //     start: 'top top',
-        //     end: '+=60',
-        //     // pin: true,
-        //     // anticipatePin: 1,
-        //     scrub: true,
-        // }
-    }).from(`.${skillClass}`, {
+    const tl = gsap.timeline({}).from(`.${skillClass}`, {
         duration: 2,
         autoAlpha: 0,
         scale: 0.1,
@@ -116,7 +105,6 @@ function scrollAnimation() {
         stagger: distributeByPosition({
             each: 0.2,
             from: 8,
-            // ease: 'power2'
         }),
         onComplete: () => {
             if (activeSkill) {
@@ -135,8 +123,6 @@ function scrollAnimation() {
                 activeSkill && activeSkill.classList.remove(skillCSS.active)
             }
         }
-        // end: "+=100",
-        // toggleActions: "play reset play none",
 
     }).to(`.${styles.text} h2,
          .${styles.border},
@@ -145,15 +131,12 @@ function scrollAnimation() {
         .${styles.tag}`, {
         yPercent: 0,
         autoAlpha: 1,
-        // delay: -.6,
         stagger: 0.2,
         scrollTrigger: {
             trigger: '#section4',
             start: "top top+=250",
             end: "top top",
             scrub: true,
-            // end: "+=100",
-            // toggleActions: "play reset play none",
         }
     })
 }

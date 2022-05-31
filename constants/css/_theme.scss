@@ -10,8 +10,6 @@ $light: (
     mb-nav-bg: #f7f7f7,
     mb-nav-header-bg: #ffffff15,
     accent: #ffbd26,
-    //   primary-hover: #ac4ff4,
-    //not required
     switcher: linear-gradient(to top left, #fecc51, #fcb033, #fa961b, #fa8607),
     arrow-color: #222222,
     /////////////////////////////////////////Float Icon Settings
@@ -28,6 +26,8 @@ $light: (
     //////////////////////////////////
     input-color: #464646,
     input-bg: #ffffffb3,
+    card-bg: #fff,
+    card-box-shadow: rgb(0 0 0 / 5%) 0px 4px 12px,
     gradient: linear-gradient(to top left, #357155, #39b57b),
 );
 
@@ -59,6 +59,8 @@ $dark: (
     //////////////////////////////////////////////////////
     input-color: #2b2b2b,
     input-bg: #ffffffb3,
+    card-bg: #2e3632,
+    card-box-shadow: rgb(0 0 0 / 23%) 0px 5px 15px,
     gradient: linear-gradient(to top left, #0e5333, #39b57b),
 );
 

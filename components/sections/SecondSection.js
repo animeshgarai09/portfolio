@@ -54,6 +54,7 @@ const SecondSection = () => {
             <div className={styles.mid}>
                 <DashL className={styles.dash_path} />
                 <div className={styles.lottie} id='lottie'>
+                    <h4>How i deliver!</h4>
                     {screen.width > 849 && <Lottie options={lottieOption} height={650} width={650} />}
                 </div>
                 <DashR className={styles.dash_path} />
@@ -88,7 +89,6 @@ const scrollAnimation = (screen) => {
             trigger: '#section2',
             start: `top ${screen == 'tablet' ? 'top+=60' : 'top'}`,
             end: '+=600',
-            // markers: true,
             pin: true,
             scrub: 0.5,
             anticipatePin: 1
@@ -140,7 +140,6 @@ function mbScrollAnimation() {
             scale: .9,
             y: 50,
             ease: 'power3.easeOut',
-            // stagger: 0.3,
             scrollTrigger: {
                 trigger: card,
                 start: 'top bottom',

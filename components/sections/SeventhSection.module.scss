@@ -134,8 +134,6 @@
             color: #ff7068;
             float: right;
             @include media("<tablet") {
-                // display: block;
-                // text-align: right;
                 float: right;
                 margin-top: 4px;
                 margin-right: 4px;
@@ -154,7 +152,6 @@
             background-size: 150% auto;
             transition: 0.3s;
             cursor: pointer;
-            //   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
             @include media("<tablet") {
                 height: 2.7em;

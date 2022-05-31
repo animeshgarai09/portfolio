@@ -1,13 +1,12 @@
 import styles from './FourthSectionMB.module.scss'
-import { SkillData, getSkillIcon, loadStars, sectionRefs, initTopToBottom, initBottomToTop } from '../../constants/HelperFunctions'
+import { SkillData, getSkillIcon, loadStars, sectionRefs, } from '../../constants/HelperFunctions'
 import { useEffect } from 'react';
 import gsap from 'gsap'
 
-const FourthSectionMB = ({ setMounted }) => {
+const FourthSectionMB = () => {
     useEffect(() => {
         gsap.utils.toArray(`.${styles.card}`).forEach((card, i) => {
             gsap.timeline({
-                // defaults: { ease: 'power1.in' },
                 scrollTrigger: {
                     scroller: card.closest(`.${styles.card_con}`),
                     horizontal: true,
@@ -15,7 +14,6 @@ const FourthSectionMB = ({ setMounted }) => {
                     start: "left right-=40",
                     end: "left center-=60",
                     scrub: true,
-                    // markers: true
                 }
             }).from(card, { scale: 0.8 }, 0)
         })

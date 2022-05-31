@@ -27,7 +27,9 @@ const ProjectCard = ({ info, index, layout, id }) => {
                 </div>
                 <div className={styles.feature_con}>
                     {info.features.map((item, i) => (
-                        <span key={i} className={styles.feature_item}>{item}</span>
+                        <span key={i} style={{
+                            gridColumnStart: info.features.length - 1 === i && info.features.length % 2 !== 0 && "2"
+                        }} className={styles.feature_item}>{item}</span>
                     ))}
                 </div>
                 <div className={styles.tech_con}>
@@ -37,17 +39,16 @@ const ProjectCard = ({ info, index, layout, id }) => {
                 </div>
             </div>
             <div className={styles.right_col}>
-                <div className={styles.overlay}>
+                <a href={info.link} target="_blank" rel="noopener noreferrer"> <div className={styles.overlay}>
                     <span>View live project</span>
                 </div>
+                </a>
                 <div className={styles.img_container}>
                     <Image
                         src={info.image}
                         alt={`${info.name} project screenshot`}
                         layout="fill"
-                        // height={500}
-                        // width={500}
-                        quality='75'
+                        quality='50'
                         placeholder='blur'
                         className={styles.projectImg}
                         id='author_image'
@@ -64,7 +65,7 @@ const scrollAnimation = (id, layout) => {
 
     const tl = gsap.from(`#${id} .${first}`, {
         autoAlpha: 0,
-        yPercent: 40,
+        xPercent: -5,
         duration: .5,
         scrollTrigger: {
             trigger: `#${id}`,
@@ -73,9 +74,6 @@ const scrollAnimation = (id, layout) => {
             toggleActions: "play none none reverse",
             preventOverlaps: true,
             fastScrollEnd: true,
-            // pin: true,
-            // anticipatePin: 1,
-            // scrub: true,
         }
     })
 
@@ -86,14 +84,10 @@ const scrollAnimation = (id, layout) => {
         scrollTrigger: {
             trigger: `#${id}`,
             start: 'top center',
-            end: '+=60',
+            end: '+=70',
             toggleActions: "play none none reverse",
             preventOverlaps: true,
             fastScrollEnd: true,
-            // markers: true,
-            // pin: true,
-            // anticipatePin: 1,
-            // scrub: true,
         }
     })
 }

@@ -10,7 +10,6 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 const ThirdSection = () => {
 
     useEffect(() => {
-        // setTimeout(() => {
         let el = document.querySelector('#path_line');
         let mb_el = document.querySelector('#pathMB');
         let len = el.getTotalLength()
@@ -70,7 +69,6 @@ const scrollAnimation = (screen) => {
             end: '+=630',
             scrub: 0.5,
             pin: true,
-            // invalidateOnRefresh: true,
             anticipatePin: 1
         }
     })
@@ -78,7 +76,6 @@ const scrollAnimation = (screen) => {
     tl.to('#path_line', {
         strokeDashoffset: 0,
         duration: 0.7,
-        // delay: -1,
     }, '-=0.1').from('.point', {
         transformOrigin: 'center',
         opacity: 0,
@@ -107,7 +104,6 @@ const scrollAnimation = (screen) => {
 }
 
 function mbScrollAnimation() {
-    // gsap.set('#guy,#secBlob', { opacity: 0 })
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: '#section3',
@@ -123,13 +119,11 @@ function mbScrollAnimation() {
         opacity: 0,
         scale: 0,
         duration: 0.05,
-        // delay: -0.7,
         stagger: 0.1,
     }, "-=0.5").from('.path_info', {
         x: -70,
         opacity: 0,
         duration: 0.1,
-        // delay: -0.7,
         stagger: 0.1,
     }, "-=0.5").from('#secBlob', {
         opacity: 0,

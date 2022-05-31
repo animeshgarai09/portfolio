@@ -4,9 +4,6 @@
 .container {
     display: flex;
     min-height: 100vh;
-    //   @include media("<laptop") {
-    //     padding-top: 5em;
-    //   }
     @include media("<tablet") {
         flex-direction: column-reverse;
         min-height: auto;
@@ -119,7 +116,6 @@
                 font-weight: 700;
                 @include media("<1000px") {
                     display: block;
-                    //   font-size: 1.3em;
                 }
                 @include media("<tablet") {
                     font-size: 1.35em;
@@ -143,10 +139,10 @@
             font-size: 1.1em;
             font-weight: 600;
             margin: 1em 2px;
-            display: inline-block;
+            display: inline-flex;
+            flex-direction: column;
             color: get(primary);
             width: 4.3em;
-            line-height: 0.3;
             letter-spacing: 1px;
             visibility: hidden;
             &::after {
@@ -222,8 +218,6 @@
         @include media("<tablet") {
             justify-content: center;
         }
-        // .sub_con {
-        //   position: relative;
         .author_container {
             width: 27em;
             height: 25em;
@@ -295,6 +289,5 @@
                 display: none;
             }
         }
-        // }
     }
 }

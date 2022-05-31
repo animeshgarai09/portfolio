@@ -1,186 +1,184 @@
-@use '../constants/css/theme' as *;
+@use "../constants/css/theme" as *;
 @font-face {
-  font-family: "Raleway";
-  src: url(../public/fonts/Raleway-Medium.woff2) format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Raleway";
+    src: url(../public/fonts/Raleway-Medium.woff2) format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: "Raleway";
-  src: url(../public/fonts/Raleway-SemiBold.woff2) format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Raleway";
+    src: url(../public/fonts/Raleway-SemiBold.woff2) format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: "Raleway";
-  src: url(../public/fonts/Raleway-Bold.woff2) format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Raleway";
+    src: url(../public/fonts/Raleway-Bold.woff2) format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 :root {
-  @each $prop, $val in $light {
-    --#{$prop}: #{$val};
-  }
+    @each $prop, $val in $light {
+        --#{$prop}: #{$val};
+    }
 }
 
 .dark-mode {
-  @each $prop, $val in $dark {
-    --#{$prop}: #{$val};
-  }
+    @each $prop, $val in $dark {
+        --#{$prop}: #{$val};
+    }
 }
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: "Raleway", sans-serif;
-  background: get(bg);
-  overflow-x: hidden;
-  overflow-y: overlay;
-  -webkit-tap-highlight-color: transparent;
+    padding: 0;
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    background: get(bg);
+    overflow-x: hidden;
+    overflow-y: overlay;
+    -webkit-tap-highlight-color: transparent;
 }
 #main {
-  overflow-x: hidden;
+    overflow-x: hidden;
 }
 h1,
 h2,
 h3,
 h4,
 h5 {
-  margin: 0;
+    margin: 0;
 }
 .dark-mode {
-  background: get(bg);
+    background: get(bg);
 }
 
 .nav_tip {
-  border-radius: 2em !important;
-  background-color: get(float-icon-background) !important;
-  font-size: 0.8em !important;
-  font-weight: 600;
+    border-radius: 2em !important;
+    background-color: get(float-icon-background) !important;
+    font-size: 0.8em !important;
+    font-weight: 600;
 
-  &.place-right {
-    &::after {
-      border: none !important;
+    &.place-right {
+        &::after {
+            border: none !important;
+        }
     }
-  }
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 *:focus {
-  outline: none;
+    outline: none;
 }
 
 .arr_ele {
-  visibility: hidden;
-  //   opacity: 0;
+    visibility: hidden;
 }
 
 ::-webkit-scrollbar {
-  width: 18px;
-  cursor: pointer;
-  transition: 0.2s;
+    width: 18px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: get(primary);
-  border: 5px solid transparent;
-  border-radius: 20px;
-  background-clip: content-box;
+    background-color: get(primary);
+    border: 5px solid transparent;
+    border-radius: 20px;
+    background-clip: content-box;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: get(primary-hover);
-  transform: scale(1.1);
+    background-color: get(primary-hover);
+    transform: scale(1.1);
 }
 ::-webkit-scrollbar-track {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 .svg_skill {
-  cursor: pointer;
-  &:hover {
-    path.bg {
-      transition: 0.2s;
-      fill: #585858c4;
+    cursor: pointer;
+    &:hover {
+        path.bg {
+            transition: 0.2s;
+            fill: #585858c4;
+        }
     }
-  }
-  &.active {
-    path.bg {
-      transition: 0.2s;
-      fill: #4e4e4e12;
-      stroke: get(primary);
-      stroke-width: 4px;
+    &.active {
+        path.bg {
+            transition: 0.2s;
+            fill: #4e4e4e12;
+            stroke: get(primary);
+            stroke-width: 4px;
+        }
+        .skill_path {
+            transition: 0.2s;
+            fill: get(primary);
+        }
+        path[fill="none"] {
+            stroke: get(primary);
+        }
     }
-    .skill_path {
-      transition: 0.2s;
-      fill: get(primary);
-    }
-    path[fill="none"] {
-      stroke: get(primary);
-    }
-  }
 }
 .skills_svg_gradient {
-  stop:nth-of-type(1) {
-    stop-color: get(skills_svg_gradient_1) !important;
-  }
-  stop:nth-of-type(2) {
-    stop-color: get(skills_svg_gradient_2) !important;
-  }
-  stop:nth-of-type(3) {
-    stop-color: get(skills_svg_gradient_3) !important;
-  }
-  stop:nth-of-type(4) {
-    stop-color: get(skills_svg_gradient_4) !important;
-  }
-  stop:nth-of-type(5) {
-    stop-color: get(skills_svg_gradient_5) !important;
-  }
+    stop:nth-of-type(1) {
+        stop-color: get(skills_svg_gradient_1) !important;
+    }
+    stop:nth-of-type(2) {
+        stop-color: get(skills_svg_gradient_2) !important;
+    }
+    stop:nth-of-type(3) {
+        stop-color: get(skills_svg_gradient_3) !important;
+    }
+    stop:nth-of-type(4) {
+        stop-color: get(skills_svg_gradient_4) !important;
+    }
+    stop:nth-of-type(5) {
+        stop-color: get(skills_svg_gradient_5) !important;
+    }
 }
 
 #nav_ul .active {
-  background: get(primary);
-  color: #ffffff;
-  &:hover {
     background: get(primary);
-  }
+    color: #ffffff;
+    &:hover {
+        background: get(primary);
+    }
 }
 #dropNav_con .active {
-  color: get(primary);
-  background: get(mb-nav-active-bg);
+    color: get(primary);
+    background: get(mb-nav-active-bg);
 }
 
 .con_404 {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  & > div {
-    position: unset !important;
-    overflow: visible !important;
-  }
-  .img_404 {
-    object-fit: contain;
-    width: 100% !important;
-    position: relative !important;
-    height: unset !important;
-    //   visibility: hidden; ///comment
-  }
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    & > div {
+        position: unset !important;
+        overflow: visible !important;
+    }
+    .img_404 {
+        object-fit: contain;
+        width: 100% !important;
+        position: relative !important;
+        height: unset !important;
+    }
 }
 
 .svg_skill {
-  transform-origin: center;
+    transform-origin: center;
 }

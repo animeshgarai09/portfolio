@@ -80,7 +80,6 @@ export function distributeByPosition(vars) {
 export function killTimeline(timeline) {
     const targets = timeline.getChildren()
 
-    // timeline.kill();
     for (let target of targets) {
         if (target.targets().length) {
             gsap.set(target.targets(), { clearProps: "all" })
@@ -214,8 +213,9 @@ export const SkillData = {
 export const featuredProjects = [
     {
         name: "Felix UI",
-        intro: "Felix UI is an open source react component library which extends as a CSS styling framework, which helps developers to use best styles and components, by using pre-defined classnames. Felix UI helps you to quickly build your dream project, by focusing much on functionality, because we take care of your designs.",
+        intro: "Felix UI is an open-source react component library that extends as a CSS styling framework, which helps developers to use the best styles and components, by using pre-defined class names. Felix UI helps you to quickly build your dream project, by focusing much on functionality, because we take care of your designs.",
         features: ["Easy installation through NPM", "Modular components", "Highly customizable with CSS", "Beautifully designed components"],
+        link: "https://felix-ui.vercel.app/",
         tech: [{
             icon: <SiReact />,
             name: "ReactJS"
@@ -230,33 +230,10 @@ export const featuredProjects = [
         }],
         image: felixUi
     }, {
-        name: "Felix TV",
-        intro: "A digital content platform around farming, research documentary and gardening for those who is try to figure out how to save our green planet from global warming. Join Us!",
-        features: ["Playlist management", "Integrated notes with time stamp", "Great user experience"],
-        tech: [{
-            icon: <SiNextDotJs />,
-            name: "ReactJS"
-        }, {
-            icon: <FaSass />,
-            name: "SCSS"
-        }],
-        image: felixTv
-    }, {
-        name: "Felix Store",
-        intro: "An organic groceries portal for every health conscious people out there. This shop is one stop solution for any organic need, be it fruits or plants for your beautiful garden, Felix Store has it all. ",
-        features: ["Complete checkout process", "Product filter for easy access", "Engaging design", "Profile dashboard for order history",],
-        tech: [{
-            icon: <SiReact />,
-            name: "ReactJS"
-        }, {
-            icon: <FaSass />,
-            name: "SCSS"
-        }],
-        image: felixStore
-    }, {
         name: "Felix Social",
         intro: "A social media platform inspired from instagram and twitter and mixing it to one to provide users the best of both platform. 'Share moments' - 'Connect' - 'Know the world'",
         features: ["Photo post with caption", "Follow/Unfollow users", "Comment and like posts", "Great user experience"],
+        link: "https://felix-social-react-lj14pxn8c-animeshgarai09.vercel.app/",
         tech: [{
             icon: <SiNextDotJs />,
             name: "ReactJS"
@@ -268,6 +245,32 @@ export const featuredProjects = [
             name: "Sass"
         }],
         image: felixSocial
+    }, {
+        name: "Felix Store",
+        intro: "An organic groceries portal for every health-conscious people out there. This shop is the one-stop solution for any organic need, be it fruits or plants for your beautiful garden, Felix Store has it all.",
+        features: ["Complete checkout process", "Product filter for easy access", "Engaging design", "Profile dashboard for order history",],
+        link: "https://felix-store.vercel.app/",
+        tech: [{
+            icon: <SiReact />,
+            name: "ReactJS"
+        }, {
+            icon: <FaSass />,
+            name: "SCSS"
+        }],
+        image: felixStore
+    }, {
+        name: "Felix TV",
+        intro: "A digital content platform around farming, research documentaries, and gardening for those who are trying to figure out how to save our green planet from global warming. Join Us!",
+        features: ["Playlist management", "Integrated notes with timestamp", "Great user experience"],
+        link: "https://felix-tv-react-o1r0her44-animeshgarai09.vercel.app/",
+        tech: [{
+            icon: <SiNextDotJs />,
+            name: "ReactJS"
+        }, {
+            icon: <FaSass />,
+            name: "SCSS"
+        }],
+        image: felixTv
     }
 ]
 
@@ -321,7 +324,6 @@ export function scroll(el, screen) {
     if (el) {
         let position
         if (el.id == "section3" && !screen) {
-            // position = el.getBoundingClientRect().top + (window.scrollY || window.pageYOffset) + el.offsetHeight
             position = el.parentElement.offsetTop + el.offsetHeight
         }
         else {
@@ -418,7 +420,6 @@ export function mobileNavigation() {
                 start: 'bottom center+=100',
                 end: 'bottom center+=100',
                 onEnterBack: (() => setActiveNav(i + 1)),
-                // markers: true
             })
         }
     })

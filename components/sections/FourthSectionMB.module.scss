@@ -1,73 +1,72 @@
-@use '../../constants/css/theme' as *;
+@use "../../constants/css/theme" as *;
 @import "../../constants/css/breakpoints.scss";
 
 .container {
-  min-height: 100vh;
-  position: relative;
-  margin-bottom: 8em;
-  @include media("<desktop") {
-    font-size: 0.9em;
-  }
-  @include media("<laptop") {
-    min-height: calc(100vh - 5.6em);
-  }
-  .shadow_T {
-    font-size: 10em;
-    font-weight: 700;
-    line-height: 0.9;
-    // letter-spacing: -5px;
-    color: get(block-text);
-    @include media("<tablet") {
-      font-size: 7em;
-      display: block;
-      text-align: center;
+    min-height: 100vh;
+    position: relative;
+    margin-bottom: 8em;
+    @include media("<desktop") {
+        font-size: 0.9em;
     }
-  }
-  .card_con {
-    margin-top: 1em;
-    width: 114%;
-    margin-left: -2em;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
+    @include media("<laptop") {
+        min-height: calc(100vh - 5.6em);
     }
-    .row {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      align-items: stretch;
-      padding: 2em 3em;
-      .card {
-        max-width: 70vw;
-        padding: 1.5em 2.4em;
-        flex-basis: 70vw;
-        flex-grow: 0;
-        flex-shrink: 0;
-        background: get(gradient);
-        color: #fff;
-        margin-right: 2em;
-        border-radius: 20px;
-        box-shadow: #00000040 0px 14px 28px, #00000040 0px 10px 10px;
-        .heading {
-          display: flex;
-          align-items: center;
-          svg {
-            font-size: 3em;
-            margin-right: 15px;
-          }
-          span {
-            font-size: 2em;
-            font-weight: 600;
-          }
+    .shadow_T {
+        font-size: 10em;
+        font-weight: 700;
+        line-height: 0.9;
+        color: get(block-text);
+        @include media("<tablet") {
+            font-size: 7em;
+            display: block;
+            text-align: center;
         }
-        p {
-          font-size: 1.2em;
-          color: #d8d8d8;
-        }
-      }
     }
-  }
+    .card_con {
+        margin-top: 1em;
+        width: 114%;
+        margin-left: -2em;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        .row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            padding: 2em 3em;
+            .card {
+                max-width: 70vw;
+                padding: 1.5em 2.4em;
+                flex-basis: 70vw;
+                flex-grow: 0;
+                flex-shrink: 0;
+                background: get(gradient);
+                color: #fff;
+                margin-right: 2em;
+                border-radius: 20px;
+                box-shadow: #00000040 0px 14px 28px, #00000040 0px 10px 10px;
+                .heading {
+                    display: flex;
+                    align-items: center;
+                    svg {
+                        font-size: 3em;
+                        margin-right: 15px;
+                    }
+                    span {
+                        font-size: 2em;
+                        font-weight: 600;
+                    }
+                }
+                p {
+                    font-size: 1.2em;
+                    color: #d8d8d8;
+                }
+            }
+        }
+    }
 }

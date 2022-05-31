@@ -23,7 +23,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        // color: var(--text-color);
         span {
             background: #fff;
             padding: 0.5rem 1rem;
@@ -158,7 +157,6 @@
             }
         }
         @include media("<tablet") {
-            // padding: 0;
             span {
                 font-size: 0.8em;
             }

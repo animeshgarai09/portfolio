@@ -27,7 +27,6 @@
             transform: rotate(-45deg);
         }
         &:hover {
-            //   background: chocolate;
             transform: rotate(45deg) scale(1.1) !important;
         }
         &.active {

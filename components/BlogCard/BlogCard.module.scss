@@ -1,0 +1,60 @@
+@import "../../constants/css/breakpoints.scss";
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    // max-width: 20rem;
+    background: var(--card-bg);
+    overflow: hidden;
+    border-radius: 0.6rem;
+    box-shadow: var(--card-box-shadow);
+    transition: 0.3s;
+    // @media (hover: hover) {
+    //     &:hover {
+    //         transform: scale(1.05);
+    //     }
+    // }
+    @include media("<tablet") {
+        margin: 0 1rem;
+    }
+    .img_container {
+        & > div {
+            position: unset !important;
+            overflow: visible !important;
+        }
+        .image {
+            object-fit: contain;
+            width: 100% !important;
+            position: relative !important;
+            height: unset !important;
+        }
+    }
+    .content {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        a {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+        span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: gray;
+            font-size: 0.9rem;
+            svg {
+                font-size: 1rem;
+            }
+        }
+        p {
+            color: var(--text-color);
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            -webkit-line-clamp: 5;
+        }
+    }
+}

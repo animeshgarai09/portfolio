@@ -28,8 +28,7 @@ const FirstSection = ({ load }) => {
                     <h3 className='introSkills'>Front-end Developer</h3>
                     <h3 className='introSkills'>Graphic Creator</h3>
                     <h3 className='introSkills'>UI Designer</h3>
-                    <a href="#" id="resume">Resume</a>
-                    {/* <Link href="certificates"><a>Certi</a></Link> */}
+                    <a target="_blank" rel='noreferrer' href="https://drive.google.com/file/d/1UcKfuzTGRwsuNZAZ818ALsyn2T-44AnF/view?usp=sharing" id="resume">Resume</a>
                     <div className={styles.scrollDown} id="scrollDown">
                         <span></span>
                         <span></span>
@@ -39,7 +38,6 @@ const FirstSection = ({ load }) => {
                 {load && <About lefRef={leftCol} />}
             </div>
             <div className={styles.right_col} id="rightCol">
-                {/* <div className={styles.sub_con}> */}
                 <Arrow id='arrow' className={styles.arrow} />
                 <div className={styles.author_container}>
                     <Image
@@ -47,8 +45,6 @@ const FirstSection = ({ load }) => {
                         alt="Picture of the author"
                         priority='true'
                         layout="fill"
-                        // height={500}
-                        // width={500}
                         quality='75'
                         placeholder='blur'
                         className={styles.author_image}
@@ -107,7 +103,6 @@ function initAnimation() {
         autoAlpha: 0,
         ease: 'expo.easeOut',
         duration: .4,
-        // delay: -.1,
     }).from('#author_image', {
         transformOrigin: 'bottom',
         ease: "expo.easeOut",
@@ -154,7 +149,6 @@ function mbInitAnimation() {
         autoAlpha: 0,
         ease: 'expo.easeOut',
         duration: .4,
-        // delay: -.1,
     }).from('#author_image', {
         transformOrigin: 'bottom',
         ease: "power3.out",
@@ -164,7 +158,6 @@ function mbInitAnimation() {
     }).to('.arr_ele', {
         duration: 0.2,
         delay: .2,
-        // opacity: 1,
         autoAlpha: 1,
         stagger: -0.03,
         ease: "power4.out",

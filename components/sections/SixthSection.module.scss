@@ -1,61 +1,30 @@
-@use '../../constants/css/theme' as *;
+@use "../../constants/css/theme" as *;
 @import "../../constants/css/breakpoints.scss";
 
 .container {
-  min-height: 100vh;
-  .shadow_T {
-    font-size: 10em;
-    font-weight: 700;
-    line-height: 0.9;
-    letter-spacing: -5px;
-    color: get(block-text);
-    @include media("<tablet") {
-      font-size: 6em;
-      display: block;
-      text-align: center;
+    min-height: 100vh;
+    .shadow_T {
+        font-size: 10em;
+        font-weight: 700;
+        // line-height: 0.9;
+        letter-spacing: -5px;
+        color: get(block-text);
+        @include media("<tablet") {
+            font-size: 6em;
+            display: block;
+            text-align: center;
+        }
     }
-  }
-  .con {
-    display: flex;
-    height: 80vh;
-    // justify-content: center;
-    align-items: center;
-    @include media("<tablet") {
-      flex-direction: column;
-      justify-content: center;
+    .con {
+        display: flex;
+        gap: 4rem;
+        min-height: 80vh;
+        align-items: center;
+        @include media("<tablet") {
+            flex-direction: column;
+            justify-content: center;
+            gap: 3rem;
+            padding: 3rem 0;
+        }
     }
-    svg {
-      width: 22em;
-      height: 22em;
-      margin-right: 2em;
-      transform: rotate(5deg);
-      fill: get(block-text);
-      @include media("<tablet") {
-        width: 16em;
-        height: 16em;
-        margin-right: 0;
-      }
-    }
-    h1 {
-      font-size: 3.5em;
-      font-style: italic;
-      color: get(block-text);
-      margin-left: -0.34em;
-      @include media("<tablet") {
-        font-size: 2.5em;
-        text-align: center;
-        margin-left: 0;
-      }
-    }
-    h3 {
-      font-size: 3em;
-      font-style: italic;
-      color: get(block-text);
-      @include media("<tablet") {
-        font-size: 2.3em;
-        text-align: center;
-        margin-top: 3em;
-      }
-    }
-  }
 }

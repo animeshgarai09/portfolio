@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import styles from './SeventhSection.module.scss'
 import SecGuy from '../../public/svg/secGuy.svg'
 import Bubble from '../../public/svg/bubble.svg'
 import { sectionRefs } from '../../constants/HelperFunctions'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 
 
 const SeventhSection = () => {
@@ -18,11 +16,7 @@ const SeventhSection = () => {
         let regName = /^[a-zA-Z]{3,}(?: [a-zA-Z]+){0,2}$/;
         let regEmail = /^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\.[a-zA-Z]+)*$/
         let regMessage = /^[a-zA-Z0-9_!#$%&'*+/=?{|}~^-`]$/
-        // if (name && email && message) {
-        // !regName.test(name) ? setValidationState(ini => ini[0] = true) : setValidationState(ini => ini[0] = false)
-        // !regEmail.test(email) ? setValidationState(ini => ini[1] = true) : setValidationState(ini => ini[1] = false)
 
-        // !regMessage.test(email) ? setValidationState(ini => ini[2] = true) : setValidationState(ini => ini[2] = false)
         if (regName.test(name)) {
             setValidationState(ini => [false, ini[1], ini[2]])
         } else {
@@ -39,26 +33,16 @@ const SeventhSection = () => {
         } else {
             setValidationState(ini => [ini[0], ini[1], true])
         }
-        // } else {
-        //     console.log(5)
-        //     setValidationState(ini => ini.fill(true))
-        // }
+
     }
-    // useEffect(() => {
-    //     ScrollTrigger.matchMedia({
-    //         "(min-width:1131px)": () => scrollAnimation(),
-    //         "(max-width:849px)": () => scrollAnimation(),
-    //     })
-    // }, [])
+
     return (
         <section ref={(el) => sectionRefs[5] = el} className={styles.container} id='section7'>
             <div className={styles.left_col}>
                 <form onSubmit={(e) => handleSubmit(e)} noValidate autoComplete='off'>
                     <span className={styles.shadow_T}>contact</span>
-                    {/* <div className={styles.text}> */}
-                    {/* <span>A simple Hello will start the conversation</span> */}
+
                     <span className={styles.text}>Always ready to create something amazing. Say HI.</span>
-                    {/* </div> */}
                     <div className={styles.top_con}>
                         <div>
                             <label htmlFor="name">Your Name</label>
@@ -90,7 +74,6 @@ const SeventhSection = () => {
                     </div>
                     <div>
 
-                        {/* <label htmlFor="message">Message</label> */}
                         <textarea
                             id="message"
                             name="message"
@@ -117,10 +100,6 @@ const SeventhSection = () => {
         </section>
     )
 }
-
-// function scrollAnimation() {
-
-// }
 
 export default SeventhSection
 

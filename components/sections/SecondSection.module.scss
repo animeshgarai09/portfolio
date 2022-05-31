@@ -76,8 +76,15 @@
         }
         .lottie {
             position: absolute;
-            //   left: -41%;
             z-index: 5;
+            h4 {
+                font-size: 5rem;
+                position: absolute;
+                text-align: center;
+                width: 100%;
+                color: var(--block-text);
+                top: -1rem;
+            }
         }
         .dash_path {
             fill: get(arrow-color);
