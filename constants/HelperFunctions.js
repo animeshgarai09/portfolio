@@ -11,6 +11,9 @@ import felixUi from "../public/png/felix-ui.png"
 import felixTv from "../public/png/felix-tv.png"
 import felixStore from "../public/png/felix-store.png"
 import felixSocial from "../public/png/felix-social.png"
+import blog1 from "../public/png/blog1.png"
+import blog2 from "../public/png/blog2.png"
+import blog3 from "../public/png/blog3.png"
 
 export const sectionRefs = new Array(6)
 export const navRef = new Array(6)
@@ -271,6 +274,30 @@ export const featuredProjects = [
             name: "SCSS"
         }],
         image: felixTv
+    }
+]
+
+export const featuredBlogs = [
+    {
+        title: "How to create a reusable hook in react?",
+        time: "3 minutes read",
+        des: "While creating UI components in react, we might have come across situations where we want some action to happen if the user clicks outside of a certain element. E.g In modals, if a user clicks on the overlay the modal closes.",
+        img: blog2,
+        link: "https://animeshgarai.hashnode.dev/how-to-create-a-reusable-useonclickoutside-hook-in-react"
+    },
+    {
+        title: "How to create a reusable menu component in react?",
+        time: "9 minutes read",
+        des: "Dropdown menus have always been an integral part of any modern UI for a better user experience throughout an app. Dropdown menus are essential for a clean design layout where user actions can be organized for easy accessibility without cluttering the UI.",
+        img: blog1,
+        link: "https://animeshgarai.hashnode.dev/how-to-create-a-reusable-menu-component-in-react"
+    },
+    {
+        title: "How to create a reusable modal component?",
+        time: "5 minutes read",
+        des: "Modal has become a ubiquitous UI element in modern web designs. It is a simple yet effective design choice with respect to UX. I believe everyone is well aware of how omnipresent a modal element is the everyday web. Today we will be building a Modal Component in react js and build it in a way that it can be re-used.",
+        img: blog3,
+        link: "https://animeshgarai.hashnode.dev/how-to-create-a-reusable-modal-component"
     }
 ]
 

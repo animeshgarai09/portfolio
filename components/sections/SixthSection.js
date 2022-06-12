@@ -4,6 +4,8 @@ import { sectionRefs } from '../../constants/HelperFunctions'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 import BlogCard from '../BlogCard/BlogCard'
+import { featuredBlogs } from "../../constants/HelperFunctions"
+
 const SixthSection = () => {
     useEffect(() => {
         ScrollTrigger.matchMedia({
@@ -16,9 +18,12 @@ const SixthSection = () => {
             <span className={styles.shadow_T}>blogs</span>
             <div className={styles.con}>
 
-                <BlogCard />
-                <BlogCard />
-                <BlogCard />
+                {
+                    featuredBlogs.map((blog, i) => {
+                        return <BlogCard key={i} blog={blog} />
+                    })
+                }
+
             </div>
         </section>
     )
