@@ -124,9 +124,15 @@ const Header = () => {
                             <a target="_blank" className='p-link'><RiLinkedinLine /></a>
                         </Link>
                         {/* <Link href="/projects"> */}
-                        <a className='p-link'><FiGithub /></a>
-                        <a className='p-link'><RiTwitterLine /></a>
-                        <a className='p-link'><HiOutlineMail /></a>
+                        <Link href="https://github.com/animeshgarai09">
+                            <a target="_blank" className='p-link'><FiGithub /></a>
+                        </Link>
+                        <Link href="https://twitter.com/animeshgarai09">
+                            <a target="_blank" className='p-link'><RiTwitterLine /></a>
+                        </Link>
+                        <Link href="mailto:animeshgarai09@gmail.com">
+                            <a target="_blank" className='p-link'><HiOutlineMail /></a>
+                        </Link>
                         {/* </Link> */}
                         <input
                             id={styles.themeSwitcher}

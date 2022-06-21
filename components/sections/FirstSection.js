@@ -28,7 +28,7 @@ const FirstSection = ({ load }) => {
                     <h3 className='introSkills'>Front-end Developer</h3>
                     <h3 className='introSkills'>Graphic Creator</h3>
                     <h3 className='introSkills'>UI Designer</h3>
-                    <a target="_blank" rel='noreferrer' href="https://drive.google.com/file/d/1UcKfuzTGRwsuNZAZ818ALsyn2T-44AnF/view?usp=sharing" id="resume">Resume</a>
+                    <a target="_blank" rel='noreferrer' href="https://drive.google.com/file/d/13IDmRfxEEudWaZS3YWqhY6ETXJ6CsjHh/view?usp=sharing" id="resume">Resume</a>
                     <div className={styles.scrollDown} id="scrollDown">
                         <span></span>
                         <span></span>
