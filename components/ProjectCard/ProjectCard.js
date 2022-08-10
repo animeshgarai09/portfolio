@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js'
 const ProjectCard = ({ info, index, layout, id }) => {
 
     useEffect(() => {
+        ScrollTrigger.saveStyles([`${id}`])
         ScrollTrigger.matchMedia({
             "(min-width:1131px)": () => scrollAnimation(id, layout),
             "(max-width:849px)": () => mbScrollAnimation(id),

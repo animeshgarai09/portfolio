@@ -21,6 +21,7 @@ class MyDocument extends Document {
                     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
                     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2c2f33" />
                     <meta name="google" content="notranslate" />
+                    <meta name="google-site-verification" content="2-WOSZUOxNpWd5-SvnfJyr4l6sG5oVZvx3MxZ5Ow5_o" />
                 </Head>
                 <body>
                     <Main />
