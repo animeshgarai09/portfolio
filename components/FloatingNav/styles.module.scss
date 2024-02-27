@@ -1,0 +1,51 @@
+@use "../../utils/css/theme" as *;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    padding-top: 1rem;
+    ul {
+        list-style-type: none;
+        background: get(float-icon-background);
+        border-radius: 10rem;
+        padding: 0.3rem;
+        li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    a {
+        display: block;
+        height: 0.5rem;
+        width: 0.5rem;
+        border-radius: 50%;
+        background-color: #dfdfdf;
+        margin: 0.5rem 0;
+    }
+    span {
+        display: flex;
+        justify-content: center;
+        height: 1.8rem;
+        width: 1.8rem;
+        margin-top: 1.5em;
+        background: get(primary);
+        border-radius: 50%;
+        transition: 0.2s;
+        a {
+            color: get(float-icon-color-hover);
+        }
+        &:hover {
+            background: get(primary);
+            transform: scale(1.2);
+            a {
+                background: unset;
+            }
+        }
+        &:active {
+            transform: scale(1.3);
+        }
+    }
+}

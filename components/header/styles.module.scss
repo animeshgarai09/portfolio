@@ -1,0 +1,19 @@
+@use "../../utils/css/theme" as *;
+.header {
+    display: flex;
+    padding: 0.8rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    .logo {
+        fill: get(primary);
+        width: 60px;
+        height: 50px;
+    }
+    nav svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0 1rem;
+    }
+}

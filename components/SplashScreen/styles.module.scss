@@ -1,0 +1,11 @@
+.splash_container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    svg {
+        width: 30rem;
+        stroke-width: 10px;
+        stroke-linecap: round;
+    }
+}

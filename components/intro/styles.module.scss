@@ -1,0 +1,197 @@
+@use "../../utils/css/theme" as *;
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    // &::before,
+    // &::after {
+    //     content: "";
+    //     display: block;
+    //     // flex-grow: 1;
+    //     min-height: 40px;
+    // }
+    .row {
+        display: flex;
+        flex-grow: 1;
+        .left_col {
+            flex: 1 1 0;
+            .intro_con,
+            .about_con {
+                // height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            // .about_con {
+            //     .title {
+            //         font-size: 1.5em;
+            //         width: 90%;
+            //         color: get(primary);
+            //         padding-left: 19px;
+            //     }
+            //     .quote {
+            //         font-size: 1.7em;
+            //         quotes: "“" "”" "‘" "’";
+            //         margin: 1.5em 0;
+            //         color: var(--text-color);
+            //         padding-right: 2em;
+            //         padding-left: 19px;
+            //         font-style: italic;
+            //         letter-spacing: 0.4px;
+            //         &::after,
+            //         &::before {
+            //             font-size: 2.5em;
+            //             position: absolute;
+            //             opacity: 0.5;
+            //         }
+            //         &::before {
+            //             content: open-quote;
+            //             margin: -15px -30px;
+            //         }
+            //         &::after {
+            //             content: close-quote;
+            //             margin: -10px 0;
+            //         }
+            //     }
+            // }
+            .shadow_T {
+                font-size: 10em;
+                font-weight: 700;
+                margin-left: -9px;
+                letter-spacing: -5px;
+                color: get(block-text);
+                line-height: 1;
+                margin-bottom: 1.5rem;
+            }
+            h1 {
+                position: relative;
+                z-index: 4;
+                font-size: clamp(4em, 4.9vw, 6em);
+                color: get(primary-dark);
+                font-weight: 500;
+                margin-bottom: 1rem;
+                margin-top: 0;
+                span {
+                    color: get(primary);
+                    font-weight: 700;
+                }
+            }
+            h3 {
+                position: relative;
+                z-index: 4;
+                margin: 0 0 0.5rem 0;
+                font-size: clamp(1.5em, 2.3vw, 3em);
+                font-weight: 500;
+                color: get(text-color);
+            }
+
+            a {
+                font-size: 1.1em;
+                font-weight: 600;
+                margin: 1rem 2px;
+                display: inline-flex;
+                flex-direction: column;
+                color: get(primary);
+                width: 4.3rem;
+                letter-spacing: 1px;
+                &::after {
+                    content: "";
+                    display: inline-block;
+                    width: 0;
+                    height: 2px;
+                    background: get(primary);
+                    transition: width 0.2s ease-in;
+                }
+                &:hover:after {
+                    width: 100%;
+                }
+            }
+            p {
+                font-size: 1.05em;
+                line-height: 1.4;
+                margin-bottom: 2rem;
+            }
+            .scrollDown {
+                margin-left: 10px;
+                margin-top: 4rem;
+                span {
+                    width: 13px;
+                    height: 13px;
+                    display: block;
+                    border-right: 2px solid get(primary);
+                    border-bottom: 2px solid get(primary);
+                    transform: rotate(45deg);
+                    margin-top: -5px;
+                    animation: animate 2s infinite;
+                    &:nth-child(2) {
+                        animation-delay: -0.2s;
+                    }
+                    &:nth-child(3) {
+                        animation-delay: -0.4s;
+                    }
+                }
+            }
+            @keyframes animate {
+                0% {
+                    opacity: 0;
+                }
+                50% {
+                    opacity: 1;
+                    transform: rotate(45deg) translate(10px, 10px);
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+        }
+        .right_col {
+            flex: 1 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: flex-end;
+            .author_container {
+                position: relative;
+                background: get(primary);
+                width: 100%;
+                height: 100vh;
+                .author_image_container {
+                    position: absolute;
+                    width: 40rem;
+                    bottom: -5px;
+                    & > div {
+                        position: unset !important;
+                        overflow: visible !important;
+                    }
+                    .author_image {
+                        transform-origin: center;
+                        object-fit: contain;
+                        width: 100% !important;
+                        position: relative !important;
+                        height: unset !important;
+                        filter: drop-shadow(-16px 15px 24px #00000090) !important;
+                    }
+                }
+                svg.firstBlob {
+                    position: absolute;
+                    fill: get(primary);
+                    path {
+                        transform: scale(0.00158730158, 0.00172711571);
+                    }
+                }
+            }
+            svg.arrow {
+                position: absolute;
+                left: -9vw;
+                top: 48%;
+                width: clamp(20rem, 23vw, 26rem);
+                height: auto;
+                z-index: 2;
+                transform: rotate(10deg);
+                fill: get(arrow-color);
+            }
+        }
+    }
+}

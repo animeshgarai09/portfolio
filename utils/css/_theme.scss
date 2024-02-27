@@ -1,0 +1,69 @@
+$light: (
+    bg: #f5f5f5,
+    primary: #3bb57c,
+    primary-light: #def9ec,
+    primary-dark: #29a56c,
+    primary-hover: #269d66,
+    block-text: #8c8c8c40,
+    mb-nav-active-bg: #e4e4e4,
+    mb-nav-border: #fff,
+    mb-nav-bg: #f7f7f7,
+    mb-nav-header-bg: #ffffff15,
+    accent: #ffbd26,
+    switcher: linear-gradient(to top left, #fecc51, #fcb033, #fa961b, #fa8607),
+    arrow-color: #222222,
+    /////////////////////////////////////////Float Icon Settings
+    float-icon-color: #3bb57c,
+    float-icon-bg-hover: #3bb57c,
+    float-icon-background: #fff,
+    float-icon-color-hover: #fff,
+    ////////////////////////////////////////
+    text-color: #505050,
+    tech-color: #8e8e8e,
+    dTone-color: #000,
+    image-bg-color: #3bb57c,
+    blob-color: #e7e7e7,
+    //////////////////////////////////
+    input-color: #464646,
+    input-bg: #ffffffb3,
+    card-bg: #fff,
+    card-box-shadow: rgb(0 0 0 / 5%) 0px 4px 12px,
+    gradient: linear-gradient(to top left, #357155, #39b57b),
+);
+
+$dark: (
+    bg: #222222,
+    primary: #3bb57c,
+    primary-light: #def9ec,
+    primary-dark: #29a56c,
+    primary-hover: #269d66,
+    block-text: #7a7a7a1f,
+    mb-nav-active-bg: #292929,
+    mb-nav-border: #181818,
+    mb-nav-bg: #1a1a1a,
+    mb-nav-header-bg: #1f192725,
+    accent: #ffbd26,
+    switcher: #fff,
+    arrow-color: #d1d0d0,
+    /////////////////////////////////////////Float Icon Settings
+    float-icon-color: #d1d0d0,
+    float-icon-bg-hover: #484a4c,
+    float-icon-background: #36363699,
+    float-icon-color-hover: #d1d0d0,
+    ////////////////////////////////////////
+    text-color: #d1d0d0,
+    tech-color: #909090,
+    dTone-color: #fff,
+    image-bg-color: #3bb57c,
+    blob-color: #50505029,
+    //////////////////////////////////////////////////////
+    input-color: #dfdfdf,
+    input-bg: #ffffffb3,
+    card-bg: #2e3632,
+    card-box-shadow: rgb(0 0 0 / 23%) 0px 5px 15px,
+    gradient: linear-gradient(to top left, #0e5333, #39b57b),
+);
+
+@function get($key) {
+    @return var(--#{$key});
+}
