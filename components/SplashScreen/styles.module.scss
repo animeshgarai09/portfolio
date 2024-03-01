@@ -4,10 +4,9 @@
     justify-content: center;
     align-items: center;
     background: #fff;
-    position: absolute;
+    position: fixed;
     width: 100%;
-    top: 0;
-    left: 0;
+    z-index: 80;
     svg {
         width: 30rem;
         stroke-width: 10px;
@@ -36,22 +35,22 @@
 // }
 .trans1 {
     background-color: #fff;
-    z-index: 6;
+    z-index: 98;
 }
 .trans2 {
     background-color: #bfbfbf;
-    z-index: 5;
+    z-index: 97;
 }
 .trans3 {
     background-color: #808080;
-    z-index: 4;
+    z-index: 96;
 }
 .trans4 {
     background-color: #404040;
-    z-index: 3;
+    z-index: 95;
 }
 .trans5 {
     background-color: #000000;
-    z-index: 2;
+    z-index: 94;
     box-shadow: none;
 }

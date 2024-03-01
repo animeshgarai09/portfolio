@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import FloatingNav from "@/components/FloatingNav"
 import SplashScreen from "@/components/SplashScreen"
 import { slideUp } from "@/components/intro/animations"
-
+import gsap from "gsap"
 export default function Home() {
     const [isLoading, setLoading] = useState(true)
 
@@ -18,7 +18,7 @@ export default function Home() {
             setTimeout(() => {
                 setLoading(false)
                 document.body.style.cursor = "default"
-                window.scrollTo(0, 0)
+                // window.scrollTo(0, 0)
             }, 3700)
         })()
     }, [])
