@@ -1,14 +1,16 @@
 @use "../../utils/css/theme" as *;
 .header {
     display: flex;
-    padding: 0.8rem 1rem;
+    padding: 1.8rem 0;
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    z-index: 1;
+    margin-left: 3.5vw;
     width: 100%;
     .logo {
         fill: get(primary);
-        width: 60px;
+        width: 50px;
         height: 50px;
     }
     nav svg {

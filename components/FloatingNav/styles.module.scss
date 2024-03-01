@@ -4,13 +4,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1rem;
     padding-top: 1rem;
     ul {
         list-style-type: none;
-        background: get(float-icon-background);
+        background: #ffffff1a;
         border-radius: 10rem;
-        padding: 0.3rem;
+        padding: 0.3rem 0.6rem;
         li {
             display: flex;
             flex-direction: column;

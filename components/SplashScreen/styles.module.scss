@@ -3,9 +3,55 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
+    background: #fff;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
     svg {
         width: 30rem;
         stroke-width: 10px;
         stroke-linecap: round;
     }
+}
+
+.trans1,
+.trans2,
+.trans3,
+.trans4,
+.trans5 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+// .main {
+//     position: absolute;
+//     z-index: 0;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     min-height: 100vh;
+// }
+.trans1 {
+    background-color: #fff;
+    z-index: 6;
+}
+.trans2 {
+    background-color: #bfbfbf;
+    z-index: 5;
+}
+.trans3 {
+    background-color: #808080;
+    z-index: 4;
+}
+.trans4 {
+    background-color: #404040;
+    z-index: 3;
+}
+.trans5 {
+    background-color: #000000;
+    z-index: 2;
+    box-shadow: none;
 }

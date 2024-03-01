@@ -8,10 +8,10 @@ const Header = () => {
     return (
         <div className={styles.header}>
             <Logo className={styles.logo} />
-            <nav>
+            {/* <nav>
                 <FiSun />
                 <HiOutlineViewGrid />
-            </nav>
+            </nav> */}
         </div>
     )
 }

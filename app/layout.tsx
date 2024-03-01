@@ -1,14 +1,16 @@
 import type { Metadata } from "next"
 import { Raleway } from "next/font/google"
+import localFont from "next/font/local"
 import "./globals.scss"
 import Header from "@/components/header"
-import FloatingNav from "@/components/FloatingNav"
+
 const comfortaa = Raleway({
     weight: ["500", "600", "800"],
     style: ["normal", "italic"],
     subsets: ["latin"],
     variable: "--font-jost",
 })
+// const avanta = localFont({ src: "../public/fonts/Avant-Garde.woff2", weight: "500", style: "normal" })
 
 export const metadata: Metadata = {
     title: "Animesh Garai",
@@ -23,19 +25,8 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body className={comfortaa.className}>
-                <main className=''>{children}</main>
-                {/* <Header />
-                <div className='layout__container'>
-                    <div className='layout'>
-                        <div className='side-nav'>
-                            <FloatingNav />
-                        </div>
-                        <main className=''>{children}</main>
-                        <div className='hero'>
-                            <h1>BUILDING WEB COMPONENT</h1>
-                        </div>
-                    </div>
-                </div> */}
+                <Header />
+                {children}
             </body>
         </html>
     )
