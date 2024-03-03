@@ -1,0 +1,23 @@
+.container {
+    position: relative;
+    z-index: 5;
+    .paralax_container {
+        display: flex;
+        min-height: 200vh;
+        background: #fbfbfb;
+        position: absolute;
+        width: 100%;
+        top: 0;
+    }
+    .wrapper {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        width: 86vw;
+        padding-left: 3rem;
+        margin: 0 auto;
+        .row {
+            display: flex;
+        }
+    }
+}

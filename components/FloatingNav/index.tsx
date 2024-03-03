@@ -7,7 +7,7 @@ const FloatingNav = () => {
         <div className={styles.container}>
             <ul>
                 <li>
-                    <a id='1' data-tip='About' data-class='nav_tip' data-place='right' data-offset='{"right":6}'></a>
+                    <a className={styles.active} id='1' data-tip='About' data-class='nav_tip' data-place='right' data-offset='{"right":6}'></a>
                 </li>
                 <li>
                     <a id='2' data-tip='Career' data-class='nav_tip' data-place='right' data-offset='{"right":6}'></a>
@@ -19,11 +19,12 @@ const FloatingNav = () => {
                     <a id='5' data-tip='Blogs' data-class='nav_tip' data-place='right' data-offset='{"right":6}'></a>
                 </li>
             </ul>
-
-            <span>
-                <a data-tip='Top' data-class='nav_tip' data-place='right' data-offset='{"right":6}'>
-                    <FiArrowUp />
-                </a>
+            {/* <span className={styles.top}>
+                <FiArrowUp />
+            </span> */}
+            <span className={styles.active_text}>
+                <span className={styles.text}>INTRO</span>
+                <span className={styles.line} />
             </span>
         </div>
     )

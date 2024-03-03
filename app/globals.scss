@@ -35,6 +35,7 @@ body {
     // overflow: hidden;
     // overflow-y: auto;
     -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
 }
 // .main {
 //     position: absolute;
@@ -49,4 +50,15 @@ h3,
 h4,
 h5 {
     margin: 0;
+}
+
+.big-heading {
+    font-size: 10em;
+    font-weight: 700;
+    margin-left: -9px;
+    letter-spacing: -5px;
+    color: get(block-text);
+    line-height: 1;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
 }

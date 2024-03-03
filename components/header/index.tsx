@@ -7,7 +7,9 @@ import styles from "./styles.module.scss"
 const Header = () => {
     return (
         <div className={styles.header}>
-            <Logo className={styles.logo} />
+            <div className={styles.logo}>
+                <Logo />
+            </div>
             {/* <nav>
                 <FiSun />
                 <HiOutlineViewGrid />

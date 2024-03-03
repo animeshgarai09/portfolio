@@ -5,7 +5,7 @@
     min-height: 200vh;
     flex-direction: column;
     background-color: black;
-    padding-left: 4rem;
+    padding-left: 3rem;
     width: 86vw;
     margin: 0 auto;
     .row {
@@ -13,19 +13,45 @@
         flex-grow: 1;
         .left_col {
             flex: 1 1 0;
-            &::before,
-            &::after {
-                content: "";
-                display: block;
-                // flex-grow: 1;
-                min-height: 40px;
+
+            .intro_con {
+                height: calc(100vh - 40px);
+                &::before {
+                    content: "";
+                    display: block;
+                    // flex-grow: 1;
+                    min-height: 40px;
+                }
             }
             .intro_con,
             .about_con {
-                // height: 100vh;
                 display: flex;
                 flex-direction: column;
+            }
+            .about_con {
                 justify-content: center;
+                height: 100vh;
+                h1 {
+                    font-size: 2em;
+                }
+                .paragraph {
+                    display: flex;
+                    // font-size: 2em;
+                    line-height: 1;
+                    // padding: 40px;
+                    // max-width: 1280px;
+                    color: white;
+                    flex-wrap: wrap;
+                    .word {
+                        position: relative;
+                        margin-right: 12px;
+                        margin-top: 12px;
+                        .shadow {
+                            position: absolute;
+                            opacity: 20%;
+                        }
+                    }
+                }
             }
             // .about_con {
             //     .title {
@@ -59,15 +85,6 @@
             //         }
             //     }
             // }
-            .shadow_T {
-                font-size: 10em;
-                font-weight: 700;
-                margin-left: -9px;
-                letter-spacing: -5px;
-                color: get(block-text);
-                line-height: 1;
-                margin-bottom: 3.5rem;
-            }
             h1 {
                 position: relative;
                 z-index: 4;
@@ -165,10 +182,20 @@
                 background: black;
                 width: 100%;
                 height: 100vh;
+                .overlay {
+                    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 88%, rgba(0, 0, 0, 1) 100%), linear-gradient(90deg, rgb(0 0 0) 0%, rgba(255, 255, 255, 0) 57%);
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    z-index: 1;
+                    bottom: 0;
+                    right: 0;
+                }
                 .author_image_container {
                     position: absolute;
                     width: 40rem;
-                    bottom: -5px;
+                    bottom: -4px;
+                    right: -10px;
                     & > div {
                         position: unset !important;
                         overflow: visible !important;
@@ -179,18 +206,11 @@
                         width: 100% !important;
                         position: relative !important;
                         height: unset !important;
-                        filter: drop-shadow(-16px 15px 24px #00000090) !important;
-                    }
-                }
-                svg.firstBlob {
-                    position: absolute;
-                    fill: get(primary);
-                    path {
-                        transform: scale(0.00158730158, 0.00172711571);
+                        // filter: drop-shadow(-16px 15px 24px #00000090) !important;
                     }
                 }
             }
-            svg.arrow {
+            svg {
                 position: absolute;
                 left: -9vw;
                 top: 48%;
@@ -198,7 +218,13 @@
                 height: auto;
                 z-index: 3;
                 transform: rotate(10deg);
-                fill: get(arrow-color);
+                path.arrow_head {
+                    fill: wheat;
+                    // stroke: none;
+                }
+                .path {
+                    stroke: wheat;
+                }
             }
         }
     }

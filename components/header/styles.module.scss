@@ -5,13 +5,16 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    z-index: 1;
-    margin-left: 3.5vw;
+    z-index: 30;
+    margin-left: 2vw;
     width: 100%;
+    mix-blend-mode: difference;
     .logo {
-        fill: get(primary);
-        width: 50px;
-        height: 50px;
+        svg {
+            fill: get(primary);
+            width: 45px;
+            height: 45px;
+        }
     }
     nav svg {
         width: 1.5rem;
